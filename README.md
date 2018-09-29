@@ -1,4 +1,4 @@
-My personal installation instructions for my i3 setup
+My personal installation instructions for my i3 setup.
 
 ### Install needed packages
 ```
