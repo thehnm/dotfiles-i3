@@ -58,6 +58,10 @@ alias df='df -h'                                                # Human-readable
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
 alias l='ls -la'
+alias ga='git add'
+alias gcmsg='git commit -m'
+alias gp='git push'
+alias gsb='git status -b'
 
 # Theming section  
 autoload -U compinit colors zcalc
