@@ -203,7 +203,7 @@ smart_borders on
 # ----- Start on login -----
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id eval `ssh-agent -s`
+exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id compton
 exec --no-startup-id dunst
 

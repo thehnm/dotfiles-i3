@@ -195,3 +195,8 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+
+# Start ssh-agent automatically
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(ssh-agent)" > /dev/null
+fi
