@@ -1,0 +1,19 @@
+#include ".xrdb/urxvt/hybrid"
+#include ".xrdb/rofi/maia"
+
+! ===== URxvt settings =====
+URxvt.scrollBar: false
+URxvt.font: xft:Monospace:size=14
+URxvt.fading: 0
+URxvt.tintColor: #ffffff
+URxvt.shading: 0
+URxvt.inheritPixmap: False
+URxvt.internalBorder: 50
+
+! ===== Rofi settings =====
+rofi.sidebar-mode: true
+rofi.modi: run,drun,window
+rofi.fullscreen: true
+rofi.padding: 300
+rofi.fake-transparency: true
+rofi.font: "Monospace" 20
