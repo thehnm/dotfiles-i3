@@ -219,6 +219,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # exec pkill -RTMIN+10 i3blocks
 
+# ----- Audio player control -----
+bindsym $mod+Shift+n exec playerctl next
+bindsym $mod+Shift+m exec playerctl previous
+bindsym $mod+Shift+p exec playerctl play-pause
+
 # ----- Screen brightness -----
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
