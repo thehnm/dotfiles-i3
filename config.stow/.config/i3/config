@@ -206,6 +206,7 @@ exec --no-startup-id nitrogen --restore &
 exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id compton
 exec --no-startup-id dunst
+exec --no-startup-id udiskie &
 
 # ===== KEYBINDINGS =====
 # ----- Clear clipboard -----
