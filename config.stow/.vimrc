@@ -31,6 +31,7 @@ call vundle#end()
 
 filetype plugin indent on
 
+
 " --- General settings ---
 set backspace=indent,eol,start
 set ruler
@@ -43,11 +44,11 @@ set mouse=a
 hi clear SignColumn
 set nocompatible
 
+
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-" To have NERDTree always open on startup
-let g:nerdtree_tabs_open_on_console_startup = 1
+
 
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
@@ -56,6 +57,7 @@ augroup mySyntastic
   au!
   au FileType tex let b:syntastic_mode = "passive"
 augroup END
+
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
@@ -66,9 +68,12 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
+
+
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
 nmap <silent> <leader>b :TagbarToggle<CR>
+
 
 " ----- Raimondi/delimitMate settings -----
 let delimitMate_expand_cr = 1
@@ -80,31 +85,42 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
+
 " -----------------------------------------------------------------------------
+
 
 "" No need to be compatible with vi and lose features.
 set nocompatible
- "" Show line numbers.
+
+"" Show line numbers.
 set nu
- "" Automatic C-style indenting.
+
+"" Automatic C-style indenting.
 set autoindent
- "" When inserting TABs replace them with the appropriate number of spaces
+
+"" When inserting TABs replace them with the appropriate number of spaces
 set expandtab
- "" But TABs are needed in Makefiles
+
+"" But TABs are needed in Makefiles
 au BufNewFile,BufReadPost Makefile se noexpandtab
- "" Show matching braces.
+
+"" Show matching braces.
 set showmatch
- "" Choose the right syntax highlightning per TAB-completion :-)
+
+"" Choose the right syntax highlightning per TAB-completion :-)
 "" map <F2> :source $VIM/syntax/
- "" Syntax highlightning, but only for color terminals.
+"" Syntax highlightning, but only for color terminals.
 if &t_Co > 1
   syntax on
 endif
- "" Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim.
+
+"" Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim.
 set updatetime=500
- "" Colours in xterm.
+
+"" Colours in xterm.
 map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
- "" Toggle between .h and .cpp with F4.
+
+"" Toggle between .h and .cpp with F4.
 function! ToggleBetweenHeaderAndSourceFile()
   let bufname = bufname("%")
   let ext = fnamemodify(bufname, ":e")
@@ -123,14 +139,18 @@ function! ToggleBetweenHeaderAndSourceFile()
     execute ":e " . bufname_new
   endif
 endfunction
+
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
- "" Keep the horizontal cursor position when moving vertically.
+"" Keep the horizontal cursor position when moving vertically.
 set nostartofline
- "" Reformat comment on current line. TODO: explain how.
+
+"" Reformat comment on current line. TODO: explain how.
 map <silent> hc ==I  <ESC>:.s/\/\/ */\/\//<CR>:nohlsearch<CR>j
- "" Make sure == also indents #ifdef etc.
+
+"" Make sure == also indents #ifdef etc.
 noremap <silent> == IX<ESC>==:.s/X//<CR>:nohlsearch<CR>
- "" Toggle encoding with F12.
+
+"" Toggle encoding with F12.
 function! ToggleEncoding()
   if &encoding == "latin1"
     set encoding=utf-8
@@ -138,14 +158,18 @@ function! ToggleEncoding()
     set encoding=latin1
   endif
 endfunction
+
 map <silent> <F12> :call ToggleEncoding()<CR>
- "" Do not break long lines.
+
+"" Do not break long lines.
 set nowrap
 set listchars=eol:$,extends:>
+
 "" Next / previous error with Tab / Shift+Tab.
 map <silent> <Tab> :cn<CR>
 map <silent> <S+Tab> :cp<CR>
 map <silent> <BS><Tab> :cp<CR>
+
 "" Umlaut mappings for US keyboard.
 map "a ä
 map "o ö
@@ -154,8 +178,10 @@ map "s ß
 map "A Ä
 map "O Ö
 map "U Ü
+
 "" After this many msecs do not imap.
 set timeoutlen=500
+
 "" Always show the name of the file being edited.
 "" set ls=2
 
