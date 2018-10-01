@@ -15,4 +15,4 @@ rofi.modi: run,drun,window
 rofi.fullscreen: true
 rofi.padding: 300
 rofi.fake-transparency: true
-rofi.font: "Monospace" 20
+rofi.font: "DejaVu Sans Mono for Powerline" 18
