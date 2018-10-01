@@ -51,7 +51,7 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 
 " ----- scrooloose/syntastic settings -----
-let g:syntastic_error_symbol = '✘'
+let g:syntastic_error_symbol = '✖'
 let g:syntastic_warning_symbol = "▲"
 augroup mySyntastic
   au!
