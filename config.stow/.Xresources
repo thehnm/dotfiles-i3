@@ -3,7 +3,7 @@
 
 ! ===== URxvt settings =====
 URxvt.scrollBar: false
-URxvt.font: xft:Hack:size=14
+URxvt.font: xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=14:antialias=true:hinting=true
 URxvt.fading: 0
 URxvt.tintColor: #ffffff
 URxvt.shading: 0
