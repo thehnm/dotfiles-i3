@@ -69,6 +69,7 @@ alias mkdir='mkdir -v'
 alias mv='mv -iv'
 alias rm='rm -iv'
 alias cp='cp -iv'
+alias um='udiskie-umount -a'
 
 # Theming section  
 autoload -U compinit colors zcalc
