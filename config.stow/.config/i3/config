@@ -209,8 +209,9 @@ exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 
 # ===== KEYBINDINGS =====
+
 # ----- Clear clipboard -----
-bindsym $mod+x exec $HOME/.clear_clipboard.sh
+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
 
 # ----- i3lock -----
 bindsym $mod+Shift+x exec i3lock
@@ -219,6 +220,11 @@ bindsym $mod+Shift+x exec i3lock
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # exec pkill -RTMIN+10 i3blocks
+
+# ----- Audioplayer control -----
+bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
+bindsym $mod+Shift+n exec --no-startup-id playerctl next
+bindsym $mod+Shift+m exec --no-startup-id playerctl previous
 
 # ----- Screen brightness -----
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
