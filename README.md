@@ -2,7 +2,7 @@ My personal installation instructions for my i3 setup.
 
 ### Install needed packages
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight playerctl pass rxvt-unicode powerline-fonts ctags texlive-most
+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass rxvt-unicode powerline-fonts ctags texlive-most
 ```
 
 ### Enable Bitmap fonts
@@ -15,6 +15,14 @@ sudo fc-cache -fv
 ### Install `vundle`
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+### Download fonts
+```
+wget https://github.com/powerline/fonts/archive/master.zip
+unzip master.zip
+cd fonts-master
+./install.sh
 ```
 
 ### Download repo
