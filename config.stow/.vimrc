@@ -18,6 +18,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-latex/vim-latex'
 
+" ----- Making vim look good ------------------------------------------
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -86,6 +90,12 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
+" ----- vim-airline/vim-airline -----
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_detect_paste=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='minimalist'
 
 " -----------------------------------------------------------------------------
 
