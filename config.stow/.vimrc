@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
@@ -53,15 +53,6 @@ set nocompatible
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-
-
-" ----- scrooloose/syntastic settings -----
-let g:syntastic_error_symbol = '✖'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-  au!
-  au FileType tex let b:syntastic_mode = "passive"
-augroup END
 
 
 " ----- xolox/vim-easytags settings -----
