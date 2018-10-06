@@ -51,8 +51,13 @@ set nocompatible
 
 
 " ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs with \t
+" Open/close NERDTree Tabs with <leader>t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+
+
+" ----- w0rp/ale -----
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '▲'
 
 
 " ----- xolox/vim-easytags settings -----
@@ -67,7 +72,7 @@ let g:easytags_suppress_ctags_warning = 1
 
 
 " ----- majutsushi/tagbar settings -----
-" Open/close tagbar with \b
+" Open/close tagbar with <leader>b
 nmap <silent> <leader>b :TagbarToggle<CR>
 
 
@@ -87,6 +92,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='minimalist'
+let g:airline#extensions#ale#enabled = 1
 
 " -----------------------------------------------------------------------------
 
