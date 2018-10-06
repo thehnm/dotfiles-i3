@@ -10,6 +10,7 @@ sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xback
 cd /etc/fonts/conf.d/
 sudo rm /etc/fonts/conf.d/10* && sudo rm -rf 70-no-bitmaps.conf && sudo ln -s ../conf.avail/70-yes-bitmaps.conf
 sudo fc-cache -fv
+sudo fc-cache ~/.local/share/fonts
 ```
 
 ### Install `vundle`
@@ -34,6 +35,7 @@ git clone git@github.com:TheHNM/dotfiles-i3.git
 ```
 stow ~/dotfiles-i3/config.stow
 stow ~/dotfiles-i3/wallpaper.stow
+stow ~/dotfiles-i3/fonts.stow
 ```
 
 ### Install plugins
