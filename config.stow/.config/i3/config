@@ -175,7 +175,7 @@ bar {
 # =============================================================================
 
 # ----- i3gaps settings -----
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 10
 smart_gaps on
@@ -195,7 +195,7 @@ exec --no-startup-id udiskie &
 bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
 
 # ----- i3lock -----
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec --no-startup-id $HOME/.config/i3/lock.sh
 
 # ----- Audio control -----
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
