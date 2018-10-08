@@ -31,4 +31,4 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 RunCustomCommand=TRUE
 CustomCommand=zsh
 MiscDefaultGeometry=80x24
-FontName=DejaVuSansMono Nerd Font 12
+FontName=DejaVuSansMono Nerd Font Book 11
