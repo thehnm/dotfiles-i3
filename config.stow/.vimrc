@@ -50,8 +50,8 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 
 " ----- w0rp/ale -----
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '▲'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 
 
 " ----- xolox/vim-easytags settings -----
@@ -85,11 +85,8 @@ augroup END
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='bubblegum'
+let g:airline_theme='minimalist'
 let g:airline#extensions#ale#enabled = 1
-let g:airline_left_sep = "\uE0B4"
-let g:airline_right_sep = "\uE0B6"
-let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
 " ----- ryanoasis/vim-devicons -----
 let g:webdevicons_enable = 1
