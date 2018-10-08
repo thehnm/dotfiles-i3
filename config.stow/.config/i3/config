@@ -152,11 +152,11 @@ set $inactive-text-color #f3f4f5
 set $urgent-bg-color     #E53935
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $text-color         $text-color        $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color  #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color  #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+# class                 border              background         text                 indicator
+client.focused          $text-color         $text-color        $text-color          $text-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
