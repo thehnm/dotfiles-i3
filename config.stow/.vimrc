@@ -137,14 +137,14 @@ endif
 set updatetime=500
 
 " Switch buffers quickly
-map <leader>q : bn<CR>
-map <leader>w : bp<CR>
+map <leader>q : bp<CR>
+map <leader>w : bn<CR>
 
 " Switch windows quicker
-:nmap <silent> <C-h> :wincmd h<CR>
-:nmap <silent> <C-j> :wincmd j<CR>
-:nmap <silent> <C-k> :wincmd k<CR>
-:nmap <silent> <C-l> :wincmd l<CR>
+map <silent> <C-h> :wincmd h<CR>
+map <silent> <C-j> :wincmd j<CR>
+map <silent> <C-k> :wincmd k<CR>
+map <silent> <C-l> :wincmd l<CR>
 
 " Colours in xterm
 map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
@@ -234,14 +234,6 @@ function! InsertTabWrapper(direction)
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
 inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
-
-" Cycling through Windows quicker
-map <C-M> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <A-Down>  <C-W><Down><C-W>_
-map <A-Up>    <C-W><Up><C-W>_
-map <A-Left>  <C-W><Left><C-W>|
-map <A-Right> <C-W><Right><C-W>|
 
 " Do not show any line of minimized windows
 set wmh=0
