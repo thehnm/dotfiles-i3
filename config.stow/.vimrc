@@ -136,6 +136,16 @@ endif
 " Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim
 set updatetime=500
 
+" Switch buffers quickly
+map <leader>q : bn<CR>
+map <leader>w : bp<CR>
+
+" Switch windows quicker
+:nmap <silent> <C-h> :wincmd h<CR>
+:nmap <silent> <C-j> :wincmd j<CR>
+:nmap <silent> <C-k> :wincmd k<CR>
+:nmap <silent> <C-l> :wincmd l<CR>
+
 " Colours in xterm
 map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
 
@@ -160,6 +170,7 @@ function! ToggleBetweenHeaderAndSourceFile()
 endfunction
 
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
+
 " Keep the horizontal cursor position when moving vertically
 set nostartofline
 
