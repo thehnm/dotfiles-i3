@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Set window title font and bar font unless not set in bar{]
 font pango:DejaVu Sans Mono 10
