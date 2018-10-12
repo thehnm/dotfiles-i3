@@ -1,8 +1,8 @@
-My personal installation instructions for my i3 setup.
+## My personal installation instructions for my i3 setup.
 
 ### Install needed packages
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass playerctl ttf-dejavu powerline-fonts ctags texlive-most nitrogen stow vim lxappearance w3m
+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf
 ```
 
 ### Enable Bitmap fonts

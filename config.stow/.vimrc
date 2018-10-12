@@ -54,6 +54,12 @@ let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 
 
+" ----- vim-latex/vim-latex -----
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
+let g:Tex_ViewRule_pdf = 'mupdf'
+
+
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
 set tags=./tags;,~/.vimtags
