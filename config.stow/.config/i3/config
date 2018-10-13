@@ -145,25 +145,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # =============================================================================
-set_from_resource $fg i3wm.foreground
-set_from_resource $bg i3wm.background
-set_from_resource $color0 i3wm.color0
-set_from_resource $color1 i3wm.color1
-set_from_resource $color2 i3wm.color2
-set_from_resource $color3 i3wm.color3
-set_from_resource $color4 i3wm.color4
-set_from_resource $color5 i3wm.color5
-set_from_resource $color6 i3wm.color6
-set_from_resource $color7 i3wm.color7
-set_from_resource $color8 i3wm.color8
-set_from_resource $color9 i3wm.color9
-set_from_resource $color10 i3wm.color10
-set_from_resource $color11 i3wm.color11
-set_from_resource $color12 i3wm.color12
-set_from_resource $color13 i3wm.color13
-set_from_resource $color14 i3wm.color14
-set_from_resource $color15 i3wm.color15
-set_from_resource $color16 i3wm.color16
+set $color0  #282a2e
+set $color1  #a54242
+set $color2  #8c9440
+set $color3  #de935f
+set $color4  #5f819d
+set $color5  #85678f
+set $color6  #5e8d87
+set $color7  #707880
+set $color8  #373b41
+set $color9  #cc6666
+set $color10 #b5bd68
+set $color11 #f0c674
+set $color12 #81a2be
+set $color13 #b294bb
+set $color14 #8abeb7
+set $color15 #c5c6c6
+set $fg      #c5c8c6
+set $bg      #1d1f21
+set $cursor  #c5c8c6
 
 # window colors
 # class                 border              background         text                 indicator
