@@ -1,47 +1,52 @@
-#include ".xrdb/rofi/maia"
+#include ".xrdb/colors"
 
-! ===== Rofi settings =====
+! ===== Hybrid color scheme =====
+! special
+*.foreground:   fg
+*.background:   bg
+*.cursorColor:  cursor
+
+! black
+*.color0:       color0
+*.color8:       color8
+
+! red
+*.color1:       color1
+*.color9:       color9
+
+! green
+*.color2:       color2
+*.color10:      color10
+
+! yellow
+*.color3:       color3
+*.color11:      color11
+
+! blue
+*.color4:       color4
+*.color12:      color12
+
+! magenta
+*.color5:       color5
+*.color13:      color13
+
+! cyan
+*.color6:       color6
+*.color14:      color14
+
+! white
+*.color7:       color7
+*.color15:      color15
+
+! ===== rofi =====
 rofi.sidebar-mode: true
 rofi.modi: run,drun,window
 rofi.fullscreen: true
-rofi.padding: 300
-rofi.fake-transparency: true
-rofi.font: "DejaVu Sans Mono for Powerline" 18
-
-! ===== Hybrid Color Scheme =====
-! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
-
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
-
-! red
-*.color1:       #a54242
-*.color9:       #cc6666
-
-! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
-
-! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
-
-! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
-
-! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #707880
-*.color15:      #c5c8c6
+rofi.hide-scrollbar: true
+rofi.padding: 400
+rofi.font: "DejaVuSansMono Nerd Font Book" 24
+rofi.color-enabled: true
+rofi.color-window: color0, color0, color0
+rofi.color-normal: color0, #d8dee8, color0, color0, color12
+rofi.color-active: color0, #b48ead, color0, color0, color12
+rofi.color-urgent: color0, #ebcb8b, color0, color0, color3
