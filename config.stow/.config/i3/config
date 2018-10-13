@@ -145,15 +145,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # =============================================================================
-set $bg-color 	         #2c2c2c
-set $inactive-bg-color   #2c2c2c
+set $bg-color 	         #010f18
+set $inactive-bg-color   #010f18
 set $text-color          #16a086
 set $inactive-text-color #f3f4f5
 set $urgent-bg-color     #E53935
+set $active-color        #DE935F
 
 # window colors
 # class                 border              background         text                 indicator
-client.focused          $text-color         $text-color        $text-color          $text-color
+client.focused          $active-color       $active-color      $text-color          $active-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $inactive-bg-color
@@ -192,7 +193,7 @@ exec --no-startup-id udiskie &
 # ===== KEYBINDINGS =====
 
 # ----- Clear clipboard -----
-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
+bindsym $mod+Shift+w exec --no-startup-id $HOME/.clear_clipboard.sh
 
 # ----- i3lock -----
 bindsym $mod+Shift+x exec --no-startup-id $HOME/.config/i3/lock.sh
