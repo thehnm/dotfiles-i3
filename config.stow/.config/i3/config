@@ -147,10 +147,10 @@ bindsym $mod+r mode "resize"
 # =============================================================================
 set $bg-color 	         #010f18
 set $inactive-bg-color   #010f18
-set $text-color          #16a086
-set $inactive-text-color #f3f4f5
-set $urgent-bg-color     #E53935
-set $active-color        #DE935F
+set $text-color          #a0505d
+set $inactive-text-color #ecd1cd
+set $urgent-bg-color     #eba99b
+set $active-color        #dd6e5b
 
 # window colors
 # class                 border              background         text                 indicator
@@ -165,7 +165,7 @@ bar {
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
         colors {
 		background $bg-color
-	    	separator #757575
+	    	separator $text-color
 		#                  border             background         text
 		focused_workspace  $bg-color          $bg-color          $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
