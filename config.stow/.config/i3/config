@@ -177,11 +177,11 @@ client.urgent           $color1             $color1            $color12         
 bar {
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
         colors {
-		background $bg
+		background $color0
 	        separator $color12
 		#                  border             background         text
-		focused_workspace  $bg                $bg                $color12
-		inactive_workspace $bg                $bg                $color15
+		focused_workspace  $color0            $color0            $color12
+		inactive_workspace $color0            $color0            $color15
 		urgent_workspace   $color1            $color1            $color12
 	}
 }
