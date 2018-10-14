@@ -206,7 +206,7 @@ exec --no-startup-id udiskie &
 # ===== KEYBINDINGS =====
 
 # ----- Clear clipboard -----
-bindsym $mod+Shift+w exec --no-startup-id $HOME/.clear_clipboard.sh
+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
 
 # ----- i3lock -----
 bindsym $mod+Shift+x exec --no-startup-id $HOME/.config/i3/lock.sh

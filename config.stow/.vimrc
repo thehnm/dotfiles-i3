@@ -100,6 +100,98 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 
+" ----- Key remapping -----
+
+" Remap hjkl movement keys
+noremap j h
+noremap k j
+noremap l k
+noremap ö l
+
+" Switch buffers quickly
+map <leader>q : bp<CR>
+map <leader>w : bn<CR>
+
+" Switch windows quicker
+map <silent> <C-h> :wincmd h<CR>
+map <silent> <C-j> :wincmd j<CR>
+map <silent> <C-k> :wincmd k<CR>
+map <silent> <C-l> :wincmd l<CR>
+
+" Colours in xterm
+map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
+
+" Toggle between .h and .cpp with F4
+function! ToggleBetweenHeaderAndSourceFile()
+  let bufname = bufname("%")
+  let ext = fnamemodify(bufname, ":e")
+  if ext == "h"
+    let ext = "cpp"
+  elseif ext == "cpp"
+    let ext = "h"
+  else
+    return
+  endif
+  let bufname_new = fnamemodify(bufname, ":r") . "." . ext
+  let bufname_alt = bufname("#")
+  if bufname_new == bufname_alt
+    execute ":e#"
+  else
+    execute ":e " . bufname_new
+  endif
+endfunction
+
+map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
+
+" Toggle encoding with F12
+function! ToggleEncoding()
+  if &encoding == "latin1"
+    set encoding=utf-8
+  elseif &encoding == "utf-8"
+    set encoding=latin1
+  endif
+endfunction
+
+map <silent> <F12> :call ToggleEncoding()<CR>
+
+" Reformat comment on current line
+map <silent> hc ==I  <ESC>:.s/\/\/ */\/\//<CR>:nohlsearch<CR>j
+
+" Make sure == also indents #ifdef etc
+noremap <silent> == IX<ESC>==:.s/X//<CR>:nohlsearch<CR>
+
+" Next / previous error with Tab / Shift+Tab
+map <silent> <Tab> :cn<CR>
+map <silent> <S+Tab> :cp<CR>
+map <silent> <BS><Tab> :cp<CR>
+
+" Umlaut mappings for US keyboard
+map "a ä
+map "o ö
+map "u ü
+map "s ß
+map "A Ä
+map "O Ö
+map "U Ü
+
+" Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
+function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+   elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
+inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
+
+" Make it easy to update/reload _vimrc
+:nmap ,s :source $HOME/.vimrc
+:nmap ,v :sp $HOME/.vimrc
+
 " -----------------------------------------------------------------------------
 
 " Enable syntax highlighting
@@ -142,78 +234,12 @@ endif
 " Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim
 set updatetime=500
 
-" Switch buffers quickly
-map <leader>q : bp<CR>
-map <leader>w : bn<CR>
-
-" Switch windows quicker
-map <silent> <C-h> :wincmd h<CR>
-map <silent> <C-j> :wincmd j<CR>
-map <silent> <C-k> :wincmd k<CR>
-map <silent> <C-l> :wincmd l<CR>
-
-" Colours in xterm
-map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
-
-" Toggle between .h and .cpp with F4
-function! ToggleBetweenHeaderAndSourceFile()
-  let bufname = bufname("%")
-  let ext = fnamemodify(bufname, ":e")
-  if ext == "h"
-    let ext = "cpp"
-  elseif ext == "cpp"
-    let ext = "h"
-  else
-    return
-  endif
-  let bufname_new = fnamemodify(bufname, ":r") . "." . ext
-  let bufname_alt = bufname("#")
-  if bufname_new == bufname_alt
-    execute ":e#"
-  else
-    execute ":e " . bufname_new
-  endif
-endfunction
-
-map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
-
 " Keep the horizontal cursor position when moving vertically
 set nostartofline
-
-" Reformat comment on current line
-map <silent> hc ==I  <ESC>:.s/\/\/ */\/\//<CR>:nohlsearch<CR>j
-
-" Make sure == also indents #ifdef etc
-noremap <silent> == IX<ESC>==:.s/X//<CR>:nohlsearch<CR>
-
-" Toggle encoding with F12
-function! ToggleEncoding()
-  if &encoding == "latin1"
-    set encoding=utf-8
-  elseif &encoding == "utf-8"
-    set encoding=latin1
-  endif
-endfunction
-
-map <silent> <F12> :call ToggleEncoding()<CR>
 
 " Do not break long lines
 set nowrap
 set listchars=eol:$,extends:>
-
-" Next / previous error with Tab / Shift+Tab
-map <silent> <Tab> :cn<CR>
-map <silent> <S+Tab> :cp<CR>
-map <silent> <BS><Tab> :cp<CR>
-
-" Umlaut mappings for US keyboard
-map "a ä
-map "o ö
-map "u ü
-map "s ß
-map "A Ä
-map "O Ö
-map "U Ü
 
 " After this many msecs do not imap
 set timeoutlen=500
@@ -227,26 +253,8 @@ set showmode
 " No blinking cursor please
 set gcr=a:blinkon0
 
-" Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
-function! InsertTabWrapper(direction)
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-   elseif "backward" == a:direction
-        return "\<c-p>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
-inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
-
 " Do not show any line of minimized windows
 set wmh=0
-
-" Make it easy to update/reload _vimrc
-:nmap ,s :source $HOME/.vimrc
-:nmap ,v :sp $HOME/.vimrc
 
 " Latex Suite 1.5 wants it
 " REQUIRED. This makes vim invoke latex-suite when you open a tex file.
