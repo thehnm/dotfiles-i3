@@ -1,0 +1,180 @@
+[bar/white]
+
+; ----- DIMENSIONS -----
+
+width = 100%
+height = 30
+offset-y = 0
+offset-x = 0
+
+; ----- LOCATION -----
+
+bottom = true
+wm-restack = none
+override-redirect = false
+
+; ----- FONTS -----
+
+font-0 = UbuntuMono Nerd Font:size=12;3
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
+
+; ----- COLORS -----
+
+background = 0
+;foreground = #c5a9f9
+foreground = #ffffff
+border-color = 0
+
+; ----- MISCELLANEOUS -----
+
+fixed-center = true
+padding-left = 2
+padding-right = 2
+module-margin = 1.5
+
+;modules-left = volume backlight battery mpd
+;modules-center = i3
+;modules-right = wlan cpu date time
+modules-left = i3 volume time date
+modules-center =
+modules-right =
+
+tray-position = none
+tray-detached = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+; ----- Modules -----
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = false
+
+label-unfocused-foreground = #c5c8c6
+label-focused-foreground = #5f819d
+label-urgent-foreground = #a54242
+
+[module/time]
+type = internal/date
+interval = 1.0
+date =  %H:%M:%S
+
+[module/date]
+type = internal/date
+date =  %e %B - %A
+label = %date%
+
+
+[module/battery]
+type = internal/battery
+
+battery = BAT1
+
+poll-interval = 1
+
+full-at = 95
+
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =  0%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/mpd]
+type = internal/mpd
+
+label-offline = mpd is offline
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+format-offline = <label-offline>
+host = 127.0.0.1
+port = 6600
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = radeon_bl0
+
+format = <ramp> <label>
+
+label = %percentage%%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/wlan]
+type = internal/network
+
+interface = wlp2s0
+
+interval = 5
+
+label-connected =  %essid%
+label-disconnected =  Not Connected
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/vpn]
+type = custom/script
+exec = echo vpn
+exec-if = pgrep -x openvpn
+interval = 5
+format-underline = #268bd2
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
