@@ -167,7 +167,7 @@ set $cursor  #c5c8c6
 
 # window colors
 # class                 border              background         text                 indicator
-client.focused          $color12            $color12           $color12             $color12
+client.focused          $color12            $color12           $bg                  $color12
 client.unfocused        $bg                 $bg                $color12             $bg
 client.focused_inactive $bg                 $bg                $color12             $bg
 client.urgent           $color1             $color1            $color12             $bg
@@ -178,7 +178,7 @@ bar {
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
         colors {
 		background $bg
-	    	separator $color12
+	        separator $color12
 		#                  border             background         text
 		focused_workspace  $bg                $bg                $color12
 		inactive_workspace $bg                $bg                $color15
@@ -222,5 +222,5 @@ bindsym $mod+Shift+n exec --no-startup-id playerctl next
 bindsym $mod+Shift+m exec --no-startup-id playerctl previous
 
 # ----- Screen brightness -----
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
