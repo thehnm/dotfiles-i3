@@ -103,10 +103,10 @@ let g:webdevicons_enable_nerdtree = 1
 " ----- Key remapping -----
 
 " Remap hjkl movement keys
-noremap j h
-noremap k j
-noremap l k
-noremap ö l
+"noremap j h
+"noremap k j
+"noremap l k
+"noremap ö l
 
 " Switch buffers quickly
 map <leader>q : bp<CR>
