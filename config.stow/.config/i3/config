@@ -174,17 +174,17 @@ client.urgent           $color1             $color1            $color12         
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-        colors {
-		background $color0
-	        separator $color12
-		#                  border             background         text
-		focused_workspace  $color0            $color0            $color12
-		inactive_workspace $color0            $color0            $color15
-		urgent_workspace   $color1            $color1            $color12
-	}
-}
+#bar {
+#        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+#        colors {
+#		background $color0
+#	        separator $color12
+#		#                  border             background         text
+#		focused_workspace  $color0            $color0            $color12
+#		inactive_workspace $color0            $color0            $color15
+#		urgent_workspace   $color1            $color1            $color12
+#	}
+#}
 
 # =============================================================================
 
@@ -192,16 +192,16 @@ bar {
 for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 10
-smart_gaps on
 smart_borders on
 
 # ----- Start on login -----
-exec --no-startup-id nm-applet
-exec --no-startup-id nitrogen --restore &
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # ===== KEYBINDINGS =====
 
