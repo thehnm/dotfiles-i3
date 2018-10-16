@@ -17,6 +17,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-latex/vim-latex'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 " ----- Making vim look good ------------------------------------------
 Plugin 'vim-airline/vim-airline'
@@ -203,7 +204,7 @@ set laststatus=2
 " No need to be compatible with vi and lose features
 set nocompatible
 
-" Show line numbers
+" Set line numbers
 set number
 
 " Show ruler
