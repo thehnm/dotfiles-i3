@@ -3,7 +3,7 @@
 ### Install needed packages
 ```
 sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar
-yaourt -S i3lock-color
+yaourt -S i3lock-color libmpdclient cmake
 ```
 
 ### Enable Bitmap fonts
