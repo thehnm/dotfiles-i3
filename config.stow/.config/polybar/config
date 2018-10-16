@@ -81,7 +81,7 @@ label-mode-background = #000000
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.transparent}
-label-focused-underline = #5f819d
+label-focused-underline = #5e8d87
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
