@@ -167,10 +167,10 @@ set $cursor  #c5c8c6
 
 # window colors
 # class                 border              background         text                 indicator
-client.focused          $color12            $color12           $bg                  $color12
-client.unfocused        $bg                 $bg                $color12             $bg
-client.focused_inactive $bg                 $bg                $color12             $bg
-client.urgent           $color1             $color1            $color12             $bg
+client.focused          $color6             $color6            $bg                  $color6
+client.unfocused        $bg                 $bg                $color6              $bg
+client.focused_inactive $bg                 $bg                $color6              $bg
+client.urgent           $color1             $color1            $color6              $bg
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
