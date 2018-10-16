@@ -37,6 +37,6 @@ xrdb ~/.Xresources
 ### Set gnome-keyring as git credential helper
 ```
 cd /usr/share/git/credential/gnome-keyring
-make
+sudo make
 git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 ```
