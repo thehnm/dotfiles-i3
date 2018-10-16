@@ -10,6 +10,8 @@ setopt appendhistory                                            # Immediately ap
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt autocd                                                   # if only directory path is entered, cd there.
 
+autoload -U zmv
+
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' rehash true                              # automatically find new executables in path
@@ -73,6 +75,7 @@ alias cp='cp -iv'
 alias um='udiskie-umount -a'
 alias vpnon='nmcli con up'
 alias vpnoff='nmcli con down'
+alias shut='shutdown -h now'
 
 # Theming section
 autoload -U compinit colors zcalc
