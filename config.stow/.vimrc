@@ -26,7 +26,6 @@ Plugin 'ryanoasis/vim-devicons'
 
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 
 " ----- Other text editing features -----------------------------------
 Plugin 'Raimondi/delimitMate'
@@ -103,12 +102,6 @@ let g:webdevicons_enable_nerdtree = 1
 
 " ----- Key remapping -----
 
-" Remap hjkl movement keys
-"noremap j h
-"noremap k j
-"noremap l k
-"noremap ö l
-
 " Switch buffers quickly
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
@@ -118,9 +111,6 @@ map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 map <silent> <C-l> :wincmd l<CR>
-
-" Colours in xterm
-map <F3> :se t_Co=16<C-M>:se t_AB=<C-V><ESC>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm<C-V><C-M>:se t_AF=<C-V><ESC>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm<C-V><C-M>
 
 " Toggle between .h and .cpp with F4
 function! ToggleBetweenHeaderAndSourceFile()
