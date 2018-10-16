@@ -2,7 +2,8 @@
 
 ### Install needed packages
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar
+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar
+yaourt -S i3lock-color
 ```
 
 ### Enable Bitmap fonts
@@ -19,7 +20,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ### Download repo
 ```
-git clone git@github.com:TheHNM/dotfiles-i3.git
+https://github.com/thehnm/dotfiles-i3.git
+https://thehnm@github.com/thehnm/dotfiles-i3.git // for personal use
 ```
 
 ### Install dotfile
