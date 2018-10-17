@@ -70,8 +70,8 @@ wrapping-scroll = false
 ;pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = #000000
+label-mode-foreground = #ffffff
+label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
