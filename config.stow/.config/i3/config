@@ -206,7 +206,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # ===== KEYBINDINGS =====
 
 # ----- Clear clipboard -----
-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send "Clipboard deleted" -u normal
 
 # ----- i3lock -----
 bindsym $mod+Shift+x exec --no-startup-id $HOME/.config/i3/lock.sh
@@ -224,3 +224,6 @@ bindsym $mod+Shift+m exec --no-startup-id playerctl previous
 # ----- Screen brightness -----
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+
+# ----- scrot -----
+bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
