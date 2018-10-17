@@ -92,7 +92,7 @@ augroup END
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='minimalist'
+let g:airline_theme='base16_default'
 let g:airline#extensions#ale#enabled = 1
 
 " ----- ryanoasis/vim-devicons -----
