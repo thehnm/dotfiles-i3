@@ -76,6 +76,7 @@ alias um='udiskie-umount -a'
 alias avpn='nmcli con up'
 alias dvpn='nmcli con down'
 alias shut='shutdown -h now'
+alias yay='yay --color=auto'
 
 # Theming section
 autoload -U compinit colors zcalc
