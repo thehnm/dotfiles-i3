@@ -1,9 +1,9 @@
 ## My personal installation instructions for my i3 setup.
 
-### Install needed packages
+### Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar
-yaourt -S i3lock-color libmpdclient cmake
+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond
+yaourt -S i3lock-color 
 ```
 
 ### Install `vundle`
