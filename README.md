@@ -2,8 +2,14 @@
 
 ### Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond
+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yaourt
 yaourt -S i3lock-color 
+```
+
+### Arch Linux installation command
+```
+sudo pacman -S i3 rofi dunst ranger libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond yaourt zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
+yaourt -S i3lock-color polybar
 ```
 
 ### Install `vundle`
