@@ -73,8 +73,8 @@ alias mv='mv -iv'
 alias rm='rm -v'
 alias cp='cp -iv'
 alias um='udiskie-umount -a'
-alias vpnon='nmcli con up'
-alias vpnoff='nmcli con down'
+alias avpn='nmcli con up'
+alias dvpn='nmcli con down'
 alias shut='shutdown -h now'
 
 # Theming section
