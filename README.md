@@ -2,13 +2,13 @@
 
 ### Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
+sudo pacman -S i3 rofi dunst manjaro-zsh-config libgnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
 yay -S i3lock-color 
 ```
 
 ### Arch Linux installation command
 ```
-sudo pacman -S i3 rofi dunst libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting udiskie alsa-utils openssh pulseaudio pavucontrol network-manager-applet
+sudo pacman -S i3 rofi dunst libgnome-keyring compton openvpn pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting udiskie alsa-utils openssh pulseaudio pavucontrol network-manager-applet
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 makepkg -si
