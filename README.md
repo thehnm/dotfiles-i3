@@ -49,7 +49,7 @@ sudo pacman -S zsh-autosuggestions zsh-completions zsh-history-substring-search 
 sudo pacman -S texlive-most 
 ```
 
-#### Install `yay` aur helper
+#### Install `yay` AUR helper
 ```
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
