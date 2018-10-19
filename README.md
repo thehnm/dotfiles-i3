@@ -15,8 +15,8 @@ pacstrap /mnt base base-devel vim
 
 #### Install this after entering `arch-chroot /mnt`
 ```
-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
-pacman -S xorg-server xorg-xinit
+pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings
+pacman -S termite network-manager-applet xorg-server xorg-xinit
 ```
 
 #### Start `i3` whenever you login
@@ -32,8 +32,9 @@ systemctl enable lightdm.service
 
 #### Install necessary software for this rice after rebooting
 ```
-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog
+sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen
 sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+sudo pacman -S lxappearance mupdf libmpdclient dialog
 ```
 
 #### Install `zsh` plugins
