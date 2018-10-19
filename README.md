@@ -28,9 +28,10 @@ https://thehnm@github.com/thehnm/dotfiles-i3.git // for personal use
 
 ### Install dotfile
 ```
-stow ~/dotfiles-i3/config.stow
-stow ~/dotfiles-i3/wallpaper.stow
-stow ~/dotfiles-i3/fonts.stow
+cd ~/dotfiles-i3/
+stow config.stow
+stow wallpaper.stow
+stow fonts.stow
 ```
 
 ### Install plugins
