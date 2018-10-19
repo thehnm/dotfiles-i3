@@ -13,7 +13,7 @@ yay -S i3lock-color
 pacstrap /mnt base base-devel vim
 ```
 
-#### Install this afte entering `arch-chroot /mnt`
+#### Install this after entering `arch-chroot /mnt`
 ```
 pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
 
