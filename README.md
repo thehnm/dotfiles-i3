@@ -2,7 +2,9 @@
 
 ## Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay
+sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags
+sudo pacman -S texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl
+sudo pacman -S dialog wpa_actiond yay
 yay -S i3lock-color 
 ```
 
