@@ -15,7 +15,7 @@ pacstrap /mnt base base-devel vim
 
 #### Install this after entering `arch-chroot /mnt`
 ```
-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
+pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit
 ```
 
 #### Enable `networkmanager` and `lightdm`
