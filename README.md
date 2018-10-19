@@ -2,7 +2,7 @@
 
 ## Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
+sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay
 yay -S i3lock-color 
 ```
 
@@ -15,7 +15,8 @@ pacstrap /mnt base base-devel vim
 
 #### Install this after entering `arch-chroot /mnt`
 ```
-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit
+pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
+pacman -S xorg-server xorg-xinit
 ```
 
 #### Start `i3` whenever you login
@@ -31,7 +32,8 @@ systemctl enable lightdm.service
 
 #### Install necessary software for this rice after rebooting
 ```
-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog
+sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
 ```
 
 #### Install `zsh` plugins
