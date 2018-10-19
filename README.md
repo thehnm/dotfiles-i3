@@ -90,3 +90,9 @@ cd /etc/pulse
 sudo vim client.conf
 ```
 Comment the line `autospawn = no`.
+
+## [Tentative] `lightdm-webkit2-greeter`
+```
+sudo pacman -S lightdm-webkit2-greeter
+yay -S lightdm-webkit-theme-aether
+```
