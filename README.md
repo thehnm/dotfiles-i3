@@ -47,6 +47,13 @@ makepkg -si
 yay -S i3lock-color polybar
 ```
 
+#### Fix `polybar` audio control
+```
+cd /etc/pulse
+sudo vim client.conf
+```
+Comment the line `autospawn = no`.
+
 ## Download repo
 ```
 git clone https://github.com/thehnm/dotfiles-i3.git ~/dotfiles-i3
@@ -66,7 +73,7 @@ stow fonts.stow
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-### Install vim plugins
+### Install `vim` plugins
 ```
 vim +PluginInstall +qall
 ```
@@ -76,19 +83,12 @@ vim +PluginInstall +qall
 xrdb ~/.Xresources
 ```
 
-## Set gnome-keyring as git credential helper
+## Set `gnome-keyring` as `git` credential helper
 ```
 cd /usr/share/git/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 ```
-
-## Fix polybar audio control
-```
-cd /etc/pulse
-sudo vim client.conf
-```
-Comment the line `autospawn = no`.
 
 ## [Tentative] `lightdm-webkit2-greeter`
 ```
