@@ -8,7 +8,7 @@ yay -S i3lock-color
 
 ### Arch Linux installation command
 ```
-sudo pacman -S i3 rofi dunst ranger libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
+sudo pacman -S i3 rofi dunst ranger libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting udiskie
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 makepkg -si
