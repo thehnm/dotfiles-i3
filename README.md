@@ -36,7 +36,7 @@ systemctl enable lightdm.service
 ```
 sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen
 sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
-sudo pacman -S lxappearance mupdf libmpdclient dialog
+sudo pacman -S lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter
 ```
 
 #### Install `zsh` plugins
@@ -54,7 +54,11 @@ sudo pacman -S texlive-most
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 makepkg -si
-yay -S i3lock-color polybar
+```
+
+#### Install packages from AUR
+```
+yay -S i3lock-color polybar lightdm-webkit-theme-aether
 ```
 
 #### Fix `polybar` audio control
@@ -98,10 +102,4 @@ xrdb ~/.Xresources
 cd /usr/share/git/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
-```
-
-## [Tentative] `lightdm-webkit2-greeter`
-```
-sudo pacman -S lightdm-webkit2-greeter
-yay -S lightdm-webkit-theme-aether
 ```
