@@ -27,7 +27,7 @@ systemctl enable lightdm.service
 
 #### Install necessary software for this rice after rebooting
 ```
-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog udiskie alsa-utils openssh pulseaudio pavucontrol
+sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
 ```
 
 #### Install `zsh` plugins
