@@ -2,13 +2,13 @@
 
 ### Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
+sudo pacman -S i3 rofi dunst manjaro-zsh-config libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
 yay -S i3lock-color 
 ```
 
 ### Arch Linux installation command
 ```
-sudo pacman -S i3 rofi dunst ranger libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting udiskie alsa-utils openssh lsb-release
+sudo pacman -S i3 rofi dunst libgnome-keyring compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf libmpdclient cmake netctl dialog wpa_actiond zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting udiskie alsa-utils openssh lsb-release pulseaudio pavucontrol
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 makepkg -si
@@ -50,3 +50,10 @@ cd /usr/share/git/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 ```
+
+### Fix polybar audio control
+```
+cd /etc/pulse
+sudo vim client.conf
+```
+Comment the line ```autospawn = no```.
