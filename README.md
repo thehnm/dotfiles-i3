@@ -18,6 +18,11 @@ pacstrap /mnt base base-devel vim
 pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit
 ```
 
+#### Start `i3` whenever you login
+```
+echo exec i3 >> ~/.xinitrc
+```
+
 #### Enable `networkmanager` and `lightdm`
 ```
 systemctl enable NetworkManager
