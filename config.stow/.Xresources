@@ -24,9 +24,9 @@ rofi.modi: run,drun,window
 rofi.fullscreen: true
 rofi.hide-scrollbar: true
 rofi.padding: 400
-rofi.font: "DejaVuSansMono Nerd Font Book" 24
+rofi.font: "RobotoMono Nerd Font Regular" 24
 rofi.color-enabled: true
 rofi.color-window: color0, color0, color0
-rofi.color-normal: color0, #d8dee8, color0, color0, color6
-rofi.color-active: color0, #b48ead, color0, color0, color6
-rofi.color-urgent: color0, #ebcb8b, color0, color0, color3
+rofi.color-normal: color0, fg,     color0, color0, color4
+rofi.color-active: color0, color5, color0, color0, color4
+rofi.color-urgent: color0, color3, color0, color0, color3
