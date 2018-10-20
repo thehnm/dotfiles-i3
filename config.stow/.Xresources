@@ -26,7 +26,7 @@ rofi.hide-scrollbar: true
 rofi.padding: 400
 rofi.font: "RobotoMono Nerd Font Regular" 24
 rofi.color-enabled: true
-rofi.color-window: color0, color0, color0
-rofi.color-normal: color0, fg,     color0, color0, color4
-rofi.color-active: color0, color5, color0, color0, color4
-rofi.color-urgent: color0, color3, color0, color0, color3
+rofi.color-window: bg, bg,     bg
+rofi.color-normal: bg, fg,     bg, bg, color4
+rofi.color-active: bg, color5, bg, bg, color4
+rofi.color-urgent: bg, color3, bg, bg, color3
