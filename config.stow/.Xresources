@@ -24,7 +24,7 @@ rofi.modi: run,drun,window
 rofi.fullscreen: true
 rofi.hide-scrollbar: true
 rofi.padding: 400
-rofi.font: "RobotoMono Nerd Font Regular" 24
+rofi.font: Cantarell Bold 24
 rofi.color-enabled: true
 rofi.color-window: bg, bg,     bg
 rofi.color-normal: bg, fg,     bg, bg, color4
