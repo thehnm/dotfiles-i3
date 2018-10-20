@@ -22,9 +22,9 @@ draw_graph_borders no
 default_color 656667
 default_shade_color 000000
 default_outline_color 828282
-alignment bottom_left
-gap_x 30
-gap_y -300
+alignment middle_middle
+gap_x -100
+gap_y 0
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -39,5 +39,5 @@ TEXT
 ${color grey}${font Quicksand Light - U:pixelsize=70}${time %H:%M:%S}${font}${voffset -20}${offset 10}${font Existence Light - U:pixelsize=20}${font}
 
 
-${voffset 10}${offset 90}${font Existence Light - U:pixelsize=20}${time %A %B %d}${font}
-${voffset -26}${offset 10}${font Existence Light - U:pixelsize=32}${time %Y}${font}
+${voffset 10}${offset 90}${font UbuntuMono Nerd Font Bold- U:pixelsize=20}${time %A %B %d}${font}
+${voffset -26}${offset 10}${font UbuntuMono Nerd Font Bold- U:pixelsize=32}${time %Y}${font}
