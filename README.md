@@ -2,52 +2,66 @@
 
 ## Manjaro installation command 
 ```
-sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
+sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags
+sudo pacman -S texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl
+sudo pacman -S dialog wpa_actiond yay
 yay -S i3lock-color 
 ```
 
 ## Arch Linux installation command
 
-#### `pacstrap` command
+1. `pacstrap` command
 ```
 pacstrap /mnt base base-devel vim
 ```
 
-#### Install this after entering `arch-chroot /mnt`
+2. Install this after entering `arch-chroot /mnt`
 ```
-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
+pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings
+pacman -S termite network-manager-applet xorg-server xorg-xinit
 ```
 
-#### Enable `networkmanager` and `lightdm`
+3. Start `i3` whenever you login
+```
+echo exec i3 >> ~/.xinitrc
+```
+
+4. Enable `networkmanager` and `lightdm`
 ```
 systemctl enable NetworkManager
 systemctl enable lightdm.service
 ```
 
-#### Install necessary software for this rice after rebooting
+5. Install necessary software for this rice after rebooting
 ```
-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen
+sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+sudo pacman -S lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter
 ```
 
-#### Install `zsh` plugins
+6. Install `zsh` plugins
 ```
 sudo pacman -S zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting 
 ```
 
-#### Install `texlive` packages
+7. Install `texlive` packages
 ```
 sudo pacman -S texlive-most 
 ```
 
-#### Install `yay` aur helper
+8. Install `yay` AUR helper
 ```
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay
 makepkg -si
-yay -S i3lock-color polybar
 ```
 
-#### Fix `polybar` audio control
+9. Install packages from AUR
+```
+yay -S i3lock-color polybar lightdm-webkit-theme-aether
+```
+
+10. Fix `polybar` audio control
 ```
 cd /etc/pulse
 sudo vim client.conf
@@ -88,10 +102,4 @@ xrdb ~/.Xresources
 cd /usr/share/git/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
-```
-
-## [Tentative] `lightdm-webkit2-greeter`
-```
-sudo pacman -S lightdm-webkit2-greeter
-yay -S lightdm-webkit-theme-aether
 ```
