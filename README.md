@@ -76,6 +76,17 @@ git clone https://thehnm@github.com/thehnm/dotfiles-i3.git ~/dotfiles-i3 // for 
 
 ## Install dotfile
 ```
+mkdir -p ~/.config/i3
+mkdir -p ~/.config/dunst
+mkdir -p ~/.config/gtk-3.0
+mkdir -p ~/.config/polybar
+mkdir -p ~/.config/termite
+mkdir -p ~/.conky/
+mkdir -p ~/.local/share/fonts
+mkdir -p ~/Pictures
+mkdir -p ~/Documents
+mkdir -p ~/Downloads
+
 cd ~/dotfiles-i3/
 stow config.stow
 stow wallpaper.stow
