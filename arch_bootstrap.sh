@@ -4,6 +4,8 @@
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 
+echo #####################################################################################################################
+
 # Set up locale
 sed -i 's/^#de_DE/de_DE/g' /etc/locale.gen
 sed -i 's/^#en_US/en_US/g' /etc/locale.gen
@@ -11,8 +13,12 @@ locale-gen
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 echo KEYMAP=de-latin1 >> /etc/vconsole.conf
 
+echo #####################################################################################################################
+
 # Set root password
 passwd
+
+echo #####################################################################################################################
 
 # Set up user
 read -p "Enter non-root user's name " name
@@ -22,28 +28,42 @@ passwd $name
 chfn $name
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
+echo #####################################################################################################################
+
 # Install packages
 pacman --color=auto --needed -S sed rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen libsecret udiskie alsa-utils openssh pulseaudio pavucontrol lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting texlive-most git conky cmake make
 
+echo #####################################################################################################################
+
 # Install yay aur helper
-git clone https://aur.archlinux.org/yay.git /home/$name/yay
+sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
 cd /home/$name/yay
 sudo -u $name makepkg -si
 
+echo #####################################################################################################################
+
 # Install aur packages
-yay -S i3lock-color polybar lightdm-webkit-theme-aether
+sudo -u $name yay -S i3lock-color polybar lightdm-webkit-theme-aether
+
+echo #####################################################################################################################
 
 # Systemd
 systemctl enable NetworkManager
 systemctl enable lightdm
 
+echo #####################################################################################################################
+
 # Install dotfiles
-git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
 cd /home/$name/dotfiles-i3/
 sudo -H -u TARGET_USER bash -c 'bash install_dotfiles.sh'
 
+echo #####################################################################################################################
+
 # Exec i3 in xinitrc
 echo exec i3 >> $HOME/.xinitrc
+
+echo #####################################################################################################################
 
 # Set up hostname
 read -p "Enter desired hostname: " hostname
@@ -51,6 +71,8 @@ echo $hostname >> /etc/hostname
 echo 127.0.0.1  localhost >> /etc/hosts
 echo ::1	localhost >> /etc/hosts
 echo 127.0.1.1	$hostname.localdomain	$hostname
+
+echo #####################################################################################################################
 
 # Install grub
 read -p "Enter your disk label: dev/sdx? x: " label
@@ -72,12 +94,17 @@ do
   esac
 done
 
+echo #####################################################################################################################
+
 # Fix audio problem
 sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
+echo #####################################################################################################################
+
 cd /home/$name
-git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
-cd /home/$name/
+sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
 sudo -u $name vim +PluginInstall +qall
+
+echo #####################################################################################################################
 
 echo -e Done. Reboot now!
