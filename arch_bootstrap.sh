@@ -77,6 +77,7 @@ sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
 cd /home/$name
 git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+cd /home/$name/
+sudo -u $name vim +PluginInstall +qall
 
 echo -e Done. Reboot now!
