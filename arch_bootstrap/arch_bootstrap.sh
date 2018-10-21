@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mv arch_bootstrap.sh /
+
 # Set localtime
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
@@ -33,6 +35,7 @@ echo ###########################################################################
 # Install packages
 curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.txt >> packages.txt
 xargs -a packages.txt pacman --color=auto --needed -S
+mv packages.txt /
 
 echo #####################################################################################################################
 
@@ -107,5 +110,8 @@ sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/
 sudo -u $name vim +PluginInstall +qall
 
 echo #####################################################################################################################
+
+rm /packages.txt
+rm /arch_bootstrap.txt
 
 echo -e Done. Reboot now!
