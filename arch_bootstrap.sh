@@ -26,8 +26,8 @@ sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 pacman --color=auto --needed -S sed rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen libsecret udiskie alsa-utils openssh pulseaudio pavucontrol lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting texlive-most git conky cmake make
 
 # Install yay aur helper
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-cd /tmp/yay
+git clone https://aur.archlinux.org/yay.git /home/$name/yay
+cd /home/$name/yay
 sudo -u $name makepkg -si
 
 # Install aur packages
@@ -40,7 +40,7 @@ systemctl enable lightdm
 # Install dotfiles
 git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
 cd /home/$name/dotfiles-i3/
-sudo -u $name install_dotfiles.sh
+sudo -H -u TARGET_USER bash -c 'bash install_dotfiles.sh'
 
 # Exec i3 in xinitrc
 echo exec i3 >> $HOME/.xinitrc
@@ -73,10 +73,10 @@ do
 done
 
 # Fix audio problem
-sed -i 's/^ autospawn./; autospawn./g' /etc/pulse/client.conf
+sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
 cd /home/$name
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 echo -e Done. Reboot now!
