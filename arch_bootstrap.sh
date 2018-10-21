@@ -33,8 +33,8 @@ echo -e Password for $name setted ${GREEN}[OK]
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Install dotfiles
-git clone https://thehnm@github.com/thehnm/dotfiles-i3.git $HOME/dotfiles-i3
-cd $HOME/dotfiles-i3/
+git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+cd /home/$name/dotfiles-i3/
 bash install_dotfiles.sh
 echo -e Dotfiles installed ${GREEN}[OK]
 
@@ -57,7 +57,6 @@ echo -e Locale set ${GREEN}[OK]
 # Set up hostname
 read -p "Enter desired hostname: " hostname
 echo $hostname >> /etc/hostname
-
 echo 127.0.0.1  localhost >> /etc/hosts
 echo ::1	localhost >> /etc/hosts
 echo 127.0.1.1	$hostname.localdomain	$hostname
