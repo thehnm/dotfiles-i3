@@ -31,7 +31,9 @@ sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 echo #####################################################################################################################
 
 # Install packages
-pacman --color=auto --needed -S
+curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.txt >> packages.txt
+xargs -a packages.txt pacman --color=auto --needed -S
+
 echo #####################################################################################################################
 
 # Install yay aur helper
