@@ -5,8 +5,8 @@ ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
 
 # Set up locale
-sed -i 's/^#de_DE./de_DE./g' /etc/locale.gen
-sed -i 's/^#en_US./en_US./g' /etc/locale.gen
+sed -i 's/^#de_DE/de_DE/g' /etc/locale.gen
+sed -i 's/^#en_US/en_US/g' /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 echo KEYMAP=de-latin1 >> /etc/vconsole.conf
