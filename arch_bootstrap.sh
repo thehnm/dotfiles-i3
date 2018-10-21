@@ -28,15 +28,14 @@ read -p "Enter non-root user's name " name
 useradd -m -g wheel $name
 echo Set password for $name
 passwd $name
+chfn $name
 echo -e Password for $name setted ${GREEN}[OK]
-sed -i 's/^#%wheel./%wheel./g' /etc/sudoers
+sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Install dotfiles
 git clone https://thehnm@github.com/thehnm/dotfiles-i3.git $HOME/dotfiles-i3
-cd $HOME/dotfiles-i3
-stow config.stow
-stow fonts.stow
-stow wallpaper.stow
+cd $HOME/dotfiles-i3/
+bash install_dotfiles.sh
 echo -e Dotfiles installed ${GREEN}[OK]
 
 # Exec i3 in xinitrc
