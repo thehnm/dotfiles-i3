@@ -60,7 +60,7 @@ echo ###########################################################################
 # Install dotfiles
 sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
 cd /home/$name/dotfiles-i3/
-sudo -H -u TARGET_USER bash -c 'bash install_dotfiles.sh'
+sudo -H -u $name bash -c 'bash install_dotfiles.sh'
 
 echo #####################################################################################################################
 
