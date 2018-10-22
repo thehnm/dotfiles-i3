@@ -46,7 +46,7 @@ setupnewuser() {
 
 install() {
   echo -n "Installing $1"
-  pacman --needed -S "$1" &>/dev/null
+  pacman --noconfirm --needed -S "$1" &>/dev/null
   echodone
 }
 
@@ -94,6 +94,8 @@ installloop() {
       * ) break ;;
     esac
   done
+
+  pacman --noconfirm -Sy archlinux-keyring
 
   INPUT=/tmp/packages.csv
   IFS=,
@@ -153,7 +155,7 @@ installgrub() {
   do
     read -p "Do you have UEFI enabled? " answer
     case $answer in
-      [yY]* ) pacman -S grub efibootmgr
+      [yY]* ) pacman --noconfirm -S grub efibootmgr
               grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
               grub-mkconfig -o /boot/grub/grub.cfg
               break;;
