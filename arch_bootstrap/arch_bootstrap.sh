@@ -32,7 +32,7 @@ echo ###########################################################################
 
 # Set up user
 echo ${bold}Create new user${normal}
-read -p "Enter non-root user's name " name
+read -p "Enter non-root user's name: " name
 useradd -m -g wheel $name
 echo Set password for $name
 passwd $name
