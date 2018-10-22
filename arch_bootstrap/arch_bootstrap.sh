@@ -160,16 +160,16 @@ installgrub() {
     read -p "Do you have UEFI enabled? " answer
     case $answer in
       [yY]* ) echo -n "Installing grub"
-              pacman --noconfirm -S grub efibootmgr &>/dev/null
-              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/ &>/dev/null
-              grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
+              pacman --noconfirm -S grub efibootmgr
+              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
+              grub-mkconfig -o /boot/grub/grub.cfg
               echodone
               break;;
 
       [nN]* ) echo -n "Installing grub"
-              pacman -S grub &>/dev/null
-              grub-install --target=i386-pc /dev/sd$label &>/dev/null
-              grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
+              pacman --noconfirm -S grub
+              grub-install --target=i386-pc /dev/sd$label
+              grub-mkconfig -o /boot/grub/grub.cfg
               echodone
               break;;
 
