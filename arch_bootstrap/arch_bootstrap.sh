@@ -52,7 +52,7 @@ install() {
 
 aurinstall() {
   echo -n "Installing $1 from AUR"
-  sudo -u $name yay -S "$1" &>/dev/null
+  sudo -u $name yay --noconfirm -S "$1" &>/dev/null
   echodone
 }
 
