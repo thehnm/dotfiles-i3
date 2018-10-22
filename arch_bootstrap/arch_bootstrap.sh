@@ -57,8 +57,9 @@ aurinstall() {
 }
 
 installyay() {
-  echo ${bold}Install yay AUR helper${normal}
-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
+  echo -n ${bold}Install yay AUR helper${normal}
+  pacman --noconfirm -S git &>/dev/null
+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
   cd /home/$name/yay
   sudo -u $name makepkg -si &> /dev/null
   echodone
@@ -119,7 +120,7 @@ enableservices() {
 
 installdotfile() {
   echo ${bold}Install my i3 dotfile${normal}
-  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3 &>/dev/null
   cd /home/$name/dotfiles-i3/
   case $bar in
     "i3bar" ) sudo -u $name sed -i '/polybar/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
@@ -212,7 +213,7 @@ echodone
 # Install vundle
 echo -n ${bold}Install vundle${normal}
 cd /home/$name/
-sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
+sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim &>/dev/null
 echodone
 
 echo -n ${bold}Remove packages.csv and arch_bootstrap.sh${normal}
