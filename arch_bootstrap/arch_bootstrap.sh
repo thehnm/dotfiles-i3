@@ -11,9 +11,6 @@ echodone() {
   echo -e " ${GREEN}[Done]${NC}"
 }
 
-movescript() {
-  }
-
 setlocaltime() {
   echo -n "${bold}Setting localtime to Berlin${normal}"
   ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
