@@ -51,17 +51,17 @@ install() {
 }
 
 aurinstall() {
-  echo -n "Installing $1 from AUR"
-  sudo -u $name yay --noconfirm -S "$1" &>/dev/null
+  echo "Installing $1 from AUR"
+  sudo -u $name yay -S "$1"
   echodone
 }
 
 installyay() {
-  echo -n ${bold}Install yay AUR helper${normal}
+  echo ${bold}Install yay AUR helper${normal}
   pacman --noconfirm -S git &>/dev/null
   sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
   cd /home/$name/yay
-  sudo -u $name makepkg -si &> /dev/null
+  sudo -u $name makepkg --noconfirm -si &> /dev/null
   echodone
 }
 
@@ -71,11 +71,12 @@ installloop() {
   do
     read -p "Do you want i3bar or polybar? " bar
     case $bar in
-      "i3bar" ) sed -i '/A,Polybar/d' /tmp/packages.csv
+      "i3bar" ) sed -i '/A,polybar/d' /tmp/packages.csv
                 break;;
 
       "polybar" ) sed -i '/,i3blocks/d' /tmp/packages.csv
                   sed -i '/,i3status/d' /tmp/packages.csv
+                  sed -i '/,dmenu/d' /tmp/packages.csv
                   break;;
 
       * ) echo "Dude, just enter i3bar or polybar, please.";;
@@ -124,8 +125,9 @@ installdotfile() {
   cd /home/$name/dotfiles-i3/
   case $bar in
     "i3bar" ) sudo -u $name sed -i '/polybar/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
-           sudo -u $name sed -i 's/^#1//g' /home/$name/dotfiles-i3/config.stow/.config/i3/config
-           break;;
+              sudo -u $name sed -i '/rofi/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
+              sudo -u $name sed -i 's/^#1//g' /home/$name/dotfiles-i3/config.stow/.config/i3/config
+              break;;
     "polybar" ) sudo -u $name sed -i '/,i3blocks/d' /tmp/packages.csv
                 sudo -u $name sed -i '/,i3status/d' /tmp/packages.csv
                 break;;

@@ -23,6 +23,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Kill focused window
 bindsym $mod+Shift+q kill
 
+# Start dmenu
+#1bindsym $mod+d exec dmenu_run
+
 # Start rofi
 bindsym $mod+d exec rofi -show drun
 
