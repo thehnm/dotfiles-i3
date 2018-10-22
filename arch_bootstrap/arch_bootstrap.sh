@@ -57,11 +57,10 @@ aurinstall() {
 }
 
 installyay() {
-  echo ${bold}Install yay AUR helper${normal}
-  install "git"
-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
+  echo -n ${bold}Install yay AUR helper${normal}
+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
   cd /home/$name/yay
-  sudo -u $name makepkg -si
+  sudo -u $name makepkg -si &> /dev/null
   echodone
 }
 
@@ -95,7 +94,9 @@ installloop() {
     esac
   done
 
-  pacman --noconfirm -Sy archlinux-keyring
+  echo -n "Installing archlinux-keyring"
+  pacman --noconfirm -Sy archlinux-keyring &>/dev/null
+  echodone
 
   INPUT=/tmp/packages.csv
   IFS=,
@@ -118,10 +119,10 @@ enableservices() {
 
 installdotfile() {
   echo ${bold}Install my i3 dotfile${normal}
-  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3 &>/dev/null
   cd /home/$name/dotfiles-i3/
   case $bar in
-    "i3" ) sudo -u $name sed -i '/polybar/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
+    "i3bar" ) sudo -u $name sed -i '/polybar/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
            sudo -u $name sed -i 's/^#1//g' /home/$name/dotfiles-i3/config.stow/.config/i3/config
            break;;
     "polybar" ) sudo -u $name sed -i '/,i3blocks/d' /tmp/packages.csv
@@ -155,14 +156,18 @@ installgrub() {
   do
     read -p "Do you have UEFI enabled? " answer
     case $answer in
-      [yY]* ) pacman --noconfirm -S grub efibootmgr
-              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
-              grub-mkconfig -o /boot/grub/grub.cfg
+      [yY]* ) echo -n "Installing grub"
+              pacman --noconfirm -S grub efibootmgr &>/dev/null
+              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/ &>/dev/null
+              grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
+              echodone
               break;;
 
-      [nN]* ) pacman -S grub
-              grub-install --target=i386-pc /dev/sd$label
-              grub-mkconfig -o /boot/grub/grub.cfg
+      [nN]* ) echo -n "Installing grub"
+              pacman -S grub &>/dev/null
+              grub-install --target=i386-pc /dev/sd$label &>/dev/null
+              grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
+              echodone
               break;;
 
       * ) echo "Dude, just enter Y or N, please.";;
@@ -205,9 +210,9 @@ sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 echodone
 
 # Install vundle
-echo ${bold}Install vundle${normal}
+echo -n ${bold}Install vundle${normal}
 cd /home/$name/
-sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
+sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim &>/dev/null
 echodone
 
 echo -n ${bold}Remove packages.csv and arch_bootstrap.sh${normal}
