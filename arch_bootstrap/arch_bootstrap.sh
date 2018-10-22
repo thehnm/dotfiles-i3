@@ -73,7 +73,7 @@ installloop() {
   do
     read -p "Do you want i3bar or polybar?" bar
     case $bar in
-      "i3" ) sed -i '/A,Polybar/d' /tmp/packages.csv
+      "i3bar" ) sed -i '/A,Polybar/d' /tmp/packages.csv
              break;;
 
       "polybar" ) sed -i '/,i3blocks/d' /tmp/packages.csv
@@ -88,7 +88,7 @@ installloop() {
   while true
   do
     case $edit in
-      [yY]* ) nano /tmp/packages.txt
+      [yY]* ) nano /tmp/packages.csv
               break;;
 
       [nN]* ) break;;
@@ -97,7 +97,7 @@ installloop() {
     esac
   done
 
-  FILE=/tmp/data.csv
+  FILE=/tmp/packages.csv
   IFS=,
   [ ! -f $FILE ] && { echo "$FILE file not found"; exit 99; }
   while read tag program
@@ -174,8 +174,8 @@ installgrub() {
 
 ##########################################################################################################################
 
-echo -n "${bold}Move $1 to /tmp/${normal}"
-mv $1 /tmp/
+echo -n "${bold}Move arch_bootstrap.sh to /tmp/${normal}"
+mv arch_bootstrap.sh /tmp/
 echodone
 
 setlocaltime
@@ -205,12 +205,12 @@ echodone
 
 # Install vundle
 echo -n ${bold}Install vundle${normal}
-cd /home/$name
+cd /home/$name/
 sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
 echodone
 
-echo -n ${bold}Remove packages.txt and arch_bootstrap.sh${normal}
-rm /tmp/packages.txt
+echo -n ${bold}Remove packages.csv and arch_bootstrap.sh${normal}
+rm /tmp/packages.csv
 rm /tmp/arch_bootstrap.sh
 echodone
 
