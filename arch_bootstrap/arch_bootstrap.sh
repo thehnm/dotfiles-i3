@@ -104,20 +104,20 @@ installloop() {
   do
     case $tag in
       "") install "$program" ;;
-      "G") aurinstall "$program" ;;
+      "A") aurinstall "$program" ;;
     esac
   done < $INPUT
 }
 
 enableservices() {
   echo -n ${bold}Enable systemd services${normal}
-  systemctl enable NetworkManager
-  systemctl enable lightdm
+  systemctl enable NetworkManager &>/dev/null
+  systemctl enable lightdm &>/dev/null
   echodone
 }
 
 installdotfile() {
-  echo -n ${bold}Install my i3 dotfile${normal}
+  echo ${bold}Install my i3 dotfile${normal}
   sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
   cd /home/$name/dotfiles-i3/
   case $bar in
@@ -205,7 +205,7 @@ sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 echodone
 
 # Install vundle
-echo -n ${bold}Install vundle${normal}
+echo ${bold}Install vundle${normal}
 cd /home/$name/
 sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
 echodone
