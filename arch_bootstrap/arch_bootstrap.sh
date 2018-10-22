@@ -2,6 +2,37 @@
 
 bold=$(tput bold)
 normal=$(tput sgr0)
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+##########################################################################################################################
+
+install() {
+  echo -n "Installing $1"
+  pacman --needed -S "$1" &>/dev/null
+  echo -e " ${RED}[Done]${NC}"
+}
+
+aurinstall() {
+  echo -n "Installing $1 from AUR"
+  sudo -u $name yay -S "$1" &>/dev/null
+  echo -e " ${RED}[Done]${NC}"
+}
+
+installlopp() {
+  curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.csv >> /tmp/packages.csv
+  FILE=/tmp/data.csv
+  IFS=,
+  [ ! -f $FILE ] && { echo "$FILE file not found"; exit 99; }
+  while read tag program
+  do
+    case $tag in
+      "") install "$program" ;;
+    esac
+  done < $INPUT
+}
+
+##########################################################################################################################
 
 # To assert the file a definitive location
 echo ${bold}Move arch_bootstrap.sh file to /${normal}
