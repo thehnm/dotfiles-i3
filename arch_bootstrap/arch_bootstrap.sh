@@ -44,6 +44,20 @@ echo ###########################################################################
 # Install packages
 echo ${bold}Install packages${normal}
 curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.txt >> packages.txt
+
+read -p "Do you want to edit the list of packages to be installed? " answer
+while true
+do
+  case $answer in
+   [yY]* ) nano packages.txt
+           break;;
+
+   [nN]* ) break;;
+
+   * )     echo "Dude, just enter Y or N, please."; break ;;
+  esac
+done
+
 xargs -a packages.txt pacman --color=auto --needed -S
 mv packages.txt /
 
