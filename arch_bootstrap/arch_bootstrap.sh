@@ -5,8 +5,6 @@ normal=$(tput sgr0)
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-##########################################################################################################################
-
 echodone() {
   echo -e " ${GREEN}[Done]${NC}"
 }
@@ -71,16 +69,16 @@ installloop() {
   curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.csv >> /tmp/packages.csv
   while true
   do
-    read -p "Do you want i3bar or polybar?" bar
+    read -p "Do you want i3bar or polybar? " bar
     case $bar in
       "i3bar" ) sed -i '/A,Polybar/d' /tmp/packages.csv
-             break;;
+                break;;
 
       "polybar" ) sed -i '/,i3blocks/d' /tmp/packages.csv
                   sed -i '/,i3status/d' /tmp/packages.csv
                   break;;
 
-      * )     echo "Dude, just enter i3bar or polybar, please.";;
+      * ) echo "Dude, just enter i3bar or polybar, please.";;
     esac
   done
 
@@ -97,9 +95,9 @@ installloop() {
     esac
   done
 
-  FILE=/tmp/packages.csv
+  INPUT=/tmp/packages.csv
   IFS=,
-  [ ! -f $FILE ] && { echo "$FILE file not found"; exit 99; }
+  [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
   while read tag program
   do
     case $tag in
@@ -138,9 +136,8 @@ setxinitrc() {
   echodone
 }
 
-
 setuphost() {
-  echo -n ${bold}Set up host${normal}
+  echo ${bold}Set up host${normal}
   read -p "Enter desired hostname: " hostname
   echo $hostname >> /etc/hostname
   echo 127.0.0.1        localhost >> /etc/hosts
@@ -150,23 +147,23 @@ setuphost() {
 }
 
 installgrub() {
-  echo -n ${bold}Set up grub boot loader${normal}
+  echo ${bold}Set up grub boot loader${normal}
   read -p "Enter the last character your disk label where Arch is installed (dev/sd_): " label
   while true
   do
     read -p "Do you have UEFI enabled? " answer
     case $answer in
       [yY]* ) pacman -S grub efibootmgr
-        grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
-        grub-mkconfig -o /boot/grub/grub.cfg
-        break;;
+              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
+              grub-mkconfig -o /boot/grub/grub.cfg
+              break;;
 
       [nN]* ) pacman -S grub
-        grub-install --target=i386-pc /dev/sd$label
-        grub-mkconfig -o /boot/grub/grub.cfg
-        break;;
+              grub-install --target=i386-pc /dev/sd$label
+              grub-mkconfig -o /boot/grub/grub.cfg
+              break;;
 
-      * )     echo "Dude, just enter Y or N, please."; break ;;
+      * ) echo "Dude, just enter Y or N, please.";;
     esac
   done
   echodone
@@ -185,6 +182,8 @@ setlocale
 setrootpasswd
 
 setupnewuser
+
+installyay
 
 installloop
 
