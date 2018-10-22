@@ -19,7 +19,7 @@ setlocaltime() {
 }
 
 setlocale() {
-  echo -n ${bold}Setting locale${normal}
+  echo ${bold}Setting locale${normal}
   sed -i 's/^#de_DE/de_DE/g' /etc/locale.gen
   sed -i 's/^#en_US/en_US/g' /etc/locale.gen
   locale-gen
@@ -31,7 +31,7 @@ setlocale() {
 }
 
 setrootpasswd() {
-  echo -n ${bold}Setting root password${normal}
+  echo ${bold}Setting root password${normal}
   passwd
   echodone
 }
@@ -46,14 +46,6 @@ setupnewuser() {
   sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 }
 
-installyay() {
-  echo ${bold}Install yay AUR helper${normal}
-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
-  cd /home/$name/yay
-  sudo -u $name makepkg -si
-  echodone
-}
-
 install() {
   echo -n "Installing $1"
   pacman --needed -S "$1" &>/dev/null
@@ -63,6 +55,15 @@ install() {
 aurinstall() {
   echo -n "Installing $1 from AUR"
   sudo -u $name yay -S "$1" &>/dev/null
+  echodone
+}
+
+installyay() {
+  echo ${bold}Install yay AUR helper${normal}
+  install "git"
+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
+  cd /home/$name/yay
+  sudo -u $name makepkg -si
   echodone
 }
 
@@ -121,11 +122,11 @@ installdotfile() {
   cd /home/$name/dotfiles-i3/
   case $bar in
     "i3" ) sudo -u $name sed -i '/polybar/d' /home/$name/dotfiles-i3/config.stow/.config/i3/config
-      sudo -u $name sed -i 's/^#1//g' /home/$name/dotfiles-i3/config.stow/.config/i3/config
-      break;;
+           sudo -u $name sed -i 's/^#1//g' /home/$name/dotfiles-i3/config.stow/.config/i3/config
+           break;;
     "polybar" ) sudo -u $name sed -i '/,i3blocks/d' /tmp/packages.csv
-      sudo -u $name sed -i '/,i3status/d' /tmp/packages.csv
-      break;;
+                sudo -u $name sed -i '/,i3status/d' /tmp/packages.csv
+                break;;
   esac
   sudo -H -u $name bash -c 'bash install_dotfiles.sh'
   echodone
