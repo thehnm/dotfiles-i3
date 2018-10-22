@@ -38,7 +38,6 @@ TAG,PACKAGE
 ,zsh-history-substring-search
 ,zsh-syntax-highlighting
 ,texlive-most
-,git
 ,conky
 ,cmake
 ,make
