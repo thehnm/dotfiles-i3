@@ -1,5 +1,43 @@
 #!/bin/bash
 
+###############################################################################
+
+setlocale() {
+  answer=$(dialog --title "Locale settings" --yesno "Do you want to edit the locale.gen file?" 5 45 3>&1 1>&2 2>&3 3>&1 || exit)
+  case $? in
+    0 ) clear && sudo vim /etc/locale.gen
+        break;;
+    1 ) break;;
+  esac
+}
+
+settimezone() {
+  # Select continent
+  C=(1 "Africa" 2 "America" 3 "Antarctica" 4 "Arctic" 5 "Asia" 6 "Australia" 7 "Europe" 8 "Pacific")
+  choice1=$(dialog --title "Set timezone" --menu "Chose one" 24 80 17 "${C[@]}" 3>&2 2>&1 1>&3)
+  continent=${C[2*$choice1-1]}
+
+  # Select city
+  let i=0 # define counting variable
+  W=() # define working array
+  while read -r line; do # process file by file
+    let i=$i+1
+    W+=($i "$line")
+  done < <( ls -1 /usr/share/zoneinfo/$continent )
+  choice2=$(dialog --title "Set timezone" --menu "Chose one" 24 80 17 "${W[@]}" 3>&2 2>&1 1>&3)
+  clear
+  if [ $? -eq 0 ]; then # Exit with OK
+    city=${W[2*$choice2-1]}
+    echo "/usr/share/zoneinfo/$continent/$city"
+  fi
+
+  # Set localtime
+  ln -sf /usr/share/zoneinfo/$continent/$city /etc/localtime
+  hwclock --systohc
+}
+
+###############################################################################
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 GREEN='\033[0;32m'
@@ -7,25 +45,6 @@ NC='\033[0m'
 
 echodone() {
   echo -e " ${GREEN}[Done]${NC}"
-}
-
-setlocaltime() {
-  echo -n "${bold}Setting localtime to Berlin${normal}"
-  ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-  hwclock --systohc
-  echodone
-}
-
-setlocale() {
-  echo ${bold}Setting locale${normal}
-  sed -i 's/^#de_DE/de_DE/g' /etc/locale.gen
-  sed -i 's/^#en_US/en_US/g' /etc/locale.gen
-  locale-gen
-  echo LANG=en_US.UTF-8 >> /etc/locale.conf
-  echo LANGUAGE=en_US.UTF-8 >> /etc/locale.conf
-  echo LC_ALL=de_DE.UTF-8 >> /etc/locale.conf
-  echo KEYMAP=de-latin1 >> /etc/vconsole.conf
-  echodone
 }
 
 setrootpasswd() {
