@@ -15,6 +15,7 @@ TAG,PACKAGE
 ,xorg-xinit
 ,dunst
 ,gnome-keyring
+,libsecret
 ,compton
 ,stow
 ,openvpn
@@ -22,7 +23,6 @@ TAG,PACKAGE
 ,ttf-dejavu
 ,ctags
 ,nitrogen
-,libsecret
 ,udiskie
 ,alsa-utils
 ,openssh
@@ -31,7 +31,6 @@ TAG,PACKAGE
 ,lxappearance
 ,mupdf
 ,libmpdclient
-,dialog
 ,lightdm-webkit2-greeter
 ,zsh-autosuggestions
 ,zsh-completions
