@@ -22,7 +22,7 @@ setlocale() {
     1 ) break;;
   esac
 
-  locale-gen
+  locale-gen &>/dev/null
   echo "LANG=$1" >> /etc/locale.conf
   echo "LANGUAGE=$1" >> /etc/locale.conf
   echo "LC_ALL=$2" >> /etc/locale.conf
@@ -46,7 +46,6 @@ settimezone() {
   clear
   if [ "$?" = "0" ]; then # Exit with OK
     city=${W[2*$choice2-1]}
-    echo "/usr/share/zoneinfo/$continent/$city"
   fi
 
   # Set localtime
@@ -136,13 +135,19 @@ chooselauncher() {
 }
 
 editpackages() {
-  edit=$(dialog --yesno "Do you want to edit the packages file?" 10 80 3>&2 2>&1 1>&3)
+  dialog --yesno "Do you want to edit the packages file?" 10 80 3>&2 2>&1 1>&3
+  case $? in
+    0 ) vim $1
+        break;;
+    1 ) break;;
+  esac
 }
 
 installloop() {
   curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.csv >> /tmp/packages.csv
   choosebar "/tmp/packages.csv"
   chooselauncher "/tmp/packages.csv"
+  editpackages "/tmp/packages.csv"
   total=$(wc -l < /tmp/packages.csv)
   aurinstalled=$(pacman -Qm | awk '{print $1}')
   while IFS=, read -r tag program; do
@@ -219,9 +224,10 @@ installgrub() {
           grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
           break;;
       1 ) label=$(dialog --inputbox "Enter the disk where your install Arch Linux e.g. /dev/sda" 10 60 3>&1 1>&2 2>&3 3>&1) || exit
-          pacman --noconfirm -S grub
-          grub-install --target=i386-pc $label
-          grub-mkconfig -o /boot/grub/grub.cfg
+          dialog --infobox "Installing grub..." 4 50
+          pacman --noconfirm -S grub &>/dev/null
+          grub-install --target=i386-pc $label &>/dev/null
+          grub-mkconfig -o /boot/grub/grub.cfg &>/dev/null
           break;;
   esac
 }
