@@ -173,6 +173,21 @@ putgitrepo() { # Downlods a gitrepo $1 and places the files in $2 only overwriti
 installdotfiles() {
   dialog --infobox "Installing my dotfiles..." 4 60
   cd "$1"
+
+  case $bar in
+      1 ) sed -i '/polybar/d' $1/config.stow/.config/i3/config
+          sed -i 's/^#1//g' $1/config.stow/.config/i3/config
+          break;;
+      2 ) break;;
+  esac
+
+  case $launcher in
+    1 ) sed -i '/rofi/d' $1/config.stow/.config/i3/config
+        sed -i 's/^#2//g' $1/config.stow/.config/i3/config
+        break;;
+    2 ) break;;
+  esac
+
   bash "$2"
 }
 
@@ -283,7 +298,7 @@ putgitrepo "https://github.com/VundleVim/Vundle.vim.git" "home/$name/.vim/bundle
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
 [[ -f /usr/bin/pulseaudio ]] && resetpulse
 
-serviceinit NetworkManager
+serviceinit NetworkManager lightdm
 
 systembeepoff
 
