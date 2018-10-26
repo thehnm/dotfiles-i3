@@ -11,7 +11,7 @@ welcomemsg() { \
 }
 
 preinstallmsg() { \
-  dialog --title "Start installing the script!" --yes-label "Let's go!" --no-label "No, nevermind!" --yesno "The rest of the installation will now be totally automated, so you can sit back and relax.\\n\\nIt will take some time, but when done, you can relax even more with your complete system.\\n\\nNow just press <Let's go!> and the system will begin installation!" 13 60 || { clear; exit; }
+  dialog --title "Start installing the script!" --yes-label "Let's go!" --no-label "No, nevermind!" --yesno "It will take some time, but when done, you can relax even more with your complete system.\\n\\nNow just press <Let's go!> and the system will begin installation!" 13 60 || { clear; exit; }
 }
 
 setlocale() {
@@ -38,7 +38,7 @@ settimezone() {
   done < <( ls -1 /usr/share/zoneinfo/$continent )
   choice2=$(dialog --title "Set timezone" --menu "Chose one" 24 80 17 "${W[@]}" 3>&2 2>&1 1>&3)
   clear
-  if [ $? -eq 0 ]; then # Exit with OK
+  if [ "$?" = "0" ]; then # Exit with OK
     city=${W[2*$choice2-1]}
     echo "/usr/share/zoneinfo/$continent/$city"
   fi
@@ -65,49 +65,46 @@ getuserandpass() {
   done ;}
 
 usercheck() { \
-	! (id -u $name &>/dev/null) ||
-	dialog --colors --title "WARNING!" --yes-label "CONTINUE" --no-label "No wait..." --yesno "The user \`$name\` already exists on this system. This script can install for a user already existing, but it will \\Zboverwrite\\Zn any conflicting settings/dotfiles on the user account.\\n\\nThis script will \\Zbnot\\Zn overwrite your user files, documents, videos, etc., so don't worry about that, but only click <CONTINUE> if you don't mind your settings being overwritten.\\n\\nNote also that this script will change $name's password to the one you just gave." 14 70
-	}
+  ! (id -u $name &>/dev/null) ||
+  dialog --colors --title "WARNING!" --yes-label "CONTINUE" --no-label "No wait..." --yesno "The user \`$name\` already exists on this system. This script can install for a user already existing, but it will \\Zboverwrite\\Zn any conflicting settings/dotfiles on the user account.\\n\\nThis script will \\Zbnot\\Zn overwrite your user files, documents, videos, etc., so don't worry about that, but only click <CONTINUE> if you don't mind your settings being overwritten.\\n\\nNote also that this script will change $name's password to the one you just gave." 14 70
+}
 
 adduserandpass() { \
-	# Adds user `$name` with password $pass1.
-	dialog --infobox "Adding user \"$name\"..." 4 50
-	useradd -m -g wheel -s /bin/bash "$name" &>/dev/null ||
-	usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":wheel /home/"$name"
-	echo "$name:$pass1" | chpasswd
-        unset pass1 pass2 ;}
+  # Adds user `$name` with password $pass1.
+  dialog --infobox "Adding user \"$name\"..." 4 50
+  useradd -m -g wheel -s /bin/bash "$name" &>/dev/null ||
+  usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":wheel /home/"$name"
+  echo "$name:$pass1" | chpasswd
+  unset pass1 pass2 ;}
 
 refreshkeys() { \
-	dialog --infobox "Refreshing Arch Keyring..." 4 40
-	pacman --noconfirm -Sy archlinux-keyring &>/dev/null
+  dialog --infobox "Refreshing Arch Keyring..." 4 40
+  pacman --noconfirm -Sy archlinux-keyring &>/dev/null
 }
 
 installyay() {
-        dialog --infobox "Installing \"$1\", an AUR helper..." 8 50
-        pacman --noconfirm -S git &>/dev/null
-        sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
-        cd /home/$name/yay
-        sudo -u $name makepkg --noconfirm -si
+  dialog --infobox "Installing yay, an AUR helper..." 8 50
+  pacman --noconfirm -S git &>/dev/null
+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
+  cd /home/$name/yay
+  sudo -u $name makepkg --noconfirm -si &>/dev/null
 }
 
 pacmaninstall() {
-        dialog --title "Installation" --infobox "Installing \`$1\` ($n of $total). $1 $2." 5 70
-        pacman --noconfirm --needed -S "$1" &>/dev/null
+  dialog --title "Installation" --infobox "Installing \`$1\` ($n of $total)." 5 70
+  pacman --noconfirm --needed -S "$1" &>/dev/null
 }
 
 aurinstall() {
-        dialog --title "LARBS Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR. $1 $2." 5 70
-        sudo -u $name yay --noconfirm -S "$1"
+  dialog --title "Installation" --infobox "Installing \`$1\` ($n of $total) from the AUR." 5 70
+  sudo -u $name yay --noconfirm -S "$1" &>/dev/null
 }
 
 choosebar() {
   bar=$(dialog --title "Select bar" --radiolist "Do you want i3bar or polybar?" 10 80 17 1 i3bar on 2 polybar off 3>&2 2>&1 1>&3)
-  while true;
+  while [ "$?" = "1" ];
   do
     bar=$(dialog --title "Select bar" --radiolist "You must choose one!" 10 80 17 1 i3bar on 2 polybar off 3>&2 2>&1 1>&3)
-    if [ "$?" -eq "0" ]; then
-      break
-    fi
   done
   case $bar in
       1 ) sed -i '/A,polybar/d' $1
@@ -119,20 +116,21 @@ choosebar() {
 }
 
 chooselauncher() {
-        launcher=$(dialog --title "Select program launcher" --radiolist "Do you want dmenu or rofi?" 10 80 17 1 dmenu on 2 rofi off 3>&2 2>&1 1>&3)
-          while true;
-          do
-            launcher=$(dialog --title "Select program launcher" --radiolist "You must choose one!" 10 80 17 1 dmenu on 2 rofi off 3>&2 2>&1 1>&3)
-            if [ "$?" -eq "0" ]; then
-              break
-            fi
-          done
-          case $launcher in
-              1 ) sed -i '/,rofi/d' $1
-                        break;;
-              2 ) sed -i '/,dmenu/d' $1
-                  break;;
-          esac
+  launcher=$(dialog --title "Select program launcher" --radiolist "Do you want dmenu or rofi?" 10 80 17 1 dmenu on 2 rofi off 3>&2 2>&1 1>&3)
+  while [ "$?" = "1" ];
+  do
+    launcher=$(dialog --title "Select program launcher" --radiolist "You must choose one!" 10 80 17 1 dmenu on 2 rofi off 3>&2 2>&1 1>&3)
+  done
+  case $launcher in
+    1 ) sed -i '/,rofi/d' $1
+        break;;
+    2 ) sed -i '/,dmenu/d' $1
+        break;;
+  esac
+}
+
+editpackages() {
+  edit=$(dialog --yesno "Do you want to edit the packages file?" 10 80 3>&2 2>&1 1>&3)
 }
 
 installloop() {
@@ -151,24 +149,30 @@ installloop() {
 }
 
 putgitrepo() { # Downlods a gitrepo $1 and places the files in $2 only overwriting conflicts
-	dialog --infobox "Downloading and installing config files..." 4 60
-	dir=$(mktemp -d)
-	chown -R "$name":wheel "$dir"
-	sudo -u "$name" git clone "$1" "$dir"/"$3" &>/dev/null &&
-	sudo -u "$name" mkdir -p "$2" &&
-	sudo -u "$name" cp -rT "$dir"/"$3" "$2"
+  dialog --infobox "Downloading and installing config files..." 4 60
+  dir=$(mktemp -d)
+  chown -R "$name":wheel "$dir"
+  sudo -u "$name" git clone "$1" "$dir"/"$3" &>/dev/null &&
+  sudo -u "$name" mkdir -p "$2" &&
+  sudo -u "$name" cp -rT "$dir"/"$3" "$2"
+}
+
+installdotfiles() {
+  dialog --infobox "Installing my dotfiles..." 4 60
+  cd /home/$name/dotfiles-i3/
+  bash "install_dotfiles.sh"
 }
 
 serviceinit() {
-        for service in "$@"; do
-	dialog --infobox "Enabling \"$service\"..." 4 40
-	systemctl enable "$service"
-	systemctl start "$service"
-        done ;}
+  for service in "$@"; do
+    dialog --infobox "Enabling \"$service\"..." 4 40
+    systemctl enable "$service"
+    systemctl start "$service"
+  done ;}
 
 setxinitrc() {
-	dialog --infobox "Setting xinitrc..." 4 40
-        echo exec i3 >> $HOME/.xinitrc
+  dialog --infobox "Setting xinitrc..." 4 40
+  echo exec i3 >> $HOME/.xinitrc
 }
 
 newperms() { # Set special sudoers settings for install (or after).
@@ -181,9 +185,10 @@ systembeepoff() {
   rmmod pcspkr
   echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf ;}
 
-resetpulse() { dialog --infobox "Reseting Pulseaudio..." 4 50
-	killall pulseaudio
-        sudo -n "$name" pulseaudio --start ;}
+resetpulse() {
+  dialog --infobox "Reseting Pulseaudio..." 4 50
+  killall pulseaudio
+  sudo -n "$name" pulseaudio --start ;}
 
 setuphost() {
   host=$(dialog --inputbox "Enter the name for your host" 10 60 3>&1 1>&2 2>&3 3>&1) || exit
@@ -216,12 +221,7 @@ installgrub() {
 }
 
 finish() {
-  answer=$(dialog --title "Installation finished" --yesno "The installation is done. Do you want to reboot?" 5 45 3>&1 1>&2 2>&3 3>&1 || exit)
-  case $? in
-    0 ) reboot
-        break;;
-    1 ) break;;
-  esac
+  dialog --title "Welcome" --msgbox "The installation is done! You can reboot your system now." 10 80
 }
 
 ##########################################################################################################################
@@ -233,6 +233,10 @@ initialcheck
 
 # Welcome user.
 welcomemsg
+
+setlocale
+
+settimezone
 
 # Get and verify username and password.
 getuserandpass
@@ -258,6 +262,8 @@ installloop
 # Install the dotfiles in the user's home directory
 putgitrepo "$dotfilesrepo" "/home/$name" "dotfiles-i3"
 
+installdotfiles
+
 putgitrepo "https://github.com/VundleVim/Vundle.vim.git" "home/$name/.vim/bundle/" "Vundle.vim"
 
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
@@ -276,4 +282,4 @@ sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
 installgrub
 
-finish
+finish || { clear; exit; }
