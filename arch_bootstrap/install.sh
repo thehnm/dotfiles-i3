@@ -172,8 +172,8 @@ putgitrepo() { # Downlods a gitrepo $1 and places the files in $2 only overwriti
 
 installdotfiles() {
   dialog --infobox "Installing my dotfiles..." 4 60
-  cd /home/$name/dotfiles-i3/
-  bash "install_dotfiles.sh"
+  cd "$1"
+  bash "$2"
 }
 
 serviceinit() {
@@ -276,7 +276,7 @@ installloop
 # Install the dotfiles in the user's home directory
 putgitrepo "$dotfilesrepo" "/home/$name" "dotfiles-i3"
 
-installdotfiles
+installdotfiles "/home/$name/dotfiles-i3" "install_dotfiles.sh"
 
 putgitrepo "https://github.com/VundleVim/Vundle.vim.git" "home/$name/.vim/bundle/" "Vundle.vim"
 
