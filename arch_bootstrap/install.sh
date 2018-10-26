@@ -93,8 +93,8 @@ refreshkeys() { \
 installyay() {
   dialog --infobox "Installing yay, an AUR helper..." 8 50
   pacman --noconfirm -S git &>/dev/null
-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &>/dev/null
-  cd /home/$name/yay
+  sudo -u $name git clone https://aur.archlinux.org/yay.git /tmp/yay &>/dev/null
+  cd /tmp/yay
   sudo -u $name makepkg --noconfirm -si &>/dev/null
 }
 
