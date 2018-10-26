@@ -22,6 +22,7 @@ setlocale() {
     1 ) break;;
   esac
 
+  dialog --infobox "Setting locale..." 4 40
   locale-gen &>/dev/null
   echo "LANG=$1" >> /etc/locale.conf
   echo "LANGUAGE=$1" >> /etc/locale.conf
@@ -49,6 +50,7 @@ settimezone() {
   fi
 
   # Set localtime
+  dialog --infobox "Setting timezone..." 4 40
   ln -sf /usr/share/zoneinfo/$continent/$city /etc/localtime
   hwclock --systohc
 }
