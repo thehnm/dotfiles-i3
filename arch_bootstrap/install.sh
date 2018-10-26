@@ -250,11 +250,6 @@ installgrub() {
   esac
 }
 
-setx11keymap() {
-  dialog --infobox "Setting xorg keymap..." 4 50
-  localectl --no-convert set-x11-keymap $1 $2 $3 $4
-}
-
 finish() {
   dialog --title "Welcome" --msgbox "The installation is done! You can reboot your system now." 10 80
 }
@@ -317,6 +312,4 @@ sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
 installgrub
 
-setx11keymap "de" "" "nodeadkeys" ""
-
-finish || { clear; exit; }
+finish && clear
