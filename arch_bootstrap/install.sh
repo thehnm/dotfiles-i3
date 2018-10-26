@@ -1,6 +1,7 @@
 #!/bin/bash
 
 [ -z ${dotfilesrepo+x} ] && dotfilesrepo="https://github.com/thehnm/dotfiles-i3.git"
+[ -z ${vundlerepo+x} ] && vundlerepo="https://github.com/VundleVim/Vundle.vim.git"
 
 ###############################################################################
 
@@ -293,7 +294,7 @@ putgitrepo "$dotfilesrepo" "/home/$name" "dotfiles-i3"
 
 installdotfiles "/home/$name/dotfiles-i3" "install_dotfiles.sh"
 
-putgitrepo "https://github.com/VundleVim/Vundle.vim.git" "home/$name/.vim/bundle/" "Vundle.vim"
+putgitrepo "$vundlerepo" "home/$name/.vim/bundle/" "Vundle.vim"
 
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
 [[ -f /usr/bin/pulseaudio ]] && resetpulse
