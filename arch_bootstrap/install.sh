@@ -215,10 +215,18 @@ installgrub() {
   esac
 }
 
+finish() {
+  answer=$(dialog --title "Installation finished" --yesno "The installation is done. Do you want to reboot?" 5 45 3>&1 1>&2 2>&3 3>&1 || exit)
+  case $? in
+    0 ) reboot
+        break;;
+    1 ) break;;
+  esac
+}
 
 ##########################################################################################################################
 
-mv arch_bootstrap.sh /tmp/arch_bootstrap.sh
+mv install.sh /tmp/install.sh
 
 # Check if user is root on Arch distro. Install dialog.
 initialcheck
@@ -267,3 +275,5 @@ sed -i "s/^#Color/Color/g" /etc/pacman.conf
 sed -i 's/^ autospawn/; autospawn/g' /etc/pulse/client.conf
 
 installgrub
+
+finish
