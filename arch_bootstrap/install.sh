@@ -21,6 +21,12 @@ setlocale() {
         break;;
     1 ) break;;
   esac
+
+  locale-gen
+  echo "LANG=$1" >> /etc/locale.conf
+  echo "LANGUAGE=$1" >> /etc/locale.conf
+  echo "LC_ALL=$2" >> /etc/locale.conf
+  echo "KEYMAP=$3" >> /etc/vconsole.conf
 }
 
 settimezone() {
@@ -234,7 +240,7 @@ initialcheck
 # Welcome user.
 welcomemsg
 
-setlocale
+setlocale "en_US.UTF-8" "de_DE.UTF-8" "de-latin1"
 
 settimezone
 
