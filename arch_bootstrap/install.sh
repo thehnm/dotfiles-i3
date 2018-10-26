@@ -294,7 +294,7 @@ putgitrepo "$dotfilesrepo" "/home/$name" "dotfiles-i3"
 
 installdotfiles "/home/$name/dotfiles-i3" "install_dotfiles.sh"
 
-putgitrepo "$vundlerepo" "home/$name/.vim/bundle/" "Vundle.vim"
+putgitrepo "$vundlerepo" "/home/$name/.vim/bundle/" "Vundle.vim"
 
 # Pulseaudio, if/when initially installed, often needs a restart to work immediately.
 [[ -f /usr/bin/pulseaudio ]] && resetpulse
