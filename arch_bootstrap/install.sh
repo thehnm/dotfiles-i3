@@ -167,7 +167,7 @@ putgitrepo() { # Downlods a gitrepo $1 and places the files in $2 only overwriti
   chown -R "$name":wheel "$dir"
   sudo -u "$name" git clone "$1" "$dir"/"$3" &>/dev/null &&
   sudo -u "$name" mkdir -p "$2" &&
-  sudo -u "$name" cp -rT "$dir"/"$3" "$2"
+  sudo -u "$name" cp -rT "$dir"/"$3" "$2"/"$3"
 }
 
 installdotfiles() {
