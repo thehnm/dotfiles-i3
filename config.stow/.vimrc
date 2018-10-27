@@ -108,10 +108,15 @@ map <leader>q : bp<CR>
 map <leader>w : bn<CR>
 
 " Switch windows quicker
-map <silent> <C-h> :wincmd h<CR>
-map <silent> <C-j> :wincmd j<CR>
-map <silent> <C-k> :wincmd k<CR>
-map <silent> <C-l> :wincmd l<CR>
+"map <silent> <C-h> :wincmd h<CR>
+"map <silent> <C-j> :wincmd j<CR>
+"map <silent> <C-k> :wincmd k<CR>
+"map <silent> <C-l> :wincmd l<CR>
+
+noremap ö l
+noremap l k
+noremap k j
+noremap j h
 
 " Toggle between .h and .cpp with F4
 function! ToggleBetweenHeaderAndSourceFile()
