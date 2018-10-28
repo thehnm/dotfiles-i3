@@ -39,6 +39,7 @@
 ,conky
 ,cmake
 ,make
+,scrot
 A,i3lock-color
 A,polybar
 A,lightdm-webkit-theme-aether
