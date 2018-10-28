@@ -1,116 +1,67 @@
-# My personal installation steps for my i3 configuration
+# thehnm's Arch Linux rice installation script
 
-## Manjaro installation command 
+I created this script to replicate my current Arch Linux setup every time I move to another machine or when I have to reinstall my system. To avoid repeating the same tedious steps when
+installing Arch Linux I wrote this script that takes over most of the installation.
+
+The majority of this script was written by [Luke Smith](https://github.com/LukeSmithxyz) in his Arch Linux installation script [LARBS](https://github.com/LukeSmithxyz/LARBS). All the
+credits go to him. I only added some features not present in LARBS like hostname configuration or locale configuration.
+
+## Installation
+### Prerequisites
+The following steps are meant for a system where Arch Linux is about to get installed and no other steps where taken.
+
+#### First, you have to partition your system
+Obviously, this is the first step to do before installing anything.
+I recommend this partition scheme:
+
+| Mount Point | Partition     | File System   | Size |
+| ------------|:-------------:| -------------:| -------:
+| /boot       | /dev/sda1     | ext4          | 200-300 MB
+| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+| /           | /dev/sda3     | ext4          | the rest
+
+If youre systems runs on UEFI then this small change is necessary:
+
+| Mount Point | Partition     | File System   | Size |
+| ------------|:-------------:| -------------:| -------:
+| /boot/efi   | /dev/sda1     | FAT32         | 200-300 MB
+| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+| /           | /dev/sda3     | ext4          | the rest
+
+Some people recommend having a separate /home partition that stores all your user specific configurations. I never had the need for one but you always can create a separate /home partition without changing much of the installation process.
+
+#### Install the base Arch Linux system
+Before you can do that you have to mount the boot and root partitions, like here:
 ```
-sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags
-sudo pacman -S texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl
-sudo pacman -S dialog wpa_actiond yay
-yay -S i3lock-color 
+mount /dev/sda3 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
 ```
 
-## Arch Linux installation command
-
-1. `pacstrap` command
+Then you can issue this command to install the base Arch Linux system:
 ```
 pacstrap /mnt base base-devel vim
 ```
 
-2. Install this after entering `arch-chroot /mnt`
+This also installs an editor called vim. You can omit the last package or replace it with anything else.
+
+#### Generate fstab file
+Issue this command to create a fstab file. This file indicates the partitions that will be automatically mounted on startup.
 ```
-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings
-pacman -S termite network-manager-applet xorg-server xorg-xinit
+genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-3. Start `i3` whenever you login
+#### Install my dotfile
+When the base system is installed then you can change into your installation:
 ```
-echo exec i3 >> ~/.xinitrc
-```
-
-4. Enable `networkmanager` and `lightdm`
-```
-systemctl enable NetworkManager
-systemctl enable lightdm.service
+arch-chroot /mnt
 ```
 
-5. Install necessary software for this rice after rebooting
+Then download my installation script with this command, make it executable and run it:
 ```
-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen
-sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
-sudo pacman -S lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter
-```
-
-6. Install `zsh` plugins
-```
-sudo pacman -S zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting 
+curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/install.sh >> install.sh
+chmod ugo+x install.sh
+./install.sh
 ```
 
-7. Install `texlive` packages
-```
-sudo pacman -S texlive-most 
-```
-
-8. Install `yay` AUR helper
-```
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-cd /tmp/yay
-makepkg -si
-```
-
-9. Install packages from AUR
-```
-yay -S i3lock-color polybar lightdm-webkit-theme-aether
-```
-
-10. Fix `polybar` audio control
-```
-cd /etc/pulse
-sudo vim client.conf
-```
-Comment the line `autospawn = no`.
-
-## Download repo
-```
-git clone https://github.com/thehnm/dotfiles-i3.git ~/dotfiles-i3
-git clone https://thehnm@github.com/thehnm/dotfiles-i3.git ~/dotfiles-i3 // for personal use
-```
-
-## Install dotfile
-```
-mkdir -p ~/.config/i3
-mkdir -p ~/.config/dunst
-mkdir -p ~/.config/gtk-3.0
-mkdir -p ~/.config/polybar
-mkdir -p ~/.config/termite
-mkdir -p ~/.conky/
-mkdir -p ~/.local/share/fonts
-mkdir -p ~/Pictures
-mkdir -p ~/Documents
-mkdir -p ~/Downloads
-
-cd ~/dotfiles-i3/
-stow config.stow
-stow wallpaper.stow
-stow fonts.stow
-```
-
-## Install `vundle` vim plugin manager
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-
-### Install `vim` plugins
-```
-vim +PluginInstall +qall
-```
-
-## Set Xresources
-```
-xrdb ~/.Xresources
-```
-
-## Set `gnome-keyring` as `git` credential helper
-```
-cd /usr/share/git/credential/gnome-keyring
-sudo make
-git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
-```
+That's it. This script installs my i3 setup that I currently use on my systems and handles other settings you otherwise would have to do.
