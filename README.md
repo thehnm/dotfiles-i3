@@ -1,5 +1,9 @@
 # thehnm's Arch Linux rice installation script
 
+![base](pictures/base.png)
+
+![base](pictures/neofetch.png)
+
 I created this script to replicate my current Arch Linux setup every time I move to another machine or when I have to reinstall my system. To avoid repeating the same tedious steps when
 installing Arch Linux I wrote this script that takes over most of the installation.
 
@@ -65,3 +69,7 @@ chmod ugo+x install.sh
 ```
 
 That's it. This script installs my i3 setup that I currently use on my systems and handles other settings you otherwise would have to do.
+
+More screenshots from my setup:
+![termite](pictures/termite.png)
+![termite](pictures/termiteandfirefox.png)
