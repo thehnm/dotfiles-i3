@@ -264,6 +264,7 @@ initialcheck
 # Welcome user.
 welcomemsg
 
+# Set locale.conf: First parameter sets LANG and LANGUAGE, second one sets LC_ALL and third one sets KEYMAP
 setlocale "en_US.UTF-8" "de_DE.UTF-8" "de-latin1"
 
 settimezone
