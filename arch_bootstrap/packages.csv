@@ -30,7 +30,6 @@
 ,lxappearance
 ,mupdf
 ,libmpdclient
-,lightdm-webkit2-greeter
 ,zsh-autosuggestions
 ,zsh-completions
 ,zsh-history-substring-search
@@ -42,4 +41,3 @@
 ,scrot
 A,i3lock-color
 A,polybar
-A,lightdm-webkit-theme-aether
