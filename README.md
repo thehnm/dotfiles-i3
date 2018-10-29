@@ -73,3 +73,6 @@ That's it. This script installs my i3 setup that I currently use on my systems a
 More screenshots from my setup:
 ![termite](docs/termite.png)
 ![termite](docs/termiteandfirefox.png)
+
+## TODO
+* Support more Window Managers / Desktop Environments
