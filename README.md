@@ -61,9 +61,16 @@ When the base system is installed then you can change into your installation:
 arch-chroot /mnt
 ```
 
-Then download my installation script with this command, make it executable and run it:
+Then download my installation script with this command:
 ```
 curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/install.sh >> install.sh
+```
+
+**Attention** Currently, the locale.conf file will be set with english and german locales. To customize your locales you have to edit my script. Then go to line 268 and
+change the parameter to your likings. In the future this process will hopefully be obsolete.
+
+Make it executable and run it.
+```
 chmod ugo+x install.sh
 ./install.sh
 ```
