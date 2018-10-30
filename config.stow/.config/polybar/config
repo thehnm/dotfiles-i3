@@ -178,4 +178,4 @@ ramp-capacity-4 = 
 type = custom/script
 exec = ~/.config/polybar/spotify.sh %artist% - %title%
 tail = true
-interval = 2
+interval = 1
