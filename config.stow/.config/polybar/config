@@ -143,14 +143,6 @@ headphone-soundcard = default
 format-volume = <ramp-volume> <label-volume>
 format-muted =  0%
 
-master-mixer = Master
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-
-headphone-id = 14
-
-mapped = true
-
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
