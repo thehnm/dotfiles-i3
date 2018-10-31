@@ -9,6 +9,10 @@ do
   fi
 done
 
+mkdir -p $HOME/.themes
+mkdir -p $HOME/.icons
+
 stow -R config.stow
 stow -R fonts.stow
 stow -R wallpaper.stow
+stow -R gtk-themes.stow
