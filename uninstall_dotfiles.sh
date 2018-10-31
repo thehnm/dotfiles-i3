@@ -12,3 +12,15 @@ do
     rm -r $HOME/.config/$item
   fi
 done
+
+if [ "$(ls -A $HOME/.themes)" ]; then
+    echo $HOME/.themes is not empty.
+else
+    rm -r $HOME/.themes
+fi
+
+if [ "$(ls -A $HOME/.icons)" ]; then
+    echo $HOME/.themes is not empty.
+else
+    rm -r $HOME/.icons
+fi
