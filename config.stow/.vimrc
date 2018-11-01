@@ -32,8 +32,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ntpeters/vim-better-whitespace'
 
-Plugin 'christoomey/vim-tmux-navigator'
-
 call vundle#end()
 
 filetype plugin indent on
