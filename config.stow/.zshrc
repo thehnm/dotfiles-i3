@@ -78,6 +78,8 @@ alias dvpn='nmcli con down'
 alias shut='shutdown -h now'
 alias yay='yay --color=auto'
 alias pacman='pacman --color=auto'
+alias fucking='sudo'
+alias motherfucking='sudo'
 
 # Theming section
 autoload -U compinit colors zcalc
