@@ -6,8 +6,7 @@
 ,firefox
 ,networkmanager
 ,nm-connection-editor
-,lightdm
-,lightdm-gtk-greeter-settings
+,lightdm-webkit2-greeter
 ,termite
 ,network-manager-applet
 ,xorg-server
@@ -41,3 +40,4 @@
 ,scrot
 A,i3lock-color
 A,polybar
+A,lightdm-webkit-theme-aether
