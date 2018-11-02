@@ -34,14 +34,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 
-filetype plugin indent on
-
-
-" --- General settings ---
-set backspace=indent,eol,start
-set incsearch
-hi clear SignColumn
-
 
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with <leader>t
@@ -93,28 +85,25 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16_default'
 let g:airline#extensions#ale#enabled = 1
 
+
 " ----- ryanoasis/vim-devicons -----
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 
-" ----- Key remapping -----
+
+" ----- Key mappints -----
 
 " Switch buffers quickly
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
 
 " Switch windows quicker
-"map <silent> <C-h> :wincmd h<CR>
-"map <silent> <C-j> :wincmd j<CR>
-"map <silent> <C-k> :wincmd k<CR>
-"map <silent> <C-l> :wincmd l<CR>
-
-noremap ö l
-noremap l k
-noremap k j
-noremap j h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Toggle between .h and .cpp with F4
 function! ToggleBetweenHeaderAndSourceFile()
@@ -149,12 +138,6 @@ endfunction
 
 map <silent> <F12> :call ToggleEncoding()<CR>
 
-" Reformat comment on current line
-map <silent> hc ==I  <ESC>:.s/\/\/ */\/\//<CR>:nohlsearch<CR>j
-
-" Make sure == also indents #ifdef etc
-noremap <silent> == IX<ESC>==:.s/X//<CR>:nohlsearch<CR>
-
 " Next / previous error with Tab / Shift+Tab
 map <silent> <Tab> :cn<CR>
 map <silent> <S+Tab> :cp<CR>
@@ -188,6 +171,10 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 :nmap ,v :sp $HOME/.vimrc
 
 " -----------------------------------------------------------------------------
+
+set backspace=indent,eol,start
+set incsearch
+hi clear SignColumn
 
 " Enable syntax highlighting
 syntax on
@@ -233,14 +220,13 @@ set updatetime=500
 set nostartofline
 
 " Do not break long lines
-set nowrap
-set listchars=eol:$,extends:>
+set wrap
 
 " After this many msecs do not imap
 set timeoutlen=500
 
 " Always show the name of the file being edited
-" set ls=2
+set ls=2
 
 " Show the mode (insert,replace,etc.)
 set showmode
@@ -275,5 +261,3 @@ let g:Tex_UseMakefile = 0
 
 " Syntax Highlighting for MhonArc Config files
 au BufNewFile,BufRead *.mrc so $HOME/.vim/mhonarc.vim
-
-set guifont=DejaVuSansMono\ Nerd\ Font\ 11
