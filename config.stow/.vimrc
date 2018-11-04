@@ -93,7 +93,10 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 
 
-" ----- Key mappints -----
+" ----- Key mappings -----
+
+" Toggle highlight search
+nnoremap <F3> :set hlsearch!<CR>
 
 " Switch buffers quickly
 map <leader>q : bp<CR>
@@ -191,8 +194,8 @@ set number
 " Show ruler
 set ruler
 
-" Highlight all search matches
-" set hlsearch
+" Highlight all search matches and toggle it with F3
+set hlsearch!
 
 " Automatic C-style indenting
 set autoindent
