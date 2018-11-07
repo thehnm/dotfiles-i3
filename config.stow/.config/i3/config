@@ -195,8 +195,8 @@ client.urgent           $color1             $color1            $border          
 
 # ----- i3gaps settings -----
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+gaps inner 10
+gaps outer 10
 smart_borders on
 
 # ----- Start on login -----
