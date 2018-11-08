@@ -48,7 +48,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
 font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 font-4 = Source Han Sans JP:size=12;3
 
-modules-left = i3 alsa eth wlan vpn battery time date
+modules-left = i3 pulseaudio eth wlan vpn battery time date
 modules-center =
 modules-right = spotify
 
@@ -143,6 +143,22 @@ headphone-soundcard = default
 
 format-volume = <ramp-volume> <label-volume>
 format-muted =  0%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 1
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =  muted
 
 ramp-volume-0 = 
 ramp-volume-1 = 
