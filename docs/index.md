@@ -1,12 +1,21 @@
 # thehnm's i3 dotfiles
 
-![base](docs/base.png)
+Feel free to copy my setup. But you need this software to work with it:
+* `i3-gaps` the actual window manager
+* `stow` to symlink the configs
+* `compton` for allowing transparency
+* `polybar` the bar itself
+* `scrot` for taking screenshots
+* `dunst` for sending notifications
+* `nitrogen` to set the wallpapers
+* `lxappearance` to set the gtk theme
 
-![neofetch](docs/neofetch.png)
+Some pictures of my current setup:
 
-![termite](docs/termite.png)
+![base](base.png)
 
-![termite](docs/termiteandfirefox.png)
+![neofetch](neofetch.png)
 
-## TODO
-* Support more Window Managers / Desktop Environments
+![termite](termite.png)
+
+![termite](termiteandfirefox.png)
