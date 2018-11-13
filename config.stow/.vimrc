@@ -34,23 +34,19 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 
-
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with <leader>t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-
 
 " ----- w0rp/ale -----
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_linters = {'cpp': ['g++']}
 
-
 " ----- vim-latex/vim-latex -----
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'mupdf'
-
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
@@ -62,11 +58,9 @@ let g:easytags_dynamic_files = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
 
-
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with <leader>b
 nmap <silent> <leader>b :TagbarToggle<CR>
-
 
 " ----- Raimondi/delimitMate settings -----
 let delimitMate_expand_cr = 1
@@ -78,7 +72,6 @@ augroup mydelimitMate
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
 
-
 " ----- vim-airline/vim-airline -----
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
@@ -86,15 +79,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16_default'
 let g:airline#extensions#ale#enabled = 1
 
-
 " ----- ryanoasis/vim-devicons -----
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_nerdtree = 1
 
-
-" ----- Key mappings -----
+" -----------------------------------------------------------------------------
+" Key mappings
 
 " Toggle highlight search
 nnoremap <F3> :set hlsearch!<CR>
@@ -128,7 +120,6 @@ function! ToggleBetweenHeaderAndSourceFile()
     execute ":e " . bufname_new
   endif
 endfunction
-
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
 
 " Toggle encoding with F12
@@ -139,22 +130,12 @@ function! ToggleEncoding()
     set encoding=latin1
   endif
 endfunction
-
 map <silent> <F12> :call ToggleEncoding()<CR>
 
 " Next / previous error with Tab / Shift+Tab
 map <silent> <Tab> :cn<CR>
 map <silent> <S+Tab> :cp<CR>
 map <silent> <BS><Tab> :cp<CR>
-
-" Umlaut mappings for US keyboard
-map "a ä
-map "o ö
-map "u ü
-map "s ß
-map "A Ä
-map "O Ö
-map "U Ü
 
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
@@ -175,13 +156,30 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 :nmap ,v :sp $HOME/.vimrc
 
 " -----------------------------------------------------------------------------
+" Tab specific option
+
+" When inserting TABs replace them with the appropriate number of spaces
+set expandtab
+
+" A tab is 8 spaces
+set tabstop=8
+
+" Insert 4 spaces when tab is pressed
+set softtabstop=4
+
+" An indent is 4 spaces
+set shiftwidth=4
+
+" Round indent to nearest shiftwidth multiple
+set shiftround
+
+" -----------------------------------------------------------------------------
 
 set backspace=indent,eol,start
-set incsearch
-hi clear SignColumn
 
-" Enable syntax highlighting
-syntax on
+set incsearch
+
+hi clear SignColumn
 
 " Always show status bar
 set laststatus=2
@@ -200,9 +198,6 @@ set hlsearch!
 
 " Automatic C-style indenting
 set autoindent
-
-" When inserting TABs replace them with the appropriate number of spaces
-set expandtab
 
 " But TABs are needed in Makefiles
 au BufNewFile,BufReadPost Makefile se noexpandtab
@@ -252,7 +247,6 @@ set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: This enables automatic indentation as you type (by 2 spaces)
 filetype indent on
-set sw=4
 
 " no placeholders please
 let g:Imap_UsePlaceHolders = 0
