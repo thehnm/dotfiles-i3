@@ -43,6 +43,7 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " ----- w0rp/ale -----
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
+let g:ale_linters = {'cpp': ['g++']}
 
 
 " ----- vim-latex/vim-latex -----
