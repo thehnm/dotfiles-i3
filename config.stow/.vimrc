@@ -251,7 +251,7 @@ set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: This enables automatic indentation as you type (by 2 spaces)
 filetype indent on
-set sw=2
+set sw=4
 
 " no placeholders please
 let g:Imap_UsePlaceHolders = 0
