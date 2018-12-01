@@ -1,10 +1,10 @@
 # thehnm's i3 dotfiles
 
 Feel free to copy my setup. But you need this software to work with it:
-* `i3-gaps` the actual window manager
+* `i3-gaps` the window manager
 * `stow` to symlink the configs
-* `compton` for allowing transparency
-* `polybar` the bar itself
+* `compton` the compositor for X11
+* `polybar` for showing status information
 * `scrot` for taking screenshots
 * `dunst` for sending notifications
 * `nitrogen` to set the wallpapers
