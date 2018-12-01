@@ -16,6 +16,8 @@ Some pictures of my current setup:
 
 ![neofetch](docs/neofetch.png)
 
-![termite](docs/termite.png)
+![termite1](docs/termite1.png)
+
+![termite2](docs/termite2.png)
 
 ![termite](docs/termiteandfirefox.png)
