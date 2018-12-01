@@ -48,7 +48,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
 font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 font-4 = Source Han Sans JP:size=12;3
 
-modules-left = i3 pulseaudio eth wlan vpn battery time date spotify
+modules-left = i3 pulseaudio eth wlan vpn battery time date spotify cmus
 modules-center =
 modules-right =
 
@@ -195,3 +195,14 @@ type = custom/script
 exec = ~/.config/polybar/spotify.sh  %artist% - %title%
 tail = true
 interval = 1
+click-left = playerctl previous
+click-right = playerctl next
+click-middle = playerctl play-pause
+
+[module/cmus]
+type = custom/script
+exec = ~/.config/polybar/cmus.sh
+interval = 1
+click-left = cmus-remote -n && bash $HOME/.config/polybar/cmus_notify.sh
+click-right = cmus-remote -r && bash $HOME/.config/polybar/cmus_notify.sh
+click-middle = cmus-remote -u

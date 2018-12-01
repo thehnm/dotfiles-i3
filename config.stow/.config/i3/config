@@ -210,8 +210,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --
 
 # ----- cmus control -----
 bindsym Shift+Mod1+p exec --no-startup-id cmus-remote -u
-bindsym Shift+Mod1+n exec --no-startup-id cmus-remote -n
-bindsym Shift+Mod1+m exec --no-startup-id cmus-remote -r
+bindsym Shift+Mod1+n exec --no-startup-id cmus-remote -n && exec $HOME/.config/polybar/cmus_notify.sh
+bindsym Shift+Mod1+m exec --no-startup-id cmus-remote -r && exec $HOME/.config/polybar/cmus_notify.sh
 
 # ----- Audioplayer control -----
 bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
