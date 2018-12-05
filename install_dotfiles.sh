@@ -1,16 +1,13 @@
 #!/bin/bash
-confarray=(conky dunst gtk-3.0 i3 polybar termite)
-for item in ${confarray[*]}
-do
-  if [ -d "$HOME/.config/$item" ]; then
-    echo $HOME/.config/$item exists.
-  else
-    mkdir -p $HOME/.config/$item
-  fi
-done
 
+mkdir -p $HOME/.config/dunst
+mkdir -p $HOME/.config/gtk-3.0
+mkdir -p $HOME/.config/i3
+mkdir -p $HOME/.config/polybar
+mkdir -p $HOME/.config/termite
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.icons
+mkdir -p $HOME/.local/share/fonts
 
 stow -R config.stow
 stow -R fonts.stow
