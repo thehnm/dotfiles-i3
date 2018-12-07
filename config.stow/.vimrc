@@ -47,6 +47,7 @@ let g:ale_linters = {'cpp': ['g++']}
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'zathura'
+let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
