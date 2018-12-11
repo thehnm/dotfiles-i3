@@ -109,16 +109,28 @@ label-urgent-padding = 1
 ;ws-icon-9 = 10;𨒒
 
 ; Chinese Numerals
-ws-icon-0 = 1;一
-ws-icon-1 = 2;二
-ws-icon-2 = 3;三
-ws-icon-3 = 4;四
-ws-icon-4 = 5;五
-ws-icon-5 = 6;六
-ws-icon-6 = 7;七
-ws-icon-7 = 8;八
-ws-icon-8 = 9;九
-ws-icon-9 = 10;十
+;ws-icon-0 = 1;一
+;ws-icon-1 = 2;二
+;ws-icon-2 = 3;三
+;ws-icon-3 = 4;四
+;ws-icon-4 = 5;五
+;ws-icon-5 = 6;六
+;ws-icon-6 = 7;七
+;ws-icon-7 = 8;八
+;ws-icon-8 = 9;九
+;ws-icon-9 = 10;十
+
+; Workspace icons
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
 
 [module/wlan]
 type = internal/network
