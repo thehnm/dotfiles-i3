@@ -75,26 +75,50 @@ label-mode-foreground = #ffffff
 label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.transparent}
 label-focused-underline = #5f819d
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${colors.transparent}
 label-visible-underline = #000000
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon%
 label-urgent-background = ${colors.transparent}
 label-urgent-underline = #a54242
 label-urgent-padding = 1
+
+; Native Vietnamese Numerals
+;ws-icon-0 = 1;𠬠
+;ws-icon-1 = 2;𠄩
+;ws-icon-2 = 3;𠀧
+;ws-icon-3 = 4;𦊚
+;ws-icon-4 = 5;𠄼
+;ws-icon-5 = 6;𦒹
+;ws-icon-6 = 7;𦉱
+;ws-icon-7 = 8;𠔭
+;ws-icon-8 = 9;𠃩
+;ws-icon-9 = 10;𨒒
+
+; Chinese Numerals
+ws-icon-0 = 1;一
+ws-icon-1 = 2;二
+ws-icon-2 = 3;三
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+ws-icon-8 = 9;九
+ws-icon-9 = 10;十
 
 [module/wlan]
 type = internal/network
