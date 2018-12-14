@@ -10,7 +10,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # Kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # Start rofi
 bindsym $mod+d exec rofi -show drun
@@ -206,7 +206,7 @@ client.urgent           $color1             $color1            $border          
 # =============================================================================
 
 # ----- i3gaps settings -----
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 5
 smart_borders on
