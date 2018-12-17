@@ -220,7 +220,7 @@ set updatetime=500
 set nostartofline
 
 " Do not break long lines
-set wrap
+set nowrap
 
 " After this many msecs do not imap
 set timeoutlen=500
