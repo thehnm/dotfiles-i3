@@ -8,6 +8,7 @@ mkdir -p $HOME/.config/termite
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.icons
 mkdir -p $HOME/.local/share/fonts
+mkdir -p $HOME/Pictures
 
 stow -R config.stow
 stow -R fonts.stow
