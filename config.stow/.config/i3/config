@@ -233,11 +233,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; e
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+10 i3blocks
 
-# ----- cmus control -----
-bindsym Shift+Mod1+p exec --no-startup-id cmus-remote -u
-bindsym Shift+Mod1+n exec --no-startup-id cmus-remote -n && exec $HOME/.config/polybar/cmus_notify.sh
-bindsym Shift+Mod1+m exec --no-startup-id cmus-remote -r && exec $HOME/.config/polybar/cmus_notify.sh
-
 # ----- Audioplayer control -----
 bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
 bindsym $mod+Shift+n exec --no-startup-id playerctl next
