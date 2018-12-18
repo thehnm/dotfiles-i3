@@ -244,8 +244,8 @@ bindsym $mod+Shift+n exec --no-startup-id playerctl next
 bindsym $mod+Shift+m exec --no-startup-id playerctl previous
 
 # ----- Screen brightness -----
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # ----- scrot -----
 bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
