@@ -45,7 +45,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-modules-left = i3 pulseaudio eth ethspeed wlan wlanspeed vpn battery time date spotify cmus
+modules-left = i3 pulseaudio eth ethspeed wlan wlanspeed vpn battery backlight time date spotify
 modules-center =
 modules-right =
 
@@ -92,18 +92,6 @@ label-urgent = %icon%
 label-urgent-background = ${colors.transparent}
 label-urgent-underline = #a54242
 label-urgent-padding = 1
-
-; Native Vietnamese Numerals
-;ws-icon-0 = 1;𠬠
-;ws-icon-1 = 2;𠄩
-;ws-icon-2 = 3;𠀧
-;ws-icon-3 = 4;𦊚
-;ws-icon-4 = 5;𠄼
-;ws-icon-5 = 6;𦒹
-;ws-icon-6 = 7;𦉱
-;ws-icon-7 = 8;𠔭
-;ws-icon-8 = 9;𠃩
-;ws-icon-9 = 10;𨒒
 
 ; Chinese Numerals
 ws-icon-0 = 1;一
@@ -181,23 +169,6 @@ type = internal/date
 date =  %D
 label = %date%
 
-[module/alsa]
-type = internal/alsa
-
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-
-format-volume = <ramp-volume> <label-volume>
-format-muted =  0%
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-headphones-0 = 
-ramp-headphones-1 = 
-
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
@@ -246,10 +217,22 @@ click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
 
-[module/cmus]
-type = custom/script
-exec = ~/.config/polybar/cmus.sh
-interval = 1
-click-left = cmus-remote -n && bash $HOME/.config/polybar/cmus_notify.sh
-click-right = cmus-remote -r && bash $HOME/.config/polybar/cmus_notify.sh
-click-middle = cmus-remote -u
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Available tags:
+;   <label> (default)
+;   <bar>
+format =  <label>
+
+label =  %percentage%%
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
