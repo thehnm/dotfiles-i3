@@ -6,6 +6,21 @@ font pango:DejaVuSansMono Nerd Font 0
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# =============================================================================
+
 # Start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -61,19 +76,6 @@ bindsym $mod+space focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -157,8 +159,36 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# ----- Clear clipboard -----
+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send "Clipboard deleted" -u normal
+
+# ----- Lock screen -----
+bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
+
+# ----- Audio control -----
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+10 i3blocks
+
+# ----- Audioplayer control -----
+bindsym $mod+p exec --no-startup-id playerctl play-pause
+bindsym $mod+n exec --no-startup-id playerctl next
+bindsym $mod+m exec --no-startup-id playerctl previous
+
+# ----- Screen brightness -----
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
+
+# ----- scrot -----
+bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
+
+# ----- mpd/mpc -----
+bindsym Mod1+n exec --no-startup-id mpc next
+bindsym Mod1+m exec --no-startup-id mpc prev
+bindsym Mod1+p exec --no-startup-id mpc toggle
+
 # =============================================================================
-# Color section
+
 set $color0  #282a2e
 set $color1  #a54242
 set $color2  #8c9440
@@ -205,7 +235,7 @@ client.urgent           $color1             $color1            $border          
 
 # =============================================================================
 
-# ----- i3gaps settings -----
+# ----- Border settings -----
 for_window [class="^.*"] border pixel 3
 gaps inner 5
 gaps outer 5
@@ -219,28 +249,3 @@ exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# ===== KEYBINDINGS =====
-
-# ----- Clear clipboard -----
-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send "Clipboard deleted" -u normal
-
-# ----- Lock screen -----
-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
-
-# ----- Audio control -----
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+10 i3blocks
-
-# ----- Audioplayer control -----
-bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
-bindsym $mod+Shift+n exec --no-startup-id playerctl next
-bindsym $mod+Shift+m exec --no-startup-id playerctl previous
-
-# ----- Screen brightness -----
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
-
-# ----- scrot -----
-bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
