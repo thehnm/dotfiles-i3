@@ -22,13 +22,46 @@ foreground = #ffffff
 border-color = 0
 transparent = #00000000
 
+; black
+color0  = #282a2e
+color8  = #373b41
+
+; red
+color1  = #a54242
+color9  = #cc6666
+
+; green
+color2  = #8c9440
+color10 = #b5bd68
+
+; yellow
+color3  = #de935f
+color11 = #f0c674
+
+; blue
+color4  = #5f819d
+color12 = #81a2be
+
+; magenta
+color5  = #85678f
+color13 = #b294bb
+
+; cyan
+color6  = #5e8d87
+color14 = #8abeb7
+
+; white
+color7  = #707880
+color15 = #c5c8c6
+
 [bar/standart]
+
+;----- Settings -----
 width = 100%
 height = 27
+
 fixed-center = false
 bottom = true
-
-;override-redirect = true
 
 background = ${colors.transparent}
 foreground = #ffffff
@@ -37,17 +70,21 @@ line-size = 3
 line-color = #f00
 
 border-size = 0
+border-bottom-size = 5
 border-color = ${colors.transparent}
 
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
-
-modules-left = i3 pulseaudio eth ethspeed wlan wlanspeed vpn battery backlight time date spotify mpd
+; ----- Modules -----
+modules-left = i3 pulseaudio eth wlan vpn battery backlight spotify mpd date
 modules-center =
 modules-right =
+
+module-margin-left = 1
+module-margin-right = 1
+
+;----- Fonts -----
 
 font-0 = UbuntuMono Nerd Font:size=12;3
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
@@ -64,17 +101,13 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #ffffff
+label-mode-padding = 1
+jabel-mode-foreground = #ffffff
 label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.transparent}
-label-focused-underline = #5f819d
+label-focused-background = ${colors.color6}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -124,50 +157,71 @@ interface = wlp1s0
 
 interval = 5
 
-label-connected =  %essid%
-label-disconnected =  Not Connected
+ramp-signal-background = ${colors.color1}
+ramp-signal-padding = 1
+ramp-signal-0 = 
+
+label-connected-background = ${colors.color9}
+label-connected-padding = 1
+label-connected = %essid%
+
+label-disconnected-background = ${colors.color9}
+label-disconnected-padding = 1
+label-disconnected = Disconnected
+
+format-connected = <ramp-signal><label-connected>
+
+format-disconnected = <label-disconnected>
 
 [module/eth]
 type = internal/network
 interface = enp0s31f6
 interval = 3.0
-label-connected =  %local_ip%
-label-disconnected =  Disconnected
+
+ramp-signal-background = ${colors.color1}
+ramp-signal-padding = 1
+ramp-signal-0 = 
+
+label-connected-background = ${colors.color9}
+label-connected-padding = 1
+label-connected = %local_ip%
+
+label-disconnected-background = ${colors.color9}
+label-disconnected-padding = 1
+label-disconnected = Disconnected
+
+format-connected = <ramp-signal><label-connected>
 
 format-disconnected =
-
-[module/ethspeed]
-type = internal/network
-interface = enp0s31f6
-interval = 1
-label-connected =  %downspeed%  %upspeed%
-label-disconnected =
-
-[module/wlanspeed]
-type = internal/network
-interface = wlp1s0
-interval = 1
-label-connected =  %downspeed%  %upspeed%
-label-disconnected =
 
 [module/vpn]
 type = custom/script
 exec = echo vpn on
 exec-if = pgrep -x openvpn
-interval = 5
-format-underline = ${colors.transparent}
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
+interval = 1
 
-[module/time]
-type = internal/date
-interval = 1.0
-date =  %H:%M:%S
+label-background = ${colors.color9}
+label-padding = 1
+label = %output%
+
+format-background = ${colors.color1}
+
+format-prefix = ""
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
-date =  %D
-label = %date%
+date = %D
+time = %H:%M:%S
+label-background = ${colors.color8}
+label-padding = 1
+label = %time% %date%
+
+format-background = ${colors.color0}
+format-prefix = 
+format-prefix-padding = 1
+format = <label>
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -175,39 +229,37 @@ sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = true
 interval = 1
 
-format-volume = <ramp-volume> <label-volume>
-format-muted =  muted
-
+ramp-volume-background = ${colors.color2}
+ramp-volume-padding = 1
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+label-volume-background = ${colors.color10}
+label-volume-padding = 1
+
+format-volume = <ramp-volume><label-volume>
+
+format-muted-background = ${colors.color2}
+format-muted-padding = 1
+format-muted =  muted
 
 [module/battery]
 type = internal/battery
-
 battery = BAT0
-
 poll-interval = 1
+full-at = 99
 
-full-at = 95
-
-label-discharging = %percentage%%
-label-charging = %percentage%%
-label-full = %percentage%%
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-format-charging = <animation-charging> <label-charging>
-
+ramp-capacity-background = ${colors.color3}
+ramp-capacity-padding = 1
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
+animation-charging-background = ${colors.color3}
+animation-charging-padding = 1
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -216,6 +268,8 @@ animation-charging-4 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
+animation-discharging-background = ${colors.color3}
+animation-discharging-padding = 1
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
@@ -224,105 +278,68 @@ animation-discharging-4 = 
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
 
+label-discharging-background = ${colors.color11}
+label-discharging-padding = 1
+label-discharging = %percentage%%
+
+label-charging-background = ${colors.color11}
+label-charging-padding = 1
+label-charging = %percentage%%
+
+label-full-background = ${colors.color11}
+label-full-padding = 1
+label-full = %percentage%%
+
+format-discharging = <animation-discharging><label-discharging>
+format-full = <ramp-capacity><label-full>
+format-charging = <animation-charging> <label-charging>
+
 [module/spotify]
 type = custom/script
-exec = ~/.config/polybar/spotify.sh  %artist% - %title%
+exec = ~/.config/polybar/spotify.sh %artist% - %title%
 tail = true
 interval = 1
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
 
+label-background = ${colors.color13}
+label-padding = 1
+label = %output%
+
+format-background = ${colors.color5}
+format-prefix = 
+format-prefix-padding = 1
+format = <label>
+
 [module/backlight]
 type = internal/backlight
-
-; Use the following command to list available cards:
-; $ ls -1 /sys/class/backlight/
 card = intel_backlight
 
-; Available tags:
-;   <label> (default)
-;   <bar>
-format =  <label>
+ramp-background = ${colors.color4}
+ramp-padding = 1
+ramp-0 = 
 
-label =  %percentage%%
+label-background = ${colors.color12}
+label-padding = 1
+label = %percentage%%
 
-; Only applies if <bar> is used
-bar-width = 10
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
+format = <ramp><label>
 
 [module/mpd]
 type = internal/mpd
-
-; Host where mpd is running (either ip or domain name)
-; Can also be the full path to a unix socket where mpd is running.
 host = 127.0.0.1
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
 interval = 1
 
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone> (deprecated)
-;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
-;   <icon-consume>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online =  %{A1: mpc prev:}%{A2: mpc toggle:}%{A3: mpc next:}<label-song>%{A}%{A}%{A}
-;format-playing = ${self.format-online}
-;format-paused = ${self.format-online}
-;format-stopped = ${self.format-online}
-
-; Available tags:
-;   <label-offline>
-;format-offline = <label-offline>
-
-; Available tokens:
-;   %artist%
-;   %album-artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
+label-song-background = ${colors.color13}
+label-song-padding = 1
 label-song = %artist% - %title%
 
-; Available tokens:
-;   %elapsed%
-;   %total%
-; Default: %elapsed% / %total%
-;label-time = %elapsed% / %total%
-
-; Available tokens:
-;   None
 label-offline = 🎜 mpd is offline
 
-; Only applies if <icon-X> is used
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = ⏮
-icon-next = ⏭
-icon-seekb = ⏪
-icon-seekf = ⏩
-icon-random = 🔀
-icon-repeat = 🔁
-icon-repeatone = 🔂
-icon-single = 🔂
-icon-consume = ✀
+format-online-background = ${colors.color5}
+format-online-padding = 1
+format-online =  %{A1: mpc prev:}%{A2: mpc toggle:}%{A3: mpc next:}<label-song>%{A}%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
 ; Only applies if <icon-[random|repeat|repeatone|single]> is used
