@@ -212,7 +212,7 @@ format-prefix-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
-date = %D
+date = %D %A
 time = %H:%M:%S
 label-background = ${colors.color8}
 label-padding = 1
