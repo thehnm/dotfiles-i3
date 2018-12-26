@@ -240,9 +240,14 @@ label-volume-padding = 1
 
 format-volume = <ramp-volume><label-volume>
 
+label-muted-background = ${colors.color10}
+label-muted-padding = 1
+label-muted = muted
+
 format-muted-background = ${colors.color2}
-format-muted-padding = 1
-format-muted =  muted
+format-muted-prefix = 
+format-muted-prefix-padding = 1
+format-muted = <label-muted>
 
 [module/battery]
 type = internal/battery
