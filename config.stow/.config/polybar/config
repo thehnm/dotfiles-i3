@@ -77,9 +77,9 @@ padding-left = 2
 padding-right = 2
 
 ; ----- Modules -----
-modules-left = i3 pulseaudio eth wlan vpn battery backlight spotify mpd date
+modules-left = i3 pulseaudio eth wlan vpn battery backlight mpd spotify
 modules-center =
-modules-right =
+modules-right = date
 
 module-margin-left = 1
 module-margin-right = 1
@@ -169,9 +169,9 @@ label-disconnected-background = ${colors.color9}
 label-disconnected-padding = 1
 label-disconnected = Disconnected
 
-format-connected = <ramp-signal><label-connected>
+format-connected = <ramp-signal>%{A1:nm-connection-editor:}<label-connected>%{A}
 
-format-disconnected = <label-disconnected>
+format-disconnected = %{A1:nm-connection-editor:}<label-disconnected>%{A}
 
 [module/eth]
 type = internal/network
@@ -190,7 +190,7 @@ label-disconnected-background = ${colors.color9}
 label-disconnected-padding = 1
 label-disconnected = Disconnected
 
-format-connected = <ramp-signal><label-connected>
+format-connected = <ramp-signal>%{A1:nm-connection-editor:}<label-connected>%{A}
 
 format-disconnected =
 
