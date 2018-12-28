@@ -10,3 +10,7 @@ config.stow/.config/mpd/log
 config.stow/.config/mpd/pid
 config.stow/.config/mpd/state
 config.stow/.config/mpd/sticker.sql
+
+# NCMPCPP
+config.stow/.config/ncmpcpp/lyrics
+config.stow/.config/ncmpcpp/error.log
