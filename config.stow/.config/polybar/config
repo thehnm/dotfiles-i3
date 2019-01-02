@@ -91,6 +91,7 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
 font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 font-4 = Source Han Sans JP:size=12;3
+font-5 = Source Han Sans KR:size=12;3
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
