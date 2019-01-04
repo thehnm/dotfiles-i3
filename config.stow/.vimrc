@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-latex/vim-latex'
 Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -123,3 +124,5 @@ set incsearch
 
 " Automatic C-style indenting
 set autoindent
+
+hi clear SignColumn
