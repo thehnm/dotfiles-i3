@@ -8,40 +8,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " ----- Vim as a programmer's text editor -----------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'w0rp/ale'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-scripts/a.vim'
 Plugin 'vim-latex/vim-latex'
+Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
-" ----- Making vim look good ------------------------------------------
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ryanoasis/vim-devicons'
-
-" ----- Working with Git ----------------------------------------------
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-
-" ----- Other text editing features -----------------------------------
-Plugin 'Raimondi/delimitMate'
-Plugin 'ntpeters/vim-better-whitespace'
-
 call vundle#end()
-
-" ----- jistr/vim-nerdtree-tabs -----
-" Open/close NERDTree Tabs with <leader>t
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-
-" ----- w0rp/ale -----
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_linters = {'cpp': ['g++']}
 
 " ----- vim-latex/vim-latex -----
 let g:Tex_DefaultTargetFormat = 'pdf'
@@ -49,58 +20,34 @@ let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'zathura'
 let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 
-" ----- xolox/vim-easytags settings -----
-" Where to look for tags files
-set tags=./tags;,~/.vimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 1
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
-
-" ----- majutsushi/tagbar settings -----
-" Open/close tagbar with <leader>b
-nmap <silent> <leader>b :TagbarToggle<CR>
-
-" ----- Raimondi/delimitMate settings -----
-let delimitMate_expand_cr = 1
-augroup mydelimitMate
-  au!
-  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
-  au FileType tex let b:delimitMate_quotes = ""
-  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
-augroup END
-
-" ----- vim-airline/vim-airline -----
-let g:airline_powerline_fonts = 1
-let g:airline_detect_paste=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16_default'
-let g:airline#extensions#ale#enabled = 1
-
-" ----- ryanoasis/vim-devicons -----
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:webdevicons_enable_nerdtree = 1
+" ----- w0rp/ale -----
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_linters = {'cpp': ['g++']}
 
 " -----------------------------------------------------------------------------
-" Key mappings
+" Mappings
 
 " Toggle highlight search
 nnoremap <F3> :set hlsearch!<CR>
 
+" Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
+function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+   elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
+inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
+
 " Switch buffers quickly
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
-
-" Switch windows quicker
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 " Toggle between .h and .cpp with F4
 function! ToggleBetweenHeaderAndSourceFile()
@@ -123,39 +70,6 @@ function! ToggleBetweenHeaderAndSourceFile()
 endfunction
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
 
-" Toggle encoding with F12
-function! ToggleEncoding()
-  if &encoding == "latin1"
-    set encoding=utf-8
-  elseif &encoding == "utf-8"
-    set encoding=latin1
-  endif
-endfunction
-map <silent> <F12> :call ToggleEncoding()<CR>
-
-" Next / previous error with Tab / Shift+Tab
-map <silent> <Tab> :cn<CR>
-map <silent> <S+Tab> :cp<CR>
-map <silent> <BS><Tab> :cp<CR>
-
-" Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
-function! InsertTabWrapper(direction)
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-   elseif "backward" == a:direction
-        return "\<c-p>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
-inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
-
-" Make it easy to update/reload _vimrc
-:nmap ,s :source $HOME/.vimrc
-:nmap ,v :sp $HOME/.vimrc
-
 " -----------------------------------------------------------------------------
 " Tab specific option
 
@@ -175,36 +89,7 @@ set shiftwidth=4
 set shiftround
 
 " -----------------------------------------------------------------------------
-
-set backspace=indent,eol,start
-
-set incsearch
-
-hi clear SignColumn
-
-" Always show status bar
-set laststatus=2
-
-" No need to be compatible with vi and lose features
-set nocompatible
-
-" Set line numbers
-set number
-
-" Show ruler
-set ruler
-
-" Highlight all search matches and toggle it with F3
-set hlsearch!
-
-" Automatic C-style indenting
-set autoindent
-
-" But TABs are needed in Makefiles
-au BufNewFile,BufReadPost Makefile se noexpandtab
-
-" Show matching braces
-set showmatch
+" Options
 
 " Choose the right syntax highlightning per TAB-completion :-)
 " map <F2> :source $VIM/syntax/
@@ -213,50 +98,28 @@ if &t_Co > 1
   syntax on
 endif
 
-" Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim
-set updatetime=500
-
-" Keep the horizontal cursor position when moving vertically
-set nostartofline
-
 " Do not break long lines
 set nowrap
 
-" After this many msecs do not imap
-set timeoutlen=500
+" Show matching braces
+set showmatch
 
-" Always show the name of the file being edited
-set ls=2
-
-" Show the mode (insert,replace,etc.)
-set showmode
-
-" No blinking cursor please
-set gcr=a:blinkon0
-
-" Do not show any line of minimized windows
-set wmh=0
+" Keep the horizontal cursor position when moving vertically
+set nostartofline
 
 " Latex Suite 1.5 wants it
 " REQUIRED. This makes vim invoke latex-suite when you open a tex file.
 filetype plugin on
 
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse latex-suite. Set your grep
-" program to alway generate a file-name.
-set grepprg=grep\ -nH\ $*
+" Highlight all search matches and toggle it with F3
+set hlsearch!
 
-" OPTIONAL: This enables automatic indentation as you type (by 2 spaces)
-filetype indent on
+" Set line numbers
+set number
 
-" no placeholders please
-let g:Imap_UsePlaceHolders = 0
+set backspace=indent,eol,start
 
-" no " conversion please
-let g:Tex_SmartKeyQuote = 0
+set incsearch
 
-" don't use Makefile if one is there
-let g:Tex_UseMakefile = 0
-
-" Syntax Highlighting for MhonArc Config files
-au BufNewFile,BufRead *.mrc so $HOME/.vim/mhonarc.vim
+" Automatic C-style indenting
+set autoindent
