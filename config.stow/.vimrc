@@ -12,6 +12,8 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Konfekt/FastFold'
 
 call vundle#end()
 
@@ -25,6 +27,16 @@ let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_linters = {'cpp': ['g++']}
+
+" ----- ntpeters/vim-better-whitespace -----
+let g:better_whitespace_enabled=1
+
+" ----- Konfekt/FastFold -----
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:tex_fold_enabled = 1
 
 " -----------------------------------------------------------------------------
 " Mappings
