@@ -1,4 +1,5 @@
 set $mod Mod4
+set $mod1 Mod1
 
 # Set window title font and bar font unless not set in bar{]
 font pango:DejaVuSansMono Nerd Font 0
@@ -183,9 +184,15 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
 
 # ----- mpd/mpc -----
-bindsym Mod1+n exec --no-startup-id mpc next
-bindsym Mod1+m exec --no-startup-id mpc prev
-bindsym Mod1+p exec --no-startup-id mpc toggle
+bindsym $mod1+n exec --no-startup-id mpc next
+bindsym $mod1+m exec --no-startup-id mpc prev
+bindsym $mod1+p exec --no-startup-id mpc toggle
+
+# ----- firefox -----
+bindsym $mod+Shift+f exec firefox
+
+# ----- Virtualbox -----
+bindsym $mod+Shift+v exec virtualbox
 
 # =============================================================================
 
@@ -210,7 +217,7 @@ set $bg      #1d1f21
 set $cursor  #c5c8c6
 
 set $border #5e8d87
-set $uborder #00000000
+set $uborder #1d1f21
 
 # window colors
 # class                 border              background         text                indicator
@@ -237,8 +244,6 @@ client.urgent           $color1             $color1            $border          
 
 # ----- Border settings -----
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
 smart_borders on
 
 # ----- Start on login -----

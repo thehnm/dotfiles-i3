@@ -69,12 +69,14 @@ foreground = #ffffff
 line-size = 3
 line-color = #f00
 
-border-size = 0
+border-top-size = 5
 border-bottom-size = 5
+border-left-size = 0
+border-right-size = 0
 border-color = ${colors.transparent}
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 0
 
 ; ----- Modules -----
 modules-left = i3 pulseaudio eth wlan vpn battery backlight mpd spotify
