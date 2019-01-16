@@ -111,8 +111,8 @@ if &t_Co > 1
   syntax on
 endif
 
-" Do not break long lines
-set nowrap
+"Break long lines
+set wrap
 
 " Show matching braces
 set showmatch
@@ -138,3 +138,5 @@ set incsearch
 set autoindent
 
 hi clear SignColumn
+
+set re=1
