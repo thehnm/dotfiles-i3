@@ -80,6 +80,8 @@ alias yay='yay --color=auto'
 alias pacman='pacman --color=auto'
 alias fucking='sudo'
 alias motherfucking='sudo'
+alias im='sxiv'
+alias fm='ranger'
 
 # Theming section
 autoload -U compinit colors zcalc
