@@ -8,6 +8,7 @@ mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/termite
 mkdir -p $HOME/.config/ncmpcpp
+mkdir -p $HOME/.config/ranger
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.icons
 mkdir -p $HOME/.local/share/fonts
