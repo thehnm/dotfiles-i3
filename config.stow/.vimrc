@@ -110,12 +110,9 @@ set shiftround
 " -----------------------------------------------------------------------------
 " Options
 
-" Choose the right syntax highlightning per TAB-completion :-)
-" map <F2> :source $VIM/syntax/
 " Syntax highlightning, but only for color terminals.
-if &t_Co > 1
-  syntax on
-endif
+set t_Co=16
+syntax on
 
 "Break long lines
 set wrap

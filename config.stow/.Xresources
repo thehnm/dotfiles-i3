@@ -1,23 +1,3 @@
-#define color0  #282a2e
-#define color1  #a54242
-#define color2  #8c9440
-#define color3  #de935f
-#define color4  #5f819d
-#define color5  #85678f
-#define color6  #5e8d87
-#define color7  #707880
-#define color8  #373b41
-#define color9  #cc6666
-#define color10 #b5bd68
-#define color11 #f0c674
-#define color12 #81a2be
-#define color13 #b294bb
-#define color14 #8abeb7
-#define color15 #c5c6c6
-#define fg      #c5c8c6
-#define bg      #1d1f21
-#define cursor  #c5c8c6
-
 ! ===== rofi =====
 rofi.sidebar-mode: true
 rofi.modi: run,drun,window
@@ -26,7 +6,50 @@ rofi.hide-scrollbar: true
 rofi.padding: 400
 rofi.font: Cantarell Bold 24
 rofi.color-enabled: true
-rofi.color-window: bg, bg,     bg
-rofi.color-normal: bg, fg,     bg, bg, color4
-rofi.color-active: bg, color5, bg, bg, color4
-rofi.color-urgent: bg, color3, bg, bg, color3
+rofi.color-window: #1d1f21, #1d1f21, #1d1f21
+rofi.color-normal: #1d1f21, #c5c8c6, #1d1f21, #1d1f21, #5f819d
+rofi.color-active: #1d1f21, #85678f, #1d1f21, #1d1f21, #5f819d
+rofi.color-urgent: #1d1f21, #de935f, #1d1f21, #1d1f21, #de935f
+
+! special
+*.foreground:   #a2a2a2
+*.background:   #292929
+*.cursorColor:  #a2a2a2
+
+! black
+*.color0:       #4e4e4e
+*.color8:       #777777
+
+! red
+*.color1:       #a9635d
+*.color9:       #ffbbb2
+
+! green
+*.color2:       #468459
+*.color10:      #9ddeaf
+
+! yellow
+*.color3:       #84763d
+*.color11:      #e0ce91
+
+! blue
+*.color4:       #5879af
+*.color12:      #b3d1ff
+
+! magenta
+*.color5:       #9c6594
+*.color13:      #fabdf0
+
+! cyan
+*.color6:       #008592
+*.color14:      #79e0ed
+
+! white
+*.color7:       #cfcfcf
+*.color15:      #ffffff
+
+*.scrollBar: false
+
+*.font: xft:RobotoMono Nerd Font:size=10
+
+*.internalBorder: 50
