@@ -13,6 +13,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'Rip-Rip/clang_complete'
 
 call vundle#end()
 
@@ -30,6 +31,10 @@ let g:ale_linters = {'cpp': ['g++']}
 
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
+
+" ----- Rip-Rip/clang_complete -----
+let g:clang_library_path='/usr/lib64/libclang.so.7'
+let g:clang_close_preview=1
 
 " -----------------------------------------------------------------------------
 " Mappings
@@ -138,3 +143,6 @@ set autoindent
 hi clear SignColumn
 
 set showcmd
+
+" Completion function optimized for c++
+au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
