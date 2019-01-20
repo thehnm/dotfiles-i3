@@ -84,10 +84,10 @@ endfunction
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
 
 " Switch split window
-nmap <silent> <C-Up> :wincmd k<CR>
-nmap <silent> <C-Down> :wincmd j<CR>
-nmap <silent> <C-Left> :wincmd h<CR>
-nmap <silent> <C-Right> :wincmd l<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " -----------------------------------------------------------------------------
 " Tab specific option
@@ -113,6 +113,8 @@ set shiftround
 " Syntax highlightning, but only for color terminals.
 set t_Co=16
 syntax on
+
+:highlight VertSplit cterm=None
 
 "Break long lines
 set wrap
@@ -143,3 +145,5 @@ set autoindent
 hi clear SignColumn
 
 set re=1
+
+set fillchars=stl:-,stlnc:-,vert:│
