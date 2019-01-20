@@ -7,13 +7,14 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-" ----- Vim as a programmer's text editor -----------------------------
 Plugin 'vim-latex/vim-latex'
 Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Konfekt/FastFold'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'jonathanfilip/vim-lucius'
 
 call vundle#end()
 
@@ -106,9 +107,15 @@ set shiftround
 
 " Syntax highlightning, but only for color terminals.
 set t_Co=256
+colo default
+colo ron
 syntax on
 
-:highlight VertSplit cterm=None
+" Set vertical split bar to continous line
+set fillchars=stl:-,stlnc:-,vert:│
+
+" Disable vertical split border background
+highlight VertSplit cterm=None
 
 "Break long lines
 set wrap
@@ -137,7 +144,3 @@ set incsearch
 set autoindent
 
 hi clear SignColumn
-
-set re=1
-
-set fillchars=stl:-,stlnc:-,vert:│
