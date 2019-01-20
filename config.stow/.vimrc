@@ -83,12 +83,6 @@ function! ToggleBetweenHeaderAndSourceFile()
 endfunction
 map <silent> <F4> :call ToggleBetweenHeaderAndSourceFile()<CR>
 
-" Switch split window
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " -----------------------------------------------------------------------------
 " Tab specific option
 
@@ -111,7 +105,7 @@ set shiftround
 " Options
 
 " Syntax highlightning, but only for color terminals.
-set t_Co=16
+set t_Co=256
 syntax on
 
 :highlight VertSplit cterm=None
