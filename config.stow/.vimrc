@@ -12,9 +12,7 @@ Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'Konfekt/FastFold'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'jonathanfilip/vim-lucius'
 
 call vundle#end()
 
@@ -23,6 +21,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'zathura'
 let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
+let g:tex_no_error=1
 
 " ----- w0rp/ale -----
 let g:ale_sign_error = ''
@@ -31,13 +30,6 @@ let g:ale_linters = {'cpp': ['g++']}
 
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
-
-" ----- Konfekt/FastFold -----
-nmap zuz <Plug>(FastFoldUpdate)
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-let g:tex_fold_enabled = 1
 
 " -----------------------------------------------------------------------------
 " Mappings
@@ -105,10 +97,13 @@ set shiftround
 " -----------------------------------------------------------------------------
 " Options
 
+" Latex Suite 1.5 wants it
+" REQUIRED. This makes vim invoke latex-suite when you open a tex file.
+
+filetype plugin indent on
+
 " Syntax highlightning, but only for color terminals.
 set t_Co=256
-colo default
-colo ron
 syntax on
 
 " Set vertical split bar to continous line
@@ -126,9 +121,6 @@ set showmatch
 " Keep the horizontal cursor position when moving vertically
 set nostartofline
 
-" Latex Suite 1.5 wants it
-" REQUIRED. This makes vim invoke latex-suite when you open a tex file.
-filetype plugin on
 
 " Highlight all search matches and toggle it with F3
 set hlsearch!
@@ -144,3 +136,5 @@ set incsearch
 set autoindent
 
 hi clear SignColumn
+
+set showcmd
