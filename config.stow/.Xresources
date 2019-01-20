@@ -50,6 +50,6 @@ rofi.color-urgent: #1d1f21, #de935f, #1d1f21, #1d1f21, #de935f
 
 *.scrollBar: false
 
-*.font: xft:RobotoMono Nerd Font:size=10
+*.font: xft:RobotoMono Nerd Font:size=12
 
-*.internalBorder: 10
+! *.internalBorder: 10
