@@ -82,6 +82,7 @@ alias fucking='sudo'
 alias motherfucking='sudo'
 alias im='sxiv'
 alias fm='ranger'
+alias e='nvim'
 
 # Theming section
 autoload -U compinit colors zcalc

@@ -46,6 +46,9 @@ let g:ale_linters = {'cpp': ['g++']}
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
 
+" ----- airblade/vim-gitgutter -----
+autocmd BufWritePost * GitGutter
+
 
 " ---------- Mappings ----------
 
