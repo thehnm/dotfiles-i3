@@ -347,7 +347,7 @@ label-offline = 🎜 mpd is offline
 
 format-online-background = ${colors.color5}
 format-online-padding = 1
-format-online =  %{A1: mpc prev:}%{A2: mpc toggle:}%{A3: mpc next:}<label-song>%{A}%{A}%{A}
+format-online =  %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
 ; Only applies if <icon-[random|repeat|repeatone|single]> is used
