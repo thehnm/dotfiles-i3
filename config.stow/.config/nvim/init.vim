@@ -24,6 +24,7 @@ Plugin 'w0rp/ale'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -57,6 +58,7 @@ nnoremap <F3> :set hlsearch!<CR>
 " Switch buffers quickly
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
+
 
 " ---------- Settings ----------
 
