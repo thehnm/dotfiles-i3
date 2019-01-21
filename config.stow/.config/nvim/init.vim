@@ -77,3 +77,17 @@ set showcmd
 hi VertSplit cterm=None
 
 hi clear SignColumn
+
+"" Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
+inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
