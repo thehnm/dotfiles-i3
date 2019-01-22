@@ -343,7 +343,7 @@ label-song-background = ${colors.color13}
 label-song-padding = 1
 label-song = %artist% - %title%
 
-label-offline = 🎜 mpd is offline
+label-offline =  mpd is offline
 
 format-online-background = ${colors.color5}
 format-online-padding = 1
