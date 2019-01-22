@@ -25,6 +25,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Konfekt/FastFold'
 
 call vundle#end()
 
@@ -48,6 +49,11 @@ let g:better_whitespace_enabled=1
 
 " ----- airblade/vim-gitgutter -----
 autocmd BufWritePost * GitGutter
+
+" ----- Konfekt/FastFold -----
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 
 " ---------- Mappings ----------
