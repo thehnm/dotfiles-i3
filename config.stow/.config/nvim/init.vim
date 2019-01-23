@@ -71,6 +71,8 @@ map <leader>w : bn<CR>
 
 " ---------- Settings ----------
 
+set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P " Standart statusline with filetype
+
 set fillchars=stl:-,stlnc:-,vert:│ " Set vertical split bar to continous line
 
 set showmatch " Show matching braces
