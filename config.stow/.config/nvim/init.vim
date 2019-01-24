@@ -91,7 +91,7 @@ hi VertSplit cterm=None
 
 hi clear SignColumn
 
-"" Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+" Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -104,3 +104,9 @@ function! InsertTabWrapper(direction)
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
 inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
+
+" Set filetype for pure c headers
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+augroup END
