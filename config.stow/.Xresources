@@ -12,9 +12,9 @@ rofi.color-active: #1d1f21, #85678f, #1d1f21, #1d1f21, #5f819d
 rofi.color-urgent: #1d1f21, #de935f, #1d1f21, #1d1f21, #de935f
 
 ! special
-*.foreground:   #a2a2a2
+*.foreground:   #dadada
 *.background:   #292929
-*.cursorColor:  #a2a2a2
+*.cursorColor:  #dadada
 
 ! black
 *.color0:       #4e4e4e
