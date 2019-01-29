@@ -1,4 +1,4 @@
-# thehnm's i3 dotfiles
+# thehnm's dotfiles
 
 Feel free to copy my setup. But you need this software to work with it:
 * `i3-gaps` the window manager
