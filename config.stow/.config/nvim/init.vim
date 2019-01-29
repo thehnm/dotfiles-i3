@@ -26,7 +26,6 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Konfekt/FastFold'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Rip-Rip/clang_complete'
 
 call vundle#end()
