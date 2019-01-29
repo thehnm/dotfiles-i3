@@ -61,6 +61,7 @@ let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:clang_library_path='/usr/lib64/libclang.so.7'
 let g:clang_close_preview=1
 
+
 " ---------- Mappings ----------
 
 " Set map leader key
@@ -73,23 +74,8 @@ nnoremap <F3> :set hlsearch!<CR>
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
 
-
-" ---------- Settings ----------
-
-set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P " Standart statusline with filetype
-
-set fillchars=stl:-,stlnc:-,vert:│ " Set vertical split bar to continous line
-
-set showmatch " Show matching braces
-
-filetype plugin indent on " Allows auto-indenting depending on file type
-
-set showcmd
-
-" Disable vertical split border background
-hi VertSplit cterm=None
-
-hi clear SignColumn
+" Open netrw
+map <leader>t : Vexplore<CR>
 
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
 function! InsertTabWrapper(direction)
@@ -105,8 +91,26 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
 inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
+
+" ---------- Settings ----------
+
+set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P " Standart statusline with filetype
+
+set fillchars=stl:-,stlnc:-,vert:│ " Set vertical split bar to continous line
+
+filetype plugin indent on " Allows auto-indenting depending on file type
+
+set showcmd
+
+" Disable vertical split border background
+hi VertSplit cterm=None
+
+hi clear SignColumn
+
 " Set filetype for pure c headers
 augroup project
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
 augroup END
+
+let g:netrw_banner = 0
