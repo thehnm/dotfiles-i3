@@ -23,7 +23,7 @@ Plugin 'w0rp/ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'jlanzarotta/bufexplorer'
@@ -89,6 +89,9 @@ let g:lightline = {
       \ },
       \ }
 
+" ----- vim-scripts/Auto-Pairs -----
+let g:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
+
 
 " ----- Mappings --------------------------------------------------------------"
 
@@ -142,3 +145,6 @@ hi clear SignColumn
 
 " Disable banner when opening netrw
 let g:netrw_banner = 0
+
+" Don't break long lines
+set nowrap
