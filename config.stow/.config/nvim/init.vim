@@ -31,9 +31,13 @@ Plugin 'majutsushi/tagbar'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " ----- Latex support -----
 Plugin 'vim-latex/vim-latex'
+
+" ----- Visual aesthetics -----"
+Plugin 'itchyny/lightline.vim'
 
 " ----- Optimizations -----
 Plugin 'Konfekt/FastFold'
@@ -70,8 +74,21 @@ let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:clang_library_path='/usr/lib64/libclang.so.7'
 let g:clang_close_preview=1
 
-" ----- majutsushi/tagbar"
+" ----- majutsushi/tagbar -----
 nmap <F8> : TagbarToggle<CR>
+
+" ----- itchyny/lightline.vim -----
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 
 " ----- Mappings --------------------------------------------------------------"
 
@@ -109,7 +126,8 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
 " Set vertical split bar to continous line
-set fillchars=stl:-,stlnc:-,vert:│
+" set fillchars=stl:-,stlnc:-,vert:│
+set fillchars=vert:│
 
 " Allows auto-indenting depending on file type
 filetype plugin indent on
