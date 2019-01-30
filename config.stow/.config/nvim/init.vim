@@ -1,4 +1,3 @@
-set nocompatible            " Disable compatibility to old-time vi
 set showmatch               " Show matching brackets.
 set ignorecase              " Do case insensitive matching
 set mouse=v                 " middle-click paste with mouse
@@ -13,25 +12,36 @@ set wildmode=longest,list   " get bash-like tab completions
 
 filetype off
 
-" ---------- Vundle ----------
+" ----- Vundle ----------------------------------------------------------------"
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-latex/vim-latex'
+" ----- Editor features -----
 Plugin 'w0rp/ale'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Konfekt/FastFold'
 Plugin 'Rip-Rip/clang_complete'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'bfrg/vim-cpp-modern'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'majutsushi/tagbar'
+
+" ----- Working with Git -----
+Plugin 'airblade/vim-gitgutter'
+
+" ----- Latex support -----
+Plugin 'vim-latex/vim-latex'
+
+" ----- Optimizations -----
+Plugin 'Konfekt/FastFold'
 
 call vundle#end()
 
 
-" --------- Plugin Configuration ----------
+" ----- Plugin Configuration --------------------------------------------------"
 
 " ----- vim-latex/vim-latex -----
 let g:Tex_DefaultTargetFormat = 'pdf'
@@ -41,9 +51,9 @@ let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 let g:tex_no_error=1
 
 " ----- w0rp/ale -----
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_linters = {'cpp': ['g++']}
+let g:ale_sign_error = 'xx'
+let g:ale_sign_warning = '--'
+"let g:ale_linters = {'cpp': ['g++', 'clang']}
 
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
@@ -60,23 +70,25 @@ let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:clang_library_path='/usr/lib64/libclang.so.7'
 let g:clang_close_preview=1
 
+" ----- majutsushi/tagbar"
+nmap <F8> : TagbarToggle<CR>
 
-" ---------- Mappings ----------
+" ----- Mappings --------------------------------------------------------------"
 
 " Set map leader key
 let mapleader=','
 
 " Toggle highlight search
-nnoremap <F3> :set hlsearch!<CR>
+nnoremap <F3> : set hlsearch!<CR>
 
 " Switch buffers quickly
 map <leader>q : bp<CR>
 map <leader>w : bn<CR>
 
 " Open netrw
-map <leader>t : Vexplore<CR>
+map <leader>e : Vexplore<CR>
 
-" Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+" Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -93,12 +105,16 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
 " ---------- Settings ----------
 
-set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P " Standart statusline with filetype
+" Standart statusline with filetype
+set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
-set fillchars=stl:-,stlnc:-,vert:│ " Set vertical split bar to continous line
+" Set vertical split bar to continous line
+set fillchars=stl:-,stlnc:-,vert:│
 
-filetype plugin indent on " Allows auto-indenting depending on file type
+" Allows auto-indenting depending on file type
+filetype plugin indent on
 
+" Show typed command
 set showcmd
 
 " Disable vertical split border background
@@ -106,10 +122,5 @@ hi VertSplit cterm=None
 
 hi clear SignColumn
 
-" Set filetype for pure c headers
-augroup project
-    autocmd!
-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
-augroup END
-
+" Disable banner when opening netrw
 let g:netrw_banner = 0
