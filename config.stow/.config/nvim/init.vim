@@ -125,11 +125,7 @@ inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
 " ---------- Settings ----------
 
-" Standart statusline with filetype
-set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
-
 " Set vertical split bar to continous line
-" set fillchars=stl:-,stlnc:-,vert:│
 set fillchars=vert:│
 
 " Allows auto-indenting depending on file type
