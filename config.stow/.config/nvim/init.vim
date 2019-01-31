@@ -90,6 +90,8 @@ let g:lightline = {
       \ }
 
 " ----- vim-scripts/Auto-Pairs -----
+let g:AutoPairsMapCR = 0
+imap <silent><CR> <CR><Plug>AutoPairsReturn
 let g:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
 
 
