@@ -270,7 +270,7 @@ lyrics_directory = ~/.config/ncmpcpp/lyrics
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = ""
+execute_on_song_change="notify-send "Now playing" "$(ncmpcpp --current-song="{%a - }{%t}|{%f}")"" -t 5000
 #
 ##
 ## Note: Custom command that will be executed each time player state
