@@ -235,7 +235,7 @@ set $color7   #cfcfcf
 set $color15  #ffffff
 
 set $border #a9635d
-set $uborder #292929
+set $uborder #a2a2a2
 
 # window colors
 # class                 border              background         text                indicator
@@ -261,14 +261,13 @@ client.urgent           $color1             $color1            $border          
 # =============================================================================
 
 # ----- Border settings -----
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 smart_borders on
 
 # ----- Start on login -----
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id nitrogen --restore &
 exec_always --no-startup-id eval `ssh-agent`
-exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

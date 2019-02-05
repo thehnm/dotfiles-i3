@@ -17,42 +17,42 @@
 ;==========================================================
 
 [colors]
-background = 0
+background = #292929
 foreground = #ffffff
 border-color = 0
 transparent = #00000000
 
 ; black
-color0  = #282a2e
-color8  = #373b41
+color0  = #4e4e4e
+color8  = #777777
 
 ; red
-color1  = #a54242
-color9  = #cc6666
+color1  = #a9635d
+color9  = #ffbbb2
 
 ; green
-color2  = #8c9440
-color10 = #b5bd68
+color2  = #468459
+color10 = #9ddeaf
 
 ; yellow
-color3  = #de935f
-color11 = #f0c674
+color3  = #84763d
+color11 = #e0ce91
 
 ; blue
-color4  = #5f819d
-color12 = #81a2be
+color4  = #5879af
+color12 = #b3d1ff
 
 ; magenta
-color5  = #85678f
-color13 = #b294bb
+color5  = #9c6594
+color13 = #fabdf0
 
 ; cyan
-color6  = #5e8d87
-color14 = #8abeb7
+color6  = #008592
+color14 = #79e0ed
 
 ; white
-color7  = #707880
-color15 = #c5c8c6
+color7  = #cfcfcf
+color15 = #ffffff
 
 [bar/standart]
 
@@ -60,28 +60,28 @@ color15 = #c5c8c6
 width = 100%
 height = 27
 
-fixed-center = false
+fixed-center = true
 bottom = true
 
-background = ${colors.transparent}
+background = ${colors.background}
 foreground = #ffffff
 
 line-size = 3
 line-color = #f00
 
-border-top-size = 5
-border-bottom-size = 5
-border-left-size = 0
-border-right-size = 0
-border-color = ${colors.transparent}
+;border-top-size = 5
+;border-bottom-size = 5
+;border-left-size = 0
+;border-right-size = 0
+;border-color = ${colors.transparent}
 
 padding-left = 0
 padding-right = 0
 
 ; ----- Modules -----
-modules-left = i3 pulseaudio eth wlan vpn battery backlight mpd spotify
-modules-center =
-modules-right = date
+modules-left = i3
+modules-center = mpd spotify
+modules-right = pulseaudio eth wlan vpn battery backlight date
 
 module-margin-left = 1
 module-margin-right = 1
@@ -110,7 +110,7 @@ label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.color6}
+label-focused-background = ${colors.color1}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -119,13 +119,13 @@ label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${colors.transparent}
+label-visible-background = ${colors.background}
 label-visible-underline = #000000
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.transparent}
+label-urgent-background = ${colors.background}
 label-urgent-underline = #a54242
 label-urgent-padding = 1
 
@@ -155,24 +155,15 @@ ws-icon-9 = 10;十
 
 [module/wlan]
 type = internal/network
-
 interface = wlp1s0
-
 interval = 5
-
-ramp-signal-background = ${colors.color1}
-ramp-signal-padding = 1
 ramp-signal-0 = 
 
-label-connected-background = ${colors.color9}
-label-connected-padding = 1
 label-connected = %essid%
 
-label-disconnected-background = ${colors.color9}
-label-disconnected-padding = 1
 label-disconnected = Disconnected
 
-format-connected = <ramp-signal>%{A1:nm-connection-editor:}<label-connected>%{A}
+format-connected = <ramp-signal> %{A1:nm-connection-editor:}<label-connected>%{A}
 
 format-disconnected = %{A1:nm-connection-editor:}<label-disconnected>%{A}
 
@@ -181,20 +172,11 @@ type = internal/network
 interface = enp0s31f6
 interval = 3.0
 
-ramp-signal-background = ${colors.color1}
-ramp-signal-padding = 1
 ramp-signal-0 = 
-
-label-connected-background = ${colors.color9}
-label-connected-padding = 1
 label-connected = %local_ip%
-
-label-disconnected-background = ${colors.color9}
-label-disconnected-padding = 1
 label-disconnected = Disconnected
 
-format-connected = <ramp-signal>%{A1:nm-connection-editor:}<label-connected>%{A}
-
+format-connected = <ramp-signal> %{A1:nm-connection-editor:}<label-connected>%{A}
 format-disconnected =
 
 [module/vpn]
@@ -202,29 +184,13 @@ type = custom/script
 exec = echo vpn on
 exec-if = pgrep -x openvpn
 interval = 1
-
-label-background = ${colors.color9}
-label-padding = 1
-label = %output%
-
-format-background = ${colors.color1}
-
-format-prefix = ""
-format-prefix-padding = 1
-format-prefix-foreground = ${colors.foreground}
+label =  %output%
 
 [module/date]
 type = internal/date
 date = %D %A
 time = %H:%M:%S
-label-background = ${colors.color8}
-label-padding = 1
-label = %time% %date%
-
-format-background = ${colors.color0}
-format-prefix = 
-format-prefix-padding = 1
-format = <label>
+label =  %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -232,41 +198,27 @@ sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = true
 interval = 1
 
-ramp-volume-background = ${colors.color2}
-ramp-volume-padding = 1
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-label-volume-background = ${colors.color10}
-label-volume-padding = 1
-
-format-volume = <ramp-volume><label-volume>
-
-label-muted-background = ${colors.color10}
-label-muted-padding = 1
+format-volume = <ramp-volume> <label-volume>
 label-muted = muted
 
-format-muted-background = ${colors.color2}
-format-muted-prefix = 
-format-muted-prefix-padding = 1
-format-muted = <label-muted>
+format-muted =  <label-muted>
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 poll-interval = 1
-full-at = 99
+full-at = 100
 
-ramp-capacity-background = ${colors.color3}
-ramp-capacity-padding = 1
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-animation-charging-background = ${colors.color3}
 animation-charging-padding = 1
 animation-charging-0 = 
 animation-charging-1 = 
@@ -276,8 +228,6 @@ animation-charging-4 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
-animation-discharging-background = ${colors.color3}
-animation-discharging-padding = 1
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
@@ -286,21 +236,15 @@ animation-discharging-4 = 
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
 
-label-discharging-background = ${colors.color11}
-label-discharging-padding = 1
 label-discharging = %percentage%%
 
-label-charging-background = ${colors.color11}
-label-charging-padding = 1
 label-charging = %percentage%%
 
-label-full-background = ${colors.color11}
-label-full-padding = 1
 label-full = %percentage%%
 
-format-discharging = <animation-discharging><label-discharging>
-format-full = <ramp-capacity><label-full>
-format-charging = <animation-charging><label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
 
 [module/spotify]
 type = custom/script
@@ -311,43 +255,28 @@ click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
 
-label-background = ${colors.color13}
-label-padding = 1
 label = %output%
-
-format-background = ${colors.color5}
-format-prefix = 
-format-prefix-padding = 1
-format = <label>
+format =  <label>
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
 
-ramp-background = ${colors.color4}
-ramp-padding = 1
 ramp-0 = 
-
-label-background = ${colors.color12}
-label-padding = 1
 label = %percentage%%
 
-format = <ramp><label>
+format = <ramp> <label>
 
 [module/mpd]
 type = internal/mpd
 host = 127.0.0.1
 interval = 1
 
-label-song-background = ${colors.color13}
-label-song-padding = 1
 label-song = %artist% - %title%
 
 label-offline =  mpd is offline
 
-format-online-background = ${colors.color5}
-format-online-padding = 1
-format-online =  %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
+format-online = <bar-progress>  %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
 ; Only applies if <icon-[random|repeat|repeatone|single]> is used
