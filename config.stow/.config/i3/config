@@ -237,7 +237,7 @@ bindsym $mod+Shift+v exec virtualbox
 #
 
 set $border #a9635d
-set $uborder #a2a2a2
+set $uborder #4e4e4e
 
 # window colors
 # class                 border              background         text                indicator
@@ -263,7 +263,7 @@ client.urgent           $color1             $color1            $border          
 # =============================================================================
 
 # ----- Border settings -----
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 smart_borders on
 
 # ----- Start on login -----
