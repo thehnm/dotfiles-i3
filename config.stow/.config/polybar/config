@@ -69,11 +69,8 @@ foreground = #ffffff
 line-size = 3
 line-color = #f00
 
-;border-top-size = 5
-;border-bottom-size = 5
-;border-left-size = 0
-;border-right-size = 0
-;border-color = ${colors.transparent}
+border-right-size = 5
+border-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -81,7 +78,7 @@ padding-right = 0
 ; ----- Modules -----
 modules-left = i3
 modules-center = mpd spotify
-modules-right = pulseaudio eth wlan vpn battery backlight date
+modules-right = eth wlan vpn pulseaudio battery backlight time date
 
 module-margin-left = 1
 module-margin-right = 1
@@ -177,9 +174,13 @@ label =  %output%
 [module/date]
 type = internal/date
 date = %D %A
-time = %H:%M:%S
 
-label =  %time% %date%
+label =  %date%
+
+[module/time]
+type = internal/date
+time = %H:%M:%S
+label =  %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
