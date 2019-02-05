@@ -58,10 +58,10 @@ color15 = #ffffff
 
 ;----- Settings -----
 width = 100%
-height = 27
+height = 25
 
 fixed-center = true
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = #ffffff

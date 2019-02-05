@@ -1,16 +1,3 @@
-! ===== rofi =====
-rofi.sidebar-mode: true
-rofi.modi: run,drun,window
-rofi.fullscreen: true
-rofi.hide-scrollbar: true
-rofi.padding: 400
-rofi.font: Cantarell Bold 24
-rofi.color-enabled: true
-rofi.color-window: #1d1f21, #1d1f21, #1d1f21
-rofi.color-normal: #1d1f21, #c5c8c6, #1d1f21, #1d1f21, #5f819d
-rofi.color-active: #1d1f21, #85678f, #1d1f21, #1d1f21, #5f819d
-rofi.color-urgent: #1d1f21, #de935f, #1d1f21, #1d1f21, #de935f
-
 ! special
 *.foreground:   #a2a2a2
 *.background:   #292929

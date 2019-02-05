@@ -1,6 +1,45 @@
 set $mod Mod4
 set $mod1 Mod1
 
+# Color section
+# special
+set $foreground       #a2a2a2
+set $foreground_bold  #a2a2a2
+set $cursor           #a2a2a2
+set $background       #292929
+
+# black
+set $color0   #4e4e4e
+set $color8   #777777
+
+# red
+set $color1   #a9635d
+set $color9   #ffbbb2
+
+# green
+set $color2   #468459
+set $color10  #9ddeaf
+
+# yellow
+set $color3   #84763d
+set $color11  #e0ce91
+
+# blue
+set $color4   #5879af
+set $color12  #b3d1ff
+
+# magenta
+set $color5   #9c6594
+set $color13  #fabdf0
+
+# cyan
+set $color6   #008592
+set $color14  #79e0ed
+
+# white
+set $color7   #cfcfcf
+set $color15  #ffffff
+
 # Set window title font and bar font unless not set in bar{]
 font pango:DejaVuSansMono Nerd Font 0
 
@@ -28,8 +67,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Kill focused window
 bindsym $mod+q kill
 
-# Start rofi
-bindsym $mod+d exec rofi -show drun
+# Start dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Arimo Nerd Font:size=15" -nb "#292929" -sb "#a9635d"
 
 # Change focus
 bindsym $mod+h focus left
@@ -196,43 +235,6 @@ bindsym $mod+Shift+v exec virtualbox
 
 # =============================================================================
 #
-# special
-set $foreground       #a2a2a2
-set $foreground_bold  #a2a2a2
-set $cursor           #a2a2a2
-set $background       #292929
-
-# black
-set $color0   #4e4e4e
-set $color8   #777777
-
-# red
-set $color1   #a9635d
-set $color9   #ffbbb2
-
-# green
-set $color2   #468459
-set $color10  #9ddeaf
-
-# yellow
-set $color3   #84763d
-set $color11  #e0ce91
-
-# blue
-set $color4   #5879af
-set $color12  #b3d1ff
-
-# magenta
-set $color5   #9c6594
-set $color13  #fabdf0
-
-# cyan
-set $color6   #008592
-set $color14  #79e0ed
-
-# white
-set $color7   #cfcfcf
-set $color15  #ffffff
 
 set $border #a9635d
 set $uborder #a2a2a2
