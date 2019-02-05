@@ -83,6 +83,7 @@ alias motherfucking='sudo'
 alias im='sxiv'
 alias fm='ranger'
 alias e='nvim'
+alias gettodos='grep TODO -nr * > TODOs.txt'
 
 # Theming section
 autoload -U compinit colors zcalc
