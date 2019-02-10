@@ -107,7 +107,8 @@ label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.color1}
+; label-focused-background = ${colors.color1}
+label-focused-foreground= ${colors.color1}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
