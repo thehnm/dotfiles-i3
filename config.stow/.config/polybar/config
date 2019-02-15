@@ -174,7 +174,7 @@ label =  %output%
 
 [module/date]
 type = internal/date
-date = %D %A
+date = %d-%m-%Y %A
 
 label =  %date%
 
@@ -210,7 +210,6 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-animation-charging-padding = 1
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
