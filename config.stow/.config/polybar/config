@@ -225,7 +225,7 @@ ramp-capacity-0 = bat
 ;ramp-capacity-3 = 
 ;ramp-capacity-4 = 
 
-animation-charging-0 = bat
+;animation-charging-0 = bat
 ;animation-charging-0 = 
 ;animation-charging-1 = 
 ;animation-charging-2 = 
@@ -233,6 +233,13 @@ animation-charging-0 = bat
 ;animation-charging-4 = 
 ; Framerate in milliseconds
 ;animation-charging-framerate = 750
+
+animation-charging-0 = ###
+animation-charging-1 = b##
+animation-charging-2 = ba#
+animation-charging-3 = bat
+animation-charging-4 = ba#
+animation-charging-5 = b##
 
 animation-discharging-0 = bat
 ;animation-discharging-0 = 
