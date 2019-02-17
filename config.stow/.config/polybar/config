@@ -76,7 +76,7 @@ padding-left = 0
 padding-right = 0
 
 ; ----- Modules -----
-modules-left = i3
+modules-left = i3 xwindow
 modules-center = mpd spotify
 modules-right = eth wlan vpn pulseaudio battery backlight time date
 
@@ -106,23 +106,23 @@ jabel-mode-foreground = #ffffff
 label-mode-background = #00000000
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%
+label-focused = %index%
 ; label-focused-background = ${colors.color1}
 label-focused-foreground= ${colors.color1}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
+label-unfocused = %index%
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon%
+label-visible = %index%
 label-visible-background = ${colors.background}
 label-visible-underline = #000000
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = %index%
 label-urgent-background = ${colors.background}
 label-urgent-underline = #a54242
 label-urgent-padding = 1
@@ -139,11 +139,19 @@ ws-icon-7 = 8;八
 ws-icon-8 = 9;九
 ws-icon-9 = 10;十
 
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+
+format = <label>
+
 [module/wlan]
 type = internal/network
 interface = wlp1s0
 interval = 5
-ramp-signal-0 = 
+;ramp-signal-0 = 
+ramp-signal-0 = wifi
 
 label-connected = %essid%
 label-disconnected = Disconnected
@@ -156,7 +164,8 @@ type = internal/network
 interface = enp0s31f6
 interval = 3.0
 
-ramp-signal-0 = 
+;ramp-signal-0 = 
+ramp-signal-0 = eth
 
 label-connected = %local_ip%
 label-disconnected = Disconnected
@@ -170,18 +179,21 @@ exec = echo vpn on
 exec-if = pgrep -x openvpn
 interval = 1
 
-label =  %output%
+;label =  %output%
+label = vpn %output%
 
 [module/date]
 type = internal/date
 date = %d-%m-%Y %A
 
-label =  %date%
+;label =  %date%
+label = date %date%
 
 [module/time]
 type = internal/date
 time = %H:%M:%S
-label =  %time%
+;label =  %time%
+label = time %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -189,14 +201,16 @@ sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = true
 interval = 1
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = vol
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+;ramp-volume-2 = 
 
 label-muted = muted
 
 format-volume = <ramp-volume> <label-volume>
-format-muted =  <label-muted>
+;format-muted =  <label-muted>
+format-muted = vol <label-muted>
 
 [module/battery]
 type = internal/battery
@@ -204,27 +218,30 @@ battery = BAT0
 poll-interval = 1
 full-at = 100
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = bat
+;ramp-capacity-0 = 
+;ramp-capacity-1 = 
+;ramp-capacity-2 = 
+;ramp-capacity-3 = 
+;ramp-capacity-4 = 
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = bat
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
+;animation-charging-3 = 
+;animation-charging-4 = 
 ; Framerate in milliseconds
-animation-charging-framerate = 750
+;animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
+animation-discharging-0 = bat
+;animation-discharging-0 = 
+;animation-discharging-1 = 
+;animation-discharging-2 = 
+;animation-discharging-3 = 
+;animation-discharging-4 = 
 ; Framerate in milliseconds
-animation-discharging-framerate = 500
+;animation-discharging-framerate = 500
 
 label-discharging = %percentage%%
 label-charging = %percentage%%
@@ -245,13 +262,15 @@ click-middle = playerctl play-pause
 
 label = %output%
 
-format =  <label>
+format = <label>
+;format =  <label>
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
 
-ramp-0 = 
+ramp-0 = light
+;ramp-0 = 
 
 label = %percentage%%
 
@@ -264,9 +283,11 @@ interval = 1
 
 label-song = %artist% - %title%
 
-label-offline =  mpd is offline
+label-offline = mpd is offline
+;label-offline =  mpd is offline
 
-format-online =  <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
+format-online = <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
+;format-online =  <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
 ; Only applies if <icon-[random|repeat|repeatone|single]> is used
