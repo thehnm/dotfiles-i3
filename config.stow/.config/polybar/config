@@ -286,7 +286,7 @@ label-song = %artist% - %title%
 label-offline = mpd is offline
 ;label-offline =  mpd is offline
 
-format-online = <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
+format-online = %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 ;format-online =  <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
