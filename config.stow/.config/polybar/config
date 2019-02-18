@@ -69,7 +69,7 @@ foreground = #ffffff
 line-size = 3
 line-color = #f00
 
-border-size = 5
+border-size = 3
 border-color = ${colors.background}
 
 padding-left = 0
@@ -171,7 +171,7 @@ format-disconnected =
 
 [module/vpn]
 type = custom/script
-exec = echo vpn on
+exec = echo on
 exec-if = pgrep -x openvpn
 interval = 1
 
