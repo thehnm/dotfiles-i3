@@ -76,7 +76,7 @@ padding-left = 0
 padding-right = 0
 
 ; ----- Modules -----
-modules-left = i3 xwindow
+modules-left = i3
 modules-center = mpd spotify
 modules-right = eth wlan vpn pulseaudio battery backlight time date
 
