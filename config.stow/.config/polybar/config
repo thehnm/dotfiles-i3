@@ -101,10 +101,6 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-label-mode-padding = 1
-jabel-mode-foreground = #ffffff
-label-mode-background = #00000000
-
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 ; label-focused-background = ${colors.color1}
