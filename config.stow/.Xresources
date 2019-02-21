@@ -38,4 +38,8 @@
 *.scrollBar: false
 *.font: xft:RobotoMono Nerd Font Mono:size=14
 
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
 ! *.internalBorder: 10
