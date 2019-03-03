@@ -50,6 +50,7 @@ call vundle#end()
 " ----- Plugin Configuration --------------------------------------------------"
 
 " ----- vim-latex/vim-latex -----
+let g:tex_flavor='xelatex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'zathura'

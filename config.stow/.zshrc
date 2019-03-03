@@ -73,8 +73,6 @@ alias mv='mv -iv'
 alias rm='rm -v'
 alias cp='cp -iv'
 alias um='udiskie-umount -a'
-alias avpn='nmcli con up'
-alias dvpn='nmcli con down'
 alias shut='shutdown -h now'
 alias yay='yay --color=auto'
 alias pacman='pacman --color=auto'
@@ -85,6 +83,8 @@ alias fm='ranger'
 alias e='nvim'
 alias gettodos='grep TODO -nr * > TODOs.txt'
 alias music='ncmpcpp'
+alias vpc='expressvpn connect'
+alias vpd='expressvpn disconnect'
 
 # Theming section
 autoload -U compinit colors zcalc
