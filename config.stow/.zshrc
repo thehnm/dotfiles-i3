@@ -85,6 +85,7 @@ alias gettodos='grep TODO -nr * > TODOs.txt'
 alias music='ncmpcpp'
 alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
+alias vps='expressvpn status'
 
 # Theming section
 autoload -U compinit colors zcalc
