@@ -263,7 +263,7 @@ client.urgent           $color1             $color1            $border          
 # =============================================================================
 
 # ----- Border settings -----
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 smart_borders on
 
 # ----- Start on login -----

@@ -166,7 +166,7 @@ ramp-signal-0 = eth
 label-connected = %local_ip%
 label-disconnected = Disconnected
 
-format-connected = <ramp-signal> %{A1:nm-connection-editor:}<label-connected>%{A}
+format-connected = <ramp-signal> <label-connected>
 format-disconnected =
 
 [module/vpn]
@@ -286,7 +286,7 @@ label-song = %artist% - %title%
 label-offline = mpd is offline
 ;label-offline =  mpd is offline
 
-format-online = %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
+format-online = <label-song>
 ;format-online =  <bar-progress> %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}<label-song>%{A}%{A}
 
 ; Used to display the state of random/repeat/repeatone/single
