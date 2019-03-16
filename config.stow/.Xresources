@@ -36,7 +36,7 @@
 *.color15:      #ffffff
 
 *.scrollBar: false
-*.font: xft:RobotoMono Nerd Font Mono:size=14
+*.font: xft:RobotoMono Nerd Font Mono:size=12
 
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
