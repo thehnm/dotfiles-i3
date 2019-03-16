@@ -21,7 +21,6 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 
 " ----- Editor features -----
-Plugin 'w0rp/ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -58,8 +57,8 @@ let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 let g:tex_no_error=1
 
 " ----- w0rp/ale -----
-let g:ale_sign_error = 'xx'
-let g:ale_sign_warning = '--'
+"let g:ale_sign_error = 'xx'
+"let g:ale_sign_warning = '--'
 "let g:ale_linters = {'cpp': ['g++', 'clang']}
 
 " ----- ntpeters/vim-better-whitespace -----
