@@ -281,4 +281,4 @@ exec --no-startup-id udiskie &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id mpd
 exec --no-startup-id compton
-exec --no-startup-id blurwal -s 15
+exec_always --no-startup-id blurwal -s 15
