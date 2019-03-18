@@ -11,6 +11,7 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set splitbelow
 set splitright
+set noshowmode
 
 filetype off
 
