@@ -240,7 +240,8 @@ bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#29292
 #
 
 set $border #a9635d
-set $uborder #4e4e4e
+#set $uborder #4e4e4e
+set $uborder #292929
 
 # window colors
 # class                 border              background         text                indicator
@@ -281,4 +282,4 @@ exec --no-startup-id udiskie &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id mpd
 exec --no-startup-id compton
-exec_always --no-startup-id blurwal -s 15
+exec --no-startup-id blurwal -s 15

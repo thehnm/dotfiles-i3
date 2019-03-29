@@ -180,7 +180,7 @@ label = vpn %output%
 
 [module/date]
 type = internal/date
-date = %d-%m-%Y %A
+date = %d.%m.%Y %A
 
 ;label =  %date%
 label = date %date%
