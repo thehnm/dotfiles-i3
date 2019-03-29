@@ -5,6 +5,8 @@ download-retries 4
 download-timeout 10
 prepopulate-query-feeds yes
 
+external-url-viewer "urlview"
+
 bind-key j down feedlist
 bind-key k up feedlist
 bind-key j next articlelist
