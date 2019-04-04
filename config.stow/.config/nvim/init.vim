@@ -57,11 +57,6 @@ let g:Tex_ViewRule_pdf = 'zathura'
 let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 let g:tex_no_error=1
 
-" ----- w0rp/ale -----
-"let g:ale_sign_error = 'xx'
-"let g:ale_sign_warning = '--'
-"let g:ale_linters = {'cpp': ['g++', 'clang']}
-
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
 
@@ -74,7 +69,7 @@ let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 " ----- Rip-Rip/clang_complete -----
-let g:clang_library_path='/usr/lib64/libclang.so.7'
+let g:clang_library_path='/usr/lib/libclang.so.8'
 let g:clang_close_preview=1
 
 " ----- majutsushi/tagbar -----
