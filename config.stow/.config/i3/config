@@ -200,7 +200,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # ----- Clear clipboard -----
-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send "Clipboard deleted" -u normal
+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send -u normal -t 3000 "Clipboard deleted"
 
 # ----- Lock screen -----
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
@@ -220,7 +220,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 
 # ----- scrot -----
-bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low
+bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low -t 3000
 
 # ----- mpd/mpc -----
 bindsym $mod1+n exec --no-startup-id mpc next
@@ -234,7 +234,7 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+v exec virtualbox
 
 # ----- passmenu -----
-bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#292929" -sb "#292929" -sf "#a9635d" -b && notify-send "Password copied to clipboard"
+bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#292929" -sb "#292929" -sf "#a9635d" -b && notify-send -t 3000 "Password copied to clipboard"
 
 # =============================================================================
 #
