@@ -229,4 +229,4 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(ssh-agent)" > /dev/null
 fi
 
-export LS_COLORS="$(vivid generate molokai)"
+export LS_COLORS="$(vivid generate snazzy)"
