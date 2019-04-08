@@ -1,4 +1,5 @@
 https://www.archlinux.org/feeds/news/ "Linux"
+https://itsfoss.com/feed "Linux"
 https://lukesmith.xyz/rss.xml
 
 https://www.faz.net/rss/aktuell/ "News"
@@ -11,3 +12,6 @@ https://newsfeed.zeit.de/index "News"
 http://rss.nytimes.com/services/xml/rss/nyt/World.xml "News"
 http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml "News"
 https://www.scmp.com/rss/91/feed "News"
+
+https://www.gamestar.de/news/rss/news.rss "Gaming"
+https://kotaku.com/rss "Gaming"
