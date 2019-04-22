@@ -271,7 +271,7 @@ for_window [class="^.*"] border pixel 2
 smart_borders on
 smart_gaps on
 gaps inner 10
-gaps outer 10
+gaps outer 0
 
 # ----- Start on login -----
 exec_always --no-startup-id nm-applet
@@ -281,5 +281,3 @@ exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id mpd
-exec --no-startup-id compton
-exec --no-startup-id blurwal -s 15
