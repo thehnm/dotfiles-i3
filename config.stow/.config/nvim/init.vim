@@ -25,11 +25,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-bufferline'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
@@ -87,12 +87,6 @@ let g:lightline = {
       \ },
       \ }
 
-" ----- vim-scripts/Auto-Pairs -----
-let g:AutoPairsMapCR = 0
-imap <silent><CR> <CR><Plug>AutoPairsReturn
-let g:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '`':'`'}
-
-
 " ----- Mappings --------------------------------------------------------------"
 
 " Set map leader key
@@ -106,7 +100,8 @@ map <leader>q : bp<CR>
 map <leader>w : bn<CR>
 
 " Open netrw
-map <leader>e : Vexplore<CR>
+map <leader>e : Explore<CR>
+map <leader>t : Vexplore<CR>
 
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
@@ -126,6 +121,16 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Autoclose matching brackets
+" Press ctrl-v for single bracket
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 " ---------- Settings ----------
 
