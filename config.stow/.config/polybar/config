@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = #292929
+background = #1d1f21
 foreground = #ffffff
 border-color = 0
 transparent = #00000000
