@@ -2,46 +2,29 @@ set $mod Mod4
 set $mod1 Mod1
 
 # Color section
-# special
-set $foreground       #a2a2a2
-set $foreground_bold  #a2a2a2
-set $cursor           #a2a2a2
-set $background       #292929
-
-# black
-set $color0   #4e4e4e
-set $color8   #777777
-
-# red
-set $color1   #a9635d
-set $color9   #ffbbb2
-
-# green
-set $color2   #468459
-set $color10  #9ddeaf
-
-# yellow
-set $color3   #84763d
-set $color11  #e0ce91
-
-# blue
-set $color4   #5879af
-set $color12  #b3d1ff
-
-# magenta
-set $color5   #9c6594
-set $color13  #fabdf0
-
-# cyan
-set $color6   #008592
-set $color14  #79e0ed
-
-# white
-set $color7   #cfcfcf
-set $color15  #ffffff
+set $foreground #c5c8c6
+set $foreground_bold #c5c8c6
+set $cursor #c5c8c6
+set $background #1d1f21
+set $color0 #282a2e
+set $color8 #373b41
+set $color1 #a54242
+set $color9 #cc6666
+set $color2 #8c9440
+set $color10 #b5bd68
+set $color3 #de935f
+set $color11 #f0c674
+set $color4 #5f819d
+set $color12 #81a2be
+set $color5 #85678f
+set $color13 #b294bb
+set $color6 #5e8d87
+set $color14 #8abeb7
+set $color7 #707880
+set $color15 #c5c8c6
 
 # Set window title font and bar font unless not set in bar{]
-font pango:DejaVuSansMono Nerd Font 0
+font pango:Fira Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -68,7 +51,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Fira Mono:size=10" -nb "#292929" -sb "#292929" -sf "#a9635d" -b
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" -b
 
 # Change focus
 bindsym $mod+h focus left
@@ -230,39 +213,38 @@ bindsym $mod1+p exec --no-startup-id mpc toggle
 # ----- firefox -----
 bindsym $mod+Shift+f exec firefox
 
-# ----- Virtualbox -----
+# ----- virtualbox -----
 bindsym $mod+Shift+v exec virtualbox
 
 # ----- passmenu -----
-bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#292929" -sb "#292929" -sf "#a9635d" -b && notify-send -t 3000 "Password copied to clipboard"
+bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" -b && notify-send -t 2500 "Password copied to clipboard"
 
 # =============================================================================
 #
 
-set $border #a9635d
-#set $uborder #4e4e4e
-set $uborder #292929
-
 # window colors
 # class                 border              background         text                indicator
-client.focused          $border             $border            $bg                 $border
-client.unfocused        $uborder            $uborder           $border             $uborder
-client.focused_inactive $uborder            $uborder           $border             $uborder
-client.urgent           $color1             $color1            $border             $uborder
+client.focused          $color9             $color9            $background         $color9
+client.unfocused        $background         $background        $color9             $background
+client.focused_inactive $color9             $background        $color9             $background
+client.urgent           $color9             $color9            $color9             $background
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#1bar {
-#1        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-#1        colors {
-#1		background $color0
-#1	        separator $color12
-#1		#                  border             background         text
-#1		focused_workspace  $color0            $color0            $color12
-#1		inactive_workspace $color0            $color0            $color15
-#1		urgent_workspace   $color1            $color1            $color12
-#1	}
-#1}
+bar {
+        position top
+        tray_output none
+        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+        colors {
+		background $background
+	    separator $background
+
+		#                  border             background         text
+		focused_workspace  $background        $background        $color9
+		inactive_workspace $background        $background        $foreground
+		urgent_workspace   $color9            $background        $color9
+	}
+}
 
 # =============================================================================
 
@@ -279,5 +261,4 @@ exec_always --no-startup-id $HOME/.fehbg &
 exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id mpd
