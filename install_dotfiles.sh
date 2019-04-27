@@ -5,6 +5,8 @@ mkdir -p $HOME/.config/mpd
 mkdir -p $HOME/.config/mpd/playlists
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/newsboat
+mkdir -p $HOME/.config/termite
+mkdir -p $HOME/.config/gtk-3.0
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.icons
 mkdir -p $HOME/.local/share/fonts
