@@ -85,6 +85,7 @@ alias music='vimpc'
 alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
 alias vps='expressvpn status'
+alias dmenu='dmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" -b'
 
 # Theming section
 autoload -U compinit colors zcalc
