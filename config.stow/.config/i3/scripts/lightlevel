@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-error=$(light -G 2>&1)
-if [ ${#error} = 6 ]; then
-    light -G
+level=$(light -G)
+if [ "$level" != 0.0 ]; then
+    echo "$level"
 fi
