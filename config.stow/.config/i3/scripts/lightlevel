@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
 error=$(light -G 2>&1)
-if [ -z "$error" ]; then
+if [ ${#error} = 6 ]; then
     light -G
 fi
