@@ -51,7 +51,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # Start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" -b
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666"
 
 # Change focus
 bindsym $mod+h focus left
@@ -217,7 +217,10 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+v exec virtualbox
 
 # ----- passmenu -----
-bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" -b && notify-send -t 2500 "Password copied to clipboard"
+bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" && notify-send -t 2500 "Password copied to clipboard"
+
+# ----- thunderbird -----
+bindsym $mod+Shift+t exec thunderbird
 
 # =============================================================================
 #
@@ -262,3 +265,4 @@ exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 exec --no-startup-id mpd
+exec --no-startup-id protonmail-bridge --no-window
