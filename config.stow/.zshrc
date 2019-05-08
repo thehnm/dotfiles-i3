@@ -99,7 +99,7 @@ setopt prompt_subst
 #PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
 # Maia prompt
 #PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b "
-PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b "
+PROMPT="%B%{$fg[cyan]%}%(5~|%-1~/.../%2~|%~)%u%b "
 # Print a greeting message when shell is started
 #echo $USER@$HOST  $(uname -srm)
 ## Prompt on right side:
