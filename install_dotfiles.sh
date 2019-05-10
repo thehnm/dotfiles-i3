@@ -10,7 +10,7 @@ mkdir -p $HOME/.config/gtk-3.0
 mkdir -p $HOME/.themes
 mkdir -p $HOME/.icons
 mkdir -p $HOME/.local/share/fonts
-mkdir -p $HOME/Pictures
+mkdir -p $HOME/pic
 
 stow -R config.stow
 stow -R fonts.stow
