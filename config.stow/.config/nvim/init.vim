@@ -50,11 +50,10 @@ call vundle#end()
 " ----- Plugin Configuration --------------------------------------------------"
 
 " ----- vim-latex/vim-latex -----
-let g:tex_flavor='xelatex'
+let g:tex_flavor='texlive'
 let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'rubber -d $*'
 let g:Tex_ViewRule_pdf = 'zathura'
-let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 let g:tex_no_error=1
 
 " ----- ntpeters/vim-better-whitespace -----
