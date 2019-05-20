@@ -12,6 +12,10 @@ set wildmode=longest,list   " get bash-like tab completions
 set splitbelow
 set splitright
 set noshowmode
+set hidden
+set wrap linebreak
+set fillchars=vert:│
+set showcmd
 
 filetype off
 
@@ -95,8 +99,8 @@ let mapleader=','
 nnoremap <F3> : set hlsearch!<CR>
 
 " Switch buffers quickly
-map <leader>q : bp<CR>
-map <leader>w : bn<CR>
+map <leader>q :bp<CR>
+map <leader>w :bn<CR>
 
 " Open netrw
 map <leader>e : Explore<CR>
@@ -134,16 +138,14 @@ inoremap {;<CR> {<CR>};<ESC>O
 nnoremap <F9> : !rubber --clean %:t<CR>
 nnoremap <F6> : !texcount %:t<CR>
 
-" ---------- Settings ----------
+" Move around displayed lines
+map j gj
+map k gk
 
-" Set vertical split bar to continous line
-set fillchars=vert:│
+" ---------- Settings ----------
 
 " Allows auto-indenting depending on file type
 filetype plugin indent on
-
-" Show typed command
-set showcmd
 
 " Disable vertical split border background
 hi VertSplit cterm=None
@@ -152,6 +154,3 @@ hi clear SignColumn
 
 " Disable banner when opening netrw
 let g:netrw_banner = 0
-
-" Don't break long lines
-set nowrap
