@@ -2,12 +2,12 @@
 #allow_bold = true
 #audible_bell = false
 #bold_is_bright = true
-#clickable_url = true
+clickable_url = true
 #dynamic_title = true
-font = Fira Mono 12
+font = Fira Mono 10
 #fullscreen = true
 #icon_name = terminal
-#mouse_autohide = false
+mouse_autohide = true
 #scroll_on_output = false
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
@@ -24,7 +24,7 @@ scrollback_lines = 10000
 #cursor_blink = system
 
 # "block", "underline" or "ibeam"
-#cursor_shape = block
+cursor_shape = block
 
 # Hide links that are no longer valid in url select overlay mode
 #filter_unmatched_urls = true
@@ -38,60 +38,7 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 
-#[colors]
-## If both of these are unset, cursor falls back to the foreground color,
-## and cursor_foreground falls back to the background color.
-##cursor = #dcdccc
-##cursor_foreground = #dcdccc
-#
-##foreground = #dcdccc
-##foreground_bold = #ffffff
-##background = #3f3f3f
-#
-## 20% background transparency (requires a compositor)
-##background = rgba(63, 63, 63, 0.8)
-#
-## special
-#foreground      = #a2a2a2
-#foreground_bold = #a2a2a2
-#cursor          = #a2a2a2
-#background      = #292929
-#
-## black
-#color0  = #4e4e4e
-#color8  = #777777
-#
-## red
-#color1  = #a9635d
-#color9  = #ffbbb2
-#
-## green
-#color2  = #468459
-#color10 = #9ddeaf
-#
-## yellow
-#color3  = #84763d
-#color11 = #e0ce91
-#
-## blue
-#color4  = #5879af
-#color12 = #b3d1ff
-#
-## magenta
-#color5  = #9c6594
-#color13 = #fabdf0
-#
-## cyan
-#color6  = #008592
-#color14 = #79e0ed
-#
-## white
-#color7  = #cfcfcf
-#color15 = #ffffff
-#
-
 [colors]
-
 # special
 foreground      = #c5c8c6
 foreground_bold = #c5c8c6
@@ -130,15 +77,4 @@ color14 = #8abeb7
 color7  = #707880
 color15 = #c5c8c6
 
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
-# vim: ft=dosini cms=#%s
+vim: ft=dosini cms=#%s
