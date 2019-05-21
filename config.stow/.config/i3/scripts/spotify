@@ -4,20 +4,18 @@ format() {
     playerstatus=$(playerctl status)
     artist=$(playerctl metadata artist)
     title=$(playerctl metadata title)
-    if [ -z "$playerstatus" ]; then
-        exit
-    fi
 
+    [ -z "$playerstatus" ] && exit
     echo "$playerstatus$artist - $title" | sed -e "s/Paused/<span color=\"gray\" font_style=\"italic\">/g;s/Playing/<span>/g" | sed -e "s/$/<\/span>/g"
 }
 
 case $BLOCK_BUTTON in
-    2) playerctl play-pause && format ;;
-    3) format && pgrep -x dunst >/dev/null && notify-send "Spotify module" "\- Shows spotify song playing.
+    2) playerctl play-pause | format ;;
+    3) pgrep -x dunst >/dev/null && notify-send "Spotify module" "\- Shows spotify song playing.
 - Italic when paused.
 - Left click opens ncmpcpp.
 - Middle click pauses.
-- Scroll changes track.";;  # right click, pause/unpause
+- Scroll changes track." | format ;;  # right click, pause/unpause
     4) playerctl next | format ;;
     5) playerctl previous | format ;;
     *) format;;

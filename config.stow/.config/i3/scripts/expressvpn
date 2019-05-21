@@ -2,8 +2,6 @@
 
 vpnstatus=$(expressvpn status 2>&1)
 
-if [ "$vpnstatus" = "Not connected" ]; then
-    exit
-fi
+[ "$vpnstatus" = "Not connected" ] && exit
 
 echo $(expressvpn status) | head -1 | awk '{print $3}'
