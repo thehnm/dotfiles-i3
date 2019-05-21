@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/dunst
 mkdir -p $HOME/.config/mpd
 mkdir -p $HOME/.config/mpd/playlists

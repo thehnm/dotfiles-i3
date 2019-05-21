@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+level=$(light -G)
+if [ "$level" != 0.00 ]; then
+    echo "$level"
+fi
