@@ -85,6 +85,7 @@ alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
 alias vps='expressvpn status'
 alias calcurse='calcurse -D $HOME/.config/calcurse'
+alias music='ncmpcpp'
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
