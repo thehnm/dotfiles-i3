@@ -10,13 +10,8 @@ format() {
 }
 
 case $BLOCK_BUTTON in
+    1) playerctl previous | format ;;
     2) playerctl play-pause | format ;;
-    3) pgrep -x dunst >/dev/null && notify-send "Spotify module" "\- Shows spotify song playing.
-- Italic when paused.
-- Left click opens ncmpcpp.
-- Middle click pauses.
-- Scroll changes track." | format ;;  # right click, pause/unpause
-    4) playerctl next | format ;;
-    5) playerctl previous | format ;;
+    3) playerctl next | format ;;
     *) format;;
-esac
+esac; exit
