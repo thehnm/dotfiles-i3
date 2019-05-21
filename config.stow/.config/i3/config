@@ -204,7 +204,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 
 # ----- scrot -----
-bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/Pictures/' && notify-send "Picture saved to ~/Pictures/" -u low -t 3000
+bindsym $mod+Print exec --no-startup-id scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/' && notify-send "Picture saved to ~/pic/" -u low -t 3000
 
 # ----- mpd/mpc -----
 bindsym $mod1+n exec --no-startup-id mpc next
