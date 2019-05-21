@@ -23,8 +23,8 @@ set $color14 #8abeb7
 set $color7 #707880
 set $color15 #c5c8c6
 
-# Set window title font and bar font unless not set in bar{]
-font pango:Fira Mono 10
+# Set window title font and bar font unless not set in bar{}
+font pango:Fira Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -153,7 +153,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -264,5 +265,4 @@ exec_always --no-startup-id $HOME/.fehbg &
 exec_always --no-startup-id eval `ssh-agent`
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
-exec --no-startup-id mpd
 exec --no-startup-id protonmail-bridge --no-window

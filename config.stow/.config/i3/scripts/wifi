@@ -1,6 +1,0 @@
-#!/bin/bash
-
-wifiname=$(nmcli device status | grep -w "connected" | awk 'NF>1{print $NF}')
-if [ ! -z $wifiname ]; then
-    echo "$wifiname"
-fi

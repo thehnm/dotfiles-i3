@@ -1,16 +1,25 @@
 #!/bin/sh
 
-artist=$(playerctl metadata artist 2>&1)
-if [ "$artist" = "No players found" ]; then
-    exit
-fi
+playerstatus=$(playerctl status 2>&1)
 
-title=$(playerctl metadata title)
-
-echo "$artist - $title"
+format() {
+    if [ "$playerstatus" = "No players found" ]; then
+        exit
+    elif [ "$playerstatus" = "Paused" ]; then
+        echo "<span color=\"gray\" font_style=\"italic\">$(playerctl metadata artist) - $(playerctl metadata title)</span>"
+    else
+        echo "$(playerctl metadata artist) - $(playerctl metadata title)"
+    fi
+}
 
 case $BLOCK_BUTTON in
-    1) playerctl previous ;;
-    2) playerctl play-pause ;;
-    3) playerctl next ;;
+    2) playerctl play-pause | format ;;
+    3) format && pgrep -x dunst >/dev/null && notify-send "Spotify module" "\- Shows spotify song playing.
+- Italic when paused.
+- Left click opens ncmpcpp.
+- Middle click pauses.
+- Scroll changes track.";;  # right click, pause/unpause
+    4) playerctl next | format ;;
+    5) playerctl previous | format ;;
+    *) format;;
 esac
