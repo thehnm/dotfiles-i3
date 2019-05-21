@@ -84,6 +84,7 @@ alias gettodos='grep TODO -nr * > TODOs.txt'
 alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
 alias vps='expressvpn status'
+alias calcurse='calcurse -D $HOME/.config/calcurse'
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
