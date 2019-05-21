@@ -24,7 +24,7 @@ set $color7 #707880
 set $color15 #c5c8c6
 
 # Set window title font and bar font unless not set in bar{}
-font pango:Fira Mono 9
+font pango:Fira Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -218,7 +218,7 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+v exec virtualbox
 
 # ----- passmenu -----
-bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" && notify-send -t 2500 "Password copied to clipboard"
+bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f21" -sb "#1d1f21" -sf "#cc6666" && notify-send -t 2000 "Password copied to clipboard"
 
 # ----- thunderbird -----
 bindsym $mod+Shift+t exec thunderbird
@@ -263,6 +263,7 @@ gaps outer 0
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id $HOME/.fehbg &
 exec_always --no-startup-id eval `ssh-agent`
+exec --no-startup-id mpd
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
 exec --no-startup-id protonmail-bridge --no-window
