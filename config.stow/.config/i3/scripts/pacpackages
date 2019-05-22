@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e $HOME/.config/i3/scripts/popupgrade ;;
+	2) notify-send "$(/usr/bin/pacman -Qu)" ;;
+esac
+
+status="Up to date"
+
+numpackages=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
+if [ $numpackages -gt 0 ]; then
+    status="$numpackages to be upgraded"
+fi
+
+echo $status
