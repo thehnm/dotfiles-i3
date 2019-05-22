@@ -11,4 +11,4 @@ fi
 
 [ "$status" = "Charging" ] && color="#8c9440"
 
-echo "<span color='$color'>$status $capacity%</span>" | sed -e "s/Discharging/dis/g;s/Charging/chr/g"
+echo "<span color='$color'>$status $capacity%</span>" | sed -e "s/Discharging/dischr/g;s/Charging/chr/g"

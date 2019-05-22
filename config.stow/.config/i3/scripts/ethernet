@@ -1,6 +1,5 @@
 #!/bin/sh
 
-carrierstate=$(cat /sys/class/net/e*/carrier)
-[ "$carrierstate" = "0" ] && exit
+[ "$(cat /sys/class/net/e*/carrier)" = "0" ] && echo "discon" && exit
 
-echo "Connected"
+echo "con"

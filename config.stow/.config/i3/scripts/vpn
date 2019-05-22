@@ -9,7 +9,7 @@ esac
 connected=$(expressvpn status | sed "s/^\[//g" | sed "s/\[.*m//g")
 
 if [ "$connected" = "Not connected" ]; then
-    echo "Disconnected" && exit
+    echo "discon" && exit
 fi
 
-echo "Connected"
+echo "con"
