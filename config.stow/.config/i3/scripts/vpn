@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) $HOME/.config/i3/scripts/expressvpn "connect" ;;
+    2) notify-send "$(expressvpn status | sed "s///g" | sed "s/\[.*m//g" | head -1)" ;;
+    3) $HOME/.config/i3/scripts/expressvpn "disconnect" ;;
+esac
+
+connected=$(expressvpn status | sed "s/^\[//g" | sed "s/\[.*m//g")
+
+if [ "$connected" = "Not connected" ]; then
+    echo "Disconnected" && exit
+fi
+
+echo "Connected"
