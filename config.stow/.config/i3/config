@@ -226,7 +226,7 @@ bindsym $mod+Shift+t exec thunderbird
 # =============================================================================
 #
 
-# window colors
+# Settings for windows
 # class                 border              background         text                indicator
 client.focused          $color9             $color9            $background         $color9
 client.unfocused        $background         $background        $color9             $background
@@ -243,6 +243,7 @@ bar {
 		background $background
 	    separator $background
 
+        # Settings for workspace indicator
 		#                  border             background         text
 		focused_workspace  $background        $background        $color9
 		inactive_workspace $background        $background        $foreground
