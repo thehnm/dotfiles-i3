@@ -31,3 +31,4 @@ The following programs are shipped with my own config files:
 * __mpd__
 * __ncmpcpp__
 * __nvim__
+* __newsboat__
