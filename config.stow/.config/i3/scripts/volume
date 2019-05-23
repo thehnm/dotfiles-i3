@@ -10,4 +10,4 @@ esac
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
-echo "$vol%"
+echo "$vol%" && exit

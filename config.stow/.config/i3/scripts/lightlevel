@@ -6,4 +6,4 @@ case $BLOCK_BUTTON in
 esac
 
 level=$(light -G)
-[ "$level" != 0.00 ] && echo "$level"
+[ "$level" != 0.00 ] && echo "$level" && exit
