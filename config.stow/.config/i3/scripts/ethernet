@@ -1,5 +1,5 @@
 #!/bin/sh
 
-[ "$(cat /sys/class/net/e*/carrier)" = "0" ] && echo "discon" && exit
+[ "$(cat /sys/class/net/e*/carrier)" = "0" ] && exit
 
 echo "con"
