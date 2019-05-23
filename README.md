@@ -27,6 +27,7 @@ My dotfiles contains keybindings for following programs:
 * __thunderbird__  Open with `Mod+Shift+t`
 
 The following programs are shipped with my own config files:
+* __i3blocks__
 * __calcurse__
 * __mpd__
 * __ncmpcpp__
