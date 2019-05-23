@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>mpd on startup, thinner padding in polybar - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/4808b07109910aedf4d162a160da47b94283cb55.html">4808b07109910aedf4d162a160da47b94283cb55</a>
+<b>parent</b> <a href="../commit/f9199ceff312ed90bcc668464047c62984e79f15.html">f9199ceff312ed90bcc668464047c62984e79f15</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Sat, 29 Dec 2018 22:20:43 +0100
+
+mpd on startup, thinner padding in polybar
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+</table></pre><pre>2 files changed, 3 insertions(+), 2 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -249,3 +249,4 @@ exec --no-startup-id compton
+</a> exec --no-startup-id dunst
+ exec --no-startup-id udiskie &amp;
+ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+<a href="#h0-0-3" id="h0-0-3" class="i">+exec --no-startup-id mpd
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -73,8 +73,8 @@ border-size = 0
+</a> border-bottom-size = 5
+ border-color = ${colors.transparent}
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-padding-left = 2
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-padding-right = 2
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+padding-left = 1
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+padding-right = 1
+</a> 
+ ; ----- Modules -----
+ modules-left = i3 pulseaudio eth wlan vpn battery backlight mpd spotify
+</pre>
+</div>
+</body>
+</html>

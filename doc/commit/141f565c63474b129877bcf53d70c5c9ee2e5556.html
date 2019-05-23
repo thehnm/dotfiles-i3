@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cleaner termite config and new zshrc prompt and ls colors - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/141f565c63474b129877bcf53d70c5c9ee2e5556.html">141f565c63474b129877bcf53d70c5c9ee2e5556</a>
+<b>parent</b> <a href="../commit/03e51057ac8c69fc2c4d68e41312dcf0ab4074a1.html">03e51057ac8c69fc2c4d68e41312dcf0ab4074a1</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Tue, 21 May 2019 11:38:09 +0200
+
+Cleaner termite config and new zshrc prompt and ls colors
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/termite/config</a></td><td> | </td><td class="num">74</td><td><span class="i">+++++</span><span class="d">---------------------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.zshrc</a></td><td> | </td><td class="num">99</td><td><span class="i">++++++++++++++++++++++++++++++++++</span><span class="d">---------------------------------------------</span></td></tr>
+</table></pre><pre>2 files changed, 47 insertions(+), 126 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/termite/config.html">config.stow/.config/termite/config</a> b/<a href="../file/config.stow/.config/termite/config.html">config.stow/.config/termite/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,12 +2,12 @@
+</a> #allow_bold = true
+ #audible_bell = false
+ #bold_is_bright = true
+<a href="#h0-0-3" id="h0-0-3" class="d">-#clickable_url = true
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+clickable_url = true
+</a> #dynamic_title = true
+<a href="#h0-0-6" id="h0-0-6" class="d">-font = Fira Mono 12
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+font = Fira Mono 10
+</a> #fullscreen = true
+ #icon_name = terminal
+<a href="#h0-0-10" id="h0-0-10" class="d">-#mouse_autohide = false
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+mouse_autohide = true
+</a> #scroll_on_output = false
+ #scroll_on_keystroke = true
+ # Length of the scrollback buffer, 0 disabled the scrollback buffer
+<a href="#h0-1" id="h0-1" class="h">@@ -24,7 +24,7 @@ scrollback_lines = 10000
+</a> #cursor_blink = system
+ 
+ # &quot;block&quot;, &quot;underline&quot; or &quot;ibeam&quot;
+<a href="#h0-1-3" id="h0-1-3" class="d">-#cursor_shape = block
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+cursor_shape = block
+</a> 
+ # Hide links that are no longer valid in url select overlay mode
+ #filter_unmatched_urls = true
+<a href="#h0-2" id="h0-2" class="h">@@ -38,60 +38,7 @@ scrollback_lines = 10000
+</a> # &quot;off&quot;, &quot;left&quot; or &quot;right&quot;
+ #scrollbar = off
+ 
+<a href="#h0-2-3" id="h0-2-3" class="d">-#[colors]
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-## If both of these are unset, cursor falls back to the foreground color,
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-## and cursor_foreground falls back to the background color.
+</a><a href="#h0-2-6" id="h0-2-6" class="d">-##cursor = #dcdccc
+</a><a href="#h0-2-7" id="h0-2-7" class="d">-##cursor_foreground = #dcdccc
+</a><a href="#h0-2-8" id="h0-2-8" class="d">-#
+</a><a href="#h0-2-9" id="h0-2-9" class="d">-##foreground = #dcdccc
+</a><a href="#h0-2-10" id="h0-2-10" class="d">-##foreground_bold = #ffffff
+</a><a href="#h0-2-11" id="h0-2-11" class="d">-##background = #3f3f3f
+</a><a href="#h0-2-12" id="h0-2-12" class="d">-#
+</a><a href="#h0-2-13" id="h0-2-13" class="d">-## 20% background transparency (requires a compositor)
+</a><a href="#h0-2-14" id="h0-2-14" class="d">-##background = rgba(63, 63, 63, 0.8)
+</a><a href="#h0-2-15" id="h0-2-15" class="d">-#
+</a><a href="#h0-2-16" id="h0-2-16" class="d">-## special
+</a><a href="#h0-2-17" id="h0-2-17" class="d">-#foreground      = #a2a2a2
+</a><a href="#h0-2-18" id="h0-2-18" class="d">-#foreground_bold = #a2a2a2
+</a><a href="#h0-2-19" id="h0-2-19" class="d">-#cursor          = #a2a2a2
+</a><a href="#h0-2-20" id="h0-2-20" class="d">-#background      = #292929
+</a><a href="#h0-2-21" id="h0-2-21" class="d">-#
+</a><a href="#h0-2-22" id="h0-2-22" class="d">-## black
+</a><a href="#h0-2-23" id="h0-2-23" class="d">-#color0  = #4e4e4e
+</a><a href="#h0-2-24" id="h0-2-24" class="d">-#color8  = #777777
+</a><a href="#h0-2-25" id="h0-2-25" class="d">-#
+</a><a href="#h0-2-26" id="h0-2-26" class="d">-## red
+</a><a href="#h0-2-27" id="h0-2-27" class="d">-#color1  = #a9635d
+</a><a href="#h0-2-28" id="h0-2-28" class="d">-#color9  = #ffbbb2
+</a><a href="#h0-2-29" id="h0-2-29" class="d">-#
+</a><a href="#h0-2-30" id="h0-2-30" class="d">-## green
+</a><a href="#h0-2-31" id="h0-2-31" class="d">-#color2  = #468459
+</a><a href="#h0-2-32" id="h0-2-32" class="d">-#color10 = #9ddeaf
+</a><a href="#h0-2-33" id="h0-2-33" class="d">-#
+</a><a href="#h0-2-34" id="h0-2-34" class="d">-## yellow
+</a><a href="#h0-2-35" id="h0-2-35" class="d">-#color3  = #84763d
+</a><a href="#h0-2-36" id="h0-2-36" class="d">-#color11 = #e0ce91
+</a><a href="#h0-2-37" id="h0-2-37" class="d">-#
+</a><a href="#h0-2-38" id="h0-2-38" class="d">-## blue
+</a><a href="#h0-2-39" id="h0-2-39" class="d">-#color4  = #5879af
+</a><a href="#h0-2-40" id="h0-2-40" class="d">-#color12 = #b3d1ff
+</a><a href="#h0-2-41" id="h0-2-41" class="d">-#
+</a><a href="#h0-2-42" id="h0-2-42" class="d">-## magenta
+</a><a href="#h0-2-43" id="h0-2-43" class="d">-#color5  = #9c6594
+</a><a href="#h0-2-44" id="h0-2-44" class="d">-#color13 = #fabdf0
+</a><a href="#h0-2-45" id="h0-2-45" class="d">-#
+</a><a href="#h0-2-46" id="h0-2-46" class="d">-## cyan
+</a><a href="#h0-2-47" id="h0-2-47" class="d">-#color6  = #008592
+</a><a href="#h0-2-48" id="h0-2-48" class="d">-#color14 = #79e0ed
+</a><a href="#h0-2-49" id="h0-2-49" class="d">-#
+</a><a href="#h0-2-50" id="h0-2-50" class="d">-## white
+</a><a href="#h0-2-51" id="h0-2-51" class="d">-#color7  = #cfcfcf
+</a><a href="#h0-2-52" id="h0-2-52" class="d">-#color15 = #ffffff
+</a><a href="#h0-2-53" id="h0-2-53" class="d">-#
+</a><a href="#h0-2-54" id="h0-2-54" class="d">-
+</a> [colors]
+<a href="#h0-2-56" id="h0-2-56" class="d">-
+</a> # special
+ foreground      = #c5c8c6
+ foreground_bold = #c5c8c6
+<a href="#h0-3" id="h0-3" class="h">@@ -130,15 +77,4 @@ color14 = #8abeb7
+</a> color7  = #707880
+ color15 = #c5c8c6
+ 
+<a href="#h0-3-3" id="h0-3-3" class="d">-[hints]
+</a><a href="#h0-3-4" id="h0-3-4" class="d">-#font = Monospace 12
+</a><a href="#h0-3-5" id="h0-3-5" class="d">-#foreground = #dcdccc
+</a><a href="#h0-3-6" id="h0-3-6" class="d">-#background = #3f3f3f
+</a><a href="#h0-3-7" id="h0-3-7" class="d">-#active_foreground = #e68080
+</a><a href="#h0-3-8" id="h0-3-8" class="d">-#active_background = #3f3f3f
+</a><a href="#h0-3-9" id="h0-3-9" class="d">-#padding = 2
+</a><a href="#h0-3-10" id="h0-3-10" class="d">-#border = #3f3f3f
+</a><a href="#h0-3-11" id="h0-3-11" class="d">-#border_width = 0.5
+</a><a href="#h0-3-12" id="h0-3-12" class="d">-#roundness = 2.0
+</a><a href="#h0-3-13" id="h0-3-13" class="d">-
+</a><a href="#h0-3-14" id="h0-3-14" class="d">-# vim: ft=dosini cms=#%s
+</a><a href="#h0-3-15" id="h0-3-15" class="i">+vim: ft=dosini cms=#%s
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a> b/<a href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -9,8 +9,7 @@ setopt nobeep                                                   # No beep
+</a> setopt appendhistory                                            # Immediately append history instead of overwriting
+ setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+ setopt autocd                                                   # if only directory path is entered, cd there.
+<a href="#h1-0-3" id="h1-0-3" class="d">-
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-autoload -U zmv
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+setopt prompt_subst                                             # enable substitution for prompt
+</a> 
+ zstyle &#39;:completion:*&#39; matcher-list &#39;m:{a-zA-Z}={A-Za-z}&#39;       # Case insensitive tab completion
+ zstyle &#39;:completion:*&#39; list-colors &quot;${(s.:.)LS_COLORS}&quot;         # Colored completion (different colors for dirs/files/etc)
+<a href="#h1-1" id="h1-1" class="h">@@ -78,30 +77,60 @@ alias yay=&#39;yay --color=auto&#39;
+</a> alias pacman=&#39;pacman --color=auto&#39;
+ alias fucking=&#39;sudo&#39;
+ alias motherfucking=&#39;sudo&#39;
+<a href="#h1-1-3" id="h1-1-3" class="i">+alias fcking=&#39;sudo&#39;
+</a> alias f=&#39;ranger&#39;
+ alias e=&#39;nvim&#39;
+ alias gettodos=&#39;grep TODO -nr * &gt; TODOs.txt&#39;
+<a href="#h1-1-7" id="h1-1-7" class="d">-alias music=&#39;vimpc&#39;
+</a> alias vpc=&#39;expressvpn connect&#39;
+ alias vpd=&#39;expressvpn disconnect&#39;
+ alias vps=&#39;expressvpn status&#39;
+<a href="#h1-1-11" id="h1-1-11" class="d">-alias dmenu=&#39;dmenu -fn &quot;Fira Mono:size=10&quot; -nb &quot;#1d1f21&quot; -sb &quot;#1d1f21&quot; -sf &quot;#cc6666&quot; -b&#39;
+</a> 
+<a href="#h1-1-13" id="h1-1-13" class="d">-# Theming section
+</a><a href="#h1-1-14" id="h1-1-14" class="i">+## Plugins section: Enable fish style features
+</a><a href="#h1-1-15" id="h1-1-15" class="i">+# Use syntax highlighting
+</a><a href="#h1-1-16" id="h1-1-16" class="i">+autoload -U zmv
+</a><a href="#h1-1-17" id="h1-1-17" class="i">+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</a><a href="#h1-1-18" id="h1-1-18" class="i">+# Use history substring search
+</a><a href="#h1-1-19" id="h1-1-19" class="i">+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+</a><a href="#h1-1-20" id="h1-1-20" class="i">+# bind UP and DOWN arrow keys to history substring search
+</a><a href="#h1-1-21" id="h1-1-21" class="i">+zmodload zsh/terminfo
+</a><a href="#h1-1-22" id="h1-1-22" class="i">+bindkey &quot;$terminfo[kcuu1]&quot; history-substring-search-up
+</a><a href="#h1-1-23" id="h1-1-23" class="i">+bindkey &quot;$terminfo[kcud1]&quot; history-substring-search-down
+</a><a href="#h1-1-24" id="h1-1-24" class="i">+bindkey &#39;^[[A&#39; history-substring-search-up
+</a><a href="#h1-1-25" id="h1-1-25" class="i">+bindkey &#39;^[[B&#39; history-substring-search-down
+</a> autoload -U compinit colors zcalc
+ compinit -d
+ colors
+ 
+<a href="#h1-1-30" id="h1-1-30" class="d">-# enable substitution for prompt
+</a><a href="#h1-1-31" id="h1-1-31" class="d">-setopt prompt_subst
+</a><a href="#h1-1-32" id="h1-1-32" class="i">+# Theming section
+</a><a href="#h1-1-33" id="h1-1-33" class="i">+
+</a><a href="#h1-1-34" id="h1-1-34" class="i">+# Color man pages
+</a><a href="#h1-1-35" id="h1-1-35" class="i">+export LESS_TERMCAP_mb=$&#39;\E[01;32m&#39;
+</a><a href="#h1-1-36" id="h1-1-36" class="i">+export LESS_TERMCAP_md=$&#39;\E[01;32m&#39;
+</a><a href="#h1-1-37" id="h1-1-37" class="i">+export LESS_TERMCAP_me=$&#39;\E[0m&#39;
+</a><a href="#h1-1-38" id="h1-1-38" class="i">+export LESS_TERMCAP_se=$&#39;\E[0m&#39;
+</a><a href="#h1-1-39" id="h1-1-39" class="i">+export LESS_TERMCAP_so=$&#39;\E[01;47;34m&#39;
+</a><a href="#h1-1-40" id="h1-1-40" class="i">+export LESS_TERMCAP_ue=$&#39;\E[0m&#39;
+</a><a href="#h1-1-41" id="h1-1-41" class="i">+export LESS_TERMCAP_us=$&#39;\E[01;36m&#39;
+</a><a href="#h1-1-42" id="h1-1-42" class="i">+export LESS=-r
+</a><a href="#h1-1-43" id="h1-1-43" class="i">+
+</a><a href="#h1-1-44" id="h1-1-44" class="i">+# Customize ls colors
+</a><a href="#h1-1-45" id="h1-1-45" class="i">+export LS_COLORS=&#39;di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31&#39;
+</a> 
+ # Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
+ #PROMPT=&quot;%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ &quot;
+<a href="#h1-1-49" id="h1-1-49" class="i">+
+</a> # Maia prompt
+<a href="#h1-1-51" id="h1-1-51" class="d">-#PROMPT=&quot;%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b &gt;%{$fg[cyan]%}&gt;%B%(?.%{$fg[cyan]%}.%{$fg[red]%})&gt;%{$reset_color%}%b &quot;
+</a><a href="#h1-1-52" id="h1-1-52" class="d">-PROMPT=&quot;%B%{$fg[cyan]%}%(5~|%-1~/.../%2~|%~)%u%b &quot;
+</a><a href="#h1-1-53" id="h1-1-53" class="d">-# Print a greeting message when shell is started
+</a><a href="#h1-1-54" id="h1-1-54" class="d">-#echo $USER@$HOST  $(uname -srm)
+</a><a href="#h1-1-55" id="h1-1-55" class="i">+#PROMPT=&quot;%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b &gt;%{$fg[cyan]%}&gt; %B%(?.%{$fg[cyan]%}.%{$fg[red]%})&gt; %{$reset_color%}%b &quot;
+</a><a href="#h1-1-56" id="h1-1-56" class="i">+
+</a><a href="#h1-1-57" id="h1-1-57" class="i">+# Simple prompt
+</a><a href="#h1-1-58" id="h1-1-58" class="i">+#PROMPT=&quot;[%n@%m %3~]$ &quot;
+</a><a href="#h1-1-59" id="h1-1-59" class="i">+
+</a><a href="#h1-1-60" id="h1-1-60" class="i">+# Simple prompt with indicator for last return code
+</a><a href="#h1-1-61" id="h1-1-61" class="i">+#PROMPT=&quot;[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} &quot;
+</a><a href="#h1-1-62" id="h1-1-62" class="i">+
+</a><a href="#h1-1-63" id="h1-1-63" class="i">+# Prompt with easy zsh sequences
+</a><a href="#h1-1-64" id="h1-1-64" class="i">+PROMPT=&quot;%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b &quot;
+</a><a href="#h1-1-65" id="h1-1-65" class="i">+
+</a> ## Prompt on right side:
+ #  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
+ #  - shows exit status of previous command (if previous command finished with an error)
+<a href="#h1-2" id="h1-2" class="h">@@ -164,33 +193,9 @@ git_prompt_string() {
+</a> }
+ 
+ # Right prompt with exit status of previous command if not successful
+<a href="#h1-2-3" id="h1-2-3" class="d">- #RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot;
+</a><a href="#h1-2-4" id="h1-2-4" class="i">+#RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot;
+</a> # Right prompt with exit status of previous command marked with ✓ or ✗
+<a href="#h1-2-6" id="h1-2-6" class="d">- #RPROMPT=&quot;%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})&quot;
+</a><a href="#h1-2-7" id="h1-2-7" class="d">-
+</a><a href="#h1-2-8" id="h1-2-8" class="d">-
+</a><a href="#h1-2-9" id="h1-2-9" class="d">-# Color man pages
+</a><a href="#h1-2-10" id="h1-2-10" class="d">-export LESS_TERMCAP_mb=$&#39;\E[01;32m&#39;
+</a><a href="#h1-2-11" id="h1-2-11" class="d">-export LESS_TERMCAP_md=$&#39;\E[01;32m&#39;
+</a><a href="#h1-2-12" id="h1-2-12" class="d">-export LESS_TERMCAP_me=$&#39;\E[0m&#39;
+</a><a href="#h1-2-13" id="h1-2-13" class="d">-export LESS_TERMCAP_se=$&#39;\E[0m&#39;
+</a><a href="#h1-2-14" id="h1-2-14" class="d">-export LESS_TERMCAP_so=$&#39;\E[01;47;34m&#39;
+</a><a href="#h1-2-15" id="h1-2-15" class="d">-export LESS_TERMCAP_ue=$&#39;\E[0m&#39;
+</a><a href="#h1-2-16" id="h1-2-16" class="d">-export LESS_TERMCAP_us=$&#39;\E[01;36m&#39;
+</a><a href="#h1-2-17" id="h1-2-17" class="d">-export LESS=-r
+</a><a href="#h1-2-18" id="h1-2-18" class="d">-
+</a><a href="#h1-2-19" id="h1-2-19" class="d">-
+</a><a href="#h1-2-20" id="h1-2-20" class="d">-## Plugins section: Enable fish style features
+</a><a href="#h1-2-21" id="h1-2-21" class="d">-# Use syntax highlighting
+</a><a href="#h1-2-22" id="h1-2-22" class="d">-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</a><a href="#h1-2-23" id="h1-2-23" class="d">-# Use history substring search
+</a><a href="#h1-2-24" id="h1-2-24" class="d">-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+</a><a href="#h1-2-25" id="h1-2-25" class="d">-# bind UP and DOWN arrow keys to history substring search
+</a><a href="#h1-2-26" id="h1-2-26" class="d">-zmodload zsh/terminfo
+</a><a href="#h1-2-27" id="h1-2-27" class="d">-bindkey &quot;$terminfo[kcuu1]&quot; history-substring-search-up
+</a><a href="#h1-2-28" id="h1-2-28" class="d">-bindkey &quot;$terminfo[kcud1]&quot; history-substring-search-down
+</a><a href="#h1-2-29" id="h1-2-29" class="d">-bindkey &#39;^[[A&#39; history-substring-search-up
+</a><a href="#h1-2-30" id="h1-2-30" class="d">-bindkey &#39;^[[B&#39; history-substring-search-down
+</a><a href="#h1-2-31" id="h1-2-31" class="i">+#RPROMPT=&quot;%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})&quot;
+</a> 
+ # Apply different settigns for different terminals
+ case $(basename &quot;$(cat &quot;/proc/$PPID/comm&quot;)&quot;) in
+<a href="#h1-3" id="h1-3" class="h">@@ -198,24 +203,6 @@ case $(basename &quot;$(cat &quot;/proc/$PPID/comm&quot;)&quot;) in
+</a>     	RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot;
+     	alias x=&#39;startx ~/.xinitrc&#39;      # Type name of desired desktop after x, xinitrc is configured for it
+     ;;
+<a href="#h1-3-3" id="h1-3-3" class="d">-#  &#39;tmux: server&#39;)
+</a><a href="#h1-3-4" id="h1-3-4" class="d">-#        RPROMPT=&#39;$(git_prompt_string)&#39;
+</a><a href="#h1-3-5" id="h1-3-5" class="d">-#		## Base16 Shell color themes.
+</a><a href="#h1-3-6" id="h1-3-6" class="d">-#		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
+</a><a href="#h1-3-7" id="h1-3-7" class="d">-#		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
+</a><a href="#h1-3-8" id="h1-3-8" class="d">-#		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
+</a><a href="#h1-3-9" id="h1-3-9" class="d">-#		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
+</a><a href="#h1-3-10" id="h1-3-10" class="d">-#		#solarized, summerfruit, tomorrow, twilight
+</a><a href="#h1-3-11" id="h1-3-11" class="d">-#		#theme=&quot;eighties&quot;
+</a><a href="#h1-3-12" id="h1-3-12" class="d">-#		#Possible variants: dark and light
+</a><a href="#h1-3-13" id="h1-3-13" class="d">-#		#shade=&quot;dark&quot;
+</a><a href="#h1-3-14" id="h1-3-14" class="d">-#		#BASE16_SHELL=&quot;/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh&quot;
+</a><a href="#h1-3-15" id="h1-3-15" class="d">-#		#[[ -s $BASE16_SHELL ]] &amp;&amp; source $BASE16_SHELL
+</a><a href="#h1-3-16" id="h1-3-16" class="d">-#		# Use autosuggestion
+</a><a href="#h1-3-17" id="h1-3-17" class="d">-#		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+</a><a href="#h1-3-18" id="h1-3-18" class="d">-#		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+</a><a href="#h1-3-19" id="h1-3-19" class="d">-#  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=8&#39;
+</a><a href="#h1-3-20" id="h1-3-20" class="d">-#     ;;
+</a>   *)
+         RPROMPT=&#39;$(git_prompt_string)&#39;
+ 		# Use autosuggestion
+<a href="#h1-4" id="h1-4" class="h">@@ -229,5 +216,3 @@ esac
+</a> if [[ &quot;$SSH_AGENT_PID&quot; == &quot;&quot; ]]; then
+     eval &quot;$(ssh-agent)&quot; &gt; /dev/null
+ fi
+<a href="#h1-4-3" id="h1-4-3" class="d">-
+</a><a href="#h1-4-4" id="h1-4-4" class="d">-export LS_COLORS=&quot;$(vivid generate snazzy)&quot;
+</a></pre>
+</div>
+</body>
+</html>

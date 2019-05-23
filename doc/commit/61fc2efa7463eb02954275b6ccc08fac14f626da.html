@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ncmpcpp: send notifications when changing song - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/61fc2efa7463eb02954275b6ccc08fac14f626da.html">61fc2efa7463eb02954275b6ccc08fac14f626da</a>
+<b>parent</b> <a href="../commit/607aea12e13d0f2eb2807b19f72606a6dc1c0246.html">607aea12e13d0f2eb2807b19f72606a6dc1c0246</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Tue,  5 Feb 2019 10:20:50 +0100
+
+ncmpcpp: send notifications when changing song
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/ncmpcpp/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 1 insertion(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/ncmpcpp/config.html">config.stow/.config/ncmpcpp/config</a> b/<a href="../file/config.stow/.config/ncmpcpp/config.html">config.stow/.config/ncmpcpp/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -270,7 +270,7 @@ lyrics_directory = ~/.config/ncmpcpp/lyrics
+</a> ## Note: Custom command that will be executed each time song changes. Useful for
+ ## notifications etc.
+ ##
+<a href="#h0-0-3" id="h0-0-3" class="d">-#execute_on_song_change = &quot;&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+execute_on_song_change=&quot;notify-send &quot;Now playing&quot; &quot;$(ncmpcpp --current-song=&quot;{%a - }{%t}|{%f}&quot;)&quot;&quot; -t 5000
+</a> #
+ ##
+ ## Note: Custom command that will be executed each time player state
+</pre>
+</div>
+</body>
+</html>

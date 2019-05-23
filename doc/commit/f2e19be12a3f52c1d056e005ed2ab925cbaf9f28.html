@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add charging animation - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/f2e19be12a3f52c1d056e005ed2ab925cbaf9f28.html">f2e19be12a3f52c1d056e005ed2ab925cbaf9f28</a>
+<b>parent</b> <a href="../commit/445ad97b4c7b032b6008d468f27f5662fd105274.html">445ad97b4c7b032b6008d468f27f5662fd105274</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Sun, 23 Dec 2018 14:45:07 +0100
+
+Add charging animation
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++++++++++</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 17 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -200,7 +200,7 @@ label-full = %percentage%%
+</a> 
+ format-discharging = &lt;ramp-capacity&gt; &lt;label-discharging&gt;
+ format-full = &lt;ramp-capacity&gt; &lt;label-full&gt;
+<a href="#h0-0-3" id="h0-0-3" class="d">-format-charging =  &lt;label-charging&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+format-charging = &lt;animation-charging&gt; &lt;label-charging&gt;
+</a> 
+ ramp-capacity-0 = 
+ ramp-capacity-1 = 
+<a href="#h0-1" id="h0-1" class="h">@@ -208,6 +208,22 @@ ramp-capacity-2 = 
+</a> ramp-capacity-3 = 
+ ramp-capacity-4 = 
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+animation-charging-0 = 
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+animation-charging-1 = 
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+animation-charging-2 = 
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+animation-charging-3 = 
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+animation-charging-4 = 
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+; Framerate in milliseconds
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+animation-charging-framerate = 750
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+animation-discharging-0 = 
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+animation-discharging-1 = 
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+animation-discharging-2 = 
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+animation-discharging-3 = 
+</a><a href="#h0-1-15" id="h0-1-15" class="i">+animation-discharging-4 = 
+</a><a href="#h0-1-16" id="h0-1-16" class="i">+; Framerate in milliseconds
+</a><a href="#h0-1-17" id="h0-1-17" class="i">+animation-discharging-framerate = 500
+</a><a href="#h0-1-18" id="h0-1-18" class="i">+
+</a> [module/spotify]
+ type = custom/script
+ exec = ~/.config/polybar/spotify.sh  %artist% - %title%
+</pre>
+</div>
+</body>
+</html>

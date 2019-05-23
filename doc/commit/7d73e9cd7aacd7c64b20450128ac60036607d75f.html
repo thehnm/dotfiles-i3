@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add audioplayer controls - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/7d73e9cd7aacd7c64b20450128ac60036607d75f.html">7d73e9cd7aacd7c64b20450128ac60036607d75f</a>
+<b>parent</b> <a href="../commit/2e348b3077d2f9e71eb87b7d1e8c0a062f5b4fb9.html">2e348b3077d2f9e71eb87b7d1e8c0a062f5b4fb9</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:36209025+TheHNM@users.noreply.github.com">36209025+TheHNM@users.noreply.github.com</a>&gt;
+<b>Date:</b>   Thu,  4 Oct 2018 22:27:09 +0200
+
+Add audioplayer controls
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++++</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 7 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -209,8 +209,9 @@ exec --no-startup-id dunst
+</a> exec --no-startup-id udiskie &amp;
+ 
+ # ===== KEYBINDINGS =====
+<a href="#h0-0-3" id="h0-0-3" class="i">+
+</a> # ----- Clear clipboard -----
+<a href="#h0-0-5" id="h0-0-5" class="d">-bindsym $mod+x exec $HOME/.clear_clipboard.sh
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
+</a> 
+ # ----- i3lock -----
+ bindsym $mod+Shift+x exec i3lock
+<a href="#h0-1" id="h0-1" class="h">@@ -220,6 +221,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+</a> bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # exec pkill -RTMIN+10 i3blocks
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+# ----- Audioplayer control -----
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+bindsym $mod+Shift+n exec --no-startup-id playerctl next
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+bindsym $mod+Shift+m exec --no-startup-id playerctl previous
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+
+</a> # ----- Screen brightness -----
+ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+</pre>
+</div>
+</body>
+</html>

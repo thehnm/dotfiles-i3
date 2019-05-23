@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update vimrc - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/71a16a111253ab5101e84276cfd2c190d9920985.html">71a16a111253ab5101e84276cfd2c190d9920985</a>
+<b>parent</b> <a href="../commit/daf28c81d5111afbe098782a28562e2219af25b9.html">daf28c81d5111afbe098782a28562e2219af25b9</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon,  1 Oct 2018 12:48:06 +0200
+
+Update vimrc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.vimrc</a></td><td> | </td><td class="num">60</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-----------------</span></td></tr>
+</table></pre><pre>1 file changed, 43 insertions(+), 17 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -31,6 +31,7 @@ call vundle#end()
+</a> 
+ filetype plugin indent on
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+
+</a> &quot; --- General settings ---
+ set backspace=indent,eol,start
+ set ruler
+<a href="#h0-1" id="h0-1" class="h">@@ -43,11 +44,11 @@ set mouse=a
+</a> hi clear SignColumn
+ set nocompatible
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+
+</a> &quot; ----- jistr/vim-nerdtree-tabs -----
+ &quot; Open/close NERDTree Tabs with \t
+ nmap &lt;silent&gt; &lt;leader&gt;t :NERDTreeTabsToggle&lt;CR&gt;
+<a href="#h0-1-7" id="h0-1-7" class="d">-&quot; To have NERDTree always open on startup
+</a><a href="#h0-1-8" id="h0-1-8" class="d">-let g:nerdtree_tabs_open_on_console_startup = 1
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+
+</a> 
+ &quot; ----- scrooloose/syntastic settings -----
+ let g:syntastic_error_symbol = &#39;✘&#39;
+<a href="#h0-2" id="h0-2" class="h">@@ -57,6 +58,7 @@ augroup mySyntastic
+</a>   au FileType tex let b:syntastic_mode = &quot;passive&quot;
+ augroup END
+ 
+<a href="#h0-2-3" id="h0-2-3" class="i">+
+</a> &quot; ----- xolox/vim-easytags settings -----
+ &quot; Where to look for tags files
+ set tags=./tags;,~/.vimtags
+<a href="#h0-3" id="h0-3" class="h">@@ -66,10 +68,13 @@ let g:easytags_async = 1
+</a> let g:easytags_dynamic_files = 2
+ let g:easytags_resolve_links = 1
+ let g:easytags_suppress_ctags_warning = 1
+<a href="#h0-3-3" id="h0-3-3" class="i">+
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+
+</a> &quot; ----- majutsushi/tagbar settings -----
+ &quot; Open/close tagbar with \b
+ nmap &lt;silent&gt; &lt;leader&gt;b :TagbarToggle&lt;CR&gt;
+ 
+<a href="#h0-3-9" id="h0-3-9" class="i">+
+</a> &quot; ----- Raimondi/delimitMate settings -----
+ let delimitMate_expand_cr = 1
+ augroup mydelimitMate
+<a href="#h0-4" id="h0-4" class="h">@@ -80,31 +85,42 @@ augroup mydelimitMate
+</a>   au FileType python let b:delimitMate_nesting_quotes = [&#39;&quot;&#39;, &quot;&#39;&quot;]
+ augroup END
+ 
+<a href="#h0-4-3" id="h0-4-3" class="i">+
+</a> &quot; -----------------------------------------------------------------------------
+ 
+<a href="#h0-4-6" id="h0-4-6" class="i">+
+</a> &quot;&quot; No need to be compatible with vi and lose features.
+ set nocompatible
+<a href="#h0-4-9" id="h0-4-9" class="d">- &quot;&quot; Show line numbers.
+</a><a href="#h0-4-10" id="h0-4-10" class="i">+
+</a><a href="#h0-4-11" id="h0-4-11" class="i">+&quot;&quot; Show line numbers.
+</a> set nu
+<a href="#h0-4-13" id="h0-4-13" class="d">- &quot;&quot; Automatic C-style indenting.
+</a><a href="#h0-4-14" id="h0-4-14" class="i">+
+</a><a href="#h0-4-15" id="h0-4-15" class="i">+&quot;&quot; Automatic C-style indenting.
+</a> set autoindent
+<a href="#h0-4-17" id="h0-4-17" class="d">- &quot;&quot; When inserting TABs replace them with the appropriate number of spaces
+</a><a href="#h0-4-18" id="h0-4-18" class="i">+
+</a><a href="#h0-4-19" id="h0-4-19" class="i">+&quot;&quot; When inserting TABs replace them with the appropriate number of spaces
+</a> set expandtab
+<a href="#h0-4-21" id="h0-4-21" class="d">- &quot;&quot; But TABs are needed in Makefiles
+</a><a href="#h0-4-22" id="h0-4-22" class="i">+
+</a><a href="#h0-4-23" id="h0-4-23" class="i">+&quot;&quot; But TABs are needed in Makefiles
+</a> au BufNewFile,BufReadPost Makefile se noexpandtab
+<a href="#h0-4-25" id="h0-4-25" class="d">- &quot;&quot; Show matching braces.
+</a><a href="#h0-4-26" id="h0-4-26" class="i">+
+</a><a href="#h0-4-27" id="h0-4-27" class="i">+&quot;&quot; Show matching braces.
+</a> set showmatch
+<a href="#h0-4-29" id="h0-4-29" class="d">- &quot;&quot; Choose the right syntax highlightning per TAB-completion :-)
+</a><a href="#h0-4-30" id="h0-4-30" class="i">+
+</a><a href="#h0-4-31" id="h0-4-31" class="i">+&quot;&quot; Choose the right syntax highlightning per TAB-completion :-)
+</a> &quot;&quot; map &lt;F2&gt; :source $VIM/syntax/
+<a href="#h0-4-33" id="h0-4-33" class="d">- &quot;&quot; Syntax highlightning, but only for color terminals.
+</a><a href="#h0-4-34" id="h0-4-34" class="i">+&quot;&quot; Syntax highlightning, but only for color terminals.
+</a> if &amp;t_Co &gt; 1
+   syntax on
+ endif
+<a href="#h0-4-38" id="h0-4-38" class="d">- &quot;&quot; Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim.
+</a><a href="#h0-4-39" id="h0-4-39" class="i">+
+</a><a href="#h0-4-40" id="h0-4-40" class="i">+&quot;&quot; Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim.
+</a> set updatetime=500
+<a href="#h0-4-42" id="h0-4-42" class="d">- &quot;&quot; Colours in xterm.
+</a><a href="#h0-4-43" id="h0-4-43" class="i">+
+</a><a href="#h0-4-44" id="h0-4-44" class="i">+&quot;&quot; Colours in xterm.
+</a> map &lt;F3&gt; :se t_Co=16&lt;C-M&gt;:se t_AB=&lt;C-V&gt;&lt;ESC&gt;[%?%p1%{8}%&lt;%t%p1%{40}%+%e%p1%{92}%+%;%dm&lt;C-V&gt;&lt;C-M&gt;:se t_AF=&lt;C-V&gt;&lt;ESC&gt;[%?%p1%{8}%&lt;%t%p1%{30}%+%e%p1%{82}%+%;%dm&lt;C-V&gt;&lt;C-M&gt;
+<a href="#h0-4-46" id="h0-4-46" class="d">- &quot;&quot; Toggle between .h and .cpp with F4.
+</a><a href="#h0-4-47" id="h0-4-47" class="i">+
+</a><a href="#h0-4-48" id="h0-4-48" class="i">+&quot;&quot; Toggle between .h and .cpp with F4.
+</a> function! ToggleBetweenHeaderAndSourceFile()
+   let bufname = bufname(&quot;%&quot;)
+   let ext = fnamemodify(bufname, &quot;:e&quot;)
+<a href="#h0-5" id="h0-5" class="h">@@ -123,14 +139,18 @@ function! ToggleBetweenHeaderAndSourceFile()
+</a>     execute &quot;:e &quot; . bufname_new
+   endif
+ endfunction
+<a href="#h0-5-3" id="h0-5-3" class="i">+
+</a> map &lt;silent&gt; &lt;F4&gt; :call ToggleBetweenHeaderAndSourceFile()&lt;CR&gt;
+<a href="#h0-5-5" id="h0-5-5" class="d">- &quot;&quot; Keep the horizontal cursor position when moving vertically.
+</a><a href="#h0-5-6" id="h0-5-6" class="i">+&quot;&quot; Keep the horizontal cursor position when moving vertically.
+</a> set nostartofline
+<a href="#h0-5-8" id="h0-5-8" class="d">- &quot;&quot; Reformat comment on current line. TODO: explain how.
+</a><a href="#h0-5-9" id="h0-5-9" class="i">+
+</a><a href="#h0-5-10" id="h0-5-10" class="i">+&quot;&quot; Reformat comment on current line. TODO: explain how.
+</a> map &lt;silent&gt; hc ==I  &lt;ESC&gt;:.s/\/\/ */\/\//&lt;CR&gt;:nohlsearch&lt;CR&gt;j
+<a href="#h0-5-12" id="h0-5-12" class="d">- &quot;&quot; Make sure == also indents #ifdef etc.
+</a><a href="#h0-5-13" id="h0-5-13" class="i">+
+</a><a href="#h0-5-14" id="h0-5-14" class="i">+&quot;&quot; Make sure == also indents #ifdef etc.
+</a> noremap &lt;silent&gt; == IX&lt;ESC&gt;==:.s/X//&lt;CR&gt;:nohlsearch&lt;CR&gt;
+<a href="#h0-5-16" id="h0-5-16" class="d">- &quot;&quot; Toggle encoding with F12.
+</a><a href="#h0-5-17" id="h0-5-17" class="i">+
+</a><a href="#h0-5-18" id="h0-5-18" class="i">+&quot;&quot; Toggle encoding with F12.
+</a> function! ToggleEncoding()
+   if &amp;encoding == &quot;latin1&quot;
+     set encoding=utf-8
+<a href="#h0-6" id="h0-6" class="h">@@ -138,14 +158,18 @@ function! ToggleEncoding()
+</a>     set encoding=latin1
+   endif
+ endfunction
+<a href="#h0-6-3" id="h0-6-3" class="i">+
+</a> map &lt;silent&gt; &lt;F12&gt; :call ToggleEncoding()&lt;CR&gt;
+<a href="#h0-6-5" id="h0-6-5" class="d">- &quot;&quot; Do not break long lines.
+</a><a href="#h0-6-6" id="h0-6-6" class="i">+
+</a><a href="#h0-6-7" id="h0-6-7" class="i">+&quot;&quot; Do not break long lines.
+</a> set nowrap
+ set listchars=eol:$,extends:&gt;
+<a href="#h0-6-10" id="h0-6-10" class="i">+
+</a> &quot;&quot; Next / previous error with Tab / Shift+Tab.
+ map &lt;silent&gt; &lt;Tab&gt; :cn&lt;CR&gt;
+ map &lt;silent&gt; &lt;S+Tab&gt; :cp&lt;CR&gt;
+ map &lt;silent&gt; &lt;BS&gt;&lt;Tab&gt; :cp&lt;CR&gt;
+<a href="#h0-6-15" id="h0-6-15" class="i">+
+</a> &quot;&quot; Umlaut mappings for US keyboard.
+ map &quot;a ä
+ map &quot;o ö
+<a href="#h0-7" id="h0-7" class="h">@@ -154,8 +178,10 @@ map &quot;s ß
+</a> map &quot;A Ä
+ map &quot;O Ö
+ map &quot;U Ü
+<a href="#h0-7-3" id="h0-7-3" class="i">+
+</a> &quot;&quot; After this many msecs do not imap.
+ set timeoutlen=500
+<a href="#h0-7-6" id="h0-7-6" class="i">+
+</a> &quot;&quot; Always show the name of the file being edited.
+ &quot;&quot; set ls=2
+ 
+</pre>
+</div>
+</body>
+</html>

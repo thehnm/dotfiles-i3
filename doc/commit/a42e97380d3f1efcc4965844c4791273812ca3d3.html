@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Move i3 stuff to other branch - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/a42e97380d3f1efcc4965844c4791273812ca3d3.html">a42e97380d3f1efcc4965844c4791273812ca3d3</a>
+<b>parent</b> <a href="../commit/669fd6d5f09724a7a8b4b78c4181ac139f34e7af.html">669fd6d5f09724a7a8b4b78c4181ac139f34e7af</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Thu, 24 Jan 2019 09:53:25 +0100
+
+Move i3 stuff to other branch
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">275</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">config.stow/.config/i3/i3blocks.conf</a></td><td> | </td><td class="num">153</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">config.stow/.config/polybar/cmus.sh</a></td><td> | </td><td class="num">15</td><td><span class="i"></span><span class="d">---------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h3">config.stow/.config/polybar/cmus_notify.sh</a></td><td> | </td><td class="num">22</td><td><span class="i"></span><span class="d">----------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h4">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">361</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h5">config.stow/.config/polybar/launch.sh</a></td><td> | </td><td class="num">11</td><td><span class="i"></span><span class="d">-----------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h6">config.stow/.config/polybar/spotify.sh</a></td><td> | </td><td class="num">23</td><td><span class="i"></span><span class="d">-----------------------</span></td></tr>
+</table></pre><pre>7 files changed, 0 insertions(+), 860 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,275 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-set $mod Mod4
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-set $mod1 Mod1
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-# Set window title font and bar font unless not set in bar{]
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-font pango:DejaVuSansMono Nerd Font 0
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-# Use Mouse+$mod to drag floating windows to their wanted position
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-floating_modifier $mod
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-# Define names for default workspaces for which we configure key bindings later on.
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-# We use variables to avoid repeating the names in multiple places.
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-set $ws1 &quot;1&quot;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-set $ws2 &quot;2&quot;
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-set $ws3 &quot;3&quot;
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-set $ws4 &quot;4&quot;
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-set $ws5 &quot;5&quot;
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-set $ws6 &quot;6&quot;
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-set $ws7 &quot;7&quot;
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-set $ws8 &quot;8&quot;
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-set $ws9 &quot;9&quot;
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-set $ws10 &quot;10&quot;
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-# =============================================================================
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-# Start a terminal
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-bindsym $mod+Return exec i3-sensible-terminal
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-# Kill focused window
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-bindsym $mod+q kill
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-# Start rofi
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-bindsym $mod+d exec rofi -show drun
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-# Change focus
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-bindsym $mod+h focus left
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-bindsym $mod+j focus down
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-bindsym $mod+k focus up
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-bindsym $mod+l focus right
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-# Alternatively, you can use the cursor keys:
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-bindsym $mod+Left focus left
+</a><a href="#h0-0-41" id="h0-0-41" class="d">-bindsym $mod+Down focus down
+</a><a href="#h0-0-42" id="h0-0-42" class="d">-bindsym $mod+Up focus up
+</a><a href="#h0-0-43" id="h0-0-43" class="d">-bindsym $mod+Right focus right
+</a><a href="#h0-0-44" id="h0-0-44" class="d">-
+</a><a href="#h0-0-45" id="h0-0-45" class="d">-# Move focused window
+</a><a href="#h0-0-46" id="h0-0-46" class="d">-bindsym $mod+Shift+h move left
+</a><a href="#h0-0-47" id="h0-0-47" class="d">-bindsym $mod+Shift+j move down
+</a><a href="#h0-0-48" id="h0-0-48" class="d">-bindsym $mod+Shift+k move up
+</a><a href="#h0-0-49" id="h0-0-49" class="d">-bindsym $mod+Shift+l move right
+</a><a href="#h0-0-50" id="h0-0-50" class="d">-
+</a><a href="#h0-0-51" id="h0-0-51" class="d">-# Alternatively, you can use the cursor keys:
+</a><a href="#h0-0-52" id="h0-0-52" class="d">-bindsym $mod+Shift+Left move left
+</a><a href="#h0-0-53" id="h0-0-53" class="d">-bindsym $mod+Shift+Down move down
+</a><a href="#h0-0-54" id="h0-0-54" class="d">-bindsym $mod+Shift+Up move up
+</a><a href="#h0-0-55" id="h0-0-55" class="d">-bindsym $mod+Shift+Right move right
+</a><a href="#h0-0-56" id="h0-0-56" class="d">-
+</a><a href="#h0-0-57" id="h0-0-57" class="d">-# Split in horizontal orientation
+</a><a href="#h0-0-58" id="h0-0-58" class="d">-bindsym $mod+o split h
+</a><a href="#h0-0-59" id="h0-0-59" class="d">-
+</a><a href="#h0-0-60" id="h0-0-60" class="d">-# Split in vertical orientation
+</a><a href="#h0-0-61" id="h0-0-61" class="d">-bindsym $mod+v split v
+</a><a href="#h0-0-62" id="h0-0-62" class="d">-
+</a><a href="#h0-0-63" id="h0-0-63" class="d">-# Enter fullscreen mode for the focused container
+</a><a href="#h0-0-64" id="h0-0-64" class="d">-bindsym $mod+f fullscreen toggle
+</a><a href="#h0-0-65" id="h0-0-65" class="d">-
+</a><a href="#h0-0-66" id="h0-0-66" class="d">-# Change container layout (stacked, tabbed, toggle split)
+</a><a href="#h0-0-67" id="h0-0-67" class="d">-bindsym $mod+s layout stacking
+</a><a href="#h0-0-68" id="h0-0-68" class="d">-bindsym $mod+w layout tabbed
+</a><a href="#h0-0-69" id="h0-0-69" class="d">-bindsym $mod+e layout toggle split
+</a><a href="#h0-0-70" id="h0-0-70" class="d">-
+</a><a href="#h0-0-71" id="h0-0-71" class="d">-# Toggle tiling / floating
+</a><a href="#h0-0-72" id="h0-0-72" class="d">-bindsym $mod+Shift+space floating toggle
+</a><a href="#h0-0-73" id="h0-0-73" class="d">-
+</a><a href="#h0-0-74" id="h0-0-74" class="d">-# Change focus between tiling / floating windows
+</a><a href="#h0-0-75" id="h0-0-75" class="d">-bindsym $mod+space focus mode_toggle
+</a><a href="#h0-0-76" id="h0-0-76" class="d">-
+</a><a href="#h0-0-77" id="h0-0-77" class="d">-# Focus the parent container
+</a><a href="#h0-0-78" id="h0-0-78" class="d">-bindsym $mod+a focus parent
+</a><a href="#h0-0-79" id="h0-0-79" class="d">-
+</a><a href="#h0-0-80" id="h0-0-80" class="d">-# switch to workspace
+</a><a href="#h0-0-81" id="h0-0-81" class="d">-bindsym $mod+1 workspace $ws1
+</a><a href="#h0-0-82" id="h0-0-82" class="d">-bindsym $mod+2 workspace $ws2
+</a><a href="#h0-0-83" id="h0-0-83" class="d">-bindsym $mod+3 workspace $ws3
+</a><a href="#h0-0-84" id="h0-0-84" class="d">-bindsym $mod+4 workspace $ws4
+</a><a href="#h0-0-85" id="h0-0-85" class="d">-bindsym $mod+5 workspace $ws5
+</a><a href="#h0-0-86" id="h0-0-86" class="d">-bindsym $mod+6 workspace $ws6
+</a><a href="#h0-0-87" id="h0-0-87" class="d">-bindsym $mod+7 workspace $ws7
+</a><a href="#h0-0-88" id="h0-0-88" class="d">-bindsym $mod+8 workspace $ws8
+</a><a href="#h0-0-89" id="h0-0-89" class="d">-bindsym $mod+9 workspace $ws9
+</a><a href="#h0-0-90" id="h0-0-90" class="d">-bindsym $mod+0 workspace $ws10
+</a><a href="#h0-0-91" id="h0-0-91" class="d">-
+</a><a href="#h0-0-92" id="h0-0-92" class="d">-# switch to workspace with numpad
+</a><a href="#h0-0-93" id="h0-0-93" class="d">-bindsym $mod+Mod2+KP_1 workspace $ws1
+</a><a href="#h0-0-94" id="h0-0-94" class="d">-bindsym $mod+Mod2+KP_2 workspace $ws2
+</a><a href="#h0-0-95" id="h0-0-95" class="d">-bindsym $mod+Mod2+KP_3 workspace $ws3
+</a><a href="#h0-0-96" id="h0-0-96" class="d">-bindsym $mod+Mod2+KP_4 workspace $ws4
+</a><a href="#h0-0-97" id="h0-0-97" class="d">-bindsym $mod+Mod2+KP_5 workspace $ws5
+</a><a href="#h0-0-98" id="h0-0-98" class="d">-bindsym $mod+Mod2+KP_6 workspace $ws6
+</a><a href="#h0-0-99" id="h0-0-99" class="d">-bindsym $mod+Mod2+KP_7 workspace $ws7
+</a><a href="#h0-0-100" id="h0-0-100" class="d">-bindsym $mod+Mod2+KP_8 workspace $ws8
+</a><a href="#h0-0-101" id="h0-0-101" class="d">-bindsym $mod+Mod2+KP_9 workspace $ws9
+</a><a href="#h0-0-102" id="h0-0-102" class="d">-bindsym $mod+Mod2+KP_0 workspace $ws10
+</a><a href="#h0-0-103" id="h0-0-103" class="d">-
+</a><a href="#h0-0-104" id="h0-0-104" class="d">-# move focused container to workspace
+</a><a href="#h0-0-105" id="h0-0-105" class="d">-bindsym $mod+Shift+1 move container to workspace $ws1
+</a><a href="#h0-0-106" id="h0-0-106" class="d">-bindsym $mod+Shift+2 move container to workspace $ws2
+</a><a href="#h0-0-107" id="h0-0-107" class="d">-bindsym $mod+Shift+3 move container to workspace $ws3
+</a><a href="#h0-0-108" id="h0-0-108" class="d">-bindsym $mod+Shift+4 move container to workspace $ws4
+</a><a href="#h0-0-109" id="h0-0-109" class="d">-bindsym $mod+Shift+5 move container to workspace $ws5
+</a><a href="#h0-0-110" id="h0-0-110" class="d">-bindsym $mod+Shift+6 move container to workspace $ws6
+</a><a href="#h0-0-111" id="h0-0-111" class="d">-bindsym $mod+Shift+7 move container to workspace $ws7
+</a><a href="#h0-0-112" id="h0-0-112" class="d">-bindsym $mod+Shift+8 move container to workspace $ws8
+</a><a href="#h0-0-113" id="h0-0-113" class="d">-bindsym $mod+Shift+9 move container to workspace $ws9
+</a><a href="#h0-0-114" id="h0-0-114" class="d">-bindsym $mod+Shift+0 move container to workspace $ws10
+</a><a href="#h0-0-115" id="h0-0-115" class="d">-
+</a><a href="#h0-0-116" id="h0-0-116" class="d">-# move focused container to workspace with numpad
+</a><a href="#h0-0-117" id="h0-0-117" class="d">-bindsym $mod+Shift+Mod2+KP_End move container to workspace 1
+</a><a href="#h0-0-118" id="h0-0-118" class="d">-bindsym $mod+Shift+Mod2+KP_Down move container to workspace 2
+</a><a href="#h0-0-119" id="h0-0-119" class="d">-bindsym $mod+Shift+Mod2+KP_Next move container to workspace 3
+</a><a href="#h0-0-120" id="h0-0-120" class="d">-bindsym $mod+Shift+Mod2+KP_Left move container to workspace 4
+</a><a href="#h0-0-121" id="h0-0-121" class="d">-bindsym $mod+Shift+Mod2+KP_Begin move container to workspace 5
+</a><a href="#h0-0-122" id="h0-0-122" class="d">-bindsym $mod+Shift+Mod2+KP_Right move container to workspace 6
+</a><a href="#h0-0-123" id="h0-0-123" class="d">-bindsym $mod+Shift+Mod2+KP_Home move container to workspace 7
+</a><a href="#h0-0-124" id="h0-0-124" class="d">-bindsym $mod+Shift+Mod2+KP_Up move container to workspace 8
+</a><a href="#h0-0-125" id="h0-0-125" class="d">-bindsym $mod+Shift+Mod2+KP_Prior move container to workspace 9
+</a><a href="#h0-0-126" id="h0-0-126" class="d">-bindsym $mod+Shift+Mod2+KP_Insert move container to workspace 10
+</a><a href="#h0-0-127" id="h0-0-127" class="d">-
+</a><a href="#h0-0-128" id="h0-0-128" class="d">-# reload the configuration file
+</a><a href="#h0-0-129" id="h0-0-129" class="d">-bindsym $mod+Shift+c reload
+</a><a href="#h0-0-130" id="h0-0-130" class="d">-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+</a><a href="#h0-0-131" id="h0-0-131" class="d">-bindsym $mod+Shift+r restart
+</a><a href="#h0-0-132" id="h0-0-132" class="d">-# exit i3 (logs you out of your X session)
+</a><a href="#h0-0-133" id="h0-0-133" class="d">-bindsym $mod+Shift+e exec --no-startup-id &quot;i3-nagbar -t warning -m &#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&#39; -b &#39;Yes, exit i3&#39; &#39;i3-msg exit&#39;&quot;
+</a><a href="#h0-0-134" id="h0-0-134" class="d">-
+</a><a href="#h0-0-135" id="h0-0-135" class="d">-# resize window (you can also use the mouse for that)
+</a><a href="#h0-0-136" id="h0-0-136" class="d">-mode &quot;resize&quot; {
+</a><a href="#h0-0-137" id="h0-0-137" class="d">-        # These bindings trigger as soon as you enter the resize mode
+</a><a href="#h0-0-138" id="h0-0-138" class="d">-
+</a><a href="#h0-0-139" id="h0-0-139" class="d">-        # Pressing left will shrink the window’s width.
+</a><a href="#h0-0-140" id="h0-0-140" class="d">-        # Pressing right will grow the window’s width.
+</a><a href="#h0-0-141" id="h0-0-141" class="d">-        # Pressing up will shrink the window’s height.
+</a><a href="#h0-0-142" id="h0-0-142" class="d">-        # Pressing down will grow the window’s height.
+</a><a href="#h0-0-143" id="h0-0-143" class="d">-        bindsym h resize shrink width 10 px or 10 ppt
+</a><a href="#h0-0-144" id="h0-0-144" class="d">-        bindsym j resize grow height 10 px or 10 ppt
+</a><a href="#h0-0-145" id="h0-0-145" class="d">-        bindsym k resize shrink height 10 px or 10 ppt
+</a><a href="#h0-0-146" id="h0-0-146" class="d">-        bindsym l resize grow width 10 px or 10 ppt
+</a><a href="#h0-0-147" id="h0-0-147" class="d">-
+</a><a href="#h0-0-148" id="h0-0-148" class="d">-        # same bindings, but for the arrow keys
+</a><a href="#h0-0-149" id="h0-0-149" class="d">-        bindsym Left resize shrink width 10 px or 10 ppt
+</a><a href="#h0-0-150" id="h0-0-150" class="d">-        bindsym Down resize grow height 10 px or 10 ppt
+</a><a href="#h0-0-151" id="h0-0-151" class="d">-        bindsym Up resize shrink height 10 px or 10 ppt
+</a><a href="#h0-0-152" id="h0-0-152" class="d">-        bindsym Right resize grow width 10 px or 10 ppt
+</a><a href="#h0-0-153" id="h0-0-153" class="d">-
+</a><a href="#h0-0-154" id="h0-0-154" class="d">-        # back to normal: Enter or Escape or $mod+r
+</a><a href="#h0-0-155" id="h0-0-155" class="d">-        bindsym Return mode &quot;default&quot;
+</a><a href="#h0-0-156" id="h0-0-156" class="d">-        bindsym Escape mode &quot;default&quot;
+</a><a href="#h0-0-157" id="h0-0-157" class="d">-        bindsym $mod+r mode &quot;default&quot;
+</a><a href="#h0-0-158" id="h0-0-158" class="d">-}
+</a><a href="#h0-0-159" id="h0-0-159" class="d">-
+</a><a href="#h0-0-160" id="h0-0-160" class="d">-bindsym $mod+r mode &quot;resize&quot;
+</a><a href="#h0-0-161" id="h0-0-161" class="d">-
+</a><a href="#h0-0-162" id="h0-0-162" class="d">-# ----- Clear clipboard -----
+</a><a href="#h0-0-163" id="h0-0-163" class="d">-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh &amp;&amp; notify-send &quot;Clipboard deleted&quot; -u normal
+</a><a href="#h0-0-164" id="h0-0-164" class="d">-
+</a><a href="#h0-0-165" id="h0-0-165" class="d">-# ----- Lock screen -----
+</a><a href="#h0-0-166" id="h0-0-166" class="d">-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
+</a><a href="#h0-0-167" id="h0-0-167" class="d">-
+</a><a href="#h0-0-168" id="h0-0-168" class="d">-# ----- Audio control -----
+</a><a href="#h0-0-169" id="h0-0-169" class="d">-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a><a href="#h0-0-170" id="h0-0-170" class="d">-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a><a href="#h0-0-171" id="h0-0-171" class="d">-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a><a href="#h0-0-172" id="h0-0-172" class="d">-
+</a><a href="#h0-0-173" id="h0-0-173" class="d">-# ----- Audioplayer control -----
+</a><a href="#h0-0-174" id="h0-0-174" class="d">-bindsym $mod+p exec --no-startup-id playerctl play-pause
+</a><a href="#h0-0-175" id="h0-0-175" class="d">-bindsym $mod+n exec --no-startup-id playerctl next
+</a><a href="#h0-0-176" id="h0-0-176" class="d">-bindsym $mod+m exec --no-startup-id playerctl previous
+</a><a href="#h0-0-177" id="h0-0-177" class="d">-
+</a><a href="#h0-0-178" id="h0-0-178" class="d">-# ----- Screen brightness -----
+</a><a href="#h0-0-179" id="h0-0-179" class="d">-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
+</a><a href="#h0-0-180" id="h0-0-180" class="d">-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
+</a><a href="#h0-0-181" id="h0-0-181" class="d">-
+</a><a href="#h0-0-182" id="h0-0-182" class="d">-# ----- scrot -----
+</a><a href="#h0-0-183" id="h0-0-183" class="d">-bindsym $mod+Print exec --no-startup-id scrot &#39;Screenshot-%Y-%m-%d-%H:%M:%S.png&#39; -e &#39;mv $f ~/Pictures/&#39; &amp;&amp; notify-send &quot;Picture saved to ~/Pictures/&quot; -u low
+</a><a href="#h0-0-184" id="h0-0-184" class="d">-
+</a><a href="#h0-0-185" id="h0-0-185" class="d">-# ----- mpd/mpc -----
+</a><a href="#h0-0-186" id="h0-0-186" class="d">-bindsym $mod1+n exec --no-startup-id mpc next
+</a><a href="#h0-0-187" id="h0-0-187" class="d">-bindsym $mod1+m exec --no-startup-id mpc prev
+</a><a href="#h0-0-188" id="h0-0-188" class="d">-bindsym $mod1+p exec --no-startup-id mpc toggle
+</a><a href="#h0-0-189" id="h0-0-189" class="d">-
+</a><a href="#h0-0-190" id="h0-0-190" class="d">-# ----- firefox -----
+</a><a href="#h0-0-191" id="h0-0-191" class="d">-bindsym $mod+Shift+f exec firefox
+</a><a href="#h0-0-192" id="h0-0-192" class="d">-
+</a><a href="#h0-0-193" id="h0-0-193" class="d">-# ----- Virtualbox -----
+</a><a href="#h0-0-194" id="h0-0-194" class="d">-bindsym $mod+Shift+v exec virtualbox
+</a><a href="#h0-0-195" id="h0-0-195" class="d">-
+</a><a href="#h0-0-196" id="h0-0-196" class="d">-# =============================================================================
+</a><a href="#h0-0-197" id="h0-0-197" class="d">-#
+</a><a href="#h0-0-198" id="h0-0-198" class="d">-# special
+</a><a href="#h0-0-199" id="h0-0-199" class="d">-set $foreground       #a2a2a2
+</a><a href="#h0-0-200" id="h0-0-200" class="d">-set $foreground_bold  #a2a2a2
+</a><a href="#h0-0-201" id="h0-0-201" class="d">-set $cursor           #a2a2a2
+</a><a href="#h0-0-202" id="h0-0-202" class="d">-set $background       #292929
+</a><a href="#h0-0-203" id="h0-0-203" class="d">-
+</a><a href="#h0-0-204" id="h0-0-204" class="d">-# black
+</a><a href="#h0-0-205" id="h0-0-205" class="d">-set $color0   #4e4e4e
+</a><a href="#h0-0-206" id="h0-0-206" class="d">-set $color8   #777777
+</a><a href="#h0-0-207" id="h0-0-207" class="d">-
+</a><a href="#h0-0-208" id="h0-0-208" class="d">-# red
+</a><a href="#h0-0-209" id="h0-0-209" class="d">-set $color1   #a9635d
+</a><a href="#h0-0-210" id="h0-0-210" class="d">-set $color9   #ffbbb2
+</a><a href="#h0-0-211" id="h0-0-211" class="d">-
+</a><a href="#h0-0-212" id="h0-0-212" class="d">-# green
+</a><a href="#h0-0-213" id="h0-0-213" class="d">-set $color2   #468459
+</a><a href="#h0-0-214" id="h0-0-214" class="d">-set $color10  #9ddeaf
+</a><a href="#h0-0-215" id="h0-0-215" class="d">-
+</a><a href="#h0-0-216" id="h0-0-216" class="d">-# yellow
+</a><a href="#h0-0-217" id="h0-0-217" class="d">-set $color3   #84763d
+</a><a href="#h0-0-218" id="h0-0-218" class="d">-set $color11  #e0ce91
+</a><a href="#h0-0-219" id="h0-0-219" class="d">-
+</a><a href="#h0-0-220" id="h0-0-220" class="d">-# blue
+</a><a href="#h0-0-221" id="h0-0-221" class="d">-set $color4   #5879af
+</a><a href="#h0-0-222" id="h0-0-222" class="d">-set $color12  #b3d1ff
+</a><a href="#h0-0-223" id="h0-0-223" class="d">-
+</a><a href="#h0-0-224" id="h0-0-224" class="d">-# magenta
+</a><a href="#h0-0-225" id="h0-0-225" class="d">-set $color5   #9c6594
+</a><a href="#h0-0-226" id="h0-0-226" class="d">-set $color13  #fabdf0
+</a><a href="#h0-0-227" id="h0-0-227" class="d">-
+</a><a href="#h0-0-228" id="h0-0-228" class="d">-# cyan
+</a><a href="#h0-0-229" id="h0-0-229" class="d">-set $color6   #008592
+</a><a href="#h0-0-230" id="h0-0-230" class="d">-set $color14  #79e0ed
+</a><a href="#h0-0-231" id="h0-0-231" class="d">-
+</a><a href="#h0-0-232" id="h0-0-232" class="d">-# white
+</a><a href="#h0-0-233" id="h0-0-233" class="d">-set $color7   #cfcfcf
+</a><a href="#h0-0-234" id="h0-0-234" class="d">-set $color15  #ffffff
+</a><a href="#h0-0-235" id="h0-0-235" class="d">-
+</a><a href="#h0-0-236" id="h0-0-236" class="d">-set $border #a9635d
+</a><a href="#h0-0-237" id="h0-0-237" class="d">-set $uborder #292929
+</a><a href="#h0-0-238" id="h0-0-238" class="d">-
+</a><a href="#h0-0-239" id="h0-0-239" class="d">-# window colors
+</a><a href="#h0-0-240" id="h0-0-240" class="d">-# class                 border              background         text                indicator
+</a><a href="#h0-0-241" id="h0-0-241" class="d">-client.focused          $border             $border            $bg                 $border
+</a><a href="#h0-0-242" id="h0-0-242" class="d">-client.unfocused        $uborder            $uborder           $border             $uborder
+</a><a href="#h0-0-243" id="h0-0-243" class="d">-client.focused_inactive $uborder            $uborder           $border             $uborder
+</a><a href="#h0-0-244" id="h0-0-244" class="d">-client.urgent           $color1             $color1            $border             $uborder
+</a><a href="#h0-0-245" id="h0-0-245" class="d">-
+</a><a href="#h0-0-246" id="h0-0-246" class="d">-# Start i3bar to display a workspace bar (plus the system information i3status
+</a><a href="#h0-0-247" id="h0-0-247" class="d">-# finds out, if available)
+</a><a href="#h0-0-248" id="h0-0-248" class="d">-#1bar {
+</a><a href="#h0-0-249" id="h0-0-249" class="d">-#1        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+</a><a href="#h0-0-250" id="h0-0-250" class="d">-#1        colors {
+</a><a href="#h0-0-251" id="h0-0-251" class="d">-#1		background $color0
+</a><a href="#h0-0-252" id="h0-0-252" class="d">-#1	        separator $color12
+</a><a href="#h0-0-253" id="h0-0-253" class="d">-#1		#                  border             background         text
+</a><a href="#h0-0-254" id="h0-0-254" class="d">-#1		focused_workspace  $color0            $color0            $color12
+</a><a href="#h0-0-255" id="h0-0-255" class="d">-#1		inactive_workspace $color0            $color0            $color15
+</a><a href="#h0-0-256" id="h0-0-256" class="d">-#1		urgent_workspace   $color1            $color1            $color12
+</a><a href="#h0-0-257" id="h0-0-257" class="d">-#1	}
+</a><a href="#h0-0-258" id="h0-0-258" class="d">-#1}
+</a><a href="#h0-0-259" id="h0-0-259" class="d">-
+</a><a href="#h0-0-260" id="h0-0-260" class="d">-# =============================================================================
+</a><a href="#h0-0-261" id="h0-0-261" class="d">-
+</a><a href="#h0-0-262" id="h0-0-262" class="d">-# ----- Border settings -----
+</a><a href="#h0-0-263" id="h0-0-263" class="d">-for_window [class=&quot;^.*&quot;] border pixel 3
+</a><a href="#h0-0-264" id="h0-0-264" class="d">-smart_borders on
+</a><a href="#h0-0-265" id="h0-0-265" class="d">-
+</a><a href="#h0-0-266" id="h0-0-266" class="d">-# ----- Start on login -----
+</a><a href="#h0-0-267" id="h0-0-267" class="d">-exec_always --no-startup-id nm-applet
+</a><a href="#h0-0-268" id="h0-0-268" class="d">-exec_always --no-startup-id nitrogen --restore &amp;
+</a><a href="#h0-0-269" id="h0-0-269" class="d">-exec_always --no-startup-id eval `ssh-agent`
+</a><a href="#h0-0-270" id="h0-0-270" class="d">-exec --no-startup-id compton
+</a><a href="#h0-0-271" id="h0-0-271" class="d">-exec --no-startup-id dunst
+</a><a href="#h0-0-272" id="h0-0-272" class="d">-exec --no-startup-id udiskie &amp;
+</a><a href="#h0-0-273" id="h0-0-273" class="d">-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+</a><a href="#h0-0-274" id="h0-0-274" class="d">-exec --no-startup-id mpd
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a> b/<a href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,153 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-# i3blocks config file
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-#
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-# Please see man i3blocks for a complete reference!
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-# The man page is also hosted at http://vivien.github.io/i3blocks
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-#
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-# List of valid properties:
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-#
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-# align
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-# color
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-# command
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-# full_text
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-# instance
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-# interval
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-# label
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-# min_width
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-# name
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-# separator
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-# separator_block_width
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-# short_text
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-# signal
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-# urgent
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-# Global properties
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-#
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-# The top properties below are applied to every block, but can be overridden.
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-# Each block command defaults to the script name to avoid boilerplate.
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-command=/usr/lib/i3blocks/$BLOCK_NAME
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-separator_block_width=15
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-markup=none
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-# Volume indicator
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-#
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-# The first parameter sets the step (and units to display)
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-# The second parameter overrides the mixer selection
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-# See the script for details.
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-[volume]
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-label=VOL
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-#label=♪
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-instance=Master
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-#instance=PCM
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-interval=once
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-signal=10
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-# Memory usage
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-#
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-# The type defaults to &quot;mem&quot; if the instance is not specified.
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-#[memory]
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-#label=MEM
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-#separator=false
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-#interval=30
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-#[memory]
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-#label=SWAP
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-#instance=swap
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-#separator=false
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-#interval=30
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-# Disk usage
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-#
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-# The directory defaults to $HOME if the instance is not specified.
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-# The script may be called with a optional argument to set the alert
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-# (defaults to 10 for 10%).
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-#[disk]
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-#label=HOME
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-#instance=/mnt/data
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-#interval=30
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-# Network interface monitoring
+</a><a href="#h1-0-68" id="h1-0-68" class="d">-#
+</a><a href="#h1-0-69" id="h1-0-69" class="d">-# If the instance is not specified, use the interface used for default route.
+</a><a href="#h1-0-70" id="h1-0-70" class="d">-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+</a><a href="#h1-0-71" id="h1-0-71" class="d">-[iface]
+</a><a href="#h1-0-72" id="h1-0-72" class="d">-#instance=wlan0
+</a><a href="#h1-0-73" id="h1-0-73" class="d">-color=#5f819d
+</a><a href="#h1-0-74" id="h1-0-74" class="d">-interval=10
+</a><a href="#h1-0-75" id="h1-0-75" class="d">-separator=false
+</a><a href="#h1-0-76" id="h1-0-76" class="d">-
+</a><a href="#h1-0-77" id="h1-0-77" class="d">-[wifi]
+</a><a href="#h1-0-78" id="h1-0-78" class="d">-#instance=wlp3s0
+</a><a href="#h1-0-79" id="h1-0-79" class="d">-interval=10
+</a><a href="#h1-0-80" id="h1-0-80" class="d">-separator=false
+</a><a href="#h1-0-81" id="h1-0-81" class="d">-
+</a><a href="#h1-0-82" id="h1-0-82" class="d">-#[bandwidth]
+</a><a href="#h1-0-83" id="h1-0-83" class="d">-#instance=eth0
+</a><a href="#h1-0-84" id="h1-0-84" class="d">-#interval=5
+</a><a href="#h1-0-85" id="h1-0-85" class="d">-
+</a><a href="#h1-0-86" id="h1-0-86" class="d">-# CPU usage
+</a><a href="#h1-0-87" id="h1-0-87" class="d">-#
+</a><a href="#h1-0-88" id="h1-0-88" class="d">-# The script may be called with -w and -c switches to specify thresholds,
+</a><a href="#h1-0-89" id="h1-0-89" class="d">-# see the script for details.
+</a><a href="#h1-0-90" id="h1-0-90" class="d">-#[cpu_usage]
+</a><a href="#h1-0-91" id="h1-0-91" class="d">-#label=CPU
+</a><a href="#h1-0-92" id="h1-0-92" class="d">-#interval=10
+</a><a href="#h1-0-93" id="h1-0-93" class="d">-#min_width=CPU: 100.00%
+</a><a href="#h1-0-94" id="h1-0-94" class="d">-#separator=false
+</a><a href="#h1-0-95" id="h1-0-95" class="d">-
+</a><a href="#h1-0-96" id="h1-0-96" class="d">-#[load_average]
+</a><a href="#h1-0-97" id="h1-0-97" class="d">-#interval=10
+</a><a href="#h1-0-98" id="h1-0-98" class="d">-
+</a><a href="#h1-0-99" id="h1-0-99" class="d">-# Battery indicator
+</a><a href="#h1-0-100" id="h1-0-100" class="d">-#
+</a><a href="#h1-0-101" id="h1-0-101" class="d">-# The battery instance defaults to 0.
+</a><a href="#h1-0-102" id="h1-0-102" class="d">-[battery]
+</a><a href="#h1-0-103" id="h1-0-103" class="d">-label=BAT
+</a><a href="#h1-0-104" id="h1-0-104" class="d">-#label=⚡
+</a><a href="#h1-0-105" id="h1-0-105" class="d">-#instance=1
+</a><a href="#h1-0-106" id="h1-0-106" class="d">-interval=30
+</a><a href="#h1-0-107" id="h1-0-107" class="d">-
+</a><a href="#h1-0-108" id="h1-0-108" class="d">-# Date Time
+</a><a href="#h1-0-109" id="h1-0-109" class="d">-#
+</a><a href="#h1-0-110" id="h1-0-110" class="d">-[time]
+</a><a href="#h1-0-111" id="h1-0-111" class="d">-command=date &#39;+%d-%m-%Y %H:%M:%S&#39;
+</a><a href="#h1-0-112" id="h1-0-112" class="d">-interval=1
+</a><a href="#h1-0-113" id="h1-0-113" class="d">-
+</a><a href="#h1-0-114" id="h1-0-114" class="d">-# Generic media player support
+</a><a href="#h1-0-115" id="h1-0-115" class="d">-#
+</a><a href="#h1-0-116" id="h1-0-116" class="d">-# This displays &quot;ARTIST - SONG&quot; if a music is playing.
+</a><a href="#h1-0-117" id="h1-0-117" class="d">-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+</a><a href="#h1-0-118" id="h1-0-118" class="d">-[mediaplayer]
+</a><a href="#h1-0-119" id="h1-0-119" class="d">-instance=spotify
+</a><a href="#h1-0-120" id="h1-0-120" class="d">-interval=1
+</a><a href="#h1-0-121" id="h1-0-121" class="d">-signal=10
+</a><a href="#h1-0-122" id="h1-0-122" class="d">-
+</a><a href="#h1-0-123" id="h1-0-123" class="d">-# OpenVPN support
+</a><a href="#h1-0-124" id="h1-0-124" class="d">-#
+</a><a href="#h1-0-125" id="h1-0-125" class="d">-# Support multiple VPN, with colors.
+</a><a href="#h1-0-126" id="h1-0-126" class="d">-[openvpn]
+</a><a href="#h1-0-127" id="h1-0-127" class="d">-interval=5
+</a><a href="#h1-0-128" id="h1-0-128" class="d">-
+</a><a href="#h1-0-129" id="h1-0-129" class="d">-# Temperature
+</a><a href="#h1-0-130" id="h1-0-130" class="d">-#
+</a><a href="#h1-0-131" id="h1-0-131" class="d">-# Support multiple chips, though lm-sensors.
+</a><a href="#h1-0-132" id="h1-0-132" class="d">-# The script may be called with -w and -c switches to specify thresholds,
+</a><a href="#h1-0-133" id="h1-0-133" class="d">-# see the script for details.
+</a><a href="#h1-0-134" id="h1-0-134" class="d">-[temperature]
+</a><a href="#h1-0-135" id="h1-0-135" class="d">-label=TEMP
+</a><a href="#h1-0-136" id="h1-0-136" class="d">-interval=10
+</a><a href="#h1-0-137" id="h1-0-137" class="d">-
+</a><a href="#h1-0-138" id="h1-0-138" class="d">-# Key indicators
+</a><a href="#h1-0-139" id="h1-0-139" class="d">-#
+</a><a href="#h1-0-140" id="h1-0-140" class="d">-# Add the following bindings to i3 config file:
+</a><a href="#h1-0-141" id="h1-0-141" class="d">-#
+</a><a href="#h1-0-142" id="h1-0-142" class="d">-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+</a><a href="#h1-0-143" id="h1-0-143" class="d">-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+</a><a href="#h1-0-144" id="h1-0-144" class="d">-#[keyindicator]
+</a><a href="#h1-0-145" id="h1-0-145" class="d">-#instance=CAPS
+</a><a href="#h1-0-146" id="h1-0-146" class="d">-#interval=once
+</a><a href="#h1-0-147" id="h1-0-147" class="d">-#signal=11
+</a><a href="#h1-0-148" id="h1-0-148" class="d">-
+</a><a href="#h1-0-149" id="h1-0-149" class="d">-#[keyindicator]
+</a><a href="#h1-0-150" id="h1-0-150" class="d">-#instance=NUM
+</a><a href="#h1-0-151" id="h1-0-151" class="d">-#interval=once
+</a><a href="#h1-0-152" id="h1-0-152" class="d">-#signal=11
+</a><b>diff --git a/<a id="h2" href="../file/config.stow/.config/polybar/cmus.sh.html">config.stow/.config/polybar/cmus.sh</a> b/<a href="../file/config.stow/.config/polybar/cmus.sh.html">config.stow/.config/polybar/cmus.sh</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,15 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-#!/bin/sh
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-if ps -C cmus &gt; /dev/null; then
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-artist=`cmus-remote -Q |
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-	grep --text &#39;^tag artist&#39; |
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-	sed &#39;/^tag artistsort/d&#39; |
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-	awk &#39;{gsub(&quot;tag artist &quot;, &quot;&quot;);print}&#39;`
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-title=`cmus-remote -Q  |
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-	grep --text &#39;^tag title&#39; |
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-	sed -e &#39;s/tag title //&#39; |
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-	awk &#39;{gsub(&quot;tag title &quot;, &quot;&quot;);print}&#39;`
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-	echo &quot; $artist - $title&quot;; else echo &quot;&quot;;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-fi
+</a><b>diff --git a/<a id="h3" href="../file/config.stow/.config/polybar/cmus_notify.sh.html">config.stow/.config/polybar/cmus_notify.sh</a> b/<a href="../file/config.stow/.config/polybar/cmus_notify.sh.html">config.stow/.config/polybar/cmus_notify.sh</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,22 +0,0 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="d">-#!/bin/bash
+</a><a href="#h3-0-1" id="h3-0-1" class="d">-
+</a><a href="#h3-0-2" id="h3-0-2" class="d">-if ps -C cmus &gt; /dev/null; then
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-artist=`cmus-remote -Q |
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-	grep --text &#39;^tag artist&#39; |
+</a><a href="#h3-0-6" id="h3-0-6" class="d">-	sed &#39;/^tag artistsort/d&#39; |
+</a><a href="#h3-0-7" id="h3-0-7" class="d">-	awk &#39;{gsub(&quot;tag artist &quot;, &quot;&quot;);print}&#39;`
+</a><a href="#h3-0-8" id="h3-0-8" class="d">-title=`cmus-remote -Q  |
+</a><a href="#h3-0-9" id="h3-0-9" class="d">-	grep --text &#39;^tag title&#39; |
+</a><a href="#h3-0-10" id="h3-0-10" class="d">-	sed -e &#39;s/tag title //&#39; |
+</a><a href="#h3-0-11" id="h3-0-11" class="d">-	awk &#39;{gsub(&quot;tag title &quot;, &quot;&quot;);print}&#39;`
+</a><a href="#h3-0-12" id="h3-0-12" class="d">-album=`cmus-remote -Q |
+</a><a href="#h3-0-13" id="h3-0-13" class="d">-        grep --text &#39;^tag album&#39; |
+</a><a href="#h3-0-14" id="h3-0-14" class="d">-        sed &#39;/^tag albumartist/d&#39; |
+</a><a href="#h3-0-15" id="h3-0-15" class="d">-        sed &#39;/^tag albumartistsort/d&#39; |
+</a><a href="#h3-0-16" id="h3-0-16" class="d">-        sed -e &#39;s/tag album //&#39; |
+</a><a href="#h3-0-17" id="h3-0-17" class="d">-        awk &#39;{gsub(&quot;tag album &quot;, &quot;&quot;);print}&#39;`
+</a><a href="#h3-0-18" id="h3-0-18" class="d">-
+</a><a href="#h3-0-19" id="h3-0-19" class="d">-notify-send &quot;$title&quot; &quot;$artist - $album&quot;
+</a><a href="#h3-0-20" id="h3-0-20" class="d">-
+</a><a href="#h3-0-21" id="h3-0-21" class="d">-fi
+</a><b>diff --git a/<a id="h4" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -1,361 +0,0 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="d">-;==========================================================
+</a><a href="#h4-0-1" id="h4-0-1" class="d">-;
+</a><a href="#h4-0-2" id="h4-0-2" class="d">-;
+</a><a href="#h4-0-3" id="h4-0-3" class="d">-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+</a><a href="#h4-0-4" id="h4-0-4" class="d">-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+</a><a href="#h4-0-5" id="h4-0-5" class="d">-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+</a><a href="#h4-0-6" id="h4-0-6" class="d">-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+</a><a href="#h4-0-7" id="h4-0-7" class="d">-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+</a><a href="#h4-0-8" id="h4-0-8" class="d">-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+</a><a href="#h4-0-9" id="h4-0-9" class="d">-;
+</a><a href="#h4-0-10" id="h4-0-10" class="d">-;
+</a><a href="#h4-0-11" id="h4-0-11" class="d">-;   To learn more about how to configure Polybar
+</a><a href="#h4-0-12" id="h4-0-12" class="d">-;   go to https://github.com/jaagr/polybar
+</a><a href="#h4-0-13" id="h4-0-13" class="d">-;
+</a><a href="#h4-0-14" id="h4-0-14" class="d">-;   The README contains alot of information
+</a><a href="#h4-0-15" id="h4-0-15" class="d">-;
+</a><a href="#h4-0-16" id="h4-0-16" class="d">-;==========================================================
+</a><a href="#h4-0-17" id="h4-0-17" class="d">-
+</a><a href="#h4-0-18" id="h4-0-18" class="d">-[colors]
+</a><a href="#h4-0-19" id="h4-0-19" class="d">-background = 0
+</a><a href="#h4-0-20" id="h4-0-20" class="d">-foreground = #ffffff
+</a><a href="#h4-0-21" id="h4-0-21" class="d">-border-color = 0
+</a><a href="#h4-0-22" id="h4-0-22" class="d">-transparent = #00000000
+</a><a href="#h4-0-23" id="h4-0-23" class="d">-
+</a><a href="#h4-0-24" id="h4-0-24" class="d">-; black
+</a><a href="#h4-0-25" id="h4-0-25" class="d">-color0  = #282a2e
+</a><a href="#h4-0-26" id="h4-0-26" class="d">-color8  = #373b41
+</a><a href="#h4-0-27" id="h4-0-27" class="d">-
+</a><a href="#h4-0-28" id="h4-0-28" class="d">-; red
+</a><a href="#h4-0-29" id="h4-0-29" class="d">-color1  = #a54242
+</a><a href="#h4-0-30" id="h4-0-30" class="d">-color9  = #cc6666
+</a><a href="#h4-0-31" id="h4-0-31" class="d">-
+</a><a href="#h4-0-32" id="h4-0-32" class="d">-; green
+</a><a href="#h4-0-33" id="h4-0-33" class="d">-color2  = #8c9440
+</a><a href="#h4-0-34" id="h4-0-34" class="d">-color10 = #b5bd68
+</a><a href="#h4-0-35" id="h4-0-35" class="d">-
+</a><a href="#h4-0-36" id="h4-0-36" class="d">-; yellow
+</a><a href="#h4-0-37" id="h4-0-37" class="d">-color3  = #de935f
+</a><a href="#h4-0-38" id="h4-0-38" class="d">-color11 = #f0c674
+</a><a href="#h4-0-39" id="h4-0-39" class="d">-
+</a><a href="#h4-0-40" id="h4-0-40" class="d">-; blue
+</a><a href="#h4-0-41" id="h4-0-41" class="d">-color4  = #5f819d
+</a><a href="#h4-0-42" id="h4-0-42" class="d">-color12 = #81a2be
+</a><a href="#h4-0-43" id="h4-0-43" class="d">-
+</a><a href="#h4-0-44" id="h4-0-44" class="d">-; magenta
+</a><a href="#h4-0-45" id="h4-0-45" class="d">-color5  = #85678f
+</a><a href="#h4-0-46" id="h4-0-46" class="d">-color13 = #b294bb
+</a><a href="#h4-0-47" id="h4-0-47" class="d">-
+</a><a href="#h4-0-48" id="h4-0-48" class="d">-; cyan
+</a><a href="#h4-0-49" id="h4-0-49" class="d">-color6  = #5e8d87
+</a><a href="#h4-0-50" id="h4-0-50" class="d">-color14 = #8abeb7
+</a><a href="#h4-0-51" id="h4-0-51" class="d">-
+</a><a href="#h4-0-52" id="h4-0-52" class="d">-; white
+</a><a href="#h4-0-53" id="h4-0-53" class="d">-color7  = #707880
+</a><a href="#h4-0-54" id="h4-0-54" class="d">-color15 = #c5c8c6
+</a><a href="#h4-0-55" id="h4-0-55" class="d">-
+</a><a href="#h4-0-56" id="h4-0-56" class="d">-[bar/standart]
+</a><a href="#h4-0-57" id="h4-0-57" class="d">-
+</a><a href="#h4-0-58" id="h4-0-58" class="d">-;----- Settings -----
+</a><a href="#h4-0-59" id="h4-0-59" class="d">-width = 100%
+</a><a href="#h4-0-60" id="h4-0-60" class="d">-height = 27
+</a><a href="#h4-0-61" id="h4-0-61" class="d">-
+</a><a href="#h4-0-62" id="h4-0-62" class="d">-fixed-center = false
+</a><a href="#h4-0-63" id="h4-0-63" class="d">-bottom = true
+</a><a href="#h4-0-64" id="h4-0-64" class="d">-
+</a><a href="#h4-0-65" id="h4-0-65" class="d">-background = ${colors.transparent}
+</a><a href="#h4-0-66" id="h4-0-66" class="d">-foreground = #ffffff
+</a><a href="#h4-0-67" id="h4-0-67" class="d">-
+</a><a href="#h4-0-68" id="h4-0-68" class="d">-line-size = 3
+</a><a href="#h4-0-69" id="h4-0-69" class="d">-line-color = #f00
+</a><a href="#h4-0-70" id="h4-0-70" class="d">-
+</a><a href="#h4-0-71" id="h4-0-71" class="d">-border-top-size = 5
+</a><a href="#h4-0-72" id="h4-0-72" class="d">-border-bottom-size = 5
+</a><a href="#h4-0-73" id="h4-0-73" class="d">-border-left-size = 0
+</a><a href="#h4-0-74" id="h4-0-74" class="d">-border-right-size = 0
+</a><a href="#h4-0-75" id="h4-0-75" class="d">-border-color = ${colors.transparent}
+</a><a href="#h4-0-76" id="h4-0-76" class="d">-
+</a><a href="#h4-0-77" id="h4-0-77" class="d">-padding-left = 0
+</a><a href="#h4-0-78" id="h4-0-78" class="d">-padding-right = 0
+</a><a href="#h4-0-79" id="h4-0-79" class="d">-
+</a><a href="#h4-0-80" id="h4-0-80" class="d">-; ----- Modules -----
+</a><a href="#h4-0-81" id="h4-0-81" class="d">-modules-left = i3 pulseaudio eth wlan vpn battery backlight mpd spotify
+</a><a href="#h4-0-82" id="h4-0-82" class="d">-modules-center =
+</a><a href="#h4-0-83" id="h4-0-83" class="d">-modules-right = date
+</a><a href="#h4-0-84" id="h4-0-84" class="d">-
+</a><a href="#h4-0-85" id="h4-0-85" class="d">-module-margin-left = 1
+</a><a href="#h4-0-86" id="h4-0-86" class="d">-module-margin-right = 1
+</a><a href="#h4-0-87" id="h4-0-87" class="d">-
+</a><a href="#h4-0-88" id="h4-0-88" class="d">-;----- Fonts -----
+</a><a href="#h4-0-89" id="h4-0-89" class="d">-
+</a><a href="#h4-0-90" id="h4-0-90" class="d">-font-0 = UbuntuMono Nerd Font:size=12;3
+</a><a href="#h4-0-91" id="h4-0-91" class="d">-font-1 = &quot;Font Awesome 5 Free:style=Solid:pixelsize=12;3&quot;
+</a><a href="#h4-0-92" id="h4-0-92" class="d">-font-2 = &quot;Font Awesome 5 Free:style=Regular:pixelsize=12;3&quot;
+</a><a href="#h4-0-93" id="h4-0-93" class="d">-font-3 = &quot;Font Awesome 5 Brands:pixelsize=12;3&quot;
+</a><a href="#h4-0-94" id="h4-0-94" class="d">-font-4 = Source Han Sans JP:size=12;3
+</a><a href="#h4-0-95" id="h4-0-95" class="d">-font-5 = Source Han Sans KR:size=12;3
+</a><a href="#h4-0-96" id="h4-0-96" class="d">-
+</a><a href="#h4-0-97" id="h4-0-97" class="d">-scroll-up = i3wm-wsnext
+</a><a href="#h4-0-98" id="h4-0-98" class="d">-scroll-down = i3wm-wsprev
+</a><a href="#h4-0-99" id="h4-0-99" class="d">-
+</a><a href="#h4-0-100" id="h4-0-100" class="d">-[module/i3]
+</a><a href="#h4-0-101" id="h4-0-101" class="d">-type = internal/i3
+</a><a href="#h4-0-102" id="h4-0-102" class="d">-format = &lt;label-state&gt; &lt;label-mode&gt;
+</a><a href="#h4-0-103" id="h4-0-103" class="d">-index-sort = true
+</a><a href="#h4-0-104" id="h4-0-104" class="d">-wrapping-scroll = false
+</a><a href="#h4-0-105" id="h4-0-105" class="d">-
+</a><a href="#h4-0-106" id="h4-0-106" class="d">-label-mode-padding = 1
+</a><a href="#h4-0-107" id="h4-0-107" class="d">-jabel-mode-foreground = #ffffff
+</a><a href="#h4-0-108" id="h4-0-108" class="d">-label-mode-background = #00000000
+</a><a href="#h4-0-109" id="h4-0-109" class="d">-
+</a><a href="#h4-0-110" id="h4-0-110" class="d">-; focused = Active workspace on focused monitor
+</a><a href="#h4-0-111" id="h4-0-111" class="d">-label-focused = %icon%
+</a><a href="#h4-0-112" id="h4-0-112" class="d">-label-focused-background = ${colors.color6}
+</a><a href="#h4-0-113" id="h4-0-113" class="d">-label-focused-padding = 1
+</a><a href="#h4-0-114" id="h4-0-114" class="d">-
+</a><a href="#h4-0-115" id="h4-0-115" class="d">-; unfocused = Inactive workspace on any monitor
+</a><a href="#h4-0-116" id="h4-0-116" class="d">-label-unfocused = %icon%
+</a><a href="#h4-0-117" id="h4-0-117" class="d">-label-unfocused-padding = 1
+</a><a href="#h4-0-118" id="h4-0-118" class="d">-
+</a><a href="#h4-0-119" id="h4-0-119" class="d">-; visible = Active workspace on unfocused monitor
+</a><a href="#h4-0-120" id="h4-0-120" class="d">-label-visible = %icon%
+</a><a href="#h4-0-121" id="h4-0-121" class="d">-label-visible-background = ${colors.transparent}
+</a><a href="#h4-0-122" id="h4-0-122" class="d">-label-visible-underline = #000000
+</a><a href="#h4-0-123" id="h4-0-123" class="d">-label-visible-padding = 1
+</a><a href="#h4-0-124" id="h4-0-124" class="d">-
+</a><a href="#h4-0-125" id="h4-0-125" class="d">-; urgent = Workspace with urgency hint set
+</a><a href="#h4-0-126" id="h4-0-126" class="d">-label-urgent = %icon%
+</a><a href="#h4-0-127" id="h4-0-127" class="d">-label-urgent-background = ${colors.transparent}
+</a><a href="#h4-0-128" id="h4-0-128" class="d">-label-urgent-underline = #a54242
+</a><a href="#h4-0-129" id="h4-0-129" class="d">-label-urgent-padding = 1
+</a><a href="#h4-0-130" id="h4-0-130" class="d">-
+</a><a href="#h4-0-131" id="h4-0-131" class="d">-; Chinese Numerals
+</a><a href="#h4-0-132" id="h4-0-132" class="d">-ws-icon-0 = 1;一
+</a><a href="#h4-0-133" id="h4-0-133" class="d">-ws-icon-1 = 2;二
+</a><a href="#h4-0-134" id="h4-0-134" class="d">-ws-icon-2 = 3;三
+</a><a href="#h4-0-135" id="h4-0-135" class="d">-ws-icon-3 = 4;四
+</a><a href="#h4-0-136" id="h4-0-136" class="d">-ws-icon-4 = 5;五
+</a><a href="#h4-0-137" id="h4-0-137" class="d">-ws-icon-5 = 6;六
+</a><a href="#h4-0-138" id="h4-0-138" class="d">-ws-icon-6 = 7;七
+</a><a href="#h4-0-139" id="h4-0-139" class="d">-ws-icon-7 = 8;八
+</a><a href="#h4-0-140" id="h4-0-140" class="d">-ws-icon-8 = 9;九
+</a><a href="#h4-0-141" id="h4-0-141" class="d">-ws-icon-9 = 10;十
+</a><a href="#h4-0-142" id="h4-0-142" class="d">-
+</a><a href="#h4-0-143" id="h4-0-143" class="d">-; Workspace icons
+</a><a href="#h4-0-144" id="h4-0-144" class="d">-;ws-icon-0 = 1;
+</a><a href="#h4-0-145" id="h4-0-145" class="d">-;ws-icon-1 = 2;
+</a><a href="#h4-0-146" id="h4-0-146" class="d">-;ws-icon-2 = 3;
+</a><a href="#h4-0-147" id="h4-0-147" class="d">-;ws-icon-3 = 4;
+</a><a href="#h4-0-148" id="h4-0-148" class="d">-;ws-icon-4 = 5;
+</a><a href="#h4-0-149" id="h4-0-149" class="d">-;ws-icon-5 = 6;6
+</a><a href="#h4-0-150" id="h4-0-150" class="d">-;ws-icon-6 = 7;7
+</a><a href="#h4-0-151" id="h4-0-151" class="d">-;ws-icon-7 = 8;8
+</a><a href="#h4-0-152" id="h4-0-152" class="d">-;ws-icon-8 = 9;9
+</a><a href="#h4-0-153" id="h4-0-153" class="d">-;ws-icon-9 = 10;10
+</a><a href="#h4-0-154" id="h4-0-154" class="d">-
+</a><a href="#h4-0-155" id="h4-0-155" class="d">-[module/wlan]
+</a><a href="#h4-0-156" id="h4-0-156" class="d">-type = internal/network
+</a><a href="#h4-0-157" id="h4-0-157" class="d">-
+</a><a href="#h4-0-158" id="h4-0-158" class="d">-interface = wlp1s0
+</a><a href="#h4-0-159" id="h4-0-159" class="d">-
+</a><a href="#h4-0-160" id="h4-0-160" class="d">-interval = 5
+</a><a href="#h4-0-161" id="h4-0-161" class="d">-
+</a><a href="#h4-0-162" id="h4-0-162" class="d">-ramp-signal-background = ${colors.color1}
+</a><a href="#h4-0-163" id="h4-0-163" class="d">-ramp-signal-padding = 1
+</a><a href="#h4-0-164" id="h4-0-164" class="d">-ramp-signal-0 = 
+</a><a href="#h4-0-165" id="h4-0-165" class="d">-
+</a><a href="#h4-0-166" id="h4-0-166" class="d">-label-connected-background = ${colors.color9}
+</a><a href="#h4-0-167" id="h4-0-167" class="d">-label-connected-padding = 1
+</a><a href="#h4-0-168" id="h4-0-168" class="d">-label-connected = %essid%
+</a><a href="#h4-0-169" id="h4-0-169" class="d">-
+</a><a href="#h4-0-170" id="h4-0-170" class="d">-label-disconnected-background = ${colors.color9}
+</a><a href="#h4-0-171" id="h4-0-171" class="d">-label-disconnected-padding = 1
+</a><a href="#h4-0-172" id="h4-0-172" class="d">-label-disconnected = Disconnected
+</a><a href="#h4-0-173" id="h4-0-173" class="d">-
+</a><a href="#h4-0-174" id="h4-0-174" class="d">-format-connected = &lt;ramp-signal&gt;%{A1:nm-connection-editor:}&lt;label-connected&gt;%{A}
+</a><a href="#h4-0-175" id="h4-0-175" class="d">-
+</a><a href="#h4-0-176" id="h4-0-176" class="d">-format-disconnected = %{A1:nm-connection-editor:}&lt;label-disconnected&gt;%{A}
+</a><a href="#h4-0-177" id="h4-0-177" class="d">-
+</a><a href="#h4-0-178" id="h4-0-178" class="d">-[module/eth]
+</a><a href="#h4-0-179" id="h4-0-179" class="d">-type = internal/network
+</a><a href="#h4-0-180" id="h4-0-180" class="d">-interface = enp0s31f6
+</a><a href="#h4-0-181" id="h4-0-181" class="d">-interval = 3.0
+</a><a href="#h4-0-182" id="h4-0-182" class="d">-
+</a><a href="#h4-0-183" id="h4-0-183" class="d">-ramp-signal-background = ${colors.color1}
+</a><a href="#h4-0-184" id="h4-0-184" class="d">-ramp-signal-padding = 1
+</a><a href="#h4-0-185" id="h4-0-185" class="d">-ramp-signal-0 = 
+</a><a href="#h4-0-186" id="h4-0-186" class="d">-
+</a><a href="#h4-0-187" id="h4-0-187" class="d">-label-connected-background = ${colors.color9}
+</a><a href="#h4-0-188" id="h4-0-188" class="d">-label-connected-padding = 1
+</a><a href="#h4-0-189" id="h4-0-189" class="d">-label-connected = %local_ip%
+</a><a href="#h4-0-190" id="h4-0-190" class="d">-
+</a><a href="#h4-0-191" id="h4-0-191" class="d">-label-disconnected-background = ${colors.color9}
+</a><a href="#h4-0-192" id="h4-0-192" class="d">-label-disconnected-padding = 1
+</a><a href="#h4-0-193" id="h4-0-193" class="d">-label-disconnected = Disconnected
+</a><a href="#h4-0-194" id="h4-0-194" class="d">-
+</a><a href="#h4-0-195" id="h4-0-195" class="d">-format-connected = &lt;ramp-signal&gt;%{A1:nm-connection-editor:}&lt;label-connected&gt;%{A}
+</a><a href="#h4-0-196" id="h4-0-196" class="d">-
+</a><a href="#h4-0-197" id="h4-0-197" class="d">-format-disconnected =
+</a><a href="#h4-0-198" id="h4-0-198" class="d">-
+</a><a href="#h4-0-199" id="h4-0-199" class="d">-[module/vpn]
+</a><a href="#h4-0-200" id="h4-0-200" class="d">-type = custom/script
+</a><a href="#h4-0-201" id="h4-0-201" class="d">-exec = echo vpn on
+</a><a href="#h4-0-202" id="h4-0-202" class="d">-exec-if = pgrep -x openvpn
+</a><a href="#h4-0-203" id="h4-0-203" class="d">-interval = 1
+</a><a href="#h4-0-204" id="h4-0-204" class="d">-
+</a><a href="#h4-0-205" id="h4-0-205" class="d">-label-background = ${colors.color9}
+</a><a href="#h4-0-206" id="h4-0-206" class="d">-label-padding = 1
+</a><a href="#h4-0-207" id="h4-0-207" class="d">-label = %output%
+</a><a href="#h4-0-208" id="h4-0-208" class="d">-
+</a><a href="#h4-0-209" id="h4-0-209" class="d">-format-background = ${colors.color1}
+</a><a href="#h4-0-210" id="h4-0-210" class="d">-
+</a><a href="#h4-0-211" id="h4-0-211" class="d">-format-prefix = &quot;&quot;
+</a><a href="#h4-0-212" id="h4-0-212" class="d">-format-prefix-padding = 1
+</a><a href="#h4-0-213" id="h4-0-213" class="d">-format-prefix-foreground = ${colors.foreground}
+</a><a href="#h4-0-214" id="h4-0-214" class="d">-
+</a><a href="#h4-0-215" id="h4-0-215" class="d">-[module/date]
+</a><a href="#h4-0-216" id="h4-0-216" class="d">-type = internal/date
+</a><a href="#h4-0-217" id="h4-0-217" class="d">-date = %D %A
+</a><a href="#h4-0-218" id="h4-0-218" class="d">-time = %H:%M:%S
+</a><a href="#h4-0-219" id="h4-0-219" class="d">-label-background = ${colors.color8}
+</a><a href="#h4-0-220" id="h4-0-220" class="d">-label-padding = 1
+</a><a href="#h4-0-221" id="h4-0-221" class="d">-label = %time% %date%
+</a><a href="#h4-0-222" id="h4-0-222" class="d">-
+</a><a href="#h4-0-223" id="h4-0-223" class="d">-format-background = ${colors.color0}
+</a><a href="#h4-0-224" id="h4-0-224" class="d">-format-prefix = 
+</a><a href="#h4-0-225" id="h4-0-225" class="d">-format-prefix-padding = 1
+</a><a href="#h4-0-226" id="h4-0-226" class="d">-format = &lt;label&gt;
+</a><a href="#h4-0-227" id="h4-0-227" class="d">-
+</a><a href="#h4-0-228" id="h4-0-228" class="d">-[module/pulseaudio]
+</a><a href="#h4-0-229" id="h4-0-229" class="d">-type = internal/pulseaudio
+</a><a href="#h4-0-230" id="h4-0-230" class="d">-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+</a><a href="#h4-0-231" id="h4-0-231" class="d">-use-ui-max = true
+</a><a href="#h4-0-232" id="h4-0-232" class="d">-interval = 1
+</a><a href="#h4-0-233" id="h4-0-233" class="d">-
+</a><a href="#h4-0-234" id="h4-0-234" class="d">-ramp-volume-background = ${colors.color2}
+</a><a href="#h4-0-235" id="h4-0-235" class="d">-ramp-volume-padding = 1
+</a><a href="#h4-0-236" id="h4-0-236" class="d">-ramp-volume-0 = 
+</a><a href="#h4-0-237" id="h4-0-237" class="d">-ramp-volume-1 = 
+</a><a href="#h4-0-238" id="h4-0-238" class="d">-ramp-volume-2 = 
+</a><a href="#h4-0-239" id="h4-0-239" class="d">-
+</a><a href="#h4-0-240" id="h4-0-240" class="d">-label-volume-background = ${colors.color10}
+</a><a href="#h4-0-241" id="h4-0-241" class="d">-label-volume-padding = 1
+</a><a href="#h4-0-242" id="h4-0-242" class="d">-
+</a><a href="#h4-0-243" id="h4-0-243" class="d">-format-volume = &lt;ramp-volume&gt;&lt;label-volume&gt;
+</a><a href="#h4-0-244" id="h4-0-244" class="d">-
+</a><a href="#h4-0-245" id="h4-0-245" class="d">-label-muted-background = ${colors.color10}
+</a><a href="#h4-0-246" id="h4-0-246" class="d">-label-muted-padding = 1
+</a><a href="#h4-0-247" id="h4-0-247" class="d">-label-muted = muted
+</a><a href="#h4-0-248" id="h4-0-248" class="d">-
+</a><a href="#h4-0-249" id="h4-0-249" class="d">-format-muted-background = ${colors.color2}
+</a><a href="#h4-0-250" id="h4-0-250" class="d">-format-muted-prefix = 
+</a><a href="#h4-0-251" id="h4-0-251" class="d">-format-muted-prefix-padding = 1
+</a><a href="#h4-0-252" id="h4-0-252" class="d">-format-muted = &lt;label-muted&gt;
+</a><a href="#h4-0-253" id="h4-0-253" class="d">-
+</a><a href="#h4-0-254" id="h4-0-254" class="d">-[module/battery]
+</a><a href="#h4-0-255" id="h4-0-255" class="d">-type = internal/battery
+</a><a href="#h4-0-256" id="h4-0-256" class="d">-battery = BAT0
+</a><a href="#h4-0-257" id="h4-0-257" class="d">-poll-interval = 1
+</a><a href="#h4-0-258" id="h4-0-258" class="d">-full-at = 99
+</a><a href="#h4-0-259" id="h4-0-259" class="d">-
+</a><a href="#h4-0-260" id="h4-0-260" class="d">-ramp-capacity-background = ${colors.color3}
+</a><a href="#h4-0-261" id="h4-0-261" class="d">-ramp-capacity-padding = 1
+</a><a href="#h4-0-262" id="h4-0-262" class="d">-ramp-capacity-0 = 
+</a><a href="#h4-0-263" id="h4-0-263" class="d">-ramp-capacity-1 = 
+</a><a href="#h4-0-264" id="h4-0-264" class="d">-ramp-capacity-2 = 
+</a><a href="#h4-0-265" id="h4-0-265" class="d">-ramp-capacity-3 = 
+</a><a href="#h4-0-266" id="h4-0-266" class="d">-ramp-capacity-4 = 
+</a><a href="#h4-0-267" id="h4-0-267" class="d">-
+</a><a href="#h4-0-268" id="h4-0-268" class="d">-animation-charging-background = ${colors.color3}
+</a><a href="#h4-0-269" id="h4-0-269" class="d">-animation-charging-padding = 1
+</a><a href="#h4-0-270" id="h4-0-270" class="d">-animation-charging-0 = 
+</a><a href="#h4-0-271" id="h4-0-271" class="d">-animation-charging-1 = 
+</a><a href="#h4-0-272" id="h4-0-272" class="d">-animation-charging-2 = 
+</a><a href="#h4-0-273" id="h4-0-273" class="d">-animation-charging-3 = 
+</a><a href="#h4-0-274" id="h4-0-274" class="d">-animation-charging-4 = 
+</a><a href="#h4-0-275" id="h4-0-275" class="d">-; Framerate in milliseconds
+</a><a href="#h4-0-276" id="h4-0-276" class="d">-animation-charging-framerate = 750
+</a><a href="#h4-0-277" id="h4-0-277" class="d">-
+</a><a href="#h4-0-278" id="h4-0-278" class="d">-animation-discharging-background = ${colors.color3}
+</a><a href="#h4-0-279" id="h4-0-279" class="d">-animation-discharging-padding = 1
+</a><a href="#h4-0-280" id="h4-0-280" class="d">-animation-discharging-0 = 
+</a><a href="#h4-0-281" id="h4-0-281" class="d">-animation-discharging-1 = 
+</a><a href="#h4-0-282" id="h4-0-282" class="d">-animation-discharging-2 = 
+</a><a href="#h4-0-283" id="h4-0-283" class="d">-animation-discharging-3 = 
+</a><a href="#h4-0-284" id="h4-0-284" class="d">-animation-discharging-4 = 
+</a><a href="#h4-0-285" id="h4-0-285" class="d">-; Framerate in milliseconds
+</a><a href="#h4-0-286" id="h4-0-286" class="d">-animation-discharging-framerate = 500
+</a><a href="#h4-0-287" id="h4-0-287" class="d">-
+</a><a href="#h4-0-288" id="h4-0-288" class="d">-label-discharging-background = ${colors.color11}
+</a><a href="#h4-0-289" id="h4-0-289" class="d">-label-discharging-padding = 1
+</a><a href="#h4-0-290" id="h4-0-290" class="d">-label-discharging = %percentage%%
+</a><a href="#h4-0-291" id="h4-0-291" class="d">-
+</a><a href="#h4-0-292" id="h4-0-292" class="d">-label-charging-background = ${colors.color11}
+</a><a href="#h4-0-293" id="h4-0-293" class="d">-label-charging-padding = 1
+</a><a href="#h4-0-294" id="h4-0-294" class="d">-label-charging = %percentage%%
+</a><a href="#h4-0-295" id="h4-0-295" class="d">-
+</a><a href="#h4-0-296" id="h4-0-296" class="d">-label-full-background = ${colors.color11}
+</a><a href="#h4-0-297" id="h4-0-297" class="d">-label-full-padding = 1
+</a><a href="#h4-0-298" id="h4-0-298" class="d">-label-full = %percentage%%
+</a><a href="#h4-0-299" id="h4-0-299" class="d">-
+</a><a href="#h4-0-300" id="h4-0-300" class="d">-format-discharging = &lt;animation-discharging&gt;&lt;label-discharging&gt;
+</a><a href="#h4-0-301" id="h4-0-301" class="d">-format-full = &lt;ramp-capacity&gt;&lt;label-full&gt;
+</a><a href="#h4-0-302" id="h4-0-302" class="d">-format-charging = &lt;animation-charging&gt;&lt;label-charging&gt;
+</a><a href="#h4-0-303" id="h4-0-303" class="d">-
+</a><a href="#h4-0-304" id="h4-0-304" class="d">-[module/spotify]
+</a><a href="#h4-0-305" id="h4-0-305" class="d">-type = custom/script
+</a><a href="#h4-0-306" id="h4-0-306" class="d">-exec = ~/.config/polybar/spotify.sh %artist% - %title%
+</a><a href="#h4-0-307" id="h4-0-307" class="d">-tail = true
+</a><a href="#h4-0-308" id="h4-0-308" class="d">-interval = 1
+</a><a href="#h4-0-309" id="h4-0-309" class="d">-click-left = playerctl previous
+</a><a href="#h4-0-310" id="h4-0-310" class="d">-click-right = playerctl next
+</a><a href="#h4-0-311" id="h4-0-311" class="d">-click-middle = playerctl play-pause
+</a><a href="#h4-0-312" id="h4-0-312" class="d">-
+</a><a href="#h4-0-313" id="h4-0-313" class="d">-label-background = ${colors.color13}
+</a><a href="#h4-0-314" id="h4-0-314" class="d">-label-padding = 1
+</a><a href="#h4-0-315" id="h4-0-315" class="d">-label = %output%
+</a><a href="#h4-0-316" id="h4-0-316" class="d">-
+</a><a href="#h4-0-317" id="h4-0-317" class="d">-format-background = ${colors.color5}
+</a><a href="#h4-0-318" id="h4-0-318" class="d">-format-prefix = 
+</a><a href="#h4-0-319" id="h4-0-319" class="d">-format-prefix-padding = 1
+</a><a href="#h4-0-320" id="h4-0-320" class="d">-format = &lt;label&gt;
+</a><a href="#h4-0-321" id="h4-0-321" class="d">-
+</a><a href="#h4-0-322" id="h4-0-322" class="d">-[module/backlight]
+</a><a href="#h4-0-323" id="h4-0-323" class="d">-type = internal/backlight
+</a><a href="#h4-0-324" id="h4-0-324" class="d">-card = intel_backlight
+</a><a href="#h4-0-325" id="h4-0-325" class="d">-
+</a><a href="#h4-0-326" id="h4-0-326" class="d">-ramp-background = ${colors.color4}
+</a><a href="#h4-0-327" id="h4-0-327" class="d">-ramp-padding = 1
+</a><a href="#h4-0-328" id="h4-0-328" class="d">-ramp-0 = 
+</a><a href="#h4-0-329" id="h4-0-329" class="d">-
+</a><a href="#h4-0-330" id="h4-0-330" class="d">-label-background = ${colors.color12}
+</a><a href="#h4-0-331" id="h4-0-331" class="d">-label-padding = 1
+</a><a href="#h4-0-332" id="h4-0-332" class="d">-label = %percentage%%
+</a><a href="#h4-0-333" id="h4-0-333" class="d">-
+</a><a href="#h4-0-334" id="h4-0-334" class="d">-format = &lt;ramp&gt;&lt;label&gt;
+</a><a href="#h4-0-335" id="h4-0-335" class="d">-
+</a><a href="#h4-0-336" id="h4-0-336" class="d">-[module/mpd]
+</a><a href="#h4-0-337" id="h4-0-337" class="d">-type = internal/mpd
+</a><a href="#h4-0-338" id="h4-0-338" class="d">-host = 127.0.0.1
+</a><a href="#h4-0-339" id="h4-0-339" class="d">-interval = 1
+</a><a href="#h4-0-340" id="h4-0-340" class="d">-
+</a><a href="#h4-0-341" id="h4-0-341" class="d">-label-song-background = ${colors.color13}
+</a><a href="#h4-0-342" id="h4-0-342" class="d">-label-song-padding = 1
+</a><a href="#h4-0-343" id="h4-0-343" class="d">-label-song = %artist% - %title%
+</a><a href="#h4-0-344" id="h4-0-344" class="d">-
+</a><a href="#h4-0-345" id="h4-0-345" class="d">-label-offline =  mpd is offline
+</a><a href="#h4-0-346" id="h4-0-346" class="d">-
+</a><a href="#h4-0-347" id="h4-0-347" class="d">-format-online-background = ${colors.color5}
+</a><a href="#h4-0-348" id="h4-0-348" class="d">-format-online-padding = 1
+</a><a href="#h4-0-349" id="h4-0-349" class="d">-format-online =  %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}&lt;label-song&gt;%{A}%{A}
+</a><a href="#h4-0-350" id="h4-0-350" class="d">-
+</a><a href="#h4-0-351" id="h4-0-351" class="d">-; Used to display the state of random/repeat/repeatone/single
+</a><a href="#h4-0-352" id="h4-0-352" class="d">-; Only applies if &lt;icon-[random|repeat|repeatone|single]&gt; is used
+</a><a href="#h4-0-353" id="h4-0-353" class="d">-toggle-on-foreground = #ff
+</a><a href="#h4-0-354" id="h4-0-354" class="d">-toggle-off-foreground = #55
+</a><a href="#h4-0-355" id="h4-0-355" class="d">-
+</a><a href="#h4-0-356" id="h4-0-356" class="d">-; Only applies if &lt;bar-progress&gt; is used
+</a><a href="#h4-0-357" id="h4-0-357" class="d">-bar-progress-width = 30
+</a><a href="#h4-0-358" id="h4-0-358" class="d">-bar-progress-indicator = |
+</a><a href="#h4-0-359" id="h4-0-359" class="d">-bar-progress-fill = ─
+</a><a href="#h4-0-360" id="h4-0-360" class="d">-bar-progress-empty = ─
+</a><b>diff --git a/<a id="h5" href="../file/config.stow/.config/polybar/launch.sh.html">config.stow/.config/polybar/launch.sh</a> b/<a href="../file/config.stow/.config/polybar/launch.sh.html">config.stow/.config/polybar/launch.sh</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -1,11 +0,0 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="d">-#!/usr/bin/env bash
+</a><a href="#h5-0-1" id="h5-0-1" class="d">-
+</a><a href="#h5-0-2" id="h5-0-2" class="d">-# Terminate already running bar instances
+</a><a href="#h5-0-3" id="h5-0-3" class="d">-killall -q polybar
+</a><a href="#h5-0-4" id="h5-0-4" class="d">-
+</a><a href="#h5-0-5" id="h5-0-5" class="d">-# Wait until the processes have been shut down
+</a><a href="#h5-0-6" id="h5-0-6" class="d">-while pgrep -u $UID -x polybar &gt;/dev/null; do sleep 1; done
+</a><a href="#h5-0-7" id="h5-0-7" class="d">-
+</a><a href="#h5-0-8" id="h5-0-8" class="d">-polybar standart &amp;
+</a><a href="#h5-0-9" id="h5-0-9" class="d">-
+</a><a href="#h5-0-10" id="h5-0-10" class="d">-echo &quot;Bars launched...&quot;
+</a><b>diff --git a/<a id="h6" href="../file/config.stow/.config/polybar/spotify.sh.html">config.stow/.config/polybar/spotify.sh</a> b/<a href="../file/config.stow/.config/polybar/spotify.sh.html">config.stow/.config/polybar/spotify.sh</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -1,23 +0,0 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="d">-#!/bin/sh
+</a><a href="#h6-0-1" id="h6-0-1" class="d">-
+</a><a href="#h6-0-2" id="h6-0-2" class="d">-main() {
+</a><a href="#h6-0-3" id="h6-0-3" class="d">-  if ! pgrep -x spotify &gt;/dev/null; then
+</a><a href="#h6-0-4" id="h6-0-4" class="d">-    echo &quot;&quot;; exit
+</a><a href="#h6-0-5" id="h6-0-5" class="d">-  fi
+</a><a href="#h6-0-6" id="h6-0-6" class="d">-
+</a><a href="#h6-0-7" id="h6-0-7" class="d">-  cmd=&quot;org.freedesktop.DBus.Properties.Get&quot;
+</a><a href="#h6-0-8" id="h6-0-8" class="d">-  domain=&quot;org.mpris.MediaPlayer2&quot;
+</a><a href="#h6-0-9" id="h6-0-9" class="d">-  path=&quot;/org/mpris/MediaPlayer2&quot;
+</a><a href="#h6-0-10" id="h6-0-10" class="d">-
+</a><a href="#h6-0-11" id="h6-0-11" class="d">-  meta=$(dbus-send --print-reply --dest=${domain}.spotify \
+</a><a href="#h6-0-12" id="h6-0-12" class="d">-    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:Metadata)
+</a><a href="#h6-0-13" id="h6-0-13" class="d">-
+</a><a href="#h6-0-14" id="h6-0-14" class="d">-  artist=$(echo &quot;$meta&quot; | sed -nr &#39;/xesam:artist&quot;/,+2s/^ +string &quot;(.*)&quot;$/\1/p&#39; | tail -1  | sed &#39;s/\&amp;/\\&amp;/g&#39; | sed &#39;s#\/#\\/#g&#39;)
+</a><a href="#h6-0-15" id="h6-0-15" class="d">-  album=$(echo &quot;$meta&quot; | sed -nr &#39;/xesam:album&quot;/,+2s/^ +variant +string &quot;(.*)&quot;$/\1/p&#39; | tail -1| sed &#39;s/\&amp;/\\&amp;/g&#39;| sed &#39;s#\/#\\/#g&#39;)
+</a><a href="#h6-0-16" id="h6-0-16" class="d">-  title=$(echo &quot;$meta&quot; | sed -nr &#39;/xesam:title&quot;/,+2s/^ +variant +string &quot;(.*)&quot;$/\1/p&#39; | tail -1 | sed &#39;s/\&amp;/\\&amp;/g&#39;| sed &#39;s#\/#\\/#g&#39;)
+</a><a href="#h6-0-17" id="h6-0-17" class="d">-
+</a><a href="#h6-0-18" id="h6-0-18" class="d">-  echo &quot;${*:-%artist% - %title%}&quot; | sed &quot;s/%artist%/$artist/g;s/%title%/$title/g;s/%album%/$album/g&quot;i | sed &quot;s/\&amp;/\&amp;/g&quot; | sed &quot;s#\/#\/#g&quot;
+</a><a href="#h6-0-19" id="h6-0-19" class="d">-
+</a><a href="#h6-0-20" id="h6-0-20" class="d">-}
+</a><a href="#h6-0-21" id="h6-0-21" class="d">-
+</a><a href="#h6-0-22" id="h6-0-22" class="d">-main &quot;$@&quot;
+</a></pre>
+</div>
+</body>
+</html>

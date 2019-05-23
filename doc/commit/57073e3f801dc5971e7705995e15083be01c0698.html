@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>New configs for termite, removed some - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/57073e3f801dc5971e7705995e15083be01c0698.html">57073e3f801dc5971e7705995e15083be01c0698</a>
+<b>parent</b> <a href="../commit/6c0d6d3b799ed8853d19f91f74cf3c2d8d374955.html">6c0d6d3b799ed8853d19f91f74cf3c2d8d374955</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Sun, 24 Mar 2019 09:10:17 +0100
+
+New configs for termite, removed some
+
+<b>Diffstat:</b>
+<table><tr><td class="D">D</td><td><a href="#h0">config.stow/.config/ranger/rc.conf</a></td><td> | </td><td class="num">2</td><td><span class="i"></span><span class="d">--</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">config.stow/.config/ranger/scope.sh</a></td><td> | </td><td class="num">216</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">config.stow/.config/termite/config</a></td><td> | </td><td class="num">103</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">install_dotfiles.sh</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>4 files changed, 104 insertions(+), 219 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/ranger/rc.conf.html">config.stow/.config/ranger/rc.conf</a> b/<a href="../file/config.stow/.config/ranger/rc.conf.html">config.stow/.config/ranger/rc.conf</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,2 +0,0 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-set preview_images true
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-set draw_borders true
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/ranger/scope.sh.html">config.stow/.config/ranger/scope.sh</a> b/<a href="../file/config.stow/.config/ranger/scope.sh.html">config.stow/.config/ranger/scope.sh</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,216 +0,0 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-#!/usr/bin/env bash
+</a><a href="#h1-0-1" id="h1-0-1" class="d">-
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-set -o noclobber -o noglob -o nounset -o pipefail
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-IFS=$&#39;\n&#39;
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-# If the option `use_preview_script` is set to `true`,
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-# then this script will be called and its output will be displayed in ranger.
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-# ANSI color codes are supported.
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-# STDIN is disabled, so interactive scripts won&#39;t work properly
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-# This script is considered a configuration file and must be updated manually.
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-# It will be left untouched if you upgrade ranger.
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-# Meanings of exit codes:
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-# code | meaning    | action of ranger
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-# -----+------------+-------------------------------------------
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-# 0    | success    | Display stdout as preview
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-# 1    | no preview | Display no preview at all
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-# 2    | plain text | Display the plain content of the file
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-# 3    | fix width  | Don&#39;t reload when width changes
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-# 4    | fix height | Don&#39;t reload when height changes
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-# 5    | fix both   | Don&#39;t ever reload
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-# 6    | image      | Display the image `$IMAGE_CACHE_PATH` points to as an image preview
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-# 7    | image      | Display the file directly as an image
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-# Script arguments
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-FILE_PATH=&quot;${1}&quot;         # Full path of the highlighted file
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-PV_WIDTH=&quot;${2}&quot;          # Width of the preview pane (number of fitting characters)
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-PV_HEIGHT=&quot;${3}&quot;         # Height of the preview pane (number of fitting characters)
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-IMAGE_CACHE_PATH=&quot;${4}&quot;  # Full path that should be used to cache image preview
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-PV_IMAGE_ENABLED=&quot;${5}&quot;  # &#39;True&#39; if image previews are enabled, &#39;False&#39; otherwise.
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-FILE_EXTENSION=&quot;${FILE_PATH##*.}&quot;
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;)
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-# Settings
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-HIGHLIGHT_SIZE_MAX=262143  # 256KiB
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-HIGHLIGHT_TABWIDTH=8
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-HIGHLIGHT_STYLE=&#39;pablo&#39;
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-PYGMENTIZE_STYLE=&#39;autumn&#39;
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-handle_extension() {
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-    case &quot;${FILE_EXTENSION_LOWER}&quot; in
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-        # Archive
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-        a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-            atool --list -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-            bsdtar --list --file &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-            exit 1;;
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-        rar)
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-            # Avoid password prompt by providing empty password
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-            unrar lt -p- -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-            exit 1;;
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-        7z)
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-            # Avoid password prompt by providing empty password
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-            7z l -p -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-            exit 1;;
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-        # PDF
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-        pdf)
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-            # Preview as text conversion
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-            pdftotext -l 10 -nopgbrk -q -- &quot;${FILE_PATH}&quot; - | fmt -w ${PV_WIDTH} &amp;&amp; exit 5
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-            mutool draw -F txt -i -- &quot;${FILE_PATH}&quot; 1-10 | fmt -w ${PV_WIDTH} &amp;&amp; exit 5
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-            exiftool &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-            exit 1;;
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-        # BitTorrent
+</a><a href="#h1-0-68" id="h1-0-68" class="d">-        torrent)
+</a><a href="#h1-0-69" id="h1-0-69" class="d">-            transmission-show -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-70" id="h1-0-70" class="d">-            exit 1;;
+</a><a href="#h1-0-71" id="h1-0-71" class="d">-
+</a><a href="#h1-0-72" id="h1-0-72" class="d">-        # OpenDocument
+</a><a href="#h1-0-73" id="h1-0-73" class="d">-        odt|ods|odp|sxw)
+</a><a href="#h1-0-74" id="h1-0-74" class="d">-            # Preview as text conversion
+</a><a href="#h1-0-75" id="h1-0-75" class="d">-            odt2txt &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-76" id="h1-0-76" class="d">-            exit 1;;
+</a><a href="#h1-0-77" id="h1-0-77" class="d">-
+</a><a href="#h1-0-78" id="h1-0-78" class="d">-        # HTML
+</a><a href="#h1-0-79" id="h1-0-79" class="d">-        htm|html|xhtml)
+</a><a href="#h1-0-80" id="h1-0-80" class="d">-            # Preview as text conversion
+</a><a href="#h1-0-81" id="h1-0-81" class="d">-            w3m -dump &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-82" id="h1-0-82" class="d">-            lynx -dump -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-83" id="h1-0-83" class="d">-            elinks -dump &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-84" id="h1-0-84" class="d">-            ;; # Continue with next handler on failure
+</a><a href="#h1-0-85" id="h1-0-85" class="d">-    esac
+</a><a href="#h1-0-86" id="h1-0-86" class="d">-}
+</a><a href="#h1-0-87" id="h1-0-87" class="d">-
+</a><a href="#h1-0-88" id="h1-0-88" class="d">-handle_image() {
+</a><a href="#h1-0-89" id="h1-0-89" class="d">-    local mimetype=&quot;${1}&quot;
+</a><a href="#h1-0-90" id="h1-0-90" class="d">-    case &quot;${mimetype}&quot; in
+</a><a href="#h1-0-91" id="h1-0-91" class="d">-        # SVG
+</a><a href="#h1-0-92" id="h1-0-92" class="d">-        # image/svg+xml)
+</a><a href="#h1-0-93" id="h1-0-93" class="d">-        #     convert &quot;${FILE_PATH}&quot; &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-94" id="h1-0-94" class="d">-        #     exit 1;;
+</a><a href="#h1-0-95" id="h1-0-95" class="d">-
+</a><a href="#h1-0-96" id="h1-0-96" class="d">-        # Image
+</a><a href="#h1-0-97" id="h1-0-97" class="d">-        image/*)
+</a><a href="#h1-0-98" id="h1-0-98" class="d">-            local orientation
+</a><a href="#h1-0-99" id="h1-0-99" class="d">-            orientation=&quot;$( identify -format &#39;%[EXIF:Orientation]\n&#39; -- &quot;${FILE_PATH}&quot; )&quot;
+</a><a href="#h1-0-100" id="h1-0-100" class="d">-            # If orientation data is present and the image actually
+</a><a href="#h1-0-101" id="h1-0-101" class="d">-            # needs rotating (&quot;1&quot; means no rotation)...
+</a><a href="#h1-0-102" id="h1-0-102" class="d">-            if [[ -n &quot;$orientation&quot; &amp;&amp; &quot;$orientation&quot; != 1 ]]; then
+</a><a href="#h1-0-103" id="h1-0-103" class="d">-                # ...auto-rotate the image according to the EXIF data.
+</a><a href="#h1-0-104" id="h1-0-104" class="d">-                convert -- &quot;${FILE_PATH}&quot; -auto-orient &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-105" id="h1-0-105" class="d">-            fi
+</a><a href="#h1-0-106" id="h1-0-106" class="d">-
+</a><a href="#h1-0-107" id="h1-0-107" class="d">-            # `w3mimgdisplay` will be called for all images (unless overriden as above),
+</a><a href="#h1-0-108" id="h1-0-108" class="d">-            # but might fail for unsupported types.
+</a><a href="#h1-0-109" id="h1-0-109" class="d">-            exit 7;;
+</a><a href="#h1-0-110" id="h1-0-110" class="d">-
+</a><a href="#h1-0-111" id="h1-0-111" class="d">-        # Video
+</a><a href="#h1-0-112" id="h1-0-112" class="d">-        # video/*)
+</a><a href="#h1-0-113" id="h1-0-113" class="d">-        #     # Thumbnail
+</a><a href="#h1-0-114" id="h1-0-114" class="d">-        #     ffmpegthumbnailer -i &quot;${FILE_PATH}&quot; -o &quot;${IMAGE_CACHE_PATH}&quot; -s 0 &amp;&amp; exit 6
+</a><a href="#h1-0-115" id="h1-0-115" class="d">-        #     exit 1;;
+</a><a href="#h1-0-116" id="h1-0-116" class="d">-        # PDF
+</a><a href="#h1-0-117" id="h1-0-117" class="d">-        # application/pdf)
+</a><a href="#h1-0-118" id="h1-0-118" class="d">-        #     pdftoppm -f 1 -l 1 \
+</a><a href="#h1-0-119" id="h1-0-119" class="d">-        #              -scale-to-x 1920 \
+</a><a href="#h1-0-120" id="h1-0-120" class="d">-        #              -scale-to-y -1 \
+</a><a href="#h1-0-121" id="h1-0-121" class="d">-        #              -singlefile \
+</a><a href="#h1-0-122" id="h1-0-122" class="d">-        #              -jpeg -tiffcompression jpeg \
+</a><a href="#h1-0-123" id="h1-0-123" class="d">-        #              -- &quot;${FILE_PATH}&quot; &quot;${IMAGE_CACHE_PATH%.*}&quot; \
+</a><a href="#h1-0-124" id="h1-0-124" class="d">-        #         &amp;&amp; exit 6 || exit 1;;
+</a><a href="#h1-0-125" id="h1-0-125" class="d">-
+</a><a href="#h1-0-126" id="h1-0-126" class="d">-        # Preview archives using the first image inside.
+</a><a href="#h1-0-127" id="h1-0-127" class="d">-        # (Very useful for comic book collections for example.)
+</a><a href="#h1-0-128" id="h1-0-128" class="d">-        # application/zip|application/x-rar|application/x-7z-compressed|\
+</a><a href="#h1-0-129" id="h1-0-129" class="d">-        #     application/x-xz|application/x-bzip2|application/x-gzip|application/x-tar)
+</a><a href="#h1-0-130" id="h1-0-130" class="d">-        #     local fn=&quot;&quot;; local fe=&quot;&quot;
+</a><a href="#h1-0-131" id="h1-0-131" class="d">-        #     local zip=&quot;&quot;; local rar=&quot;&quot;; local tar=&quot;&quot;; local bsd=&quot;&quot;
+</a><a href="#h1-0-132" id="h1-0-132" class="d">-        #     case &quot;${mimetype}&quot; in
+</a><a href="#h1-0-133" id="h1-0-133" class="d">-        #         application/zip) zip=1 ;;
+</a><a href="#h1-0-134" id="h1-0-134" class="d">-        #         application/x-rar) rar=1 ;;
+</a><a href="#h1-0-135" id="h1-0-135" class="d">-        #         application/x-7z-compressed) ;;
+</a><a href="#h1-0-136" id="h1-0-136" class="d">-        #         *) tar=1 ;;
+</a><a href="#h1-0-137" id="h1-0-137" class="d">-        #     esac
+</a><a href="#h1-0-138" id="h1-0-138" class="d">-        #     { [ &quot;$tar&quot; ] &amp;&amp; fn=$(tar --list --file &quot;${FILE_PATH}&quot;); } || \
+</a><a href="#h1-0-139" id="h1-0-139" class="d">-        #     { fn=$(bsdtar --list --file &quot;${FILE_PATH}&quot;) &amp;&amp; bsd=1 &amp;&amp; tar=&quot;&quot;; } || \
+</a><a href="#h1-0-140" id="h1-0-140" class="d">-        #     { [ &quot;$rar&quot; ] &amp;&amp; fn=$(unrar lb -p- -- &quot;${FILE_PATH}&quot;); } || \
+</a><a href="#h1-0-141" id="h1-0-141" class="d">-        #     { [ &quot;$zip&quot; ] &amp;&amp; fn=$(zipinfo -1 -- &quot;${FILE_PATH}&quot;); } || return
+</a><a href="#h1-0-142" id="h1-0-142" class="d">-        #
+</a><a href="#h1-0-143" id="h1-0-143" class="d">-        #     fn=$(echo &quot;$fn&quot; | python -c &quot;import sys; import mimetypes as m; \
+</a><a href="#h1-0-144" id="h1-0-144" class="d">-        #             [ print(l, end=&#39;&#39;) for l in sys.stdin if \
+</a><a href="#h1-0-145" id="h1-0-145" class="d">-        #               (m.guess_type(l[:-1])[0] or &#39;&#39;).startswith(&#39;image/&#39;) ]&quot; |\
+</a><a href="#h1-0-146" id="h1-0-146" class="d">-        #         sort -V | head -n 1)
+</a><a href="#h1-0-147" id="h1-0-147" class="d">-        #     [ &quot;$fn&quot; = &quot;&quot; ] &amp;&amp; return
+</a><a href="#h1-0-148" id="h1-0-148" class="d">-        #     [ &quot;$bsd&quot; ] &amp;&amp; fn=$(printf &#39;%b&#39; &quot;$fn&quot;)
+</a><a href="#h1-0-149" id="h1-0-149" class="d">-        #
+</a><a href="#h1-0-150" id="h1-0-150" class="d">-        #     [ &quot;$tar&quot; ] &amp;&amp; tar --extract --to-stdout \
+</a><a href="#h1-0-151" id="h1-0-151" class="d">-        #         --file &quot;${FILE_PATH}&quot; -- &quot;$fn&quot; &gt; &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-152" id="h1-0-152" class="d">-        #     fe=$(echo -n &quot;$fn&quot; | sed &#39;s/[][*?\]/\\\0/g&#39;)
+</a><a href="#h1-0-153" id="h1-0-153" class="d">-        #     [ &quot;$bsd&quot; ] &amp;&amp; bsdtar --extract --to-stdout \
+</a><a href="#h1-0-154" id="h1-0-154" class="d">-        #         --file &quot;${FILE_PATH}&quot; -- &quot;$fe&quot; &gt; &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-155" id="h1-0-155" class="d">-        #     [ &quot;$bsd&quot; ] || [ &quot;$tar&quot; ] &amp;&amp; rm -- &quot;${IMAGE_CACHE_PATH}&quot;
+</a><a href="#h1-0-156" id="h1-0-156" class="d">-        #     [ &quot;$rar&quot; ] &amp;&amp; unrar p -p- -inul -- &quot;${FILE_PATH}&quot; &quot;$fn&quot; &gt; \
+</a><a href="#h1-0-157" id="h1-0-157" class="d">-        #         &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-158" id="h1-0-158" class="d">-        #     [ &quot;$zip&quot; ] &amp;&amp; unzip -pP &quot;&quot; -- &quot;${FILE_PATH}&quot; &quot;$fe&quot; &gt; \
+</a><a href="#h1-0-159" id="h1-0-159" class="d">-        #         &quot;${IMAGE_CACHE_PATH}&quot; &amp;&amp; exit 6
+</a><a href="#h1-0-160" id="h1-0-160" class="d">-        #     [ &quot;$rar&quot; ] || [ &quot;$zip&quot; ] &amp;&amp; rm -- &quot;${IMAGE_CACHE_PATH}&quot;
+</a><a href="#h1-0-161" id="h1-0-161" class="d">-        #     ;;
+</a><a href="#h1-0-162" id="h1-0-162" class="d">-    esac
+</a><a href="#h1-0-163" id="h1-0-163" class="d">-}
+</a><a href="#h1-0-164" id="h1-0-164" class="d">-
+</a><a href="#h1-0-165" id="h1-0-165" class="d">-handle_mime() {
+</a><a href="#h1-0-166" id="h1-0-166" class="d">-    local mimetype=&quot;${1}&quot;
+</a><a href="#h1-0-167" id="h1-0-167" class="d">-    case &quot;${mimetype}&quot; in
+</a><a href="#h1-0-168" id="h1-0-168" class="d">-        # Text
+</a><a href="#h1-0-169" id="h1-0-169" class="d">-        text/* | */xml)
+</a><a href="#h1-0-170" id="h1-0-170" class="d">-            # Syntax highlight
+</a><a href="#h1-0-171" id="h1-0-171" class="d">-            if [[ &quot;$( stat --printf=&#39;%s&#39; -- &quot;${FILE_PATH}&quot; )&quot; -gt &quot;${HIGHLIGHT_SIZE_MAX}&quot; ]]; then
+</a><a href="#h1-0-172" id="h1-0-172" class="d">-                exit 2
+</a><a href="#h1-0-173" id="h1-0-173" class="d">-            fi
+</a><a href="#h1-0-174" id="h1-0-174" class="d">-            if [[ &quot;$( tput colors )&quot; -ge 256 ]]; then
+</a><a href="#h1-0-175" id="h1-0-175" class="d">-                local pygmentize_format=&#39;terminal256&#39;
+</a><a href="#h1-0-176" id="h1-0-176" class="d">-                local highlight_format=&#39;xterm256&#39;
+</a><a href="#h1-0-177" id="h1-0-177" class="d">-            else
+</a><a href="#h1-0-178" id="h1-0-178" class="d">-                local pygmentize_format=&#39;terminal&#39;
+</a><a href="#h1-0-179" id="h1-0-179" class="d">-                local highlight_format=&#39;ansi&#39;
+</a><a href="#h1-0-180" id="h1-0-180" class="d">-            fi
+</a><a href="#h1-0-181" id="h1-0-181" class="d">-            highlight --replace-tabs=&quot;${HIGHLIGHT_TABWIDTH}&quot; --out-format=&quot;${highlight_format}&quot; \
+</a><a href="#h1-0-182" id="h1-0-182" class="d">-                --style=&quot;${HIGHLIGHT_STYLE}&quot; --force -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-183" id="h1-0-183" class="d">-            # pygmentize -f &quot;${pygmentize_format}&quot; -O &quot;style=${PYGMENTIZE_STYLE}&quot; -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-184" id="h1-0-184" class="d">-            exit 2;;
+</a><a href="#h1-0-185" id="h1-0-185" class="d">-
+</a><a href="#h1-0-186" id="h1-0-186" class="d">-        # Image
+</a><a href="#h1-0-187" id="h1-0-187" class="d">-        image/*)
+</a><a href="#h1-0-188" id="h1-0-188" class="d">-            # Preview as text conversion
+</a><a href="#h1-0-189" id="h1-0-189" class="d">-            # img2txt --gamma=0.6 --width=&quot;${PV_WIDTH}&quot; -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 4
+</a><a href="#h1-0-190" id="h1-0-190" class="d">-            exiftool &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-191" id="h1-0-191" class="d">-            exit 1;;
+</a><a href="#h1-0-192" id="h1-0-192" class="d">-
+</a><a href="#h1-0-193" id="h1-0-193" class="d">-        # Video and audio
+</a><a href="#h1-0-194" id="h1-0-194" class="d">-        video/* | audio/*)
+</a><a href="#h1-0-195" id="h1-0-195" class="d">-            mediainfo &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-196" id="h1-0-196" class="d">-            exiftool &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-197" id="h1-0-197" class="d">-            exit 1;;
+</a><a href="#h1-0-198" id="h1-0-198" class="d">-    esac
+</a><a href="#h1-0-199" id="h1-0-199" class="d">-}
+</a><a href="#h1-0-200" id="h1-0-200" class="d">-
+</a><a href="#h1-0-201" id="h1-0-201" class="d">-handle_fallback() {
+</a><a href="#h1-0-202" id="h1-0-202" class="d">-    echo &#39;----- File Type Classification -----&#39; &amp;&amp; file --dereference --brief -- &quot;${FILE_PATH}&quot; &amp;&amp; exit 5
+</a><a href="#h1-0-203" id="h1-0-203" class="d">-    exit 1
+</a><a href="#h1-0-204" id="h1-0-204" class="d">-}
+</a><a href="#h1-0-205" id="h1-0-205" class="d">-
+</a><a href="#h1-0-206" id="h1-0-206" class="d">-
+</a><a href="#h1-0-207" id="h1-0-207" class="d">-MIMETYPE=&quot;$( file --dereference --brief --mime-type -- &quot;${FILE_PATH}&quot; )&quot;
+</a><a href="#h1-0-208" id="h1-0-208" class="d">-if [[ &quot;${PV_IMAGE_ENABLED}&quot; == &#39;True&#39; ]]; then
+</a><a href="#h1-0-209" id="h1-0-209" class="d">-    handle_image &quot;${MIMETYPE}&quot;
+</a><a href="#h1-0-210" id="h1-0-210" class="d">-fi
+</a><a href="#h1-0-211" id="h1-0-211" class="d">-handle_extension
+</a><a href="#h1-0-212" id="h1-0-212" class="d">-handle_mime &quot;${MIMETYPE}&quot;
+</a><a href="#h1-0-213" id="h1-0-213" class="d">-handle_fallback
+</a><a href="#h1-0-214" id="h1-0-214" class="d">-
+</a><a href="#h1-0-215" id="h1-0-215" class="d">-exit 1
+</a><b>diff --git a/<a id="h2" href="../file/config.stow/.config/termite/config.html">config.stow/.config/termite/config</a> b/<a href="../file/config.stow/.config/termite/config.html">config.stow/.config/termite/config</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,103 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+[options]
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+#allow_bold = true
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+#audible_bell = false
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+#bold_is_bright = true
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+#clickable_url = true
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+#dynamic_title = true
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+font = Fira Mono 12
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+#fullscreen = true
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+#icon_name = terminal
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+#mouse_autohide = false
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+#scroll_on_output = false
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+#scroll_on_keystroke = true
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+# and setting it to a negative value means &quot;infinite scrollback&quot;
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+scrollback_lines = 10000
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+#search_wrap = true
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+#urgent_on_bell = true
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+#hyperlinks = false
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+# $BROWSER is used by default if set, with xdg-open as a fallback
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+#browser = xdg-open
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+# &quot;system&quot;, &quot;on&quot; or &quot;off&quot;
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+#cursor_blink = system
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+# &quot;block&quot;, &quot;underline&quot; or &quot;ibeam&quot;
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+#cursor_shape = block
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+# Hide links that are no longer valid in url select overlay mode
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+#filter_unmatched_urls = true
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+# Emit escape sequences for extra modified keys
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+#modify_other_keys = false
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+# set size hints for the window
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+#size_hints = false
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+# &quot;off&quot;, &quot;left&quot; or &quot;right&quot;
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+#scrollbar = off
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+[colors]
+</a><a href="#h2-0-41" id="h2-0-41" class="i">+# If both of these are unset, cursor falls back to the foreground color,
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+# and cursor_foreground falls back to the background color.
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+#cursor = #dcdccc
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+#cursor_foreground = #dcdccc
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+#foreground = #dcdccc
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+#foreground_bold = #ffffff
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+#background = #3f3f3f
+</a><a href="#h2-0-49" id="h2-0-49" class="i">+
+</a><a href="#h2-0-50" id="h2-0-50" class="i">+# 20% background transparency (requires a compositor)
+</a><a href="#h2-0-51" id="h2-0-51" class="i">+#background = rgba(63, 63, 63, 0.8)
+</a><a href="#h2-0-52" id="h2-0-52" class="i">+
+</a><a href="#h2-0-53" id="h2-0-53" class="i">+# special
+</a><a href="#h2-0-54" id="h2-0-54" class="i">+foreground      = #a2a2a2
+</a><a href="#h2-0-55" id="h2-0-55" class="i">+foreground_bold = #a2a2a2
+</a><a href="#h2-0-56" id="h2-0-56" class="i">+cursor          = #a2a2a2
+</a><a href="#h2-0-57" id="h2-0-57" class="i">+background      = #292929
+</a><a href="#h2-0-58" id="h2-0-58" class="i">+
+</a><a href="#h2-0-59" id="h2-0-59" class="i">+# black
+</a><a href="#h2-0-60" id="h2-0-60" class="i">+color0  = #4e4e4e
+</a><a href="#h2-0-61" id="h2-0-61" class="i">+color8  = #777777
+</a><a href="#h2-0-62" id="h2-0-62" class="i">+
+</a><a href="#h2-0-63" id="h2-0-63" class="i">+# red
+</a><a href="#h2-0-64" id="h2-0-64" class="i">+color1  = #a9635d
+</a><a href="#h2-0-65" id="h2-0-65" class="i">+color9  = #ffbbb2
+</a><a href="#h2-0-66" id="h2-0-66" class="i">+
+</a><a href="#h2-0-67" id="h2-0-67" class="i">+# green
+</a><a href="#h2-0-68" id="h2-0-68" class="i">+color2  = #468459
+</a><a href="#h2-0-69" id="h2-0-69" class="i">+color10 = #9ddeaf
+</a><a href="#h2-0-70" id="h2-0-70" class="i">+
+</a><a href="#h2-0-71" id="h2-0-71" class="i">+# yellow
+</a><a href="#h2-0-72" id="h2-0-72" class="i">+color3  = #84763d
+</a><a href="#h2-0-73" id="h2-0-73" class="i">+color11 = #e0ce91
+</a><a href="#h2-0-74" id="h2-0-74" class="i">+
+</a><a href="#h2-0-75" id="h2-0-75" class="i">+# blue
+</a><a href="#h2-0-76" id="h2-0-76" class="i">+color4  = #5879af
+</a><a href="#h2-0-77" id="h2-0-77" class="i">+color12 = #b3d1ff
+</a><a href="#h2-0-78" id="h2-0-78" class="i">+
+</a><a href="#h2-0-79" id="h2-0-79" class="i">+# magenta
+</a><a href="#h2-0-80" id="h2-0-80" class="i">+color5  = #9c6594
+</a><a href="#h2-0-81" id="h2-0-81" class="i">+color13 = #fabdf0
+</a><a href="#h2-0-82" id="h2-0-82" class="i">+
+</a><a href="#h2-0-83" id="h2-0-83" class="i">+# cyan
+</a><a href="#h2-0-84" id="h2-0-84" class="i">+color6  = #008592
+</a><a href="#h2-0-85" id="h2-0-85" class="i">+color14 = #79e0ed
+</a><a href="#h2-0-86" id="h2-0-86" class="i">+
+</a><a href="#h2-0-87" id="h2-0-87" class="i">+# white
+</a><a href="#h2-0-88" id="h2-0-88" class="i">+color7  = #cfcfcf
+</a><a href="#h2-0-89" id="h2-0-89" class="i">+color15 = #ffffff
+</a><a href="#h2-0-90" id="h2-0-90" class="i">+
+</a><a href="#h2-0-91" id="h2-0-91" class="i">+[hints]
+</a><a href="#h2-0-92" id="h2-0-92" class="i">+#font = Monospace 12
+</a><a href="#h2-0-93" id="h2-0-93" class="i">+#foreground = #dcdccc
+</a><a href="#h2-0-94" id="h2-0-94" class="i">+#background = #3f3f3f
+</a><a href="#h2-0-95" id="h2-0-95" class="i">+#active_foreground = #e68080
+</a><a href="#h2-0-96" id="h2-0-96" class="i">+#active_background = #3f3f3f
+</a><a href="#h2-0-97" id="h2-0-97" class="i">+#padding = 2
+</a><a href="#h2-0-98" id="h2-0-98" class="i">+#border = #3f3f3f
+</a><a href="#h2-0-99" id="h2-0-99" class="i">+#border_width = 0.5
+</a><a href="#h2-0-100" id="h2-0-100" class="i">+#roundness = 2.0
+</a><a href="#h2-0-101" id="h2-0-101" class="i">+
+</a><a href="#h2-0-102" id="h2-0-102" class="i">+# vim: ft=dosini cms=#%s
+</a><b>diff --git a/<a id="h3" href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a> b/<a href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -5,7 +5,7 @@ mkdir -p $HOME/.config/mpd
+</a> mkdir -p $HOME/.config/mpd/playlists
+ mkdir -p $HOME/.config/gtk-3.0
+ mkdir -p $HOME/.config/ncmpcpp
+<a href="#h3-0-3" id="h3-0-3" class="d">-mkdir -p $HOME/.config/ranger
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+mkdir -p $HOME/.config/termite
+</a> mkdir -p $HOME/.config/nvim
+ mkdir -p $HOME/.themes
+ mkdir -p $HOME/.icons
+</pre>
+</div>
+</body>
+</html>

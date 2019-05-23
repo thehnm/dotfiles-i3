@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Change calcurse config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/665336b5d0ddb4a68cc1afa805fd466875aa0160.html">665336b5d0ddb4a68cc1afa805fd466875aa0160</a>
+<b>parent</b> <a href="../commit/fdb5a3826cecdee5d9769f1062975b781b87f747.html">fdb5a3826cecdee5d9769f1062975b781b87f747</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Tue, 21 May 2019 14:54:28 +0200
+
+Change calcurse config
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">config.stow/.config/calcurse/conf</a></td><td> | </td><td class="num">25</td><td><span class="i">+++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h1">config.stow/.config/calcurse/todo</a></td><td> | </td><td class="num">0</td><td><span class="i"></span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">install_dotfiles.sh</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+</table></pre><pre>3 files changed, 26 insertions(+), 0 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/calcurse/conf.html">config.stow/.config/calcurse/conf</a> b/<a href="../file/config.stow/.config/calcurse/conf.html">config.stow/.config/calcurse/conf</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,25 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+appearance.calendarview=monthly
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+appearance.compactpanels=no
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+appearance.defaultpanel=calendar
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+appearance.layout=1
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+appearance.notifybar=yes
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+appearance.sidebarwidth=1
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+appearance.theme=red on default
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+appearance.todoview=show-completed
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+daemon.enable=no
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+daemon.log=no
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+format.inputdate=1
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+format.notifydate=%a %F
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+format.notifytime=%T
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+format.outputdate=%D
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+general.autogc=no
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+general.autosave=yes
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+general.confirmdelete=yes
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+general.confirmquit=no
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+general.firstdayofweek=sunday
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+general.periodicsave=0
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+general.progressbar=yes
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+general.systemdialogs=no
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+notification.command=printf &#39;\a&#39;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+notification.notifyall=flagged-only
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+notification.warning=300
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/calcurse/todo.html">config.stow/.config/calcurse/todo</a> b/<a href="../file/config.stow/.config/calcurse/todo.html">config.stow/.config/calcurse/todo</a></b>
+<b>diff --git a/<a id="h2" href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a> b/<a href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -7,6 +7,7 @@ mkdir -p $HOME/.config/nvim
+</a> mkdir -p $HOME/.config/newsboat
+ mkdir -p $HOME/.config/termite
+ mkdir -p $HOME/.config/gtk-3.0
+<a href="#h2-0-3" id="h2-0-3" class="i">+mkdir -p $HOME/.config/calcurse
+</a> mkdir -p $HOME/.themes
+ mkdir -p $HOME/.icons
+ mkdir -p $HOME/.local/share/fonts
+</pre>
+</div>
+</body>
+</html>

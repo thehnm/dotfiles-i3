@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Change rm alias - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/0a8701f136181a3ca2ab309e2020776e6f8e324f.html">0a8701f136181a3ca2ab309e2020776e6f8e324f</a>
+<b>parent</b> <a href="../commit/5f0e465d0253d3c9c2c812983455d22c869e3e46.html">5f0e465d0253d3c9c2c812983455d22c869e3e46</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Wed,  3 Oct 2018 02:02:21 +0200
+
+Change rm alias
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.zshrc</a></td><td> | </td><td class="num">18</td><td><span class="i">+++++++++</span><span class="d">---------</span></td></tr>
+</table></pre><pre>1 file changed, 9 insertions(+), 9 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a> b/<a href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -12,7 +12,7 @@ setopt autocd                                                   # if only direct
+</a> 
+ zstyle &#39;:completion:*&#39; matcher-list &#39;m:{a-zA-Z}={A-Za-z}&#39;       # Case insensitive tab completion
+ zstyle &#39;:completion:*&#39; list-colors &quot;${(s.:.)LS_COLORS}&quot;         # Colored completion (different colors for dirs/files/etc)
+<a href="#h0-0-3" id="h0-0-3" class="d">-zstyle &#39;:completion:*&#39; rehash true                              # automatically find new executables in path 
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+zstyle &#39;:completion:*&#39; rehash true                              # automatically find new executables in path
+</a> # Speed up completions
+ zstyle &#39;:completion:*&#39; accept-exact &#39;*(N)&#39;
+ zstyle &#39;:completion:*&#39; use-cache on
+<a href="#h0-1" id="h0-1" class="h">@@ -52,7 +52,7 @@ bindkey &#39;^[[1;5C&#39; forward-word                                  #
+</a> bindkey &#39;^H&#39; backward-kill-word                                 # delete previous word with ctrl+backspace
+ bindkey &#39;^[[Z&#39; undo                                             # Shift+tab undo last action
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-## Alias section 
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+## Alias section
+</a> alias cp=&quot;cp -iv&quot;                                                # Confirm before overwriting something
+ alias df=&#39;df -h&#39;                                                # Human-readable sizes
+ alias free=&#39;free -m&#39;                                            # Show sizes in MB
+<a href="#h0-2" id="h0-2" class="h">@@ -67,10 +67,10 @@ alias chmod=&#39;chmod -c&#39;
+</a> alias chown=&#39;chown -c&#39;
+ alias mkdir=&#39;mkdir -v&#39;
+ alias mv=&#39;mv -iv&#39;
+<a href="#h0-2-3" id="h0-2-3" class="d">-alias rm=&#39;rm -iv&#39;
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+alias rm=&#39;rm -v&#39;
+</a> alias cp=&#39;cp -iv&#39;
+ 
+<a href="#h0-2-7" id="h0-2-7" class="d">-# Theming section  
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+# Theming section
+</a> autoload -U compinit colors zcalc
+ compinit -d
+ colors
+<a href="#h0-3" id="h0-3" class="h">@@ -137,16 +137,16 @@ parse_git_state() {
+</a> 
+ git_prompt_string() {
+   local git_where=&quot;$(parse_git_branch)&quot;
+<a href="#h0-3-3" id="h0-3-3" class="d">-  
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+
+</a>   # If inside a Git repository, print its branch and state
+   [ -n &quot;$git_where&quot; ] &amp;&amp; echo &quot;$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX&quot;
+<a href="#h0-3-7" id="h0-3-7" class="d">-  
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+
+</a>   # If not inside the Git repo, print exit codes of last command (only if it failed)
+   [ ! -n &quot;$git_where&quot; ] &amp;&amp; echo &quot;%{$fg[red]%} %(?..[%?])&quot;
+ }
+ 
+ # Right prompt with exit status of previous command if not successful
+<a href="#h0-3-14" id="h0-3-14" class="d">- #RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot; 
+</a><a href="#h0-3-15" id="h0-3-15" class="i">+ #RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot;
+</a> # Right prompt with exit status of previous command marked with ✓ or ✗
+  #RPROMPT=&quot;%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})&quot;
+ 
+<a href="#h0-4" id="h0-4" class="h">@@ -171,13 +171,13 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
+</a> zmodload zsh/terminfo
+ bindkey &quot;$terminfo[kcuu1]&quot; history-substring-search-up
+ bindkey &quot;$terminfo[kcud1]&quot; history-substring-search-down
+<a href="#h0-4-3" id="h0-4-3" class="d">-bindkey &#39;^[[A&#39; history-substring-search-up			
+</a><a href="#h0-4-4" id="h0-4-4" class="i">+bindkey &#39;^[[A&#39; history-substring-search-up
+</a> bindkey &#39;^[[B&#39; history-substring-search-down
+ 
+ # Apply different settigns for different terminals
+ case $(basename &quot;$(cat &quot;/proc/$PPID/comm&quot;)&quot;) in
+   login)
+<a href="#h0-4-10" id="h0-4-10" class="d">-    	RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot; 
+</a><a href="#h0-4-11" id="h0-4-11" class="i">+    	RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot;
+</a>     	alias x=&#39;startx ~/.xinitrc&#39;      # Type name of desired desktop after x, xinitrc is configured for it
+     ;;
+ #  &#39;tmux: server&#39;)
+</pre>
+</div>
+</body>
+</html>

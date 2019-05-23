@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add neovim config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/907ec76b3455a8262fa8d61986539b0a1044a18b.html">907ec76b3455a8262fa8d61986539b0a1044a18b</a>
+<b>parent</b> <a href="../commit/740a66a9f49059193658ecc9e38c1be003073311.html">740a66a9f49059193658ecc9e38c1be003073311</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Mon, 21 Jan 2019 18:00:14 +0100
+
+Add neovim config
+
+<b>Diffstat:</b>
+<table><tr><td class="A">A</td><td><a href="#h0">config.stow/.config/nvim/init.vim</a></td><td> | </td><td class="num">74</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre><pre>1 file changed, 74 insertions(+), 0 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a> b/<a href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -0,0 +1,74 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="i">+set nocompatible            &quot; Disable compatibility to old-time vi
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+set showmatch               &quot; Show matching brackets.
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+set ignorecase              &quot; Do case insensitive matching
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+set mouse=v                 &quot; middle-click paste with mouse
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+set hlsearch                &quot; highlight search results
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+set tabstop=4               &quot; number of columns occupied by a tab character
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+set softtabstop=4           &quot; see multiple spaces as tabstops so &lt;BS&gt; does the right thing
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+set expandtab               &quot; converts tabs to white space
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+set shiftwidth=4            &quot; width for autoindents
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+set autoindent              &quot; indent a new line the same amount as the line just typed
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+set number                  &quot; add line numbers
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+set wildmode=longest,list   &quot; get bash-like tab completions
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+filetype off
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+&quot; ---------- Vundle ----------
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+set rtp+=~/.config/nvim/bundle/Vundle.vim
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+call vundle#begin(&#39;~/.config/nvim/bundle&#39;)
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+Plugin &#39;VundleVim/Vundle.vim&#39;
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+Plugin &#39;vim-latex/vim-latex&#39;
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+Plugin &#39;w0rp/ale&#39;
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+Plugin &#39;jlanzarotta/bufexplorer&#39;
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+Plugin &#39;ntpeters/vim-better-whitespace&#39;
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+call vundle#end()
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+&quot; --------- Plugin Configuration ----------
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+&quot; ----- vim-latex/vim-latex -----
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+let g:Tex_CompileRule_dvi = &#39;latex -interaction=nonstopmode $*&#39;
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+let g:Tex_ViewRule_pdf = &#39;zathura&#39;
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+let g:Tex_MultipleCompileFormats=&#39;pdf,bib,pdf&#39;
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+let g:tex_no_error=1
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+&quot; ----- w0rp/ale -----
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+let g:ale_sign_error = &#39;&#39;
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+let g:ale_sign_warning = &#39;&#39;
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;]}
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+&quot; ----- ntpeters/vim-better-whitespace -----
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+let g:better_whitespace_enabled=1
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+&quot; ---------- Mappings ----------
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+&quot; Set map leader key
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+let mapleader=&#39;,&#39;
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+&quot; Toggle highlight search
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+nnoremap &lt;F3&gt; :set hlsearch!&lt;CR&gt;
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+&quot; Switch buffers quickly
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+map &lt;leader&gt;q : bp&lt;CR&gt;
+</a><a href="#h0-0-58" id="h0-0-58" class="i">+map &lt;leader&gt;w : bn&lt;CR&gt;
+</a><a href="#h0-0-59" id="h0-0-59" class="i">+
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+&quot; ---------- Settings ----------
+</a><a href="#h0-0-61" id="h0-0-61" class="i">+
+</a><a href="#h0-0-62" id="h0-0-62" class="i">+set fillchars=stl:-,stlnc:-,vert:│ &quot; Set vertical split bar to continous line
+</a><a href="#h0-0-63" id="h0-0-63" class="i">+
+</a><a href="#h0-0-64" id="h0-0-64" class="i">+set showmatch &quot; Show matching braces
+</a><a href="#h0-0-65" id="h0-0-65" class="i">+
+</a><a href="#h0-0-66" id="h0-0-66" class="i">+filetype plugin indent on &quot; Allows auto-indenting depending on file type
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+
+</a><a href="#h0-0-68" id="h0-0-68" class="i">+set showcmd
+</a><a href="#h0-0-69" id="h0-0-69" class="i">+
+</a><a href="#h0-0-70" id="h0-0-70" class="i">+&quot; Disable vertical split border background
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+hi VertSplit cterm=None
+</a><a href="#h0-0-72" id="h0-0-72" class="i">+
+</a><a href="#h0-0-73" id="h0-0-73" class="i">+hi clear SignColumn
+</a></pre>
+</div>
+</body>
+</html>

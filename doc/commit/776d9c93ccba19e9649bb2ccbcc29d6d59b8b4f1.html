@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new keybindings for controlling spotify - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/776d9c93ccba19e9649bb2ccbcc29d6d59b8b4f1.html">776d9c93ccba19e9649bb2ccbcc29d6d59b8b4f1</a>
+<b>parent</b> <a href="../commit/2bb1f50959a1769eb17684e4a70595be3b731990.html">2bb1f50959a1769eb17684e4a70595be3b731990</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sun, 30 Sep 2018 15:06:02 +0200
+
+Add new keybindings for controlling spotify
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/i3/config</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 6 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,7 +2,7 @@ My personal installation instructions for my i3 setup.
+</a> 
+ ### Install needed packages
+ ```
+<a href="#h0-0-3" id="h0-0-3" class="d">-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight playerctl
+</a> ```
+ 
+ ### Download repo
+<b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -219,6 +219,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+</a> bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # exec pkill -RTMIN+10 i3blocks
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+# ----- Audio player control -----
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+bindsym $mod+Shift+n exec playerctl next
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+bindsym $mod+Shift+m exec playerctl previous
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+bindsym $mod+Shift+p exec playerctl play-pause
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+
+</a> # ----- Screen brightness -----
+ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+</pre>
+</div>
+</body>
+</html>

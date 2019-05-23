@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new autostart for ssh-agent in zshrc - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/4a9c6fca49e19c344a51c8253180cf4545f7cbdf.html">4a9c6fca49e19c344a51c8253180cf4545f7cbdf</a>
+<b>parent</b> <a href="../commit/4b38bbd02500fed688884879144e19d7b2c454b2.html">4b38bbd02500fed688884879144e19d7b2c454b2</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat, 29 Sep 2018 14:45:42 +0200
+
+Add new autostart for ssh-agent in zshrc
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.zshrc</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 6 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -203,7 +203,7 @@ smart_borders on
+</a> # ----- Start on login -----
+ exec --no-startup-id nm-applet
+ exec --no-startup-id nitrogen --restore &amp;
+<a href="#h0-0-3" id="h0-0-3" class="d">-exec --no-startup-id eval `ssh-agent -s`
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+exec_always --no-startup-id eval `ssh-agent`
+</a> exec --no-startup-id compton
+ exec --no-startup-id dunst
+ 
+<b>diff --git a/<a id="h1" href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a> b/<a href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -195,3 +195,8 @@ case $(basename &quot;$(cat &quot;/proc/$PPID/comm&quot;)&quot;) in
+</a>   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=8&#39;
+     ;;
+ esac
+<a href="#h1-0-3" id="h1-0-3" class="i">+
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+# Start ssh-agent automatically
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+if [[ &quot;$SSH_AGENT_PID&quot; == &quot;&quot; ]]; then
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+    eval &quot;$(ssh-agent)&quot; &gt; /dev/null
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+fi
+</a></pre>
+</div>
+</body>
+</html>

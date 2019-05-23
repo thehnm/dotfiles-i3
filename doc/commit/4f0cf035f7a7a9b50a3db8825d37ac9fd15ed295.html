@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Initial commit - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/4f0cf035f7a7a9b50a3db8825d37ac9fd15ed295.html">4f0cf035f7a7a9b50a3db8825d37ac9fd15ed295</a>
+<b>parent</b> <a href="../commit/acc5191c262ae1dea7c38c014804fd1f6c5e7d3f.html">acc5191c262ae1dea7c38c014804fd1f6c5e7d3f</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat, 29 Sep 2018 14:35:45 +0200
+
+Initial commit
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">19</td><td><span class="i">+++++++++++++++++</span><span class="d">--</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">config.stow/.Xresources</a></td><td> | </td><td class="num">19</td><td><span class="i">+++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h2">config.stow/.config/dunst/dunstrc</a></td><td> | </td><td class="num">326</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h3">config.stow/.config/i3/config</a></td><td> | </td><td class="num">215</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h4">config.stow/.xrdb/rofi/dark</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h5">config.stow/.xrdb/rofi/light</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h6">config.stow/.xrdb/rofi/maia</a></td><td> | </td><td class="num">5</td><td><span class="i">+++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h7">config.stow/.xrdb/urxvt/dark</a></td><td> | </td><td class="num">29</td><td><span class="i">+++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h8">config.stow/.xrdb/urxvt/hybrid</a></td><td> | </td><td class="num">36</td><td><span class="i">++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h9">config.stow/.xrdb/urxvt/light</a></td><td> | </td><td class="num">30</td><td><span class="i">++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h10">config.stow/.zshrc</a></td><td> | </td><td class="num">197</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre><pre>11 files changed, 884 insertions(+), 2 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1 +1,17 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-# dotfiles-i3</a><a href="#h0-0-1" id="h0-0-1" class="d">-
+\ No newline at end of file
+</a><a href="#h0-0-2" id="h0-0-2" class="i">+My personal installation instructions for my i3 setup
+</a><a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+### Install needed packages
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+```
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+```
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+### Download repo
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+```
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+git clone git@github.com:TheHNM/dotfiles-i3.git
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+```
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+### Stow
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+```
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+cd dotfiles-i3
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+stow config.stow
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+```
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a> b/<a href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,19 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+#include &quot;.xrdb/urxvt/hybrid&quot;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+#include &quot;.xrdb/rofi/maia&quot;
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+! ===== URxvt settings =====
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+URxvt.scrollBar: false
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+URxvt.font: xft:Monospace:size=14
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+URxvt.fading: 0
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+URxvt.tintColor: #ffffff
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+URxvt.shading: 0
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+URxvt.inheritPixmap: False
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+URxvt.internalBorder: 50
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+! ===== Rofi settings =====
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+rofi.sidebar-mode: true
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+rofi.modi: run,drun,window
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+rofi.fullscreen: true
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+rofi.padding: 300
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+rofi.fake-transparency: true
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+rofi.font: &quot;Monospace&quot; 20
+</a><b>diff --git a/<a id="h2" href="../file/config.stow/.config/dunst/dunstrc.html">config.stow/.config/dunst/dunstrc</a> b/<a href="../file/config.stow/.config/dunst/dunstrc.html">config.stow/.config/dunst/dunstrc</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -0,0 +1,326 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="i">+[global]
+</a><a href="#h2-0-1" id="h2-0-1" class="i">+    ### Display ###
+</a><a href="#h2-0-2" id="h2-0-2" class="i">+
+</a><a href="#h2-0-3" id="h2-0-3" class="i">+    # Which monitor should the notifications be displayed on.
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+    monitor = 0
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+
+</a><a href="#h2-0-6" id="h2-0-6" class="i">+    # Display notification on focused monitor.  Possible modes are:
+</a><a href="#h2-0-7" id="h2-0-7" class="i">+    #   mouse: follow mouse pointer
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+    #   keyboard: follow window with keyboard focus
+</a><a href="#h2-0-9" id="h2-0-9" class="i">+    #   none: don&#39;t follow anything
+</a><a href="#h2-0-10" id="h2-0-10" class="i">+    #
+</a><a href="#h2-0-11" id="h2-0-11" class="i">+    # &quot;keyboard&quot; needs a window manager that exports the
+</a><a href="#h2-0-12" id="h2-0-12" class="i">+    # _NET_ACTIVE_WINDOW property.
+</a><a href="#h2-0-13" id="h2-0-13" class="i">+    # This should be the case for almost all modern window managers.
+</a><a href="#h2-0-14" id="h2-0-14" class="i">+    #
+</a><a href="#h2-0-15" id="h2-0-15" class="i">+    # If this option is set to mouse or keyboard, the monitor option
+</a><a href="#h2-0-16" id="h2-0-16" class="i">+    # will be ignored.
+</a><a href="#h2-0-17" id="h2-0-17" class="i">+    follow = mouse
+</a><a href="#h2-0-18" id="h2-0-18" class="i">+
+</a><a href="#h2-0-19" id="h2-0-19" class="i">+    # The geometry of the window:
+</a><a href="#h2-0-20" id="h2-0-20" class="i">+    #   [{width}]x{height}[+/-{x}+/-{y}]
+</a><a href="#h2-0-21" id="h2-0-21" class="i">+    # The geometry of the message window.
+</a><a href="#h2-0-22" id="h2-0-22" class="i">+    # The height is measured in number of notifications everything else
+</a><a href="#h2-0-23" id="h2-0-23" class="i">+    # in pixels.  If the width is omitted but the height is given
+</a><a href="#h2-0-24" id="h2-0-24" class="i">+    # (&quot;-geometry x2&quot;), the message window expands over the whole screen
+</a><a href="#h2-0-25" id="h2-0-25" class="i">+    # (dmenu-like).  If width is 0, the window expands to the longest
+</a><a href="#h2-0-26" id="h2-0-26" class="i">+    # message displayed.  A positive x is measured from the left, a
+</a><a href="#h2-0-27" id="h2-0-27" class="i">+    # negative from the right side of the screen.  Y is measured from
+</a><a href="#h2-0-28" id="h2-0-28" class="i">+    # the top and down respectively.
+</a><a href="#h2-0-29" id="h2-0-29" class="i">+    # The width can be negative.  In this case the actual width is the
+</a><a href="#h2-0-30" id="h2-0-30" class="i">+    # screen width minus the width defined in within the geometry option.
+</a><a href="#h2-0-31" id="h2-0-31" class="i">+    geometry = &quot;400x10-30+20&quot;
+</a><a href="#h2-0-32" id="h2-0-32" class="i">+
+</a><a href="#h2-0-33" id="h2-0-33" class="i">+    # Show how many messages are currently hidden (because of geometry).
+</a><a href="#h2-0-34" id="h2-0-34" class="i">+    indicate_hidden = yes
+</a><a href="#h2-0-35" id="h2-0-35" class="i">+
+</a><a href="#h2-0-36" id="h2-0-36" class="i">+    # Shrink window if it&#39;s smaller than the width.  Will be ignored if
+</a><a href="#h2-0-37" id="h2-0-37" class="i">+    # width is 0.
+</a><a href="#h2-0-38" id="h2-0-38" class="i">+    shrink = no
+</a><a href="#h2-0-39" id="h2-0-39" class="i">+
+</a><a href="#h2-0-40" id="h2-0-40" class="i">+    # The transparency of the window.  Range: [0; 100].
+</a><a href="#h2-0-41" id="h2-0-41" class="i">+    # This option will only work if a compositing window manager is
+</a><a href="#h2-0-42" id="h2-0-42" class="i">+    # present (e.g. xcompmgr, compiz, etc.).
+</a><a href="#h2-0-43" id="h2-0-43" class="i">+    transparency = 0
+</a><a href="#h2-0-44" id="h2-0-44" class="i">+
+</a><a href="#h2-0-45" id="h2-0-45" class="i">+    # The height of the entire notification.  If the height is smaller
+</a><a href="#h2-0-46" id="h2-0-46" class="i">+    # than the font height and padding combined, it will be raised
+</a><a href="#h2-0-47" id="h2-0-47" class="i">+    # to the font height and padding.
+</a><a href="#h2-0-48" id="h2-0-48" class="i">+    notification_height = 0
+</a><a href="#h2-0-49" id="h2-0-49" class="i">+
+</a><a href="#h2-0-50" id="h2-0-50" class="i">+    # Draw a line of &quot;separator_height&quot; pixel height between two
+</a><a href="#h2-0-51" id="h2-0-51" class="i">+    # notifications.
+</a><a href="#h2-0-52" id="h2-0-52" class="i">+    # Set to 0 to disable.
+</a><a href="#h2-0-53" id="h2-0-53" class="i">+    separator_height = 2
+</a><a href="#h2-0-54" id="h2-0-54" class="i">+
+</a><a href="#h2-0-55" id="h2-0-55" class="i">+    # Padding between text and separator.
+</a><a href="#h2-0-56" id="h2-0-56" class="i">+    padding = 8
+</a><a href="#h2-0-57" id="h2-0-57" class="i">+
+</a><a href="#h2-0-58" id="h2-0-58" class="i">+    # Horizontal padding.
+</a><a href="#h2-0-59" id="h2-0-59" class="i">+    horizontal_padding = 8
+</a><a href="#h2-0-60" id="h2-0-60" class="i">+
+</a><a href="#h2-0-61" id="h2-0-61" class="i">+    # Defines width in pixels of frame around the notification window.
+</a><a href="#h2-0-62" id="h2-0-62" class="i">+    # Set to 0 to disable.
+</a><a href="#h2-0-63" id="h2-0-63" class="i">+    frame_width = 0
+</a><a href="#h2-0-64" id="h2-0-64" class="i">+
+</a><a href="#h2-0-65" id="h2-0-65" class="i">+    # Defines color of the frame around the notification window.
+</a><a href="#h2-0-66" id="h2-0-66" class="i">+    frame_color = &quot;#aaaaaa&quot;
+</a><a href="#h2-0-67" id="h2-0-67" class="i">+
+</a><a href="#h2-0-68" id="h2-0-68" class="i">+    # Define a color for the separator.
+</a><a href="#h2-0-69" id="h2-0-69" class="i">+    # possible values are:
+</a><a href="#h2-0-70" id="h2-0-70" class="i">+    #  * auto: dunst tries to find a color fitting to the background;
+</a><a href="#h2-0-71" id="h2-0-71" class="i">+    #  * foreground: use the same color as the foreground;
+</a><a href="#h2-0-72" id="h2-0-72" class="i">+    #  * frame: use the same color as the frame;
+</a><a href="#h2-0-73" id="h2-0-73" class="i">+    #  * anything else will be interpreted as a X color.
+</a><a href="#h2-0-74" id="h2-0-74" class="i">+    separator_color = frame
+</a><a href="#h2-0-75" id="h2-0-75" class="i">+
+</a><a href="#h2-0-76" id="h2-0-76" class="i">+    # Sort messages by urgency.
+</a><a href="#h2-0-77" id="h2-0-77" class="i">+    sort = yes
+</a><a href="#h2-0-78" id="h2-0-78" class="i">+
+</a><a href="#h2-0-79" id="h2-0-79" class="i">+    # Don&#39;t remove messages, if the user is idle (no mouse or keyboard input)
+</a><a href="#h2-0-80" id="h2-0-80" class="i">+    # for longer than idle_threshold seconds.
+</a><a href="#h2-0-81" id="h2-0-81" class="i">+    # Set to 0 to disable.
+</a><a href="#h2-0-82" id="h2-0-82" class="i">+    # Transient notifications ignore this setting.
+</a><a href="#h2-0-83" id="h2-0-83" class="i">+    idle_threshold = 120
+</a><a href="#h2-0-84" id="h2-0-84" class="i">+
+</a><a href="#h2-0-85" id="h2-0-85" class="i">+    ### Text ###
+</a><a href="#h2-0-86" id="h2-0-86" class="i">+
+</a><a href="#h2-0-87" id="h2-0-87" class="i">+    font = Monospace 10
+</a><a href="#h2-0-88" id="h2-0-88" class="i">+
+</a><a href="#h2-0-89" id="h2-0-89" class="i">+    # The spacing between lines.  If the height is smaller than the
+</a><a href="#h2-0-90" id="h2-0-90" class="i">+    # font height, it will get raised to the font height.
+</a><a href="#h2-0-91" id="h2-0-91" class="i">+    line_height = 0
+</a><a href="#h2-0-92" id="h2-0-92" class="i">+
+</a><a href="#h2-0-93" id="h2-0-93" class="i">+    # Possible values are:
+</a><a href="#h2-0-94" id="h2-0-94" class="i">+    # full: Allow a small subset of html markup in notifications:
+</a><a href="#h2-0-95" id="h2-0-95" class="i">+    #        &lt;b&gt;bold&lt;/b&gt;
+</a><a href="#h2-0-96" id="h2-0-96" class="i">+    #        &lt;i&gt;italic&lt;/i&gt;
+</a><a href="#h2-0-97" id="h2-0-97" class="i">+    #        &lt;s&gt;strikethrough&lt;/s&gt;
+</a><a href="#h2-0-98" id="h2-0-98" class="i">+    #        &lt;u&gt;underline&lt;/u&gt;
+</a><a href="#h2-0-99" id="h2-0-99" class="i">+    #
+</a><a href="#h2-0-100" id="h2-0-100" class="i">+    #        For a complete reference see
+</a><a href="#h2-0-101" id="h2-0-101" class="i">+    #        &lt;http://developer.gnome.org/pango/stable/PangoMarkupFormat.html&gt;.
+</a><a href="#h2-0-102" id="h2-0-102" class="i">+    #
+</a><a href="#h2-0-103" id="h2-0-103" class="i">+    # strip: This setting is provided for compatibility with some broken
+</a><a href="#h2-0-104" id="h2-0-104" class="i">+    #        clients that send markup even though it&#39;s not enabled on the
+</a><a href="#h2-0-105" id="h2-0-105" class="i">+    #        server. Dunst will try to strip the markup but the parsing is
+</a><a href="#h2-0-106" id="h2-0-106" class="i">+    #        simplistic so using this option outside of matching rules for
+</a><a href="#h2-0-107" id="h2-0-107" class="i">+    #        specific applications *IS GREATLY DISCOURAGED*.
+</a><a href="#h2-0-108" id="h2-0-108" class="i">+    #
+</a><a href="#h2-0-109" id="h2-0-109" class="i">+    # no:    Disable markup parsing, incoming notifications will be treated as
+</a><a href="#h2-0-110" id="h2-0-110" class="i">+    #        plain text. Dunst will not advertise that it has the body-markup
+</a><a href="#h2-0-111" id="h2-0-111" class="i">+    #        capability if this is set as a global setting.
+</a><a href="#h2-0-112" id="h2-0-112" class="i">+    #
+</a><a href="#h2-0-113" id="h2-0-113" class="i">+    # It&#39;s important to note that markup inside the format option will be parsed
+</a><a href="#h2-0-114" id="h2-0-114" class="i">+    # regardless of what this is set to.
+</a><a href="#h2-0-115" id="h2-0-115" class="i">+    markup = full
+</a><a href="#h2-0-116" id="h2-0-116" class="i">+
+</a><a href="#h2-0-117" id="h2-0-117" class="i">+    # The format of the message.  Possible variables are:
+</a><a href="#h2-0-118" id="h2-0-118" class="i">+    #   %a  appname
+</a><a href="#h2-0-119" id="h2-0-119" class="i">+    #   %s  summary
+</a><a href="#h2-0-120" id="h2-0-120" class="i">+    #   %b  body
+</a><a href="#h2-0-121" id="h2-0-121" class="i">+    #   %i  iconname (including its path)
+</a><a href="#h2-0-122" id="h2-0-122" class="i">+    #   %I  iconname (without its path)
+</a><a href="#h2-0-123" id="h2-0-123" class="i">+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+</a><a href="#h2-0-124" id="h2-0-124" class="i">+    #   %n  progress value if set without any extra characters
+</a><a href="#h2-0-125" id="h2-0-125" class="i">+    #   %%  Literal %
+</a><a href="#h2-0-126" id="h2-0-126" class="i">+    # Markup is allowed
+</a><a href="#h2-0-127" id="h2-0-127" class="i">+    format = &quot;%a\n\n&lt;b&gt;%s&lt;/b&gt;\n%b&quot;
+</a><a href="#h2-0-128" id="h2-0-128" class="i">+
+</a><a href="#h2-0-129" id="h2-0-129" class="i">+    # Alignment of message text.
+</a><a href="#h2-0-130" id="h2-0-130" class="i">+    # Possible values are &quot;left&quot;, &quot;center&quot; and &quot;right&quot;.
+</a><a href="#h2-0-131" id="h2-0-131" class="i">+    alignment = left
+</a><a href="#h2-0-132" id="h2-0-132" class="i">+
+</a><a href="#h2-0-133" id="h2-0-133" class="i">+    # Show age of message if message is older than show_age_threshold
+</a><a href="#h2-0-134" id="h2-0-134" class="i">+    # seconds.
+</a><a href="#h2-0-135" id="h2-0-135" class="i">+    # Set to -1 to disable.
+</a><a href="#h2-0-136" id="h2-0-136" class="i">+    show_age_threshold = 60
+</a><a href="#h2-0-137" id="h2-0-137" class="i">+
+</a><a href="#h2-0-138" id="h2-0-138" class="i">+    # Split notifications into multiple lines if they don&#39;t fit into
+</a><a href="#h2-0-139" id="h2-0-139" class="i">+    # geometry.
+</a><a href="#h2-0-140" id="h2-0-140" class="i">+    word_wrap = yes
+</a><a href="#h2-0-141" id="h2-0-141" class="i">+
+</a><a href="#h2-0-142" id="h2-0-142" class="i">+    # When word_wrap is set to no, specify where to ellipsize long lines.
+</a><a href="#h2-0-143" id="h2-0-143" class="i">+    # Possible values are &quot;start&quot;, &quot;middle&quot; and &quot;end&quot;.
+</a><a href="#h2-0-144" id="h2-0-144" class="i">+    ellipsize = middle
+</a><a href="#h2-0-145" id="h2-0-145" class="i">+
+</a><a href="#h2-0-146" id="h2-0-146" class="i">+    # Ignore newlines &#39;\n&#39; in notifications.
+</a><a href="#h2-0-147" id="h2-0-147" class="i">+    ignore_newline = no
+</a><a href="#h2-0-148" id="h2-0-148" class="i">+
+</a><a href="#h2-0-149" id="h2-0-149" class="i">+    # Merge multiple notifications with the same content
+</a><a href="#h2-0-150" id="h2-0-150" class="i">+    stack_duplicates = true
+</a><a href="#h2-0-151" id="h2-0-151" class="i">+
+</a><a href="#h2-0-152" id="h2-0-152" class="i">+    # Hide the count of merged notifications with the same content
+</a><a href="#h2-0-153" id="h2-0-153" class="i">+    hide_duplicate_count = false
+</a><a href="#h2-0-154" id="h2-0-154" class="i">+
+</a><a href="#h2-0-155" id="h2-0-155" class="i">+    # Display indicators for URLs (U) and actions (A).
+</a><a href="#h2-0-156" id="h2-0-156" class="i">+    show_indicators = yes
+</a><a href="#h2-0-157" id="h2-0-157" class="i">+
+</a><a href="#h2-0-158" id="h2-0-158" class="i">+    ### Icons ###
+</a><a href="#h2-0-159" id="h2-0-159" class="i">+
+</a><a href="#h2-0-160" id="h2-0-160" class="i">+    # Align icons left/right/off
+</a><a href="#h2-0-161" id="h2-0-161" class="i">+    icon_position = off
+</a><a href="#h2-0-162" id="h2-0-162" class="i">+
+</a><a href="#h2-0-163" id="h2-0-163" class="i">+    # Scale larger icons down to this size, set to 0 to disable
+</a><a href="#h2-0-164" id="h2-0-164" class="i">+    max_icon_size = 32
+</a><a href="#h2-0-165" id="h2-0-165" class="i">+
+</a><a href="#h2-0-166" id="h2-0-166" class="i">+    # Paths to default icons.
+</a><a href="#h2-0-167" id="h2-0-167" class="i">+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+</a><a href="#h2-0-168" id="h2-0-168" class="i">+
+</a><a href="#h2-0-169" id="h2-0-169" class="i">+    ### History ###
+</a><a href="#h2-0-170" id="h2-0-170" class="i">+
+</a><a href="#h2-0-171" id="h2-0-171" class="i">+    # Should a notification popped up from history be sticky or timeout
+</a><a href="#h2-0-172" id="h2-0-172" class="i">+    # as if it would normally do.
+</a><a href="#h2-0-173" id="h2-0-173" class="i">+    sticky_history = yes
+</a><a href="#h2-0-174" id="h2-0-174" class="i">+
+</a><a href="#h2-0-175" id="h2-0-175" class="i">+    # Maximum amount of notifications kept in history
+</a><a href="#h2-0-176" id="h2-0-176" class="i">+    history_length = 20
+</a><a href="#h2-0-177" id="h2-0-177" class="i">+
+</a><a href="#h2-0-178" id="h2-0-178" class="i">+    ### Misc/Advanced ###
+</a><a href="#h2-0-179" id="h2-0-179" class="i">+
+</a><a href="#h2-0-180" id="h2-0-180" class="i">+    # dmenu path.
+</a><a href="#h2-0-181" id="h2-0-181" class="i">+    dmenu = /usr/bin/dmenu -p dunst:
+</a><a href="#h2-0-182" id="h2-0-182" class="i">+
+</a><a href="#h2-0-183" id="h2-0-183" class="i">+    # Browser for opening urls in context menu.
+</a><a href="#h2-0-184" id="h2-0-184" class="i">+    browser = /usr/bin/firefox -new-tab
+</a><a href="#h2-0-185" id="h2-0-185" class="i">+
+</a><a href="#h2-0-186" id="h2-0-186" class="i">+    # Always run rule-defined scripts, even if the notification is suppressed
+</a><a href="#h2-0-187" id="h2-0-187" class="i">+    always_run_script = true
+</a><a href="#h2-0-188" id="h2-0-188" class="i">+
+</a><a href="#h2-0-189" id="h2-0-189" class="i">+    # Define the title of the windows spawned by dunst
+</a><a href="#h2-0-190" id="h2-0-190" class="i">+    title = Dunst
+</a><a href="#h2-0-191" id="h2-0-191" class="i">+
+</a><a href="#h2-0-192" id="h2-0-192" class="i">+    # Define the class of the windows spawned by dunst
+</a><a href="#h2-0-193" id="h2-0-193" class="i">+    class = Dunst
+</a><a href="#h2-0-194" id="h2-0-194" class="i">+
+</a><a href="#h2-0-195" id="h2-0-195" class="i">+    # Print a notification on startup.
+</a><a href="#h2-0-196" id="h2-0-196" class="i">+    # This is mainly for error detection, since dbus (re-)starts dunst
+</a><a href="#h2-0-197" id="h2-0-197" class="i">+    # automatically after a crash.
+</a><a href="#h2-0-198" id="h2-0-198" class="i">+    startup_notification = false
+</a><a href="#h2-0-199" id="h2-0-199" class="i">+
+</a><a href="#h2-0-200" id="h2-0-200" class="i">+    ### Legacy
+</a><a href="#h2-0-201" id="h2-0-201" class="i">+
+</a><a href="#h2-0-202" id="h2-0-202" class="i">+    # Use the Xinerama extension instead of RandR for multi-monitor support.
+</a><a href="#h2-0-203" id="h2-0-203" class="i">+    # This setting is provided for compatibility with older nVidia drivers that
+</a><a href="#h2-0-204" id="h2-0-204" class="i">+    # do not support RandR and using it on systems that support RandR is highly
+</a><a href="#h2-0-205" id="h2-0-205" class="i">+    # discouraged.
+</a><a href="#h2-0-206" id="h2-0-206" class="i">+    #
+</a><a href="#h2-0-207" id="h2-0-207" class="i">+    # By enabling this setting dunst will not be able to detect when a monitor
+</a><a href="#h2-0-208" id="h2-0-208" class="i">+    # is connected or disconnected which might break follow mode if the screen
+</a><a href="#h2-0-209" id="h2-0-209" class="i">+    # layout changes.
+</a><a href="#h2-0-210" id="h2-0-210" class="i">+    force_xinerama = false
+</a><a href="#h2-0-211" id="h2-0-211" class="i">+
+</a><a href="#h2-0-212" id="h2-0-212" class="i">+# Experimental features that may or may not work correctly. Do not expect them
+</a><a href="#h2-0-213" id="h2-0-213" class="i">+# to have a consistent behaviour across releases.
+</a><a href="#h2-0-214" id="h2-0-214" class="i">+[experimental]
+</a><a href="#h2-0-215" id="h2-0-215" class="i">+    # Calculate the dpi to use on a per-monitor basis.
+</a><a href="#h2-0-216" id="h2-0-216" class="i">+    # If this setting is enabled the Xft.dpi value will be ignored and instead
+</a><a href="#h2-0-217" id="h2-0-217" class="i">+    # dunst will attempt to calculate an appropriate dpi value for each monitor
+</a><a href="#h2-0-218" id="h2-0-218" class="i">+    # using the resolution and physical size. This might be useful in setups
+</a><a href="#h2-0-219" id="h2-0-219" class="i">+    # where there are multiple screens with very different dpi values.
+</a><a href="#h2-0-220" id="h2-0-220" class="i">+    per_monitor_dpi = false
+</a><a href="#h2-0-221" id="h2-0-221" class="i">+
+</a><a href="#h2-0-222" id="h2-0-222" class="i">+[shortcuts]
+</a><a href="#h2-0-223" id="h2-0-223" class="i">+
+</a><a href="#h2-0-224" id="h2-0-224" class="i">+    # Shortcuts are specified as [modifier+][modifier+]...key
+</a><a href="#h2-0-225" id="h2-0-225" class="i">+    # Available modifiers are &quot;ctrl&quot;, &quot;mod1&quot; (the alt-key), &quot;mod2&quot;,
+</a><a href="#h2-0-226" id="h2-0-226" class="i">+    # &quot;mod3&quot; and &quot;mod4&quot; (windows-key).
+</a><a href="#h2-0-227" id="h2-0-227" class="i">+    # Xev might be helpful to find names for keys.
+</a><a href="#h2-0-228" id="h2-0-228" class="i">+
+</a><a href="#h2-0-229" id="h2-0-229" class="i">+    # Close notification.
+</a><a href="#h2-0-230" id="h2-0-230" class="i">+    close = ctrl+space
+</a><a href="#h2-0-231" id="h2-0-231" class="i">+
+</a><a href="#h2-0-232" id="h2-0-232" class="i">+    # Close all notifications.
+</a><a href="#h2-0-233" id="h2-0-233" class="i">+    close_all = ctrl+shift+space
+</a><a href="#h2-0-234" id="h2-0-234" class="i">+
+</a><a href="#h2-0-235" id="h2-0-235" class="i">+    # Redisplay last message(s).
+</a><a href="#h2-0-236" id="h2-0-236" class="i">+    # On the US keyboard layout &quot;grave&quot; is normally above TAB and left
+</a><a href="#h2-0-237" id="h2-0-237" class="i">+    # of &quot;1&quot;. Make sure this key actually exists on your keyboard layout,
+</a><a href="#h2-0-238" id="h2-0-238" class="i">+    # e.g. check output of &#39;xmodmap -pke&#39;
+</a><a href="#h2-0-239" id="h2-0-239" class="i">+    history = ctrl+grave
+</a><a href="#h2-0-240" id="h2-0-240" class="i">+
+</a><a href="#h2-0-241" id="h2-0-241" class="i">+    # Context menu.
+</a><a href="#h2-0-242" id="h2-0-242" class="i">+    context = ctrl+shift+period
+</a><a href="#h2-0-243" id="h2-0-243" class="i">+
+</a><a href="#h2-0-244" id="h2-0-244" class="i">+[urgency_low]
+</a><a href="#h2-0-245" id="h2-0-245" class="i">+    # IMPORTANT: colors have to be defined in quotation marks.
+</a><a href="#h2-0-246" id="h2-0-246" class="i">+    # Otherwise the &quot;#&quot; and following would be interpreted as a comment.
+</a><a href="#h2-0-247" id="h2-0-247" class="i">+    background = &quot;#2c2c2c&quot;
+</a><a href="#h2-0-248" id="h2-0-248" class="i">+    foreground = &quot;#ffffff&quot;
+</a><a href="#h2-0-249" id="h2-0-249" class="i">+    timeout = 10
+</a><a href="#h2-0-250" id="h2-0-250" class="i">+    # Icon for notifications with low urgency, uncomment to enable
+</a><a href="#h2-0-251" id="h2-0-251" class="i">+    #icon = /path/to/icon
+</a><a href="#h2-0-252" id="h2-0-252" class="i">+
+</a><a href="#h2-0-253" id="h2-0-253" class="i">+[urgency_normal]
+</a><a href="#h2-0-254" id="h2-0-254" class="i">+    background = &quot;#285577&quot;
+</a><a href="#h2-0-255" id="h2-0-255" class="i">+    foreground = &quot;#ffffff&quot;
+</a><a href="#h2-0-256" id="h2-0-256" class="i">+    timeout = 10
+</a><a href="#h2-0-257" id="h2-0-257" class="i">+    # Icon for notifications with normal urgency, uncomment to enable
+</a><a href="#h2-0-258" id="h2-0-258" class="i">+    #icon = /path/to/icon
+</a><a href="#h2-0-259" id="h2-0-259" class="i">+
+</a><a href="#h2-0-260" id="h2-0-260" class="i">+[urgency_critical]
+</a><a href="#h2-0-261" id="h2-0-261" class="i">+    background = &quot;#900000&quot;
+</a><a href="#h2-0-262" id="h2-0-262" class="i">+    foreground = &quot;#ffffff&quot;
+</a><a href="#h2-0-263" id="h2-0-263" class="i">+    frame_color = &quot;#ff0000&quot;
+</a><a href="#h2-0-264" id="h2-0-264" class="i">+    timeout = 0
+</a><a href="#h2-0-265" id="h2-0-265" class="i">+    # Icon for notifications with critical urgency, uncomment to enable
+</a><a href="#h2-0-266" id="h2-0-266" class="i">+    #icon = /path/to/icon
+</a><a href="#h2-0-267" id="h2-0-267" class="i">+
+</a><a href="#h2-0-268" id="h2-0-268" class="i">+# Every section that isn&#39;t one of the above is interpreted as a rules to
+</a><a href="#h2-0-269" id="h2-0-269" class="i">+# override settings for certain messages.
+</a><a href="#h2-0-270" id="h2-0-270" class="i">+# Messages can be matched by &quot;appname&quot;, &quot;summary&quot;, &quot;body&quot;, &quot;icon&quot;, &quot;category&quot;,
+</a><a href="#h2-0-271" id="h2-0-271" class="i">+# &quot;msg_urgency&quot; and you can override the &quot;timeout&quot;, &quot;urgency&quot;, &quot;foreground&quot;,
+</a><a href="#h2-0-272" id="h2-0-272" class="i">+# &quot;background&quot;, &quot;new_icon&quot; and &quot;format&quot;.
+</a><a href="#h2-0-273" id="h2-0-273" class="i">+# Shell-like globbing will get expanded.
+</a><a href="#h2-0-274" id="h2-0-274" class="i">+#
+</a><a href="#h2-0-275" id="h2-0-275" class="i">+# SCRIPTING
+</a><a href="#h2-0-276" id="h2-0-276" class="i">+# You can specify a script that gets run when the rule matches by
+</a><a href="#h2-0-277" id="h2-0-277" class="i">+# setting the &quot;script&quot; option.
+</a><a href="#h2-0-278" id="h2-0-278" class="i">+# The script will be called as follows:
+</a><a href="#h2-0-279" id="h2-0-279" class="i">+#   script appname summary body icon urgency
+</a><a href="#h2-0-280" id="h2-0-280" class="i">+# where urgency can be &quot;LOW&quot;, &quot;NORMAL&quot; or &quot;CRITICAL&quot;.
+</a><a href="#h2-0-281" id="h2-0-281" class="i">+#
+</a><a href="#h2-0-282" id="h2-0-282" class="i">+# NOTE: if you don&#39;t want a notification to be displayed, set the format
+</a><a href="#h2-0-283" id="h2-0-283" class="i">+# to &quot;&quot;.
+</a><a href="#h2-0-284" id="h2-0-284" class="i">+# NOTE: It might be helpful to run dunst -print in a terminal in order
+</a><a href="#h2-0-285" id="h2-0-285" class="i">+# to find fitting options for rules.
+</a><a href="#h2-0-286" id="h2-0-286" class="i">+
+</a><a href="#h2-0-287" id="h2-0-287" class="i">+#[espeak]
+</a><a href="#h2-0-288" id="h2-0-288" class="i">+#    summary = &quot;*&quot;
+</a><a href="#h2-0-289" id="h2-0-289" class="i">+#    script = dunst_espeak.sh
+</a><a href="#h2-0-290" id="h2-0-290" class="i">+
+</a><a href="#h2-0-291" id="h2-0-291" class="i">+#[script-test]
+</a><a href="#h2-0-292" id="h2-0-292" class="i">+#    summary = &quot;*script*&quot;
+</a><a href="#h2-0-293" id="h2-0-293" class="i">+#    script = dunst_test.sh
+</a><a href="#h2-0-294" id="h2-0-294" class="i">+
+</a><a href="#h2-0-295" id="h2-0-295" class="i">+#[ignore]
+</a><a href="#h2-0-296" id="h2-0-296" class="i">+#    # This notification will not be displayed
+</a><a href="#h2-0-297" id="h2-0-297" class="i">+#    summary = &quot;foobar&quot;
+</a><a href="#h2-0-298" id="h2-0-298" class="i">+#    format = &quot;&quot;
+</a><a href="#h2-0-299" id="h2-0-299" class="i">+
+</a><a href="#h2-0-300" id="h2-0-300" class="i">+#[history-ignore]
+</a><a href="#h2-0-301" id="h2-0-301" class="i">+#    # This notification will not be saved in history
+</a><a href="#h2-0-302" id="h2-0-302" class="i">+#    summary = &quot;foobar&quot;
+</a><a href="#h2-0-303" id="h2-0-303" class="i">+#    history_ignore = yes
+</a><a href="#h2-0-304" id="h2-0-304" class="i">+
+</a><a href="#h2-0-305" id="h2-0-305" class="i">+#[signed_on]
+</a><a href="#h2-0-306" id="h2-0-306" class="i">+#    appname = Pidgin
+</a><a href="#h2-0-307" id="h2-0-307" class="i">+#    summary = &quot;*signed on*&quot;
+</a><a href="#h2-0-308" id="h2-0-308" class="i">+#    urgency = low
+</a><a href="#h2-0-309" id="h2-0-309" class="i">+#
+</a><a href="#h2-0-310" id="h2-0-310" class="i">+#[signed_off]
+</a><a href="#h2-0-311" id="h2-0-311" class="i">+#    appname = Pidgin
+</a><a href="#h2-0-312" id="h2-0-312" class="i">+#    summary = *signed off*
+</a><a href="#h2-0-313" id="h2-0-313" class="i">+#    urgency = low
+</a><a href="#h2-0-314" id="h2-0-314" class="i">+#
+</a><a href="#h2-0-315" id="h2-0-315" class="i">+#[says]
+</a><a href="#h2-0-316" id="h2-0-316" class="i">+#    appname = Pidgin
+</a><a href="#h2-0-317" id="h2-0-317" class="i">+#    summary = *says*
+</a><a href="#h2-0-318" id="h2-0-318" class="i">+#    urgency = critical
+</a><a href="#h2-0-319" id="h2-0-319" class="i">+#
+</a><a href="#h2-0-320" id="h2-0-320" class="i">+#[twitter]
+</a><a href="#h2-0-321" id="h2-0-321" class="i">+#    appname = Pidgin
+</a><a href="#h2-0-322" id="h2-0-322" class="i">+#    summary = *twitter.com*
+</a><a href="#h2-0-323" id="h2-0-323" class="i">+#    urgency = normal
+</a><a href="#h2-0-324" id="h2-0-324" class="i">+#
+</a><a href="#h2-0-325" id="h2-0-325" class="i">+# vim: ft=cfg
+</a><b>diff --git a/<a id="h3" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -0,0 +1,215 @@
+</a><a href="#h3-0-0" id="h3-0-0" class="i">+# This file has been auto-generated by i3-config-wizard(1).
+</a><a href="#h3-0-1" id="h3-0-1" class="i">+# It will not be overwritten, so edit it as you like.
+</a><a href="#h3-0-2" id="h3-0-2" class="i">+#
+</a><a href="#h3-0-3" id="h3-0-3" class="i">+# Should you change your keyboard layout some time, delete
+</a><a href="#h3-0-4" id="h3-0-4" class="i">+# this file and re-run i3-config-wizard(1).
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+#
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+# i3 config file (v4)
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+#
+</a><a href="#h3-0-9" id="h3-0-9" class="i">+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+</a><a href="#h3-0-10" id="h3-0-10" class="i">+
+</a><a href="#h3-0-11" id="h3-0-11" class="i">+set $mod Mod1
+</a><a href="#h3-0-12" id="h3-0-12" class="i">+
+</a><a href="#h3-0-13" id="h3-0-13" class="i">+# Font for window titles. Will also be used by the bar unless a different font
+</a><a href="#h3-0-14" id="h3-0-14" class="i">+# is used in the bar {} block below.
+</a><a href="#h3-0-15" id="h3-0-15" class="i">+font pango:monospace 10
+</a><a href="#h3-0-16" id="h3-0-16" class="i">+
+</a><a href="#h3-0-17" id="h3-0-17" class="i">+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+</a><a href="#h3-0-18" id="h3-0-18" class="i">+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+</a><a href="#h3-0-19" id="h3-0-19" class="i">+#font pango:DejaVu Sans Mono 8
+</a><a href="#h3-0-20" id="h3-0-20" class="i">+
+</a><a href="#h3-0-21" id="h3-0-21" class="i">+# Before i3 v4.8, we used to recommend this one as the default:
+</a><a href="#h3-0-22" id="h3-0-22" class="i">+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+</a><a href="#h3-0-23" id="h3-0-23" class="i">+# The font above is very space-efficient, that is, it looks good, sharp and
+</a><a href="#h3-0-24" id="h3-0-24" class="i">+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+</a><a href="#h3-0-25" id="h3-0-25" class="i">+# X core fonts rendering does not support right-to-left and this being a bitmap
+</a><a href="#h3-0-26" id="h3-0-26" class="i">+# font, it doesn’t scale on retina/hidpi displays.
+</a><a href="#h3-0-27" id="h3-0-27" class="i">+
+</a><a href="#h3-0-28" id="h3-0-28" class="i">+# Use Mouse+$mod to drag floating windows to their wanted position
+</a><a href="#h3-0-29" id="h3-0-29" class="i">+floating_modifier $mod
+</a><a href="#h3-0-30" id="h3-0-30" class="i">+
+</a><a href="#h3-0-31" id="h3-0-31" class="i">+# start a terminal
+</a><a href="#h3-0-32" id="h3-0-32" class="i">+bindsym $mod+Return exec i3-sensible-terminal
+</a><a href="#h3-0-33" id="h3-0-33" class="i">+
+</a><a href="#h3-0-34" id="h3-0-34" class="i">+# kill focused window
+</a><a href="#h3-0-35" id="h3-0-35" class="i">+bindsym $mod+Shift+q kill
+</a><a href="#h3-0-36" id="h3-0-36" class="i">+
+</a><a href="#h3-0-37" id="h3-0-37" class="i">+# start rofi
+</a><a href="#h3-0-38" id="h3-0-38" class="i">+bindsym $mod+d exec rofi -show drun
+</a><a href="#h3-0-39" id="h3-0-39" class="i">+# There also is the (new) i3-dmenu-desktop which only displays applications
+</a><a href="#h3-0-40" id="h3-0-40" class="i">+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+</a><a href="#h3-0-41" id="h3-0-41" class="i">+# installed.
+</a><a href="#h3-0-42" id="h3-0-42" class="i">+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+</a><a href="#h3-0-43" id="h3-0-43" class="i">+
+</a><a href="#h3-0-44" id="h3-0-44" class="i">+# change focus
+</a><a href="#h3-0-45" id="h3-0-45" class="i">+bindsym $mod+j focus left
+</a><a href="#h3-0-46" id="h3-0-46" class="i">+bindsym $mod+k focus down
+</a><a href="#h3-0-47" id="h3-0-47" class="i">+bindsym $mod+l focus up
+</a><a href="#h3-0-48" id="h3-0-48" class="i">+bindsym $mod+odiaeresis focus right
+</a><a href="#h3-0-49" id="h3-0-49" class="i">+
+</a><a href="#h3-0-50" id="h3-0-50" class="i">+# alternatively, you can use the cursor keys:
+</a><a href="#h3-0-51" id="h3-0-51" class="i">+bindsym $mod+Left focus left
+</a><a href="#h3-0-52" id="h3-0-52" class="i">+bindsym $mod+Down focus down
+</a><a href="#h3-0-53" id="h3-0-53" class="i">+bindsym $mod+Up focus up
+</a><a href="#h3-0-54" id="h3-0-54" class="i">+bindsym $mod+Right focus right
+</a><a href="#h3-0-55" id="h3-0-55" class="i">+
+</a><a href="#h3-0-56" id="h3-0-56" class="i">+# move focused window
+</a><a href="#h3-0-57" id="h3-0-57" class="i">+bindsym $mod+Shift+j move left
+</a><a href="#h3-0-58" id="h3-0-58" class="i">+bindsym $mod+Shift+k move down
+</a><a href="#h3-0-59" id="h3-0-59" class="i">+bindsym $mod+Shift+l move up
+</a><a href="#h3-0-60" id="h3-0-60" class="i">+bindsym $mod+Shift+odiaeresis move right
+</a><a href="#h3-0-61" id="h3-0-61" class="i">+
+</a><a href="#h3-0-62" id="h3-0-62" class="i">+# alternatively, you can use the cursor keys:
+</a><a href="#h3-0-63" id="h3-0-63" class="i">+bindsym $mod+Shift+Left move left
+</a><a href="#h3-0-64" id="h3-0-64" class="i">+bindsym $mod+Shift+Down move down
+</a><a href="#h3-0-65" id="h3-0-65" class="i">+bindsym $mod+Shift+Up move up
+</a><a href="#h3-0-66" id="h3-0-66" class="i">+bindsym $mod+Shift+Right move right
+</a><a href="#h3-0-67" id="h3-0-67" class="i">+
+</a><a href="#h3-0-68" id="h3-0-68" class="i">+# split in horizontal orientation
+</a><a href="#h3-0-69" id="h3-0-69" class="i">+bindsym $mod+h split h
+</a><a href="#h3-0-70" id="h3-0-70" class="i">+
+</a><a href="#h3-0-71" id="h3-0-71" class="i">+# split in vertical orientation
+</a><a href="#h3-0-72" id="h3-0-72" class="i">+bindsym $mod+v split v
+</a><a href="#h3-0-73" id="h3-0-73" class="i">+
+</a><a href="#h3-0-74" id="h3-0-74" class="i">+# enter fullscreen mode for the focused container
+</a><a href="#h3-0-75" id="h3-0-75" class="i">+bindsym $mod+f fullscreen toggle
+</a><a href="#h3-0-76" id="h3-0-76" class="i">+
+</a><a href="#h3-0-77" id="h3-0-77" class="i">+# change container layout (stacked, tabbed, toggle split)
+</a><a href="#h3-0-78" id="h3-0-78" class="i">+bindsym $mod+s layout stacking
+</a><a href="#h3-0-79" id="h3-0-79" class="i">+bindsym $mod+w layout tabbed
+</a><a href="#h3-0-80" id="h3-0-80" class="i">+bindsym $mod+e layout toggle split
+</a><a href="#h3-0-81" id="h3-0-81" class="i">+
+</a><a href="#h3-0-82" id="h3-0-82" class="i">+# toggle tiling / floating
+</a><a href="#h3-0-83" id="h3-0-83" class="i">+bindsym $mod+Shift+space floating toggle
+</a><a href="#h3-0-84" id="h3-0-84" class="i">+
+</a><a href="#h3-0-85" id="h3-0-85" class="i">+# change focus between tiling / floating windows
+</a><a href="#h3-0-86" id="h3-0-86" class="i">+bindsym $mod+space focus mode_toggle
+</a><a href="#h3-0-87" id="h3-0-87" class="i">+
+</a><a href="#h3-0-88" id="h3-0-88" class="i">+# focus the parent container
+</a><a href="#h3-0-89" id="h3-0-89" class="i">+bindsym $mod+a focus parent
+</a><a href="#h3-0-90" id="h3-0-90" class="i">+
+</a><a href="#h3-0-91" id="h3-0-91" class="i">+# focus the child container
+</a><a href="#h3-0-92" id="h3-0-92" class="i">+#bindsym $mod+d focus child
+</a><a href="#h3-0-93" id="h3-0-93" class="i">+
+</a><a href="#h3-0-94" id="h3-0-94" class="i">+# Define names for default workspaces for which we configure key bindings later on.
+</a><a href="#h3-0-95" id="h3-0-95" class="i">+# We use variables to avoid repeating the names in multiple places.
+</a><a href="#h3-0-96" id="h3-0-96" class="i">+set $ws1 &quot;1&quot;
+</a><a href="#h3-0-97" id="h3-0-97" class="i">+set $ws2 &quot;2&quot;
+</a><a href="#h3-0-98" id="h3-0-98" class="i">+set $ws3 &quot;3&quot;
+</a><a href="#h3-0-99" id="h3-0-99" class="i">+set $ws4 &quot;4&quot;
+</a><a href="#h3-0-100" id="h3-0-100" class="i">+set $ws5 &quot;5&quot;
+</a><a href="#h3-0-101" id="h3-0-101" class="i">+set $ws6 &quot;6&quot;
+</a><a href="#h3-0-102" id="h3-0-102" class="i">+set $ws7 &quot;7&quot;
+</a><a href="#h3-0-103" id="h3-0-103" class="i">+set $ws8 &quot;8&quot;
+</a><a href="#h3-0-104" id="h3-0-104" class="i">+set $ws9 &quot;9&quot;
+</a><a href="#h3-0-105" id="h3-0-105" class="i">+set $ws10 &quot;10&quot;
+</a><a href="#h3-0-106" id="h3-0-106" class="i">+
+</a><a href="#h3-0-107" id="h3-0-107" class="i">+# switch to workspace
+</a><a href="#h3-0-108" id="h3-0-108" class="i">+bindsym $mod+1 workspace $ws1
+</a><a href="#h3-0-109" id="h3-0-109" class="i">+bindsym $mod+2 workspace $ws2
+</a><a href="#h3-0-110" id="h3-0-110" class="i">+bindsym $mod+3 workspace $ws3
+</a><a href="#h3-0-111" id="h3-0-111" class="i">+bindsym $mod+4 workspace $ws4
+</a><a href="#h3-0-112" id="h3-0-112" class="i">+bindsym $mod+5 workspace $ws5
+</a><a href="#h3-0-113" id="h3-0-113" class="i">+bindsym $mod+6 workspace $ws6
+</a><a href="#h3-0-114" id="h3-0-114" class="i">+bindsym $mod+7 workspace $ws7
+</a><a href="#h3-0-115" id="h3-0-115" class="i">+bindsym $mod+8 workspace $ws8
+</a><a href="#h3-0-116" id="h3-0-116" class="i">+bindsym $mod+9 workspace $ws9
+</a><a href="#h3-0-117" id="h3-0-117" class="i">+bindsym $mod+0 workspace $ws10
+</a><a href="#h3-0-118" id="h3-0-118" class="i">+
+</a><a href="#h3-0-119" id="h3-0-119" class="i">+# move focused container to workspace
+</a><a href="#h3-0-120" id="h3-0-120" class="i">+bindsym $mod+Shift+1 move container to workspace $ws1
+</a><a href="#h3-0-121" id="h3-0-121" class="i">+bindsym $mod+Shift+2 move container to workspace $ws2
+</a><a href="#h3-0-122" id="h3-0-122" class="i">+bindsym $mod+Shift+3 move container to workspace $ws3
+</a><a href="#h3-0-123" id="h3-0-123" class="i">+bindsym $mod+Shift+4 move container to workspace $ws4
+</a><a href="#h3-0-124" id="h3-0-124" class="i">+bindsym $mod+Shift+5 move container to workspace $ws5
+</a><a href="#h3-0-125" id="h3-0-125" class="i">+bindsym $mod+Shift+6 move container to workspace $ws6
+</a><a href="#h3-0-126" id="h3-0-126" class="i">+bindsym $mod+Shift+7 move container to workspace $ws7
+</a><a href="#h3-0-127" id="h3-0-127" class="i">+bindsym $mod+Shift+8 move container to workspace $ws8
+</a><a href="#h3-0-128" id="h3-0-128" class="i">+bindsym $mod+Shift+9 move container to workspace $ws9
+</a><a href="#h3-0-129" id="h3-0-129" class="i">+bindsym $mod+Shift+0 move container to workspace $ws10
+</a><a href="#h3-0-130" id="h3-0-130" class="i">+
+</a><a href="#h3-0-131" id="h3-0-131" class="i">+# reload the configuration file
+</a><a href="#h3-0-132" id="h3-0-132" class="i">+bindsym $mod+Shift+c reload
+</a><a href="#h3-0-133" id="h3-0-133" class="i">+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+</a><a href="#h3-0-134" id="h3-0-134" class="i">+bindsym $mod+Shift+r restart
+</a><a href="#h3-0-135" id="h3-0-135" class="i">+# exit i3 (logs you out of your X session)
+</a><a href="#h3-0-136" id="h3-0-136" class="i">+bindsym $mod+Shift+e exec &quot;i3-nagbar -t warning -m &#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&#39; -b &#39;Yes, exit i3&#39; &#39;i3-msg exit&#39;&quot;
+</a><a href="#h3-0-137" id="h3-0-137" class="i">+
+</a><a href="#h3-0-138" id="h3-0-138" class="i">+# resize window (you can also use the mouse for that)
+</a><a href="#h3-0-139" id="h3-0-139" class="i">+mode &quot;resize&quot; {
+</a><a href="#h3-0-140" id="h3-0-140" class="i">+        # These bindings trigger as soon as you enter the resize mode
+</a><a href="#h3-0-141" id="h3-0-141" class="i">+
+</a><a href="#h3-0-142" id="h3-0-142" class="i">+        # Pressing left will shrink the window’s width.
+</a><a href="#h3-0-143" id="h3-0-143" class="i">+        # Pressing right will grow the window’s width.
+</a><a href="#h3-0-144" id="h3-0-144" class="i">+        # Pressing up will shrink the window’s height.
+</a><a href="#h3-0-145" id="h3-0-145" class="i">+        # Pressing down will grow the window’s height.
+</a><a href="#h3-0-146" id="h3-0-146" class="i">+        bindsym j resize shrink width 10 px or 10 ppt
+</a><a href="#h3-0-147" id="h3-0-147" class="i">+        bindsym k resize grow height 10 px or 10 ppt
+</a><a href="#h3-0-148" id="h3-0-148" class="i">+        bindsym l resize shrink height 10 px or 10 ppt
+</a><a href="#h3-0-149" id="h3-0-149" class="i">+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+</a><a href="#h3-0-150" id="h3-0-150" class="i">+
+</a><a href="#h3-0-151" id="h3-0-151" class="i">+        # same bindings, but for the arrow keys
+</a><a href="#h3-0-152" id="h3-0-152" class="i">+        bindsym Left resize shrink width 10 px or 10 ppt
+</a><a href="#h3-0-153" id="h3-0-153" class="i">+        bindsym Down resize grow height 10 px or 10 ppt
+</a><a href="#h3-0-154" id="h3-0-154" class="i">+        bindsym Up resize shrink height 10 px or 10 ppt
+</a><a href="#h3-0-155" id="h3-0-155" class="i">+        bindsym Right resize grow width 10 px or 10 ppt
+</a><a href="#h3-0-156" id="h3-0-156" class="i">+
+</a><a href="#h3-0-157" id="h3-0-157" class="i">+        # back to normal: Enter or Escape or $mod+r
+</a><a href="#h3-0-158" id="h3-0-158" class="i">+        bindsym Return mode &quot;default&quot;
+</a><a href="#h3-0-159" id="h3-0-159" class="i">+        bindsym Escape mode &quot;default&quot;
+</a><a href="#h3-0-160" id="h3-0-160" class="i">+        bindsym $mod+r mode &quot;default&quot;
+</a><a href="#h3-0-161" id="h3-0-161" class="i">+}
+</a><a href="#h3-0-162" id="h3-0-162" class="i">+
+</a><a href="#h3-0-163" id="h3-0-163" class="i">+bindsym $mod+r mode &quot;resize&quot;
+</a><a href="#h3-0-164" id="h3-0-164" class="i">+
+</a><a href="#h3-0-165" id="h3-0-165" class="i">+# =============================================================================
+</a><a href="#h3-0-166" id="h3-0-166" class="i">+set $bg-color 	         #2c2c2c
+</a><a href="#h3-0-167" id="h3-0-167" class="i">+set $inactive-bg-color   #2c2c2c
+</a><a href="#h3-0-168" id="h3-0-168" class="i">+set $text-color          #16a086
+</a><a href="#h3-0-169" id="h3-0-169" class="i">+set $inactive-text-color #f3f4f5
+</a><a href="#h3-0-170" id="h3-0-170" class="i">+set $urgent-bg-color     #E53935
+</a><a href="#h3-0-171" id="h3-0-171" class="i">+
+</a><a href="#h3-0-172" id="h3-0-172" class="i">+# window colors
+</a><a href="#h3-0-173" id="h3-0-173" class="i">+#                       border              background         text                 indicator
+</a><a href="#h3-0-174" id="h3-0-174" class="i">+client.focused          $text-color         $text-color        $text-color          #00ff00
+</a><a href="#h3-0-175" id="h3-0-175" class="i">+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color  #00ff00
+</a><a href="#h3-0-176" id="h3-0-176" class="i">+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color  #00ff00
+</a><a href="#h3-0-177" id="h3-0-177" class="i">+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+</a><a href="#h3-0-178" id="h3-0-178" class="i">+
+</a><a href="#h3-0-179" id="h3-0-179" class="i">+# Start i3bar to display a workspace bar (plus the system information i3status
+</a><a href="#h3-0-180" id="h3-0-180" class="i">+# finds out, if available)
+</a><a href="#h3-0-181" id="h3-0-181" class="i">+bar {
+</a><a href="#h3-0-182" id="h3-0-182" class="i">+        status_command i3blocks
+</a><a href="#h3-0-183" id="h3-0-183" class="i">+        colors {
+</a><a href="#h3-0-184" id="h3-0-184" class="i">+		background $bg-color
+</a><a href="#h3-0-185" id="h3-0-185" class="i">+	    	separator #757575
+</a><a href="#h3-0-186" id="h3-0-186" class="i">+		#                  border             background         text
+</a><a href="#h3-0-187" id="h3-0-187" class="i">+		focused_workspace  $bg-color          $bg-color          $text-color
+</a><a href="#h3-0-188" id="h3-0-188" class="i">+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+</a><a href="#h3-0-189" id="h3-0-189" class="i">+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+</a><a href="#h3-0-190" id="h3-0-190" class="i">+	}
+</a><a href="#h3-0-191" id="h3-0-191" class="i">+}
+</a><a href="#h3-0-192" id="h3-0-192" class="i">+
+</a><a href="#h3-0-193" id="h3-0-193" class="i">+# =============================================================================
+</a><a href="#h3-0-194" id="h3-0-194" class="i">+
+</a><a href="#h3-0-195" id="h3-0-195" class="i">+# ----- i3gaps settings -----
+</a><a href="#h3-0-196" id="h3-0-196" class="i">+for_window [class=&quot;^.*&quot;] border pixel 2
+</a><a href="#h3-0-197" id="h3-0-197" class="i">+gaps inner 10
+</a><a href="#h3-0-198" id="h3-0-198" class="i">+gaps outer 10
+</a><a href="#h3-0-199" id="h3-0-199" class="i">+smart_gaps on
+</a><a href="#h3-0-200" id="h3-0-200" class="i">+smart_borders on
+</a><a href="#h3-0-201" id="h3-0-201" class="i">+
+</a><a href="#h3-0-202" id="h3-0-202" class="i">+# ----- Start on login -----
+</a><a href="#h3-0-203" id="h3-0-203" class="i">+exec --no-startup-id nm-applet
+</a><a href="#h3-0-204" id="h3-0-204" class="i">+exec --no-startup-id nitrogen --restore &amp;
+</a><a href="#h3-0-205" id="h3-0-205" class="i">+exec --no-startup-id eval `ssh-agent -s`
+</a><a href="#h3-0-206" id="h3-0-206" class="i">+exec --no-startup-id compton
+</a><a href="#h3-0-207" id="h3-0-207" class="i">+exec --no-startup-id dunst
+</a><a href="#h3-0-208" id="h3-0-208" class="i">+
+</a><a href="#h3-0-209" id="h3-0-209" class="i">+# ===== KEYBINDINGS =====
+</a><a href="#h3-0-210" id="h3-0-210" class="i">+# ----- Clear clipboard -----
+</a><a href="#h3-0-211" id="h3-0-211" class="i">+bindsym $mod+x exec $HOME/.clear_clipboard.sh
+</a><a href="#h3-0-212" id="h3-0-212" class="i">+
+</a><a href="#h3-0-213" id="h3-0-213" class="i">+# ----- i3lock -----
+</a><a href="#h3-0-214" id="h3-0-214" class="i">+bindsym $mod+Shift+x exec i3lock
+</a><b>diff --git a/<a id="h4" href="../file/config.stow/.xrdb/rofi/dark.html">config.stow/.xrdb/rofi/dark</a> b/<a href="../file/config.stow/.xrdb/rofi/dark.html">config.stow/.xrdb/rofi/dark</a></b>
+<a href="#h4-0" id="h4-0" class="h">@@ -0,0 +1,5 @@
+</a><a href="#h4-0-0" id="h4-0-0" class="i">+rofi.color-enabled: true
+</a><a href="#h4-0-1" id="h4-0-1" class="i">+rofi.color-window: #2f343f, #2f343f, #2f343f
+</a><a href="#h4-0-2" id="h4-0-2" class="i">+rofi.color-normal: #2f343f, #d8dee8, #2f343f, #2f343f, #bf616a
+</a><a href="#h4-0-3" id="h4-0-3" class="i">+rofi.color-active: #2f343f, #b48ead, #2f343f, #2f343f, #93e5cc
+</a><a href="#h4-0-4" id="h4-0-4" class="i">+rofi.color-urgent: #2f343f, #ebcb8b, #2f343f, #2f343f, #ebcb8b
+</a><b>diff --git a/<a id="h5" href="../file/config.stow/.xrdb/rofi/light.html">config.stow/.xrdb/rofi/light</a> b/<a href="../file/config.stow/.xrdb/rofi/light.html">config.stow/.xrdb/rofi/light</a></b>
+<a href="#h5-0" id="h5-0" class="h">@@ -0,0 +1,5 @@
+</a><a href="#h5-0-0" id="h5-0-0" class="i">+rofi.color-enabled: true
+</a><a href="#h5-0-1" id="h5-0-1" class="i">+rofi.color-window: #ffffff, #ffffff, #ffffff
+</a><a href="#h5-0-2" id="h5-0-2" class="i">+rofi.color-normal: #ffffff, #474c57, #ffffff, #ffffff, #4ec2e8
+</a><a href="#h5-0-3" id="h5-0-3" class="i">+rofi.color-active: #ffffff, #fec7cd, #ffffff, #ffffff, #95c1c0
+</a><a href="#h5-0-4" id="h5-0-4" class="i">+rofi.color-urgent: #ffffff, #f59335, #ffffff, #ffffff, #f59335
+</a><b>diff --git a/<a id="h6" href="../file/config.stow/.xrdb/rofi/maia.html">config.stow/.xrdb/rofi/maia</a> b/<a href="../file/config.stow/.xrdb/rofi/maia.html">config.stow/.xrdb/rofi/maia</a></b>
+<a href="#h6-0" id="h6-0" class="h">@@ -0,0 +1,5 @@
+</a><a href="#h6-0-0" id="h6-0-0" class="i">+rofi.color-enabled: true
+</a><a href="#h6-0-1" id="h6-0-1" class="i">+rofi.color-window: #2c2c2c, #2c2c2c, #2c2c2c
+</a><a href="#h6-0-2" id="h6-0-2" class="i">+rofi.color-normal: #2c2c2c, #d8dee8, #2c2c2c, #2c2c2c, #16a086
+</a><a href="#h6-0-3" id="h6-0-3" class="i">+rofi.color-active: #2c2c2c, #b48ead, #2c2c2c, #2c2c2c, #16a086
+</a><a href="#h6-0-4" id="h6-0-4" class="i">+rofi.color-urgent: #2c2c2c, #ebcb8b, #2c2c2c, #2c2c2c, #ebcb8b
+</a><b>diff --git a/<a id="h7" href="../file/config.stow/.xrdb/urxvt/dark.html">config.stow/.xrdb/urxvt/dark</a> b/<a href="../file/config.stow/.xrdb/urxvt/dark.html">config.stow/.xrdb/urxvt/dark</a></b>
+<a href="#h7-0" id="h7-0" class="h">@@ -0,0 +1,29 @@
+</a><a href="#h7-0-0" id="h7-0-0" class="i">+! X colors.
+</a><a href="#h7-0-1" id="h7-0-1" class="i">+URxvt.foreground:   #a7b4b7
+</a><a href="#h7-0-2" id="h7-0-2" class="i">+URxvt.background:   [100]#070d0f
+</a><a href="#h7-0-3" id="h7-0-3" class="i">+URxvt.cursorColor:  #a7b4b7
+</a><a href="#h7-0-4" id="h7-0-4" class="i">+URxvt.borderColor:  [100]#070d0f
+</a><a href="#h7-0-5" id="h7-0-5" class="i">+
+</a><a href="#h7-0-6" id="h7-0-6" class="i">+! Colors 0-15.
+</a><a href="#h7-0-7" id="h7-0-7" class="i">+URxvt.color0: #070d0f
+</a><a href="#h7-0-8" id="h7-0-8" class="i">+URxvt.color1: #34545c
+</a><a href="#h7-0-9" id="h7-0-9" class="i">+URxvt.color2: #3c5c64
+</a><a href="#h7-0-10" id="h7-0-10" class="i">+URxvt.color3: #47656a
+</a><a href="#h7-0-11" id="h7-0-11" class="i">+URxvt.color4: #546c74
+</a><a href="#h7-0-12" id="h7-0-12" class="i">+URxvt.color5: #547474
+</a><a href="#h7-0-13" id="h7-0-13" class="i">+URxvt.color6: #5c747b
+</a><a href="#h7-0-14" id="h7-0-14" class="i">+URxvt.color7: #a7b4b7
+</a><a href="#h7-0-15" id="h7-0-15" class="i">+URxvt.color8: #4f696f
+</a><a href="#h7-0-16" id="h7-0-16" class="i">+URxvt.color9: #34545c
+</a><a href="#h7-0-17" id="h7-0-17" class="i">+URxvt.color10: #3c5c64
+</a><a href="#h7-0-18" id="h7-0-18" class="i">+URxvt.color11: #47656a
+</a><a href="#h7-0-19" id="h7-0-19" class="i">+URxvt.color12: #546c74
+</a><a href="#h7-0-20" id="h7-0-20" class="i">+URxvt.color13: #547474
+</a><a href="#h7-0-21" id="h7-0-21" class="i">+URxvt.color14: #5c747b
+</a><a href="#h7-0-22" id="h7-0-22" class="i">+URxvt.color15: #a7b4b7
+</a><a href="#h7-0-23" id="h7-0-23" class="i">+
+</a><a href="#h7-0-24" id="h7-0-24" class="i">+! Black color that will not be affected by bold highlighting.
+</a><a href="#h7-0-25" id="h7-0-25" class="i">+URxvt.color66: #070d0f
+</a><a href="#h7-0-26" id="h7-0-26" class="i">+
+</a><a href="#h7-0-27" id="h7-0-27" class="i">+! Set depth to make transparency work.
+</a><a href="#h7-0-28" id="h7-0-28" class="i">+URxvt.depth: 32
+</a><b>diff --git a/<a id="h8" href="../file/config.stow/.xrdb/urxvt/hybrid.html">config.stow/.xrdb/urxvt/hybrid</a> b/<a href="../file/config.stow/.xrdb/urxvt/hybrid.html">config.stow/.xrdb/urxvt/hybrid</a></b>
+<a href="#h8-0" id="h8-0" class="h">@@ -0,0 +1,36 @@
+</a><a href="#h8-0-0" id="h8-0-0" class="i">+! special
+</a><a href="#h8-0-1" id="h8-0-1" class="i">+URxvt.foreground:   #c5c8c6
+</a><a href="#h8-0-2" id="h8-0-2" class="i">+URxvt.background:   #1d1f21
+</a><a href="#h8-0-3" id="h8-0-3" class="i">+URxvt.cursorColor:  #c5c8c6
+</a><a href="#h8-0-4" id="h8-0-4" class="i">+
+</a><a href="#h8-0-5" id="h8-0-5" class="i">+! black
+</a><a href="#h8-0-6" id="h8-0-6" class="i">+URxvt.color0:       #282a2e
+</a><a href="#h8-0-7" id="h8-0-7" class="i">+URxvt.color8:       #373b41
+</a><a href="#h8-0-8" id="h8-0-8" class="i">+
+</a><a href="#h8-0-9" id="h8-0-9" class="i">+! red
+</a><a href="#h8-0-10" id="h8-0-10" class="i">+URxvt.color1:       #a54242
+</a><a href="#h8-0-11" id="h8-0-11" class="i">+URxvt.color9:       #cc6666
+</a><a href="#h8-0-12" id="h8-0-12" class="i">+
+</a><a href="#h8-0-13" id="h8-0-13" class="i">+! green
+</a><a href="#h8-0-14" id="h8-0-14" class="i">+URxvt.color2:       #8c9440
+</a><a href="#h8-0-15" id="h8-0-15" class="i">+URxvt.color10:      #b5bd68
+</a><a href="#h8-0-16" id="h8-0-16" class="i">+
+</a><a href="#h8-0-17" id="h8-0-17" class="i">+! yellow
+</a><a href="#h8-0-18" id="h8-0-18" class="i">+URxvt.color3:       #de935f
+</a><a href="#h8-0-19" id="h8-0-19" class="i">+URxvt.color11:      #f0c674
+</a><a href="#h8-0-20" id="h8-0-20" class="i">+
+</a><a href="#h8-0-21" id="h8-0-21" class="i">+! blue
+</a><a href="#h8-0-22" id="h8-0-22" class="i">+URxvt.color4:       #5f819d
+</a><a href="#h8-0-23" id="h8-0-23" class="i">+URxvt.color12:      #81a2be
+</a><a href="#h8-0-24" id="h8-0-24" class="i">+
+</a><a href="#h8-0-25" id="h8-0-25" class="i">+! magenta
+</a><a href="#h8-0-26" id="h8-0-26" class="i">+URxvt.color5:       #85678f
+</a><a href="#h8-0-27" id="h8-0-27" class="i">+URxvt.color13:      #b294bb
+</a><a href="#h8-0-28" id="h8-0-28" class="i">+
+</a><a href="#h8-0-29" id="h8-0-29" class="i">+! cyan
+</a><a href="#h8-0-30" id="h8-0-30" class="i">+URxvt.color6:       #5e8d87
+</a><a href="#h8-0-31" id="h8-0-31" class="i">+URxvt.color14:      #8abeb7
+</a><a href="#h8-0-32" id="h8-0-32" class="i">+
+</a><a href="#h8-0-33" id="h8-0-33" class="i">+! white
+</a><a href="#h8-0-34" id="h8-0-34" class="i">+URxvt.color7:       #707880
+</a><a href="#h8-0-35" id="h8-0-35" class="i">+URxvt.color15:      #c5c8c6
+</a><b>diff --git a/<a id="h9" href="../file/config.stow/.xrdb/urxvt/light.html">config.stow/.xrdb/urxvt/light</a> b/<a href="../file/config.stow/.xrdb/urxvt/light.html">config.stow/.xrdb/urxvt/light</a></b>
+<a href="#h9-0" id="h9-0" class="h">@@ -0,0 +1,30 @@
+</a><a href="#h9-0-0" id="h9-0-0" class="i">+! X colors.
+</a><a href="#h9-0-1" id="h9-0-1" class="i">+URxvt.foreground:   #091113
+</a><a href="#h9-0-2" id="h9-0-2" class="i">+URxvt.background:   [100]#e9eced
+</a><a href="#h9-0-3" id="h9-0-3" class="i">+URxvt.cursorColor:  #091113
+</a><a href="#h9-0-4" id="h9-0-4" class="i">+URxvt.borderColor:  [100]#e9eced
+</a><a href="#h9-0-5" id="h9-0-5" class="i">+
+</a><a href="#h9-0-6" id="h9-0-6" class="i">+! Colors 0-15.
+</a><a href="#h9-0-7" id="h9-0-7" class="i">+URxvt.color0: #e9eced
+</a><a href="#h9-0-8" id="h9-0-8" class="i">+URxvt.color1: #34545c
+</a><a href="#h9-0-9" id="h9-0-9" class="i">+URxvt.color2: #3c5c64
+</a><a href="#h9-0-10" id="h9-0-10" class="i">+URxvt.color3: #47656a
+</a><a href="#h9-0-11" id="h9-0-11" class="i">+URxvt.color4: #546c74
+</a><a href="#h9-0-12" id="h9-0-12" class="i">+URxvt.color5: #547474
+</a><a href="#h9-0-13" id="h9-0-13" class="i">+URxvt.color6: #5c747b
+</a><a href="#h9-0-14" id="h9-0-14" class="i">+URxvt.color7: #091113
+</a><a href="#h9-0-15" id="h9-0-15" class="i">+URxvt.color8: #4f696f
+</a><a href="#h9-0-16" id="h9-0-16" class="i">+URxvt.color9: #34545c
+</a><a href="#h9-0-17" id="h9-0-17" class="i">+URxvt.color10: #3c5c64
+</a><a href="#h9-0-18" id="h9-0-18" class="i">+URxvt.color11: #47656a
+</a><a href="#h9-0-19" id="h9-0-19" class="i">+URxvt.color12: #546c74
+</a><a href="#h9-0-20" id="h9-0-20" class="i">+URxvt.color13: #547474
+</a><a href="#h9-0-21" id="h9-0-21" class="i">+URxvt.color14: #5c747b
+</a><a href="#h9-0-22" id="h9-0-22" class="i">+URxvt.color15: #091113
+</a><a href="#h9-0-23" id="h9-0-23" class="i">+
+</a><a href="#h9-0-24" id="h9-0-24" class="i">+! Black color that will not be affected by bold highlighting.
+</a><a href="#h9-0-25" id="h9-0-25" class="i">+URxvt.color66: #e9eced
+</a><a href="#h9-0-26" id="h9-0-26" class="i">+URxvtcolor66:  #e9eced
+</a><a href="#h9-0-27" id="h9-0-27" class="i">+
+</a><a href="#h9-0-28" id="h9-0-28" class="i">+! Set depth to make transparency work.
+</a><a href="#h9-0-29" id="h9-0-29" class="i">+URxvt.depth: 32
+</a><b>diff --git a/<a id="h10" href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a> b/<a href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a></b>
+<a href="#h10-0" id="h10-0" class="h">@@ -0,0 +1,197 @@
+</a><a href="#h10-0-0" id="h10-0-0" class="i">+## Options section
+</a><a href="#h10-0-1" id="h10-0-1" class="i">+setopt correct                                                  # Auto correct mistakes
+</a><a href="#h10-0-2" id="h10-0-2" class="i">+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+</a><a href="#h10-0-3" id="h10-0-3" class="i">+setopt nocaseglob                                               # Case insensitive globbing
+</a><a href="#h10-0-4" id="h10-0-4" class="i">+setopt rcexpandparam                                            # Array expension with parameters
+</a><a href="#h10-0-5" id="h10-0-5" class="i">+setopt nocheckjobs                                              # Don&#39;t warn about running processes when exiting
+</a><a href="#h10-0-6" id="h10-0-6" class="i">+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+</a><a href="#h10-0-7" id="h10-0-7" class="i">+setopt nobeep                                                   # No beep
+</a><a href="#h10-0-8" id="h10-0-8" class="i">+setopt appendhistory                                            # Immediately append history instead of overwriting
+</a><a href="#h10-0-9" id="h10-0-9" class="i">+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+</a><a href="#h10-0-10" id="h10-0-10" class="i">+setopt autocd                                                   # if only directory path is entered, cd there.
+</a><a href="#h10-0-11" id="h10-0-11" class="i">+
+</a><a href="#h10-0-12" id="h10-0-12" class="i">+zstyle &#39;:completion:*&#39; matcher-list &#39;m:{a-zA-Z}={A-Za-z}&#39;       # Case insensitive tab completion
+</a><a href="#h10-0-13" id="h10-0-13" class="i">+zstyle &#39;:completion:*&#39; list-colors &quot;${(s.:.)LS_COLORS}&quot;         # Colored completion (different colors for dirs/files/etc)
+</a><a href="#h10-0-14" id="h10-0-14" class="i">+zstyle &#39;:completion:*&#39; rehash true                              # automatically find new executables in path 
+</a><a href="#h10-0-15" id="h10-0-15" class="i">+# Speed up completions
+</a><a href="#h10-0-16" id="h10-0-16" class="i">+zstyle &#39;:completion:*&#39; accept-exact &#39;*(N)&#39;
+</a><a href="#h10-0-17" id="h10-0-17" class="i">+zstyle &#39;:completion:*&#39; use-cache on
+</a><a href="#h10-0-18" id="h10-0-18" class="i">+zstyle &#39;:completion:*&#39; cache-path ~/.zsh/cache
+</a><a href="#h10-0-19" id="h10-0-19" class="i">+HISTFILE=~/.zhistory
+</a><a href="#h10-0-20" id="h10-0-20" class="i">+HISTSIZE=1000
+</a><a href="#h10-0-21" id="h10-0-21" class="i">+SAVEHIST=500
+</a><a href="#h10-0-22" id="h10-0-22" class="i">+#export EDITOR=/usr/bin/nano
+</a><a href="#h10-0-23" id="h10-0-23" class="i">+#export VISUAL=/usr/bin/nano
+</a><a href="#h10-0-24" id="h10-0-24" class="i">+WORDCHARS=${WORDCHARS//\/[&amp;.;]}                                 # Don&#39;t consider certain characters part of the word
+</a><a href="#h10-0-25" id="h10-0-25" class="i">+
+</a><a href="#h10-0-26" id="h10-0-26" class="i">+
+</a><a href="#h10-0-27" id="h10-0-27" class="i">+## Keybindings section
+</a><a href="#h10-0-28" id="h10-0-28" class="i">+bindkey -e
+</a><a href="#h10-0-29" id="h10-0-29" class="i">+bindkey &#39;^[[7~&#39; beginning-of-line                               # Home key
+</a><a href="#h10-0-30" id="h10-0-30" class="i">+bindkey &#39;^[[H&#39; beginning-of-line                                # Home key
+</a><a href="#h10-0-31" id="h10-0-31" class="i">+if [[ &quot;${terminfo[khome]}&quot; != &quot;&quot; ]]; then
+</a><a href="#h10-0-32" id="h10-0-32" class="i">+  bindkey &quot;${terminfo[khome]}&quot; beginning-of-line                # [Home] - Go to beginning of line
+</a><a href="#h10-0-33" id="h10-0-33" class="i">+fi
+</a><a href="#h10-0-34" id="h10-0-34" class="i">+bindkey &#39;^[[8~&#39; end-of-line                                     # End key
+</a><a href="#h10-0-35" id="h10-0-35" class="i">+bindkey &#39;^[[F&#39; end-of-line                                     # End key
+</a><a href="#h10-0-36" id="h10-0-36" class="i">+if [[ &quot;${terminfo[kend]}&quot; != &quot;&quot; ]]; then
+</a><a href="#h10-0-37" id="h10-0-37" class="i">+  bindkey &quot;${terminfo[kend]}&quot; end-of-line                       # [End] - Go to end of line
+</a><a href="#h10-0-38" id="h10-0-38" class="i">+fi
+</a><a href="#h10-0-39" id="h10-0-39" class="i">+bindkey &#39;^[[2~&#39; overwrite-mode                                  # Insert key
+</a><a href="#h10-0-40" id="h10-0-40" class="i">+bindkey &#39;^[[3~&#39; delete-char                                     # Delete key
+</a><a href="#h10-0-41" id="h10-0-41" class="i">+bindkey &#39;^[[C&#39;  forward-char                                    # Right key
+</a><a href="#h10-0-42" id="h10-0-42" class="i">+bindkey &#39;^[[D&#39;  backward-char                                   # Left key
+</a><a href="#h10-0-43" id="h10-0-43" class="i">+bindkey &#39;^[[5~&#39; history-beginning-search-backward               # Page up key
+</a><a href="#h10-0-44" id="h10-0-44" class="i">+bindkey &#39;^[[6~&#39; history-beginning-search-forward                # Page down key
+</a><a href="#h10-0-45" id="h10-0-45" class="i">+
+</a><a href="#h10-0-46" id="h10-0-46" class="i">+# Navigate words with ctrl+arrow keys
+</a><a href="#h10-0-47" id="h10-0-47" class="i">+bindkey &#39;^[Oc&#39; forward-word                                     #
+</a><a href="#h10-0-48" id="h10-0-48" class="i">+bindkey &#39;^[Od&#39; backward-word                                    #
+</a><a href="#h10-0-49" id="h10-0-49" class="i">+bindkey &#39;^[[1;5D&#39; backward-word                                 #
+</a><a href="#h10-0-50" id="h10-0-50" class="i">+bindkey &#39;^[[1;5C&#39; forward-word                                  #
+</a><a href="#h10-0-51" id="h10-0-51" class="i">+bindkey &#39;^H&#39; backward-kill-word                                 # delete previous word with ctrl+backspace
+</a><a href="#h10-0-52" id="h10-0-52" class="i">+bindkey &#39;^[[Z&#39; undo                                             # Shift+tab undo last action
+</a><a href="#h10-0-53" id="h10-0-53" class="i">+
+</a><a href="#h10-0-54" id="h10-0-54" class="i">+## Alias section 
+</a><a href="#h10-0-55" id="h10-0-55" class="i">+alias cp=&quot;cp -i&quot;                                                # Confirm before overwriting something
+</a><a href="#h10-0-56" id="h10-0-56" class="i">+alias df=&#39;df -h&#39;                                                # Human-readable sizes
+</a><a href="#h10-0-57" id="h10-0-57" class="i">+alias free=&#39;free -m&#39;                                            # Show sizes in MB
+</a><a href="#h10-0-58" id="h10-0-58" class="i">+alias gitu=&#39;git add . &amp;&amp; git commit &amp;&amp; git push&#39;
+</a><a href="#h10-0-59" id="h10-0-59" class="i">+alias l=&#39;ls -la&#39;
+</a><a href="#h10-0-60" id="h10-0-60" class="i">+
+</a><a href="#h10-0-61" id="h10-0-61" class="i">+# Theming section  
+</a><a href="#h10-0-62" id="h10-0-62" class="i">+autoload -U compinit colors zcalc
+</a><a href="#h10-0-63" id="h10-0-63" class="i">+compinit -d
+</a><a href="#h10-0-64" id="h10-0-64" class="i">+colors
+</a><a href="#h10-0-65" id="h10-0-65" class="i">+
+</a><a href="#h10-0-66" id="h10-0-66" class="i">+# enable substitution for prompt
+</a><a href="#h10-0-67" id="h10-0-67" class="i">+setopt prompt_subst
+</a><a href="#h10-0-68" id="h10-0-68" class="i">+
+</a><a href="#h10-0-69" id="h10-0-69" class="i">+# Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
+</a><a href="#h10-0-70" id="h10-0-70" class="i">+ #PROMPT=&quot;%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ &quot;
+</a><a href="#h10-0-71" id="h10-0-71" class="i">+# Maia prompt
+</a><a href="#h10-0-72" id="h10-0-72" class="i">+PROMPT=&quot;%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b &gt;%{$fg[cyan]%}&gt;%B%(?.%{$fg[cyan]%}.%{$fg[red]%})&gt;%{$reset_color%}%b &quot; # Print some system information when the shell is first started
+</a><a href="#h10-0-73" id="h10-0-73" class="i">+# Print a greeting message when shell is started
+</a><a href="#h10-0-74" id="h10-0-74" class="i">+echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+</a><a href="#h10-0-75" id="h10-0-75" class="i">+## Prompt on right side:
+</a><a href="#h10-0-76" id="h10-0-76" class="i">+#  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
+</a><a href="#h10-0-77" id="h10-0-77" class="i">+#  - shows exit status of previous command (if previous command finished with an error)
+</a><a href="#h10-0-78" id="h10-0-78" class="i">+#  - is invisible, if neither is the case
+</a><a href="#h10-0-79" id="h10-0-79" class="i">+
+</a><a href="#h10-0-80" id="h10-0-80" class="i">+# Modify the colors and symbols in these variables as desired.
+</a><a href="#h10-0-81" id="h10-0-81" class="i">+GIT_PROMPT_SYMBOL=&quot;%{$fg[blue]%}±&quot;                              # plus/minus     - clean repo
+</a><a href="#h10-0-82" id="h10-0-82" class="i">+GIT_PROMPT_PREFIX=&quot;%{$fg[green]%}[%{$reset_color%}&quot;
+</a><a href="#h10-0-83" id="h10-0-83" class="i">+GIT_PROMPT_SUFFIX=&quot;%{$fg[green]%}]%{$reset_color%}&quot;
+</a><a href="#h10-0-84" id="h10-0-84" class="i">+GIT_PROMPT_AHEAD=&quot;%{$fg[red]%}ANUM%{$reset_color%}&quot;             # A&quot;NUM&quot;         - ahead by &quot;NUM&quot; commits
+</a><a href="#h10-0-85" id="h10-0-85" class="i">+GIT_PROMPT_BEHIND=&quot;%{$fg[cyan]%}BNUM%{$reset_color%}&quot;           # B&quot;NUM&quot;         - behind by &quot;NUM&quot; commits
+</a><a href="#h10-0-86" id="h10-0-86" class="i">+GIT_PROMPT_MERGING=&quot;%{$fg_bold[magenta]%}⚡︎%{$reset_color%}&quot;     # lightning bolt - merge conflict
+</a><a href="#h10-0-87" id="h10-0-87" class="i">+GIT_PROMPT_UNTRACKED=&quot;%{$fg_bold[red]%}●%{$reset_color%}&quot;       # red circle     - untracked files
+</a><a href="#h10-0-88" id="h10-0-88" class="i">+GIT_PROMPT_MODIFIED=&quot;%{$fg_bold[yellow]%}●%{$reset_color%}&quot;     # yellow circle  - tracked files modified
+</a><a href="#h10-0-89" id="h10-0-89" class="i">+GIT_PROMPT_STAGED=&quot;%{$fg_bold[green]%}●%{$reset_color%}&quot;        # green circle   - staged changes present = ready for &quot;git push&quot;
+</a><a href="#h10-0-90" id="h10-0-90" class="i">+
+</a><a href="#h10-0-91" id="h10-0-91" class="i">+parse_git_branch() {
+</a><a href="#h10-0-92" id="h10-0-92" class="i">+  # Show Git branch/tag, or name-rev if on detached head
+</a><a href="#h10-0-93" id="h10-0-93" class="i">+  ( git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD ) 2&gt; /dev/null
+</a><a href="#h10-0-94" id="h10-0-94" class="i">+}
+</a><a href="#h10-0-95" id="h10-0-95" class="i">+
+</a><a href="#h10-0-96" id="h10-0-96" class="i">+parse_git_state() {
+</a><a href="#h10-0-97" id="h10-0-97" class="i">+  # Show different symbols as appropriate for various Git repository states
+</a><a href="#h10-0-98" id="h10-0-98" class="i">+  # Compose this value via multiple conditional appends.
+</a><a href="#h10-0-99" id="h10-0-99" class="i">+  local GIT_STATE=&quot;&quot;
+</a><a href="#h10-0-100" id="h10-0-100" class="i">+  local NUM_AHEAD=&quot;$(git log --oneline @{u}.. 2&gt; /dev/null | wc -l | tr -d &#39; &#39;)&quot;
+</a><a href="#h10-0-101" id="h10-0-101" class="i">+  if [ &quot;$NUM_AHEAD&quot; -gt 0 ]; then
+</a><a href="#h10-0-102" id="h10-0-102" class="i">+    GIT_STATE=$GIT_STATE${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}
+</a><a href="#h10-0-103" id="h10-0-103" class="i">+  fi
+</a><a href="#h10-0-104" id="h10-0-104" class="i">+  local NUM_BEHIND=&quot;$(git log --oneline ..@{u} 2&gt; /dev/null | wc -l | tr -d &#39; &#39;)&quot;
+</a><a href="#h10-0-105" id="h10-0-105" class="i">+  if [ &quot;$NUM_BEHIND&quot; -gt 0 ]; then
+</a><a href="#h10-0-106" id="h10-0-106" class="i">+    GIT_STATE=$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}
+</a><a href="#h10-0-107" id="h10-0-107" class="i">+  fi
+</a><a href="#h10-0-108" id="h10-0-108" class="i">+  local GIT_DIR=&quot;$(git rev-parse --git-dir 2&gt; /dev/null)&quot;
+</a><a href="#h10-0-109" id="h10-0-109" class="i">+  if [ -n $GIT_DIR ] &amp;&amp; test -r $GIT_DIR/MERGE_HEAD; then
+</a><a href="#h10-0-110" id="h10-0-110" class="i">+    GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
+</a><a href="#h10-0-111" id="h10-0-111" class="i">+  fi
+</a><a href="#h10-0-112" id="h10-0-112" class="i">+  if [[ -n $(git ls-files --other --exclude-standard 2&gt; /dev/null) ]]; then
+</a><a href="#h10-0-113" id="h10-0-113" class="i">+    GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
+</a><a href="#h10-0-114" id="h10-0-114" class="i">+  fi
+</a><a href="#h10-0-115" id="h10-0-115" class="i">+  if ! git diff --quiet 2&gt; /dev/null; then
+</a><a href="#h10-0-116" id="h10-0-116" class="i">+    GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
+</a><a href="#h10-0-117" id="h10-0-117" class="i">+  fi
+</a><a href="#h10-0-118" id="h10-0-118" class="i">+  if ! git diff --cached --quiet 2&gt; /dev/null; then
+</a><a href="#h10-0-119" id="h10-0-119" class="i">+    GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
+</a><a href="#h10-0-120" id="h10-0-120" class="i">+  fi
+</a><a href="#h10-0-121" id="h10-0-121" class="i">+  if [[ -n $GIT_STATE ]]; then
+</a><a href="#h10-0-122" id="h10-0-122" class="i">+    echo &quot;$GIT_PROMPT_PREFIX$GIT_STATE$GIT_PROMPT_SUFFIX&quot;
+</a><a href="#h10-0-123" id="h10-0-123" class="i">+  fi
+</a><a href="#h10-0-124" id="h10-0-124" class="i">+}
+</a><a href="#h10-0-125" id="h10-0-125" class="i">+
+</a><a href="#h10-0-126" id="h10-0-126" class="i">+git_prompt_string() {
+</a><a href="#h10-0-127" id="h10-0-127" class="i">+  local git_where=&quot;$(parse_git_branch)&quot;
+</a><a href="#h10-0-128" id="h10-0-128" class="i">+  
+</a><a href="#h10-0-129" id="h10-0-129" class="i">+  # If inside a Git repository, print its branch and state
+</a><a href="#h10-0-130" id="h10-0-130" class="i">+  [ -n &quot;$git_where&quot; ] &amp;&amp; echo &quot;$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX&quot;
+</a><a href="#h10-0-131" id="h10-0-131" class="i">+  
+</a><a href="#h10-0-132" id="h10-0-132" class="i">+  # If not inside the Git repo, print exit codes of last command (only if it failed)
+</a><a href="#h10-0-133" id="h10-0-133" class="i">+  [ ! -n &quot;$git_where&quot; ] &amp;&amp; echo &quot;%{$fg[red]%} %(?..[%?])&quot;
+</a><a href="#h10-0-134" id="h10-0-134" class="i">+}
+</a><a href="#h10-0-135" id="h10-0-135" class="i">+
+</a><a href="#h10-0-136" id="h10-0-136" class="i">+# Right prompt with exit status of previous command if not successful
+</a><a href="#h10-0-137" id="h10-0-137" class="i">+ #RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot; 
+</a><a href="#h10-0-138" id="h10-0-138" class="i">+# Right prompt with exit status of previous command marked with ✓ or ✗
+</a><a href="#h10-0-139" id="h10-0-139" class="i">+ #RPROMPT=&quot;%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})&quot;
+</a><a href="#h10-0-140" id="h10-0-140" class="i">+
+</a><a href="#h10-0-141" id="h10-0-141" class="i">+
+</a><a href="#h10-0-142" id="h10-0-142" class="i">+# Color man pages
+</a><a href="#h10-0-143" id="h10-0-143" class="i">+export LESS_TERMCAP_mb=$&#39;\E[01;32m&#39;
+</a><a href="#h10-0-144" id="h10-0-144" class="i">+export LESS_TERMCAP_md=$&#39;\E[01;32m&#39;
+</a><a href="#h10-0-145" id="h10-0-145" class="i">+export LESS_TERMCAP_me=$&#39;\E[0m&#39;
+</a><a href="#h10-0-146" id="h10-0-146" class="i">+export LESS_TERMCAP_se=$&#39;\E[0m&#39;
+</a><a href="#h10-0-147" id="h10-0-147" class="i">+export LESS_TERMCAP_so=$&#39;\E[01;47;34m&#39;
+</a><a href="#h10-0-148" id="h10-0-148" class="i">+export LESS_TERMCAP_ue=$&#39;\E[0m&#39;
+</a><a href="#h10-0-149" id="h10-0-149" class="i">+export LESS_TERMCAP_us=$&#39;\E[01;36m&#39;
+</a><a href="#h10-0-150" id="h10-0-150" class="i">+export LESS=-r
+</a><a href="#h10-0-151" id="h10-0-151" class="i">+
+</a><a href="#h10-0-152" id="h10-0-152" class="i">+
+</a><a href="#h10-0-153" id="h10-0-153" class="i">+## Plugins section: Enable fish style features
+</a><a href="#h10-0-154" id="h10-0-154" class="i">+# Use syntax highlighting
+</a><a href="#h10-0-155" id="h10-0-155" class="i">+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</a><a href="#h10-0-156" id="h10-0-156" class="i">+# Use history substring search
+</a><a href="#h10-0-157" id="h10-0-157" class="i">+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+</a><a href="#h10-0-158" id="h10-0-158" class="i">+# bind UP and DOWN arrow keys to history substring search
+</a><a href="#h10-0-159" id="h10-0-159" class="i">+zmodload zsh/terminfo
+</a><a href="#h10-0-160" id="h10-0-160" class="i">+bindkey &quot;$terminfo[kcuu1]&quot; history-substring-search-up
+</a><a href="#h10-0-161" id="h10-0-161" class="i">+bindkey &quot;$terminfo[kcud1]&quot; history-substring-search-down
+</a><a href="#h10-0-162" id="h10-0-162" class="i">+bindkey &#39;^[[A&#39; history-substring-search-up			
+</a><a href="#h10-0-163" id="h10-0-163" class="i">+bindkey &#39;^[[B&#39; history-substring-search-down
+</a><a href="#h10-0-164" id="h10-0-164" class="i">+
+</a><a href="#h10-0-165" id="h10-0-165" class="i">+# Apply different settigns for different terminals
+</a><a href="#h10-0-166" id="h10-0-166" class="i">+case $(basename &quot;$(cat &quot;/proc/$PPID/comm&quot;)&quot;) in
+</a><a href="#h10-0-167" id="h10-0-167" class="i">+  login)
+</a><a href="#h10-0-168" id="h10-0-168" class="i">+    	RPROMPT=&quot;%{$fg[red]%} %(?..[%?])&quot; 
+</a><a href="#h10-0-169" id="h10-0-169" class="i">+    	alias x=&#39;startx ~/.xinitrc&#39;      # Type name of desired desktop after x, xinitrc is configured for it
+</a><a href="#h10-0-170" id="h10-0-170" class="i">+    ;;
+</a><a href="#h10-0-171" id="h10-0-171" class="i">+#  &#39;tmux: server&#39;)
+</a><a href="#h10-0-172" id="h10-0-172" class="i">+#        RPROMPT=&#39;$(git_prompt_string)&#39;
+</a><a href="#h10-0-173" id="h10-0-173" class="i">+#		## Base16 Shell color themes.
+</a><a href="#h10-0-174" id="h10-0-174" class="i">+#		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
+</a><a href="#h10-0-175" id="h10-0-175" class="i">+#		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
+</a><a href="#h10-0-176" id="h10-0-176" class="i">+#		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
+</a><a href="#h10-0-177" id="h10-0-177" class="i">+#		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
+</a><a href="#h10-0-178" id="h10-0-178" class="i">+#		#solarized, summerfruit, tomorrow, twilight
+</a><a href="#h10-0-179" id="h10-0-179" class="i">+#		#theme=&quot;eighties&quot;
+</a><a href="#h10-0-180" id="h10-0-180" class="i">+#		#Possible variants: dark and light
+</a><a href="#h10-0-181" id="h10-0-181" class="i">+#		#shade=&quot;dark&quot;
+</a><a href="#h10-0-182" id="h10-0-182" class="i">+#		#BASE16_SHELL=&quot;/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh&quot;
+</a><a href="#h10-0-183" id="h10-0-183" class="i">+#		#[[ -s $BASE16_SHELL ]] &amp;&amp; source $BASE16_SHELL
+</a><a href="#h10-0-184" id="h10-0-184" class="i">+#		# Use autosuggestion
+</a><a href="#h10-0-185" id="h10-0-185" class="i">+#		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+</a><a href="#h10-0-186" id="h10-0-186" class="i">+#		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+</a><a href="#h10-0-187" id="h10-0-187" class="i">+#  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=8&#39;
+</a><a href="#h10-0-188" id="h10-0-188" class="i">+#     ;;
+</a><a href="#h10-0-189" id="h10-0-189" class="i">+  *)
+</a><a href="#h10-0-190" id="h10-0-190" class="i">+        RPROMPT=&#39;$(git_prompt_string)&#39;
+</a><a href="#h10-0-191" id="h10-0-191" class="i">+		# Use autosuggestion
+</a><a href="#h10-0-192" id="h10-0-192" class="i">+		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+</a><a href="#h10-0-193" id="h10-0-193" class="i">+		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+</a><a href="#h10-0-194" id="h10-0-194" class="i">+  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=8&#39;
+</a><a href="#h10-0-195" id="h10-0-195" class="i">+    ;;
+</a><a href="#h10-0-196" id="h10-0-196" class="i">+esac
+</a></pre>
+</div>
+</body>
+</html>

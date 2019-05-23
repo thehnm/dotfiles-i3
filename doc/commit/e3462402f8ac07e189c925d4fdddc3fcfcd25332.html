@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Merge branch &#39;master&#39; of https://github.com/thehnm/dotfiles-i3 - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/e3462402f8ac07e189c925d4fdddc3fcfcd25332.html">e3462402f8ac07e189c925d4fdddc3fcfcd25332</a>
+<b>parent</b> <a href="../commit/73d5c7d17f13cf480d5697f802dde20420c3f89a.html">73d5c7d17f13cf480d5697f802dde20420c3f89a</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:thehnm">thehnm</a>&gt;
+<b>Date:</b>   Sat, 20 Oct 2018 18:44:32 +0200
+
+Merge branch &#39;master&#39; of https://github.com/thehnm/dotfiles-i3
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">README.md</a></td><td> | </td><td class="num">44</td><td><span class="i">++++++++++++++++++++++++++</span><span class="d">------------------</span></td></tr>
+</table></pre><pre>2 files changed, 27 insertions(+), 18 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,3 +1,4 @@
+</a> bookmarks
+ .uuid
+ uuid
+<a href="#h0-0-3" id="h0-0-3" class="i">+settings.ini
+</a><b>diff --git a/<a id="h1" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -2,52 +2,66 @@
+</a> 
+ ## Manjaro installation command 
+ ```
+<a href="#h1-0-3" id="h1-0-3" class="d">-sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl dialog wpa_actiond yay 
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+sudo pacman -S i3 rofi dunst manjaro-zsh-config gnome-keyring compton pass playerctl ttf-dejavu ctags
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+sudo pacman -S texlive-most nitrogen stow vim lxappearance w3m mupdf polybar libmpdclient cmake netctl
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+sudo pacman -S dialog wpa_actiond yay
+</a> yay -S i3lock-color 
+ ```
+ 
+ ## Arch Linux installation command
+ 
+<a href="#h1-0-12" id="h1-0-12" class="d">-#### `pacstrap` command
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+1. `pacstrap` command
+</a> ```
+ pacstrap /mnt base base-devel vim
+ ```
+ 
+<a href="#h1-0-18" id="h1-0-18" class="d">-#### Install this after entering `arch-chroot /mnt`
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+2. Install this after entering `arch-chroot /mnt`
+</a> ```
+<a href="#h1-0-21" id="h1-0-21" class="d">-pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+pacman -S i3 rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+pacman -S termite network-manager-applet xorg-server xorg-xinit
+</a> ```
+ 
+<a href="#h1-0-26" id="h1-0-26" class="d">-#### Enable `networkmanager` and `lightdm`
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+3. Start `i3` whenever you login
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+```
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+echo exec i3 &gt;&gt; ~/.xinitrc
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+```
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+4. Enable `networkmanager` and `lightdm`
+</a> ```
+ systemctl enable NetworkManager
+ systemctl enable lightdm.service
+ ```
+ 
+<a href="#h1-0-38" id="h1-0-38" class="d">-#### Install necessary software for this rice after rebooting
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+5. Install necessary software for this rice after rebooting
+</a> ```
+<a href="#h1-0-41" id="h1-0-41" class="d">-sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen lxappearance mupdf libmpdclient dialog udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+sudo pacman -S dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+sudo pacman -S udiskie alsa-utils openssh pulseaudio pavucontrol otf-ipafont
+</a><a href="#h1-0-44" id="h1-0-44" class="i">+sudo pacman -S lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter
+</a> ```
+ 
+<a href="#h1-0-47" id="h1-0-47" class="d">-#### Install `zsh` plugins
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+6. Install `zsh` plugins
+</a> ```
+ sudo pacman -S zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting 
+ ```
+ 
+<a href="#h1-0-53" id="h1-0-53" class="d">-#### Install `texlive` packages
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+7. Install `texlive` packages
+</a> ```
+ sudo pacman -S texlive-most 
+ ```
+ 
+<a href="#h1-0-59" id="h1-0-59" class="d">-#### Install `yay` aur helper
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+8. Install `yay` AUR helper
+</a> ```
+ git clone https://aur.archlinux.org/yay.git /tmp/yay
+ cd /tmp/yay
+ makepkg -si
+<a href="#h1-0-65" id="h1-0-65" class="d">-yay -S i3lock-color polybar
+</a> ```
+ 
+<a href="#h1-0-68" id="h1-0-68" class="d">-#### Fix `polybar` audio control
+</a><a href="#h1-0-69" id="h1-0-69" class="i">+9. Install packages from AUR
+</a><a href="#h1-0-70" id="h1-0-70" class="i">+```
+</a><a href="#h1-0-71" id="h1-0-71" class="i">+yay -S i3lock-color polybar lightdm-webkit-theme-aether
+</a><a href="#h1-0-72" id="h1-0-72" class="i">+```
+</a><a href="#h1-0-73" id="h1-0-73" class="i">+
+</a><a href="#h1-0-74" id="h1-0-74" class="i">+10. Fix `polybar` audio control
+</a> ```
+ cd /etc/pulse
+ sudo vim client.conf
+<a href="#h1-1" id="h1-1" class="h">@@ -89,9 +103,3 @@ cd /usr/share/git/credential/gnome-keyring
+</a> sudo make
+ git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+ ```
+<a href="#h1-1-3" id="h1-1-3" class="d">-
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-## [Tentative] `lightdm-webkit2-greeter`
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-```
+</a><a href="#h1-1-6" id="h1-1-6" class="d">-sudo pacman -S lightdm-webkit2-greeter
+</a><a href="#h1-1-7" id="h1-1-7" class="d">-yay -S lightdm-webkit-theme-aether
+</a><a href="#h1-1-8" id="h1-1-8" class="d">-```
+</a></pre>
+</div>
+</body>
+</html>

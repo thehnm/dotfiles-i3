@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/cc4c3fed8311ac985496041b7ad7bdf0164d179c.html">cc4c3fed8311ac985496041b7ad7bdf0164d179c</a>
+<b>parent</b> <a href="../commit/a532c1e6ec87f514ad9b4cb350f4b07bac730a4c.html">a532c1e6ec87f514ad9b4cb350f4b07bac730a4c</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:36209025+thehnm@users.noreply.github.com">36209025+thehnm@users.noreply.github.com</a>&gt;
+<b>Date:</b>   Thu, 29 Nov 2018 13:23:54 +0100
+
+Update config
+
+Change focus window, move window and resize window key bindings to vim-like keybindings. Remove dmenu bindings.
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">27</td><td><span class="i">++++++++++++</span><span class="d">---------------</span></td></tr>
+</table></pre><pre>1 file changed, 12 insertions(+), 15 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -23,17 +23,14 @@ bindsym $mod+Return exec i3-sensible-terminal
+</a> # Kill focused window
+ bindsym $mod+Shift+q kill
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-# Start dmenu
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-#2bindsym $mod+d exec --no-startup-id dmenu_run
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-
+</a> # Start rofi
+ bindsym $mod+d exec rofi -show drun
+ 
+ # Change focus
+<a href="#h0-0-10" id="h0-0-10" class="d">-bindsym $mod+j focus left
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-bindsym $mod+k focus down
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-bindsym $mod+l focus up
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-bindsym $mod+odiaeresis focus right
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+bindsym $mod+h focus left
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+bindsym $mod+j focus down
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+bindsym $mod+k focus up
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+bindsym $mod+l focus right
+</a> 
+ # Alternatively, you can use the cursor keys:
+ bindsym $mod+Left focus left
+<a href="#h0-1" id="h0-1" class="h">@@ -42,10 +39,10 @@ bindsym $mod+Up focus up
+</a> bindsym $mod+Right focus right
+ 
+ # Move focused window
+<a href="#h0-1-3" id="h0-1-3" class="d">-bindsym $mod+Shift+j move left
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-bindsym $mod+Shift+k move down
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-bindsym $mod+Shift+l move up
+</a><a href="#h0-1-6" id="h0-1-6" class="d">-bindsym $mod+Shift+odiaeresis move right
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+bindsym $mod+Shift+h move left
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+bindsym $mod+Shift+j move down
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+bindsym $mod+Shift+k move up
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+bindsym $mod+Shift+l move right
+</a> 
+ # Alternatively, you can use the cursor keys:
+ bindsym $mod+Shift+Left move left
+<a href="#h0-2" id="h0-2" class="h">@@ -128,10 +125,10 @@ mode &quot;resize&quot; {
+</a>         # Pressing right will grow the window’s width.
+         # Pressing up will shrink the window’s height.
+         # Pressing down will grow the window’s height.
+<a href="#h0-2-3" id="h0-2-3" class="d">-        bindsym j resize shrink width 10 px or 10 ppt
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-        bindsym k resize grow height 10 px or 10 ppt
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-        bindsym l resize shrink height 10 px or 10 ppt
+</a><a href="#h0-2-6" id="h0-2-6" class="d">-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+</a><a href="#h0-2-7" id="h0-2-7" class="i">+        bindsym h resize shrink width 10 px or 10 ppt
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+        bindsym j resize grow height 10 px or 10 ppt
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+        bindsym k resize shrink height 10 px or 10 ppt
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+        bindsym l resize grow width 10 px or 10 ppt
+</a> 
+         # same bindings, but for the arrow keys
+         bindsym Left resize shrink width 10 px or 10 ppt
+</pre>
+</div>
+</body>
+</html>

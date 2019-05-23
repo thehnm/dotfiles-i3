@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update arch_bootstrap.sh - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/e005322c1d229c01fc22e70d6f4adfda0191f45f.html">e005322c1d229c01fc22e70d6f4adfda0191f45f</a>
+<b>parent</b> <a href="../commit/09cfcfa6f27c5786aef9377fd88c398d3307abfa.html">09cfcfa6f27c5786aef9377fd88c398d3307abfa</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 13:04:59 +0200
+
+Update arch_bootstrap.sh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 1 insertion(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -104,7 +104,7 @@ read -p &quot;Enter desired hostname: &quot; hostname
+</a> echo $hostname &gt;&gt; /etc/hostname
+ echo 127.0.0.1  localhost &gt;&gt; /etc/hosts
+ echo ::1	localhost &gt;&gt; /etc/hosts
+<a href="#h0-0-3" id="h0-0-3" class="d">-echo 127.0.1.1	$hostname.localdomain	$hostname
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+echo 127.0.1.1	$hostname.localdomain	$hostname &gt;&gt; /etc/hosts
+</a> 
+ echo #####################################################################################################################
+ 
+</pre>
+</div>
+</body>
+</html>

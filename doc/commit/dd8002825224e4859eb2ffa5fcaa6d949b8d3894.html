@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Clean i3 config and update i3blocks config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/dd8002825224e4859eb2ffa5fcaa6d949b8d3894.html">dd8002825224e4859eb2ffa5fcaa6d949b8d3894</a>
+<b>parent</b> <a href="../commit/300538a4e70898f6c26c2ed2bd12bbb3dc54fedd.html">300538a4e70898f6c26c2ed2bd12bbb3dc54fedd</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Fri,  5 Oct 2018 10:52:00 +0200
+
+Clean i3 config and update i3blocks config
+
+Remove unnecessary comments in the i3 config, add a new command behind each audio control command to kill current i3blocks session and start a new one. Change update interval
+of volume section in i3blocks config.
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">59</td><td><span class="i">++++++++++++++++++++</span><span class="d">---------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/i3/i3blocks.conf</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>2 files changed, 21 insertions(+), 40 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -11,87 +11,68 @@
+</a> 
+ set $mod Mod1
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-# Font for window titles. Will also be used by the bar unless a different font
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-# is used in the bar {} block below.
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-#font pango:monospace 10
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-# This font is widely installed, provides lots of unicode glyphs, right-to-left
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+# Set window title font and bar font unless not set in bar{]
+</a> font pango:DejaVu Sans Mono 10
+ 
+<a href="#h0-0-12" id="h0-0-12" class="d">-# Before i3 v4.8, we used to recommend this one as the default:
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-# The font above is very space-efficient, that is, it looks good, sharp and
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-# clear in small sizes. However, its unicode glyph coverage is limited, the old
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-# X core fonts rendering does not support right-to-left and this being a bitmap
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-# font, it doesn’t scale on retina/hidpi displays.
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-
+</a> # Use Mouse+$mod to drag floating windows to their wanted position
+ floating_modifier $mod
+ 
+<a href="#h0-0-22" id="h0-0-22" class="d">-# start a terminal
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+# Start a terminal
+</a> bindsym $mod+Return exec i3-sensible-terminal
+ 
+<a href="#h0-0-26" id="h0-0-26" class="d">-# kill focused window
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+# Kill focused window
+</a> bindsym $mod+Shift+q kill
+ 
+<a href="#h0-0-30" id="h0-0-30" class="d">-# start rofi
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+# Start rofi
+</a> bindsym $mod+d exec rofi -show drun
+<a href="#h0-0-33" id="h0-0-33" class="d">-# There also is the (new) i3-dmenu-desktop which only displays applications
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-# installed.
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+</a> 
+<a href="#h0-0-38" id="h0-0-38" class="d">-# change focus
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+# Change focus
+</a> bindsym $mod+j focus left
+ bindsym $mod+k focus down
+ bindsym $mod+l focus up
+ bindsym $mod+odiaeresis focus right
+ 
+<a href="#h0-0-45" id="h0-0-45" class="d">-# alternatively, you can use the cursor keys:
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+# Alternatively, you can use the cursor keys:
+</a> bindsym $mod+Left focus left
+ bindsym $mod+Down focus down
+ bindsym $mod+Up focus up
+ bindsym $mod+Right focus right
+ 
+<a href="#h0-0-52" id="h0-0-52" class="d">-# move focused window
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+# Move focused window
+</a> bindsym $mod+Shift+j move left
+ bindsym $mod+Shift+k move down
+ bindsym $mod+Shift+l move up
+ bindsym $mod+Shift+odiaeresis move right
+ 
+<a href="#h0-0-59" id="h0-0-59" class="d">-# alternatively, you can use the cursor keys:
+</a><a href="#h0-0-60" id="h0-0-60" class="i">+# Alternatively, you can use the cursor keys:
+</a> bindsym $mod+Shift+Left move left
+ bindsym $mod+Shift+Down move down
+ bindsym $mod+Shift+Up move up
+ bindsym $mod+Shift+Right move right
+ 
+<a href="#h0-0-66" id="h0-0-66" class="d">-# split in horizontal orientation
+</a><a href="#h0-0-67" id="h0-0-67" class="i">+# Split in horizontal orientation
+</a> bindsym $mod+h split h
+ 
+<a href="#h0-0-70" id="h0-0-70" class="d">-# split in vertical orientation
+</a><a href="#h0-0-71" id="h0-0-71" class="i">+# Split in vertical orientation
+</a> bindsym $mod+v split v
+ 
+<a href="#h0-0-74" id="h0-0-74" class="d">-# enter fullscreen mode for the focused container
+</a><a href="#h0-0-75" id="h0-0-75" class="i">+# Enter fullscreen mode for the focused container
+</a> bindsym $mod+f fullscreen toggle
+ 
+<a href="#h0-0-78" id="h0-0-78" class="d">-# change container layout (stacked, tabbed, toggle split)
+</a><a href="#h0-0-79" id="h0-0-79" class="i">+# Change container layout (stacked, tabbed, toggle split)
+</a> bindsym $mod+s layout stacking
+ bindsym $mod+w layout tabbed
+ bindsym $mod+e layout toggle split
+ 
+<a href="#h0-0-84" id="h0-0-84" class="d">-# toggle tiling / floating
+</a><a href="#h0-0-85" id="h0-0-85" class="i">+# Toggle tiling / floating
+</a> bindsym $mod+Shift+space floating toggle
+ 
+<a href="#h0-0-88" id="h0-0-88" class="d">-# change focus between tiling / floating windows
+</a><a href="#h0-0-89" id="h0-0-89" class="i">+# Change focus between tiling / floating windows
+</a> bindsym $mod+space focus mode_toggle
+ 
+<a href="#h0-0-92" id="h0-0-92" class="d">-# focus the parent container
+</a><a href="#h0-0-93" id="h0-0-93" class="i">+# Focus the parent container
+</a> bindsym $mod+a focus parent
+ 
+<a href="#h0-0-96" id="h0-0-96" class="d">-# focus the child container
+</a><a href="#h0-0-97" id="h0-0-97" class="d">-#bindsym $mod+d focus child
+</a><a href="#h0-0-98" id="h0-0-98" class="d">-
+</a> # Define names for default workspaces for which we configure key bindings later on.
+ # We use variables to avoid repeating the names in multiple places.
+ set $ws1 &quot;1&quot;
+<a href="#h0-1" id="h0-1" class="h">@@ -217,9 +198,9 @@ bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
+</a> bindsym $mod+Shift+x exec i3lock
+ 
+ # ----- Audio control -----
+<a href="#h0-1-3" id="h0-1-3" class="d">-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # exec pkill -RTMIN+10 i3blocks
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1%; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+10 i3blocks
+</a> 
+ # ----- Audioplayer control -----
+ bindsym $mod+Shift+p exec --no-startup-id playerctl play-pause
+<a href="#h0-2" id="h0-2" class="h">@@ -227,5 +208,5 @@ bindsym $mod+Shift+n exec --no-startup-id playerctl next
+</a> bindsym $mod+Shift+m exec --no-startup-id playerctl previous
+ 
+ # ----- Screen brightness -----
+<a href="#h0-2-3" id="h0-2-3" class="d">-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a> b/<a href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -38,7 +38,7 @@ label=VOL
+</a> #label=♪
+ instance=Master
+ #instance=PCM
+<a href="#h1-0-3" id="h1-0-3" class="d">-interval=1
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+interval=once
+</a> signal=10
+ 
+ # Memory usage
+</pre>
+</div>
+</body>
+</html>

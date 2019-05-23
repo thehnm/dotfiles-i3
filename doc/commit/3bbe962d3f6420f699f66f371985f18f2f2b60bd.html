@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Fix syntax highlighting in latex - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/3bbe962d3f6420f699f66f371985f18f2f2b60bd.html">3bbe962d3f6420f699f66f371985f18f2f2b60bd</a>
+<b>parent</b> <a href="../commit/f042faa0264b8fb5f940bd2dff0e18a84360c3ba.html">f042faa0264b8fb5f940bd2dff0e18a84360c3ba</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Sun, 20 Jan 2019 22:04:25 +0100
+
+Fix syntax highlighting in latex
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.vimrc</a></td><td> | </td><td class="num">22</td><td><span class="i">++++++++</span><span class="d">--------------</span></td></tr>
+</table></pre><pre>1 file changed, 8 insertions(+), 14 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -12,9 +12,7 @@ Plugin &#39;w0rp/ale&#39;
+</a> Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+ Plugin &#39;airblade/vim-gitgutter&#39;
+ Plugin &#39;ntpeters/vim-better-whitespace&#39;
+<a href="#h0-0-3" id="h0-0-3" class="d">-Plugin &#39;Konfekt/FastFold&#39;
+</a> Plugin &#39;jlanzarotta/bufexplorer&#39;
+<a href="#h0-0-5" id="h0-0-5" class="d">-Plugin &#39;jonathanfilip/vim-lucius&#39;
+</a> 
+ call vundle#end()
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -23,6 +21,7 @@ let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+</a> let g:Tex_CompileRule_dvi = &#39;latex -interaction=nonstopmode $*&#39;
+ let g:Tex_ViewRule_pdf = &#39;zathura&#39;
+ let g:Tex_MultipleCompileFormats=&#39;pdf,bib,pdf&#39;
+<a href="#h0-1-3" id="h0-1-3" class="i">+let g:tex_no_error=1
+</a> 
+ &quot; ----- w0rp/ale -----
+ let g:ale_sign_error = &#39;&#39;
+<a href="#h0-2" id="h0-2" class="h">@@ -32,13 +31,6 @@ let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;]}
+</a> &quot; ----- ntpeters/vim-better-whitespace -----
+ let g:better_whitespace_enabled=1
+ 
+<a href="#h0-2-3" id="h0-2-3" class="d">-&quot; ----- Konfekt/FastFold -----
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-nmap zuz &lt;Plug&gt;(FastFoldUpdate)
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-let g:fastfold_savehook = 1
+</a><a href="#h0-2-6" id="h0-2-6" class="d">-let g:fastfold_fold_command_suffixes =  [&#39;x&#39;,&#39;X&#39;,&#39;a&#39;,&#39;A&#39;,&#39;o&#39;,&#39;O&#39;,&#39;c&#39;,&#39;C&#39;]
+</a><a href="#h0-2-7" id="h0-2-7" class="d">-let g:fastfold_fold_movement_commands = [&#39;]z&#39;, &#39;[z&#39;, &#39;zj&#39;, &#39;zk&#39;]
+</a><a href="#h0-2-8" id="h0-2-8" class="d">-let g:tex_fold_enabled = 1
+</a><a href="#h0-2-9" id="h0-2-9" class="d">-
+</a> &quot; -----------------------------------------------------------------------------
+ &quot; Mappings
+ 
+<a href="#h0-3" id="h0-3" class="h">@@ -105,10 +97,13 @@ set shiftround
+</a> &quot; -----------------------------------------------------------------------------
+ &quot; Options
+ 
+<a href="#h0-3-3" id="h0-3-3" class="i">+&quot; Latex Suite 1.5 wants it
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+&quot; REQUIRED. This makes vim invoke latex-suite when you open a tex file.
+</a><a href="#h0-3-5" id="h0-3-5" class="i">+
+</a><a href="#h0-3-6" id="h0-3-6" class="i">+filetype plugin indent on
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+
+</a> &quot; Syntax highlightning, but only for color terminals.
+ set t_Co=256
+<a href="#h0-3-10" id="h0-3-10" class="d">-colo default
+</a><a href="#h0-3-11" id="h0-3-11" class="d">-colo ron
+</a> syntax on
+ 
+ &quot; Set vertical split bar to continous line
+<a href="#h0-4" id="h0-4" class="h">@@ -126,9 +121,6 @@ set showmatch
+</a> &quot; Keep the horizontal cursor position when moving vertically
+ set nostartofline
+ 
+<a href="#h0-4-3" id="h0-4-3" class="d">-&quot; Latex Suite 1.5 wants it
+</a><a href="#h0-4-4" id="h0-4-4" class="d">-&quot; REQUIRED. This makes vim invoke latex-suite when you open a tex file.
+</a><a href="#h0-4-5" id="h0-4-5" class="d">-filetype plugin on
+</a> 
+ &quot; Highlight all search matches and toggle it with F3
+ set hlsearch!
+<a href="#h0-5" id="h0-5" class="h">@@ -144,3 +136,5 @@ set incsearch
+</a> set autoindent
+ 
+ hi clear SignColumn
+<a href="#h0-5-3" id="h0-5-3" class="i">+
+</a><a href="#h0-5-4" id="h0-5-4" class="i">+set showcmd
+</a></pre>
+</div>
+</body>
+</html>

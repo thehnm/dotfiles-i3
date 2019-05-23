@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Rename status display - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/91ac737da2183a8e2bcc4a3803710791ce13305d.html">91ac737da2183a8e2bcc4a3803710791ce13305d</a>
+<b>parent</b> <a href="../commit/977ecff606b7f084b42b61e3d867686c53f8c6d4.html">977ecff606b7f084b42b61e3d867686c53f8c6d4</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Wed, 22 May 2019 22:42:49 +0200
+
+Rename status display
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/scripts/battery</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/i3/scripts/ethernet</a></td><td> | </td><td class="num">5</td><td><span class="i">++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">config.stow/.config/i3/scripts/vpn</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+</table></pre><pre>3 files changed, 5 insertions(+), 6 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/scripts/battery.html">config.stow/.config/i3/scripts/battery</a> b/<a href="../file/config.stow/.config/i3/scripts/battery.html">config.stow/.config/i3/scripts/battery</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -11,4 +11,4 @@ fi
+</a> 
+ [ &quot;$status&quot; = &quot;Charging&quot; ] &amp;&amp; color=&quot;#8c9440&quot;
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-echo &quot;&lt;span color=&#39;$color&#39;&gt;$status $capacity%&lt;/span&gt;&quot; | sed -e &quot;s/Discharging/dis/g;s/Charging/chr/g&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+echo &quot;&lt;span color=&#39;$color&#39;&gt;$status $capacity%&lt;/span&gt;&quot; | sed -e &quot;s/Discharging/dischr/g;s/Charging/chr/g&quot;
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/scripts/ethernet.html">config.stow/.config/i3/scripts/ethernet</a> b/<a href="../file/config.stow/.config/i3/scripts/ethernet.html">config.stow/.config/i3/scripts/ethernet</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,6 +1,5 @@
+</a> #!/bin/sh
+ 
+<a href="#h1-0-2" id="h1-0-2" class="d">-carrierstate=$(cat /sys/class/net/e*/carrier)
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-[ &quot;$carrierstate&quot; = &quot;0&quot; ] &amp;&amp; exit
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+[ &quot;$(cat /sys/class/net/e*/carrier)&quot; = &quot;0&quot; ] &amp;&amp; echo &quot;discon&quot; &amp;&amp; exit
+</a> 
+<a href="#h1-0-6" id="h1-0-6" class="d">-echo &quot;Connected&quot;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+echo &quot;con&quot;
+</a><b>diff --git a/<a id="h2" href="../file/config.stow/.config/i3/scripts/vpn.html">config.stow/.config/i3/scripts/vpn</a> b/<a href="../file/config.stow/.config/i3/scripts/vpn.html">config.stow/.config/i3/scripts/vpn</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -9,7 +9,7 @@ esac
+</a> connected=$(expressvpn status | sed &quot;s/^\[//g&quot; | sed &quot;s/\[.*m//g&quot;)
+ 
+ if [ &quot;$connected&quot; = &quot;Not connected&quot; ]; then
+<a href="#h2-0-3" id="h2-0-3" class="d">-    echo &quot;Disconnected&quot; &amp;&amp; exit
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+    echo &quot;discon&quot; &amp;&amp; exit
+</a> fi
+ 
+<a href="#h2-0-7" id="h2-0-7" class="d">-echo &quot;Connected&quot;
+</a><a href="#h2-0-8" id="h2-0-8" class="i">+echo &quot;con&quot;
+</a></pre>
+</div>
+</body>
+</html>

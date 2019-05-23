@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Switch buffer mappings - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/542508d17f79cf5df3b234505229c25f79ee6193.html">542508d17f79cf5df3b234505229c25f79ee6193</a>
+<b>parent</b> <a href="../commit/1497d197595fb9b3327de2bebfaab23cf4274ef4.html">1497d197595fb9b3327de2bebfaab23cf4274ef4</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Tue,  9 Oct 2018 15:48:57 +0200
+
+Switch buffer mappings
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.vimrc</a></td><td> | </td><td class="num">20</td><td><span class="i">++++++</span><span class="d">--------------</span></td></tr>
+</table></pre><pre>1 file changed, 6 insertions(+), 14 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -137,14 +137,14 @@ endif
+</a> set updatetime=500
+ 
+ &quot; Switch buffers quickly
+<a href="#h0-0-3" id="h0-0-3" class="d">-map &lt;leader&gt;q : bn&lt;CR&gt;
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-map &lt;leader&gt;w : bp&lt;CR&gt;
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+map &lt;leader&gt;q : bp&lt;CR&gt;
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+map &lt;leader&gt;w : bn&lt;CR&gt;
+</a> 
+ &quot; Switch windows quicker
+<a href="#h0-0-9" id="h0-0-9" class="d">-:nmap &lt;silent&gt; &lt;C-h&gt; :wincmd h&lt;CR&gt;
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-:nmap &lt;silent&gt; &lt;C-j&gt; :wincmd j&lt;CR&gt;
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-:nmap &lt;silent&gt; &lt;C-k&gt; :wincmd k&lt;CR&gt;
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-:nmap &lt;silent&gt; &lt;C-l&gt; :wincmd l&lt;CR&gt;
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+map &lt;silent&gt; &lt;C-h&gt; :wincmd h&lt;CR&gt;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+map &lt;silent&gt; &lt;C-j&gt; :wincmd j&lt;CR&gt;
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+map &lt;silent&gt; &lt;C-k&gt; :wincmd k&lt;CR&gt;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+map &lt;silent&gt; &lt;C-l&gt; :wincmd l&lt;CR&gt;
+</a> 
+ &quot; Colours in xterm
+ map &lt;F3&gt; :se t_Co=16&lt;C-M&gt;:se t_AB=&lt;C-V&gt;&lt;ESC&gt;[%?%p1%{8}%&lt;%t%p1%{40}%+%e%p1%{92}%+%;%dm&lt;C-V&gt;&lt;C-M&gt;:se t_AF=&lt;C-V&gt;&lt;ESC&gt;[%?%p1%{8}%&lt;%t%p1%{30}%+%e%p1%{82}%+%;%dm&lt;C-V&gt;&lt;C-M&gt;
+<a href="#h0-1" id="h0-1" class="h">@@ -235,14 +235,6 @@ endfunction
+</a> inoremap &lt;tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;forward&quot;)&lt;cr&gt;
+ inoremap &lt;s-tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;backward&quot;)&lt;cr&gt;
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-&quot; Cycling through Windows quicker
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-map &lt;C-M&gt; &lt;C-W&gt;j&lt;C-W&gt;_
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-map &lt;C-K&gt; &lt;C-W&gt;k&lt;C-W&gt;_
+</a><a href="#h0-1-6" id="h0-1-6" class="d">-map &lt;A-Down&gt;  &lt;C-W&gt;&lt;Down&gt;&lt;C-W&gt;_
+</a><a href="#h0-1-7" id="h0-1-7" class="d">-map &lt;A-Up&gt;    &lt;C-W&gt;&lt;Up&gt;&lt;C-W&gt;_
+</a><a href="#h0-1-8" id="h0-1-8" class="d">-map &lt;A-Left&gt;  &lt;C-W&gt;&lt;Left&gt;&lt;C-W&gt;|
+</a><a href="#h0-1-9" id="h0-1-9" class="d">-map &lt;A-Right&gt; &lt;C-W&gt;&lt;Right&gt;&lt;C-W&gt;|
+</a><a href="#h0-1-10" id="h0-1-10" class="d">-
+</a> &quot; Do not show any line of minimized windows
+ set wmh=0
+ 
+</pre>
+</div>
+</body>
+</html>

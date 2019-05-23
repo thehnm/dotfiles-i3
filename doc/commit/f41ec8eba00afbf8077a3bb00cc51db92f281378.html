@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update README - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/f41ec8eba00afbf8077a3bb00cc51db92f281378.html">f41ec8eba00afbf8077a3bb00cc51db92f281378</a>
+<b>parent</b> <a href="../commit/6db494baab8bccd91952e35ae9872ed429aae6b1.html">6db494baab8bccd91952e35ae9872ed429aae6b1</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Fri,  2 Nov 2018 23:44:30 +0100
+
+Update README
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">80</td><td><span class="i">++</span><span class="d">-----------------------------------------------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">docs/index.md</a></td><td> | </td><td class="num">83</td><td><span class="i">+++++</span><span class="d">--------------------------------------------------------------------------</span></td></tr>
+</table></pre><pre>2 files changed, 7 insertions(+), 156 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,85 +1,9 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-# thehnm&#39;s Arch Linux rice installation script
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+# thehnm&#39;s i3 dotfiles
+</a> 
+ ![base](docs/base.png)
+ 
+ ![neofetch](docs/neofetch.png)
+ 
+<a href="#h0-0-7" id="h0-0-7" class="d">-I created this script to replicate my current Arch Linux setup every time I move to another machine or when I have to reinstall my system. To avoid repeating the same tedious steps when
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-installing Arch Linux I wrote this script that takes over most of the installation.
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-The majority of this script was written by [Luke Smith](https://github.com/LukeSmithxyz) in his Arch Linux installation script [LARBS](https://github.com/LukeSmithxyz/LARBS). All the
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-credits go to him. I only added some features not present in LARBS like hostname configuration or locale configuration.
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-## Installation
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-### Prerequisites
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-The following steps are meant for a system where Arch Linux is about to get installed and no other steps where taken.
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-#### First, you have to partition your system
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-Obviously, this is the first step to do before installing anything.
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-I recommend this partition scheme:
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-| Mount Point | Partition     | File System   | Size |
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-| ------------|:-------------:| -------------:| -------:
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-| /boot       | /dev/sda1     | ext4          | 200-300 MB
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-| /           | /dev/sda3     | ext4          | the rest
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-If youre systems runs on UEFI then this small change is necessary:
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-| Mount Point | Partition     | File System   | Size |
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-| ------------|:-------------:| -------------:| -------:
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-| /boot/efi   | /dev/sda1     | FAT32         | 200-300 MB
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-| /           | /dev/sda3     | ext4          | the rest
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-Some people recommend having a separate /home partition that stores all your user specific configurations. I never had the need for one but you always can create a separate /home partition without changing much of the installation process.
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-#### Install the base Arch Linux system
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-Before you can do that you have to mount the boot and root partitions, like here:
+</a><a href="#h0-0-39" id="h0-0-39" class="d">-```
+</a><a href="#h0-0-40" id="h0-0-40" class="d">-mount /dev/sda3 /mnt
+</a><a href="#h0-0-41" id="h0-0-41" class="d">-mkdir /mnt/boot
+</a><a href="#h0-0-42" id="h0-0-42" class="d">-mount /dev/sda1 /mnt/boot
+</a><a href="#h0-0-43" id="h0-0-43" class="d">-```
+</a><a href="#h0-0-44" id="h0-0-44" class="d">-
+</a><a href="#h0-0-45" id="h0-0-45" class="d">-Then you can issue this command to install the base Arch Linux system:
+</a><a href="#h0-0-46" id="h0-0-46" class="d">-```
+</a><a href="#h0-0-47" id="h0-0-47" class="d">-pacstrap /mnt base base-devel vim
+</a><a href="#h0-0-48" id="h0-0-48" class="d">-```
+</a><a href="#h0-0-49" id="h0-0-49" class="d">-
+</a><a href="#h0-0-50" id="h0-0-50" class="d">-This also installs an editor called vim. You can omit the last package or replace it with anything else.
+</a><a href="#h0-0-51" id="h0-0-51" class="d">-
+</a><a href="#h0-0-52" id="h0-0-52" class="d">-#### Generate fstab file
+</a><a href="#h0-0-53" id="h0-0-53" class="d">-Issue this command to create a fstab file. This file indicates the partitions that will be automatically mounted on startup.
+</a><a href="#h0-0-54" id="h0-0-54" class="d">-```
+</a><a href="#h0-0-55" id="h0-0-55" class="d">-genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</a><a href="#h0-0-56" id="h0-0-56" class="d">-```
+</a><a href="#h0-0-57" id="h0-0-57" class="d">-
+</a><a href="#h0-0-58" id="h0-0-58" class="d">-#### Install my dotfile
+</a><a href="#h0-0-59" id="h0-0-59" class="d">-When the base system is installed then you can change into your installation:
+</a><a href="#h0-0-60" id="h0-0-60" class="d">-```
+</a><a href="#h0-0-61" id="h0-0-61" class="d">-arch-chroot /mnt
+</a><a href="#h0-0-62" id="h0-0-62" class="d">-```
+</a><a href="#h0-0-63" id="h0-0-63" class="d">-
+</a><a href="#h0-0-64" id="h0-0-64" class="d">-Then download my installation script with this command:
+</a><a href="#h0-0-65" id="h0-0-65" class="d">-```
+</a><a href="#h0-0-66" id="h0-0-66" class="d">-curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/install.sh &gt;&gt; install.sh
+</a><a href="#h0-0-67" id="h0-0-67" class="d">-```
+</a><a href="#h0-0-68" id="h0-0-68" class="d">-
+</a><a href="#h0-0-69" id="h0-0-69" class="d">-**Attention** Currently, the locale.conf file will be set with english and german locales. To customize your locales you have to edit my script. Then go to line 268 and
+</a><a href="#h0-0-70" id="h0-0-70" class="d">-change the parameter to your likings. In the future this process will hopefully be obsolete.
+</a><a href="#h0-0-71" id="h0-0-71" class="d">-
+</a><a href="#h0-0-72" id="h0-0-72" class="d">-Make it executable and run it.
+</a><a href="#h0-0-73" id="h0-0-73" class="d">-```
+</a><a href="#h0-0-74" id="h0-0-74" class="d">-chmod ugo+x install.sh
+</a><a href="#h0-0-75" id="h0-0-75" class="d">-./install.sh
+</a><a href="#h0-0-76" id="h0-0-76" class="d">-```
+</a><a href="#h0-0-77" id="h0-0-77" class="d">-
+</a><a href="#h0-0-78" id="h0-0-78" class="d">-That&#39;s it. This script installs my i3 setup that I currently use on my systems and handles other settings you otherwise would have to do.
+</a><a href="#h0-0-79" id="h0-0-79" class="d">-
+</a><a href="#h0-0-80" id="h0-0-80" class="d">-More screenshots from my setup:
+</a> ![termite](docs/termite.png)
+<a href="#h0-0-82" id="h0-0-82" class="d">-![termite](docs/termiteandfirefox.png)
+</a> 
+<a href="#h0-0-84" id="h0-0-84" class="d">-## TODO
+</a><a href="#h0-0-85" id="h0-0-85" class="d">-* Support more Window Managers / Desktop Environments
+</a><a href="#h0-0-86" id="h0-0-86" class="i">+![termite](docs/termiteandfirefox.png)
+</a><b>diff --git a/<a id="h1" href="../file/docs/index.md.html">docs/index.md</a> b/<a href="../file/docs/index.md.html">docs/index.md</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,85 +1,12 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="d">-# thehnm&#39;s Arch Linux rice installation script
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+# thehnm&#39;s i3 dotfiles
+</a> 
+<a href="#h1-0-3" id="h1-0-3" class="d">-![base](base.png)
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+![base](docs/base.png)
+</a> 
+<a href="#h1-0-6" id="h1-0-6" class="d">-![neofetch](neofetch.png)
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+![neofetch](docs/neofetch.png)
+</a> 
+<a href="#h1-0-9" id="h1-0-9" class="d">-I created this script to replicate my current Arch Linux setup every time I move to another machine or when I have to reinstall my system. To avoid repeating the same tedious steps when
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-installing Arch Linux I wrote this script that takes over most of the installation.
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+![termite](docs/termite.png)
+</a> 
+<a href="#h1-0-13" id="h1-0-13" class="d">-The majority of this script was written by [Luke Smith](https://github.com/LukeSmithxyz) in his Arch Linux installation script [LARBS](https://github.com/LukeSmithxyz/LARBS). All the
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-credits go to him. I only added some features not present in LARBS like hostname configuration or locale configuration.
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-## Installation
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-### Prerequisites
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-The following steps are meant for a system where Arch Linux is about to get installed and no other steps where taken.
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-#### First, you have to partition your system
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-Obviously, this is the first step to do before installing anything.
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-I recommend this partition scheme:
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-| Mount Point | Partition     | File System   | Size |
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-| ------------|:-------------:| -------------:| -------:
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-| /boot       | /dev/sda1     | ext4          | 200-300 MB
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-| /           | /dev/sda3     | ext4          | the rest
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-If youre systems runs on UEFI then this small change is necessary:
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-| Mount Point | Partition     | File System   | Size |
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-| ------------|:-------------:| -------------:| -------:
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-| /boot/efi   | /dev/sda1     | FAT32         | 200-300 MB
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-| [swap]      | /dev/sda2     | swap          | 1.5 x the amount of RAM you have
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-| /           | /dev/sda3     | ext4          | the rest
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-Some people recommend having a separate /home partition that stores all your user specific configurations. I never had the need for one but you always can create a separate /home partition without changing much of the installation process.
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-#### Install the base Arch Linux system
+</a><a href="#h1-0-41" id="h1-0-41" class="d">-Before you can do that you have to mount the boot and root partitions, like here:
+</a><a href="#h1-0-42" id="h1-0-42" class="d">-```
+</a><a href="#h1-0-43" id="h1-0-43" class="d">-mount /dev/sda3 /mnt
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-mkdir /mnt/boot
+</a><a href="#h1-0-45" id="h1-0-45" class="d">-mount /dev/sda1 /mnt/boot
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-```
+</a><a href="#h1-0-47" id="h1-0-47" class="d">-
+</a><a href="#h1-0-48" id="h1-0-48" class="d">-Then you can issue this command to install the base Arch Linux system:
+</a><a href="#h1-0-49" id="h1-0-49" class="d">-```
+</a><a href="#h1-0-50" id="h1-0-50" class="d">-pacstrap /mnt base base-devel vim
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-```
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-
+</a><a href="#h1-0-53" id="h1-0-53" class="d">-This also installs an editor called vim. You can omit the last package or replace it with anything else.
+</a><a href="#h1-0-54" id="h1-0-54" class="d">-
+</a><a href="#h1-0-55" id="h1-0-55" class="d">-#### Generate fstab file
+</a><a href="#h1-0-56" id="h1-0-56" class="d">-Issue this command to create a fstab file. This file indicates the partitions that will be automatically mounted on startup.
+</a><a href="#h1-0-57" id="h1-0-57" class="d">-```
+</a><a href="#h1-0-58" id="h1-0-58" class="d">-genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</a><a href="#h1-0-59" id="h1-0-59" class="d">-```
+</a><a href="#h1-0-60" id="h1-0-60" class="d">-
+</a><a href="#h1-0-61" id="h1-0-61" class="d">-#### Install my dotfile
+</a><a href="#h1-0-62" id="h1-0-62" class="d">-When the base system is installed then you can change into your installation:
+</a><a href="#h1-0-63" id="h1-0-63" class="d">-```
+</a><a href="#h1-0-64" id="h1-0-64" class="d">-arch-chroot /mnt
+</a><a href="#h1-0-65" id="h1-0-65" class="d">-```
+</a><a href="#h1-0-66" id="h1-0-66" class="d">-
+</a><a href="#h1-0-67" id="h1-0-67" class="d">-Then download my installation script with this command:
+</a><a href="#h1-0-68" id="h1-0-68" class="d">-```
+</a><a href="#h1-0-69" id="h1-0-69" class="d">-curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/install.sh &gt;&gt; install.sh
+</a><a href="#h1-0-70" id="h1-0-70" class="d">-```
+</a><a href="#h1-0-71" id="h1-0-71" class="d">-
+</a><a href="#h1-0-72" id="h1-0-72" class="d">-**Attention** Currently, the locale.conf file will be set with english and german locales. To customize your locales you have to edit my script. Then go to line 268 and
+</a><a href="#h1-0-73" id="h1-0-73" class="d">-change the parameter to your likings. In the future this process will hopefully be obsolete.
+</a><a href="#h1-0-74" id="h1-0-74" class="d">-
+</a><a href="#h1-0-75" id="h1-0-75" class="d">-Make it executable and run it.
+</a><a href="#h1-0-76" id="h1-0-76" class="d">-```
+</a><a href="#h1-0-77" id="h1-0-77" class="d">-chmod ugo+x install.sh
+</a><a href="#h1-0-78" id="h1-0-78" class="d">-./install.sh
+</a><a href="#h1-0-79" id="h1-0-79" class="d">-```
+</a><a href="#h1-0-80" id="h1-0-80" class="d">-
+</a><a href="#h1-0-81" id="h1-0-81" class="d">-That&#39;s it. This script installs my i3 setup that I currently use on my systems and handles other settings you otherwise would have to do.
+</a><a href="#h1-0-82" id="h1-0-82" class="d">-
+</a><a href="#h1-0-83" id="h1-0-83" class="d">-More screenshots from my setup:
+</a><a href="#h1-0-84" id="h1-0-84" class="d">-![termite](termite.png)
+</a><a href="#h1-0-85" id="h1-0-85" class="d">-![termite](termiteandfirefox.png)
+</a><a href="#h1-0-86" id="h1-0-86" class="i">+![termite](docs/termiteandfirefox.png)
+</a> 
+ ## TODO
+ * Support more Window Managers / Desktop Environments
+</pre>
+</div>
+</body>
+</html>

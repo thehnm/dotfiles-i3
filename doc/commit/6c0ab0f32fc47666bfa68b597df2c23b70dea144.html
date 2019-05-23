@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update README and add arch bootstrap script - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/6c0ab0f32fc47666bfa68b597df2c23b70dea144.html">6c0ab0f32fc47666bfa68b597df2c23b70dea144</a>
+<b>parent</b> <a href="../commit/770cc1ed4694ff38764f4dfd9fdd9f826f51121a.html">770cc1ed4694ff38764f4dfd9fdd9f826f51121a</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:thehnm">thehnm</a>&gt;
+<b>Date:</b>   Sun, 21 Oct 2018 17:13:25 +0200
+
+Update README and add arch bootstrap script
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">11</td><td><span class="i">+++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">arch-bootstrap/install.sh</a></td><td> | </td><td class="num">94</td><td><span class="i">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 105 insertions(+), 0 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -76,6 +76,17 @@ git clone https://thehnm@github.com/thehnm/dotfiles-i3.git ~/dotfiles-i3 // for 
+</a> 
+ ## Install dotfile
+ ```
+<a href="#h0-0-3" id="h0-0-3" class="i">+mkdir -p ~/.config/i3
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+mkdir -p ~/.config/dunst
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+mkdir -p ~/.config/gtk-3.0
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+mkdir -p ~/.config/polybar
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+mkdir -p ~/.config/termite
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+mkdir -p ~/.conky/
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+mkdir -p ~/.local/share/fonts
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+mkdir -p ~/Pictures
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+mkdir -p ~/Documents
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+mkdir -p ~/Downloads
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+
+</a> cd ~/dotfiles-i3/
+ stow config.stow
+ stow wallpaper.stow
+<b>diff --git a/<a id="h1" href="../file/arch-bootstrap/install.sh.html">arch-bootstrap/install.sh</a> b/<a href="../file/arch-bootstrap/install.sh.html">arch-bootstrap/install.sh</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,94 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+#!/bin/bash
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+
+</a><a href="#h1-0-2" id="h1-0-2" class="i">+GREEN=&#39;\033[0;32m&#39;
+</a><a href="#h1-0-3" id="h1-0-3" class="i">+
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+# Install packages
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+pacman --color=auto --needed -S sed rofi firefox networkmanager nm-connection-editor lightdm lightdm-gtk-greeter-settings termite network-manager-applet xorg-server xorg-xinit dunst gnome-keyring compton stow openvpn pass ttf-dejavu ctags nitrogen libsecret udiskie alsa-utils openssh pulseaudio pavucontrol lxappearance mupdf libmpdclient dialog lightdm-webkit2-greeter zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting texlive-most git conky cmake make
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+# Install yay aur helper
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+git clone https://aur.archlinux.org/yay.git /tmp/yay
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+cd /tmp/yay
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+makepkg -si
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+# Install aur packages
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+yay -S i3lock-color polybar lightdm-webkit-theme-aether
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+# Systemd
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+systemctl enable NetworkManager
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+echo -e systemctl enable NetworkManager ${GREEN}[OK]
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+systemctl enable lightdm
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+echo -e systemctl enable lightdm ${GREEN}[OK]
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+# Set root password
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+passwd
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+echo -e Password for root setted ${GREEN}[OK]
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+# Set up user
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+read -p &quot;Enter non-root user&#39;s name &quot; name
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+useradd -m -g wheel $name
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+echo Set password for $name
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+passwd $name
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+echo -e Password for $name setted ${GREEN}[OK]
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+sed -i &#39;s/^#%wheel./%wheel./g&#39; /etc/sudoers
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+# Install dotfiles
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+git clone https://thehnm@github.com/thehnm/dotfiles-i3.git $HOME/dotfiles-i3
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+cd $HOME/dotfiles-i3
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+stow config.stow
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+stow fonts.stow
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+stow wallpaper.stow
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+echo -e Dotfiles installed ${GREEN}[OK]
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+# Exec i3 in xinitrc
+</a><a href="#h1-0-42" id="h1-0-42" class="i">+echo exec i3 &gt;&gt; $HOME/.xinitrc
+</a><a href="#h1-0-43" id="h1-0-43" class="i">+
+</a><a href="#h1-0-44" id="h1-0-44" class="i">+# Set localtime
+</a><a href="#h1-0-45" id="h1-0-45" class="i">+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+</a><a href="#h1-0-46" id="h1-0-46" class="i">+hwclock --systohc
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+echo -e Localtime set ${GREEN}[OK]
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+
+</a><a href="#h1-0-49" id="h1-0-49" class="i">+# Set up locale
+</a><a href="#h1-0-50" id="h1-0-50" class="i">+sed -i &#39;s/^#de_DE./de_DE./g&#39; /etc/locale.gen
+</a><a href="#h1-0-51" id="h1-0-51" class="i">+sed -i &#39;s/^#en_US./en_US./g&#39; /etc/locale.gen
+</a><a href="#h1-0-52" id="h1-0-52" class="i">+locale-gen
+</a><a href="#h1-0-53" id="h1-0-53" class="i">+echo LANG=en_US.UTF-8 &gt;&gt; /etc/locale.conf
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+echo KEYMAP=de-latin1 &gt;&gt; /etc/vconsole.conf
+</a><a href="#h1-0-55" id="h1-0-55" class="i">+echo -e Locale set ${GREEN}[OK]
+</a><a href="#h1-0-56" id="h1-0-56" class="i">+
+</a><a href="#h1-0-57" id="h1-0-57" class="i">+# Set up hostname
+</a><a href="#h1-0-58" id="h1-0-58" class="i">+read -p &quot;Enter desired hostname: &quot; hostname
+</a><a href="#h1-0-59" id="h1-0-59" class="i">+echo $hostname &gt;&gt; /etc/hostname
+</a><a href="#h1-0-60" id="h1-0-60" class="i">+
+</a><a href="#h1-0-61" id="h1-0-61" class="i">+echo 127.0.0.1  localhost &gt;&gt; /etc/hosts
+</a><a href="#h1-0-62" id="h1-0-62" class="i">+echo ::1	localhost &gt;&gt; /etc/hosts
+</a><a href="#h1-0-63" id="h1-0-63" class="i">+echo 127.0.1.1	$hostname.localdomain	$hostname
+</a><a href="#h1-0-64" id="h1-0-64" class="i">+
+</a><a href="#h1-0-65" id="h1-0-65" class="i">+# Install grub
+</a><a href="#h1-0-66" id="h1-0-66" class="i">+read -p &quot;Enter your disk label: dev/sdx? x: &quot; label
+</a><a href="#h1-0-67" id="h1-0-67" class="i">+read -p &quot;Do you have UEFI enabled? &quot; answer
+</a><a href="#h1-0-68" id="h1-0-68" class="i">+while true
+</a><a href="#h1-0-69" id="h1-0-69" class="i">+do
+</a><a href="#h1-0-70" id="h1-0-70" class="i">+  case $answer in
+</a><a href="#h1-0-71" id="h1-0-71" class="i">+   [yY]* ) pacman -S grub efibootmgr
+</a><a href="#h1-0-72" id="h1-0-72" class="i">+           grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
+</a><a href="#h1-0-73" id="h1-0-73" class="i">+           grub-mkconfig -o /boot/grub/grub.cfg
+</a><a href="#h1-0-74" id="h1-0-74" class="i">+           break;;
+</a><a href="#h1-0-75" id="h1-0-75" class="i">+
+</a><a href="#h1-0-76" id="h1-0-76" class="i">+   [nN]* ) pacman -S grub
+</a><a href="#h1-0-77" id="h1-0-77" class="i">+           grub-install --target=i386-pc /dev/sd$label
+</a><a href="#h1-0-78" id="h1-0-78" class="i">+           grub-mkconfig -o /boot/grub/grub.cfg
+</a><a href="#h1-0-79" id="h1-0-79" class="i">+           break;;
+</a><a href="#h1-0-80" id="h1-0-80" class="i">+
+</a><a href="#h1-0-81" id="h1-0-81" class="i">+   * )     echo &quot;Dude, just enter Y or N, please.&quot;; break ;;
+</a><a href="#h1-0-82" id="h1-0-82" class="i">+  esac
+</a><a href="#h1-0-83" id="h1-0-83" class="i">+done
+</a><a href="#h1-0-84" id="h1-0-84" class="i">+echo -e Grub successfully installed ${GREEN}[OK]
+</a><a href="#h1-0-85" id="h1-0-85" class="i">+
+</a><a href="#h1-0-86" id="h1-0-86" class="i">+# Fix audio problem
+</a><a href="#h1-0-87" id="h1-0-87" class="i">+sed -i &#39;s/^ autospawn./; autospawn./g&#39; /etc/pulse/client.conf
+</a><a href="#h1-0-88" id="h1-0-88" class="i">+
+</a><a href="#h1-0-89" id="h1-0-89" class="i">+cd /home/$name
+</a><a href="#h1-0-90" id="h1-0-90" class="i">+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</a><a href="#h1-0-91" id="h1-0-91" class="i">+vim +PluginInstall +qall
+</a><a href="#h1-0-92" id="h1-0-92" class="i">+
+</a><a href="#h1-0-93" id="h1-0-93" class="i">+echo -e Done. Reboot now!
+</a></pre>
+</div>
+</body>
+</html>

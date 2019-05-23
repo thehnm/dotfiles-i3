@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Better installation method - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/fe18a108a3da49653ad0ad980093fd8dff133cb5.html">fe18a108a3da49653ad0ad980093fd8dff133cb5</a>
+<b>parent</b> <a href="../commit/c44071b5addf530d8d92fd52cb6a69f605894077.html">c44071b5addf530d8d92fd52cb6a69f605894077</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Wed,  5 Dec 2018 15:24:24 +0100
+
+Better installation method
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">18</td><td><span class="i"></span><span class="d">------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">install_dotfiles.sh</a></td><td> | </td><td class="num">15</td><td><span class="i">++++++</span><span class="d">---------</span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">uninstall_dotfiles.sh</a></td><td> | </td><td class="num">26</td><td><span class="i"></span><span class="d">--------------------------</span></td></tr>
+</table></pre><pre>3 files changed, 6 insertions(+), 53 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,22 +1,4 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-bookmarks
+</a> .uuid
+ uuid
+ settings.ini
+<a href="#h0-0-4" id="h0-0-4" class="d">-.themepacks
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-Conky*
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-Gotham
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-Green*
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-Tee*
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-*fonts
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-*.xbel
+</a> tags
+<a href="#h0-0-12" id="h0-0-12" class="d">-JetBrains
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-Trash
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-applications
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-data
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-gsettings*
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-keyrings
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-qpdfview
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-TelegramDesktop
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-Nextcloud
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-zathura
+</a><b>diff --git a/<a id="h1" href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a> b/<a href="../file/install_dotfiles.sh.html">install_dotfiles.sh</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,16 +1,13 @@
+</a> #!/bin/bash
+<a href="#h1-0-1" id="h1-0-1" class="d">-confarray=(conky dunst gtk-3.0 i3 polybar termite)
+</a><a href="#h1-0-2" id="h1-0-2" class="d">-for item in ${confarray[*]}
+</a><a href="#h1-0-3" id="h1-0-3" class="d">-do
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-  if [ -d &quot;$HOME/.config/$item&quot; ]; then
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-    echo $HOME/.config/$item exists.
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-  else
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-    mkdir -p $HOME/.config/$item
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-  fi
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-done
+</a> 
+<a href="#h1-0-11" id="h1-0-11" class="i">+mkdir -p $HOME/.config/dunst
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+mkdir -p $HOME/.config/gtk-3.0
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+mkdir -p $HOME/.config/i3
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+mkdir -p $HOME/.config/polybar
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+mkdir -p $HOME/.config/termite
+</a> mkdir -p $HOME/.themes
+ mkdir -p $HOME/.icons
+<a href="#h1-0-18" id="h1-0-18" class="i">+mkdir -p $HOME/.local/share/fonts
+</a> 
+ stow -R config.stow
+ stow -R fonts.stow
+<b>diff --git a/<a id="h2" href="../file/uninstall_dotfiles.sh.html">uninstall_dotfiles.sh</a> b/<a href="../file/uninstall_dotfiles.sh.html">uninstall_dotfiles.sh</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,26 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-#!/bin/bash
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-stow -D config.stow
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-stow -D fonts.stow
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-stow -D wallpaper.stow
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-confarray=(conky dunst gtk-3.0 i3 polybar termite)
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-for item in ${confarray[*]}
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-do
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-  if [ &quot;$(ls -A $HOME/.config/$item)&quot; ]; then
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-    echo $HOME/.config/$item is not empty.
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-  else
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-    rm -r $HOME/.config/$item
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-  fi
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-done
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-if [ &quot;$(ls -A $HOME/.themes)&quot; ]; then
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-    echo $HOME/.themes is not empty.
+</a><a href="#h2-0-17" id="h2-0-17" class="d">-else
+</a><a href="#h2-0-18" id="h2-0-18" class="d">-    rm -r $HOME/.themes
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-fi
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-if [ &quot;$(ls -A $HOME/.icons)&quot; ]; then
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-    echo $HOME/.themes is not empty.
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-else
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-    rm -r $HOME/.icons
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-fi
+</a></pre>
+</div>
+</body>
+</html>

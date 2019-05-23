@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>New key mappings - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/428795485b65fa2f6e38625b03ae61e35d9bbfb1.html">428795485b65fa2f6e38625b03ae61e35d9bbfb1</a>
+<b>parent</b> <a href="../commit/79d5550f2bde86edde484d3e46fa6fd9dfec29b1.html">79d5550f2bde86edde484d3e46fa6fd9dfec29b1</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sun, 14 Oct 2018 15:46:31 +0200
+
+New key mappings
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.vimrc</a></td><td> | </td><td class="num">142</td><td><span class="i">++++++++++++++++++++++++++++++++++++++++++</span><span class="d">-------------------------------------</span></td></tr>
+</table></pre><pre>2 files changed, 76 insertions(+), 68 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -206,7 +206,7 @@ exec --no-startup-id udiskie &amp;
+</a> # ===== KEYBINDINGS =====
+ 
+ # ----- Clear clipboard -----
+<a href="#h0-0-3" id="h0-0-3" class="d">-bindsym $mod+Shift+w exec --no-startup-id $HOME/.clear_clipboard.sh
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh
+</a> 
+ # ----- i3lock -----
+ bindsym $mod+Shift+x exec --no-startup-id $HOME/.config/i3/lock.sh
+<b>diff --git a/<a id="h1" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -100,47 +100,13 @@ let g:webdevicons_enable_airline_tabline = 1
+</a> let g:webdevicons_enable_airline_statusline = 1
+ let g:webdevicons_enable_nerdtree = 1
+ 
+<a href="#h1-0-3" id="h1-0-3" class="d">-&quot; -----------------------------------------------------------------------------
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-&quot; Enable syntax highlighting
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-syntax on
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-&quot; Always show status bar
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-set laststatus=2
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-&quot; No need to be compatible with vi and lose features
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-set nocompatible
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-&quot; Show line numbers
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-set number
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-&quot; Show ruler
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-set ruler
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-&quot; Highlight all search matches
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-&quot; set hlsearch
+</a><a href="#h1-0-22" id="h1-0-22" class="d">-
+</a><a href="#h1-0-23" id="h1-0-23" class="d">-&quot; Automatic C-style indenting
+</a><a href="#h1-0-24" id="h1-0-24" class="d">-set autoindent
+</a><a href="#h1-0-25" id="h1-0-25" class="d">-
+</a><a href="#h1-0-26" id="h1-0-26" class="d">-&quot; When inserting TABs replace them with the appropriate number of spaces
+</a><a href="#h1-0-27" id="h1-0-27" class="d">-set expandtab
+</a><a href="#h1-0-28" id="h1-0-28" class="d">-
+</a><a href="#h1-0-29" id="h1-0-29" class="d">-&quot; But TABs are needed in Makefiles
+</a><a href="#h1-0-30" id="h1-0-30" class="d">-au BufNewFile,BufReadPost Makefile se noexpandtab
+</a><a href="#h1-0-31" id="h1-0-31" class="d">-
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-&quot; Show matching braces
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-set showmatch
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-
+</a><a href="#h1-0-35" id="h1-0-35" class="d">-&quot; Choose the right syntax highlightning per TAB-completion :-)
+</a><a href="#h1-0-36" id="h1-0-36" class="d">-&quot; map &lt;F2&gt; :source $VIM/syntax/
+</a><a href="#h1-0-37" id="h1-0-37" class="d">-&quot; Syntax highlightning, but only for color terminals.
+</a><a href="#h1-0-38" id="h1-0-38" class="d">-if &amp;t_Co &gt; 1
+</a><a href="#h1-0-39" id="h1-0-39" class="d">-  syntax on
+</a><a href="#h1-0-40" id="h1-0-40" class="d">-endif
+</a><a href="#h1-0-41" id="h1-0-41" class="i">+&quot; ----- Key remapping -----
+</a> 
+<a href="#h1-0-43" id="h1-0-43" class="d">-&quot; Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim
+</a><a href="#h1-0-44" id="h1-0-44" class="d">-set updatetime=500
+</a><a href="#h1-0-45" id="h1-0-45" class="i">+&quot; Remap hjkl movement keys
+</a><a href="#h1-0-46" id="h1-0-46" class="i">+noremap j h
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+noremap k j
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+noremap l k
+</a><a href="#h1-0-49" id="h1-0-49" class="i">+noremap ö l
+</a> 
+ &quot; Switch buffers quickly
+ map &lt;leader&gt;q : bp&lt;CR&gt;
+<a href="#h1-1" id="h1-1" class="h">@@ -177,15 +143,6 @@ endfunction
+</a> 
+ map &lt;silent&gt; &lt;F4&gt; :call ToggleBetweenHeaderAndSourceFile()&lt;CR&gt;
+ 
+<a href="#h1-1-3" id="h1-1-3" class="d">-&quot; Keep the horizontal cursor position when moving vertically
+</a><a href="#h1-1-4" id="h1-1-4" class="d">-set nostartofline
+</a><a href="#h1-1-5" id="h1-1-5" class="d">-
+</a><a href="#h1-1-6" id="h1-1-6" class="d">-&quot; Reformat comment on current line
+</a><a href="#h1-1-7" id="h1-1-7" class="d">-map &lt;silent&gt; hc ==I  &lt;ESC&gt;:.s/\/\/ */\/\//&lt;CR&gt;:nohlsearch&lt;CR&gt;j
+</a><a href="#h1-1-8" id="h1-1-8" class="d">-
+</a><a href="#h1-1-9" id="h1-1-9" class="d">-&quot; Make sure == also indents #ifdef etc
+</a><a href="#h1-1-10" id="h1-1-10" class="d">-noremap &lt;silent&gt; == IX&lt;ESC&gt;==:.s/X//&lt;CR&gt;:nohlsearch&lt;CR&gt;
+</a><a href="#h1-1-11" id="h1-1-11" class="d">-
+</a> &quot; Toggle encoding with F12
+ function! ToggleEncoding()
+   if &amp;encoding == &quot;latin1&quot;
+<a href="#h1-2" id="h1-2" class="h">@@ -197,9 +154,11 @@ endfunction
+</a> 
+ map &lt;silent&gt; &lt;F12&gt; :call ToggleEncoding()&lt;CR&gt;
+ 
+<a href="#h1-2-3" id="h1-2-3" class="d">-&quot; Do not break long lines
+</a><a href="#h1-2-4" id="h1-2-4" class="d">-set nowrap
+</a><a href="#h1-2-5" id="h1-2-5" class="d">-set listchars=eol:$,extends:&gt;
+</a><a href="#h1-2-6" id="h1-2-6" class="i">+&quot; Reformat comment on current line
+</a><a href="#h1-2-7" id="h1-2-7" class="i">+map &lt;silent&gt; hc ==I  &lt;ESC&gt;:.s/\/\/ */\/\//&lt;CR&gt;:nohlsearch&lt;CR&gt;j
+</a><a href="#h1-2-8" id="h1-2-8" class="i">+
+</a><a href="#h1-2-9" id="h1-2-9" class="i">+&quot; Make sure == also indents #ifdef etc
+</a><a href="#h1-2-10" id="h1-2-10" class="i">+noremap &lt;silent&gt; == IX&lt;ESC&gt;==:.s/X//&lt;CR&gt;:nohlsearch&lt;CR&gt;
+</a> 
+ &quot; Next / previous error with Tab / Shift+Tab
+ map &lt;silent&gt; &lt;Tab&gt; :cn&lt;CR&gt;
+<a href="#h1-3" id="h1-3" class="h">@@ -215,18 +174,6 @@ map &quot;A Ä
+</a> map &quot;O Ö
+ map &quot;U Ü
+ 
+<a href="#h1-3-3" id="h1-3-3" class="d">-&quot; After this many msecs do not imap
+</a><a href="#h1-3-4" id="h1-3-4" class="d">-set timeoutlen=500
+</a><a href="#h1-3-5" id="h1-3-5" class="d">-
+</a><a href="#h1-3-6" id="h1-3-6" class="d">-&quot; Always show the name of the file being edited
+</a><a href="#h1-3-7" id="h1-3-7" class="d">-&quot; set ls=2
+</a><a href="#h1-3-8" id="h1-3-8" class="d">-
+</a><a href="#h1-3-9" id="h1-3-9" class="d">-&quot; Show the mode (insert,replace,etc.)
+</a><a href="#h1-3-10" id="h1-3-10" class="d">-set showmode
+</a><a href="#h1-3-11" id="h1-3-11" class="d">-
+</a><a href="#h1-3-12" id="h1-3-12" class="d">-&quot; No blinking cursor please
+</a><a href="#h1-3-13" id="h1-3-13" class="d">-set gcr=a:blinkon0
+</a><a href="#h1-3-14" id="h1-3-14" class="d">-
+</a> &quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
+ function! InsertTabWrapper(direction)
+     let col = col(&#39;.&#39;) - 1
+<a href="#h1-4" id="h1-4" class="h">@@ -241,13 +188,74 @@ endfunction
+</a> inoremap &lt;tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;forward&quot;)&lt;cr&gt;
+ inoremap &lt;s-tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;backward&quot;)&lt;cr&gt;
+ 
+<a href="#h1-4-3" id="h1-4-3" class="d">-&quot; Do not show any line of minimized windows
+</a><a href="#h1-4-4" id="h1-4-4" class="d">-set wmh=0
+</a><a href="#h1-4-5" id="h1-4-5" class="d">-
+</a> &quot; Make it easy to update/reload _vimrc
+ :nmap ,s :source $HOME/.vimrc
+ :nmap ,v :sp $HOME/.vimrc
+ 
+<a href="#h1-4-10" id="h1-4-10" class="i">+&quot; -----------------------------------------------------------------------------
+</a><a href="#h1-4-11" id="h1-4-11" class="i">+
+</a><a href="#h1-4-12" id="h1-4-12" class="i">+&quot; Enable syntax highlighting
+</a><a href="#h1-4-13" id="h1-4-13" class="i">+syntax on
+</a><a href="#h1-4-14" id="h1-4-14" class="i">+
+</a><a href="#h1-4-15" id="h1-4-15" class="i">+&quot; Always show status bar
+</a><a href="#h1-4-16" id="h1-4-16" class="i">+set laststatus=2
+</a><a href="#h1-4-17" id="h1-4-17" class="i">+
+</a><a href="#h1-4-18" id="h1-4-18" class="i">+&quot; No need to be compatible with vi and lose features
+</a><a href="#h1-4-19" id="h1-4-19" class="i">+set nocompatible
+</a><a href="#h1-4-20" id="h1-4-20" class="i">+
+</a><a href="#h1-4-21" id="h1-4-21" class="i">+&quot; Show line numbers
+</a><a href="#h1-4-22" id="h1-4-22" class="i">+set number
+</a><a href="#h1-4-23" id="h1-4-23" class="i">+
+</a><a href="#h1-4-24" id="h1-4-24" class="i">+&quot; Show ruler
+</a><a href="#h1-4-25" id="h1-4-25" class="i">+set ruler
+</a><a href="#h1-4-26" id="h1-4-26" class="i">+
+</a><a href="#h1-4-27" id="h1-4-27" class="i">+&quot; Highlight all search matches
+</a><a href="#h1-4-28" id="h1-4-28" class="i">+&quot; set hlsearch
+</a><a href="#h1-4-29" id="h1-4-29" class="i">+
+</a><a href="#h1-4-30" id="h1-4-30" class="i">+&quot; Automatic C-style indenting
+</a><a href="#h1-4-31" id="h1-4-31" class="i">+set autoindent
+</a><a href="#h1-4-32" id="h1-4-32" class="i">+
+</a><a href="#h1-4-33" id="h1-4-33" class="i">+&quot; When inserting TABs replace them with the appropriate number of spaces
+</a><a href="#h1-4-34" id="h1-4-34" class="i">+set expandtab
+</a><a href="#h1-4-35" id="h1-4-35" class="i">+
+</a><a href="#h1-4-36" id="h1-4-36" class="i">+&quot; But TABs are needed in Makefiles
+</a><a href="#h1-4-37" id="h1-4-37" class="i">+au BufNewFile,BufReadPost Makefile se noexpandtab
+</a><a href="#h1-4-38" id="h1-4-38" class="i">+
+</a><a href="#h1-4-39" id="h1-4-39" class="i">+&quot; Show matching braces
+</a><a href="#h1-4-40" id="h1-4-40" class="i">+set showmatch
+</a><a href="#h1-4-41" id="h1-4-41" class="i">+
+</a><a href="#h1-4-42" id="h1-4-42" class="i">+&quot; Choose the right syntax highlightning per TAB-completion :-)
+</a><a href="#h1-4-43" id="h1-4-43" class="i">+&quot; map &lt;F2&gt; :source $VIM/syntax/
+</a><a href="#h1-4-44" id="h1-4-44" class="i">+&quot; Syntax highlightning, but only for color terminals.
+</a><a href="#h1-4-45" id="h1-4-45" class="i">+if &amp;t_Co &gt; 1
+</a><a href="#h1-4-46" id="h1-4-46" class="i">+  syntax on
+</a><a href="#h1-4-47" id="h1-4-47" class="i">+endif
+</a><a href="#h1-4-48" id="h1-4-48" class="i">+
+</a><a href="#h1-4-49" id="h1-4-49" class="i">+&quot; Set update time to 1 second (default is 4 seconds), convenient vor taglist.vim
+</a><a href="#h1-4-50" id="h1-4-50" class="i">+set updatetime=500
+</a><a href="#h1-4-51" id="h1-4-51" class="i">+
+</a><a href="#h1-4-52" id="h1-4-52" class="i">+&quot; Keep the horizontal cursor position when moving vertically
+</a><a href="#h1-4-53" id="h1-4-53" class="i">+set nostartofline
+</a><a href="#h1-4-54" id="h1-4-54" class="i">+
+</a><a href="#h1-4-55" id="h1-4-55" class="i">+&quot; Do not break long lines
+</a><a href="#h1-4-56" id="h1-4-56" class="i">+set nowrap
+</a><a href="#h1-4-57" id="h1-4-57" class="i">+set listchars=eol:$,extends:&gt;
+</a><a href="#h1-4-58" id="h1-4-58" class="i">+
+</a><a href="#h1-4-59" id="h1-4-59" class="i">+&quot; After this many msecs do not imap
+</a><a href="#h1-4-60" id="h1-4-60" class="i">+set timeoutlen=500
+</a><a href="#h1-4-61" id="h1-4-61" class="i">+
+</a><a href="#h1-4-62" id="h1-4-62" class="i">+&quot; Always show the name of the file being edited
+</a><a href="#h1-4-63" id="h1-4-63" class="i">+&quot; set ls=2
+</a><a href="#h1-4-64" id="h1-4-64" class="i">+
+</a><a href="#h1-4-65" id="h1-4-65" class="i">+&quot; Show the mode (insert,replace,etc.)
+</a><a href="#h1-4-66" id="h1-4-66" class="i">+set showmode
+</a><a href="#h1-4-67" id="h1-4-67" class="i">+
+</a><a href="#h1-4-68" id="h1-4-68" class="i">+&quot; No blinking cursor please
+</a><a href="#h1-4-69" id="h1-4-69" class="i">+set gcr=a:blinkon0
+</a><a href="#h1-4-70" id="h1-4-70" class="i">+
+</a><a href="#h1-4-71" id="h1-4-71" class="i">+&quot; Do not show any line of minimized windows
+</a><a href="#h1-4-72" id="h1-4-72" class="i">+set wmh=0
+</a><a href="#h1-4-73" id="h1-4-73" class="i">+
+</a> &quot; Latex Suite 1.5 wants it
+ &quot; REQUIRED. This makes vim invoke latex-suite when you open a tex file.
+ filetype plugin on
+</pre>
+</div>
+</body>
+</html>

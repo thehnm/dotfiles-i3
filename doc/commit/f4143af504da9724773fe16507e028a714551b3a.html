@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new workspace icon and add numpad support - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/f4143af504da9724773fe16507e028a714551b3a.html">f4143af504da9724773fe16507e028a714551b3a</a>
+<b>parent</b> <a href="../commit/0465c57da4740c5f93f3763abb4f1767d5c6121a.html">0465c57da4740c5f93f3763abb4f1767d5c6121a</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Tue, 11 Dec 2018 12:44:58 +0100
+
+Add new workspace icon and add numpad support
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/i3/config</a></td><td> | </td><td class="num">24</td><td><span class="i">++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>2 files changed, 25 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -87,6 +87,18 @@ bindsym $mod+8 workspace $ws8
+</a> bindsym $mod+9 workspace $ws9
+ bindsym $mod+0 workspace $ws10
+ 
+<a href="#h0-0-3" id="h0-0-3" class="i">+# switch to workspace with numpad
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+bindsym $mod+Mod2+KP_1 workspace $ws1
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+bindsym $mod+Mod2+KP_2 workspace $ws2
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+bindsym $mod+Mod2+KP_3 workspace $ws3
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+bindsym $mod+Mod2+KP_4 workspace $ws4
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+bindsym $mod+Mod2+KP_5 workspace $ws5
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+bindsym $mod+Mod2+KP_6 workspace $ws6
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+bindsym $mod+Mod2+KP_7 workspace $ws7
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+bindsym $mod+Mod2+KP_8 workspace $ws8
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+bindsym $mod+Mod2+KP_9 workspace $ws9
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+bindsym $mod+Mod2+KP_0 workspace $ws10
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+
+</a> # move focused container to workspace
+ bindsym $mod+Shift+1 move container to workspace $ws1
+ bindsym $mod+Shift+2 move container to workspace $ws2
+<a href="#h0-1" id="h0-1" class="h">@@ -99,6 +111,18 @@ bindsym $mod+Shift+8 move container to workspace $ws8
+</a> bindsym $mod+Shift+9 move container to workspace $ws9
+ bindsym $mod+Shift+0 move container to workspace $ws10
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+# move focused container to workspace with numpad
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+bindsym $mod+Shift+Mod2+KP_End move container to workspace 1
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+bindsym $mod+Shift+Mod2+KP_Down move container to workspace 2
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+bindsym $mod+Shift+Mod2+KP_Next move container to workspace 3
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+bindsym $mod+Shift+Mod2+KP_Left move container to workspace 4
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+bindsym $mod+Shift+Mod2+KP_Begin move container to workspace 5
+</a><a href="#h0-1-9" id="h0-1-9" class="i">+bindsym $mod+Shift+Mod2+KP_Right move container to workspace 6
+</a><a href="#h0-1-10" id="h0-1-10" class="i">+bindsym $mod+Shift+Mod2+KP_Home move container to workspace 7
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+bindsym $mod+Shift+Mod2+KP_Up move container to workspace 8
+</a><a href="#h0-1-12" id="h0-1-12" class="i">+bindsym $mod+Shift+Mod2+KP_Prior move container to workspace 9
+</a><a href="#h0-1-13" id="h0-1-13" class="i">+bindsym $mod+Shift+Mod2+KP_Insert move container to workspace 10
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+
+</a> # reload the configuration file
+ bindsym $mod+Shift+c reload
+ # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+<b>diff --git a/<a id="h1" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -125,7 +125,7 @@ ws-icon-0 = 1;
+</a> ws-icon-1 = 2;
+ ws-icon-2 = 3;
+ ws-icon-3 = 4;
+<a href="#h1-0-3" id="h1-0-3" class="d">-ws-icon-4 = 5;5
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+ws-icon-4 = 5;
+</a> ws-icon-5 = 6;6
+ ws-icon-6 = 7;7
+ ws-icon-7 = 8;8
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update README - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/63ea55a4f73fe1fad03f5bfcb1b6896f6e201995.html">63ea55a4f73fe1fad03f5bfcb1b6896f6e201995</a>
+<b>parent</b> <a href="../commit/6988c56198f943e28937e607633cd45d0ff5c3cc.html">6988c56198f943e28937e607633cd45d0ff5c3cc</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Tue, 16 Oct 2018 21:09:04 +0200
+
+Update README
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">15</td><td><span class="i">+++++++</span><span class="d">--------</span></td></tr>
+</table></pre><pre>1 file changed, 7 insertions(+), 8 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -6,13 +6,6 @@ sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config libgnome-keyring compton 
+</a> yaourt -S i3lock-color libmpdclient cmake
+ ```
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-### Enable Bitmap fonts
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-```
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-cd /etc/fonts/conf.d/
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-sudo rm /etc/fonts/conf.d/10* &amp;&amp; sudo rm -rf 70-no-bitmaps.conf &amp;&amp; sudo ln -s ../conf.avail/70-yes-bitmaps.conf
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-sudo fc-cache -fv
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-```
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-
+</a> ### Install `vundle`
+ ```
+ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+<a href="#h0-1" id="h0-1" class="h">@@ -29,7 +22,6 @@ https://thehnm@github.com/thehnm/dotfiles-i3.git // for personal use
+</a> stow ~/dotfiles-i3/config.stow
+ stow ~/dotfiles-i3/wallpaper.stow
+ stow ~/dotfiles-i3/fonts.stow
+<a href="#h0-1-3" id="h0-1-3" class="d">-sudo fc-cache ~/.local/share/fonts
+</a> ```
+ 
+ ### Install plugins
+<a href="#h0-2" id="h0-2" class="h">@@ -41,3 +33,10 @@ vim +PluginInstall +qall
+</a> ```
+ xrdb ~/.Xresources
+ ```
+<a href="#h0-2-3" id="h0-2-3" class="i">+
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+### Set gnome-keyring as git credential helper
+</a><a href="#h0-2-5" id="h0-2-5" class="i">+```
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+cd /usr/share/git/credential/gnome-keyring
+</a><a href="#h0-2-7" id="h0-2-7" class="i">+make
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+</a><a href="#h0-2-9" id="h0-2-9" class="i">+```
+</a></pre>
+</div>
+</body>
+</html>

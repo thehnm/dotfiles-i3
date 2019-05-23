@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Switch syntastic with ale - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/288ce3dc578ede856a5db243e59b4d9f933dee92.html">288ce3dc578ede856a5db243e59b4d9f933dee92</a>
+<b>parent</b> <a href="../commit/dd8002825224e4859eb2ffa5fcaa6d949b8d3894.html">dd8002825224e4859eb2ffa5fcaa6d949b8d3894</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat,  6 Oct 2018 15:58:43 +0200
+
+Switch syntastic with ale
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.vimrc</a></td><td> | </td><td class="num">11</td><td><span class="i">+</span><span class="d">----------</span></td></tr>
+</table></pre><pre>1 file changed, 1 insertion(+), 10 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -10,7 +10,7 @@ Plugin &#39;VundleVim/Vundle.vim&#39;
+</a> &quot; ----- Vim as a programmer&#39;s text editor -----------------------------
+ Plugin &#39;scrooloose/nerdtree&#39;
+ Plugin &#39;jistr/vim-nerdtree-tabs&#39;
+<a href="#h0-0-3" id="h0-0-3" class="d">-Plugin &#39;vim-syntastic/syntastic&#39;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+Plugin &#39;w0rp/ale&#39;
+</a> Plugin &#39;xolox/vim-misc&#39;
+ Plugin &#39;xolox/vim-easytags&#39;
+ Plugin &#39;majutsushi/tagbar&#39;
+<a href="#h0-1" id="h0-1" class="h">@@ -55,15 +55,6 @@ set nocompatible
+</a> nmap &lt;silent&gt; &lt;leader&gt;t :NERDTreeTabsToggle&lt;CR&gt;
+ 
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-&quot; ----- scrooloose/syntastic settings -----
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-let g:syntastic_error_symbol = &#39;✖&#39;
+</a><a href="#h0-1-5" id="h0-1-5" class="d">-let g:syntastic_warning_symbol = &quot;▲&quot;
+</a><a href="#h0-1-6" id="h0-1-6" class="d">-augroup mySyntastic
+</a><a href="#h0-1-7" id="h0-1-7" class="d">-  au!
+</a><a href="#h0-1-8" id="h0-1-8" class="d">-  au FileType tex let b:syntastic_mode = &quot;passive&quot;
+</a><a href="#h0-1-9" id="h0-1-9" class="d">-augroup END
+</a><a href="#h0-1-10" id="h0-1-10" class="d">-
+</a><a href="#h0-1-11" id="h0-1-11" class="d">-
+</a> &quot; ----- xolox/vim-easytags settings -----
+ &quot; Where to look for tags files
+ set tags=./tags;,~/.vimtags
+</pre>
+</div>
+</body>
+</html>

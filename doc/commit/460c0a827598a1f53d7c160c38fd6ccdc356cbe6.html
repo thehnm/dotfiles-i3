@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add Nextcloud to gitignore and set zathura as pdf viewer - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/460c0a827598a1f53d7c160c38fd6ccdc356cbe6.html">460c0a827598a1f53d7c160c38fd6ccdc356cbe6</a>
+<b>parent</b> <a href="../commit/dc453eb660215dd7c5e95d17f2ef827f3ead1335.html">dc453eb660215dd7c5e95d17f2ef827f3ead1335</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Thu, 29 Nov 2018 15:58:15 +0100
+
+Add Nextcloud to gitignore and set zathura as pdf viewer
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.vimrc</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>2 files changed, 2 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -18,3 +18,4 @@ gsettings*
+</a> keyrings
+ qpdfview
+ TelegramDesktop
+<a href="#h0-0-3" id="h0-0-3" class="i">+Nextcloud
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -46,7 +46,7 @@ let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;]}
+</a> &quot; ----- vim-latex/vim-latex -----
+ let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+ let g:Tex_CompileRule_dvi = &#39;latex -interaction=nonstopmode $*&#39;
+<a href="#h1-0-3" id="h1-0-3" class="d">-let g:Tex_ViewRule_pdf = &#39;mupdf&#39;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+let g:Tex_ViewRule_pdf = &#39;zathura&#39;
+</a> 
+ &quot; ----- xolox/vim-easytags settings -----
+ &quot; Where to look for tags files
+</pre>
+</div>
+</body>
+</html>

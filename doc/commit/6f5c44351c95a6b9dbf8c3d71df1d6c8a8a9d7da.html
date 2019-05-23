@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>New default pdf viewer and new settings for vim-latex - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/6f5c44351c95a6b9dbf8c3d71df1d6c8a8a9d7da.html">6f5c44351c95a6b9dbf8c3d71df1d6c8a8a9d7da</a>
+<b>parent</b> <a href="../commit/542508d17f79cf5df3b234505229c25f79ee6193.html">542508d17f79cf5df3b234505229c25f79ee6193</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat, 13 Oct 2018 01:54:36 +0200
+
+New default pdf viewer and new settings for vim-latex
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">README.md</a></td><td> | </td><td class="num">4</td><td><span class="i">++</span><span class="d">--</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.vimrc</a></td><td> | </td><td class="num">6</td><td><span class="i">++++++</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 8 insertions(+), 2 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/README.md.html">README.md</a> b/<a href="../file/README.md.html">README.md</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,8 +1,8 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-My personal installation instructions for my i3 setup.
+</a><a href="#h0-0-1" id="h0-0-1" class="i">+## My personal installation instructions for my i3 setup.
+</a> 
+ ### Install needed packages
+ ```
+<a href="#h0-0-5" id="h0-0-5" class="d">-sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass playerctl ttf-dejavu powerline-fonts ctags texlive-most nitrogen stow vim lxappearance w3m
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+sudo pacman -S i3 rofi dunst ranger manjaro-zsh-config i3lock compton xorg-xbacklight pass playerctl ttf-dejavu ctags texlive-most nitrogen stow vim lxappearance w3m mupdf
+</a> ```
+ 
+ ### Enable Bitmap fonts
+<b>diff --git a/<a id="h1" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -54,6 +54,12 @@ let g:ale_sign_error = &#39;&#39;
+</a> let g:ale_sign_warning = &#39;&#39;
+ 
+ 
+<a href="#h1-0-3" id="h1-0-3" class="i">+&quot; ----- vim-latex/vim-latex -----
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+</a><a href="#h1-0-5" id="h1-0-5" class="i">+let g:Tex_CompileRule_dvi = &#39;latex -interaction=nonstopmode $*&#39;
+</a><a href="#h1-0-6" id="h1-0-6" class="i">+let g:Tex_ViewRule_pdf = &#39;mupdf&#39;
+</a><a href="#h1-0-7" id="h1-0-7" class="i">+
+</a><a href="#h1-0-8" id="h1-0-8" class="i">+
+</a> &quot; ----- xolox/vim-easytags settings -----
+ &quot; Where to look for tags files
+ set tags=./tags;,~/.vimtags
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new alias for vpn and change vim theme - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/abe5cba89875cb79d965aa82c08f23b2059489a1.html">abe5cba89875cb79d965aa82c08f23b2059489a1</a>
+<b>parent</b> <a href="../commit/de9807e8a299fc648863811d3e4d678c15c50a9b.html">de9807e8a299fc648863811d3e4d678c15c50a9b</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 15 Oct 2018 20:14:47 +0200
+
+Add new alias for vpn and change vim theme
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.vimrc</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.zshrc</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 3 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -91,7 +91,7 @@ augroup END
+</a> let g:airline_powerline_fonts = 1
+ let g:airline_detect_paste=1
+ let g:airline#extensions#tabline#enabled = 1
+<a href="#h0-0-3" id="h0-0-3" class="d">-let g:airline_theme=&#39;minimalist&#39;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+let g:airline_theme=&#39;base16_default&#39;
+</a> let g:airline#extensions#ale#enabled = 1
+ 
+ &quot; ----- ryanoasis/vim-devicons -----
+<b>diff --git a/<a id="h1" href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a> b/<a href="../file/config.stow/.zshrc.html">config.stow/.zshrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -71,6 +71,8 @@ alias mv=&#39;mv -iv&#39;
+</a> alias rm=&#39;rm -v&#39;
+ alias cp=&#39;cp -iv&#39;
+ alias um=&#39;udiskie-umount -a&#39;
+<a href="#h1-0-3" id="h1-0-3" class="i">+alias vpnon=&#39;nmcli con up&#39;
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+alias vpnoff=&#39;nmcli con down&#39;
+</a> 
+ # Theming section
+ autoload -U compinit colors zcalc
+</pre>
+</div>
+</body>
+</html>

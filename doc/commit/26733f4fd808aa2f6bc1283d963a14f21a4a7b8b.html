@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>i3 config does not load colors from Xresources anymore - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/26733f4fd808aa2f6bc1283d963a14f21a4a7b8b.html">26733f4fd808aa2f6bc1283d963a14f21a4a7b8b</a>
+<b>parent</b> <a href="../commit/a2cfed17d60eb1cf9434fa44fed960d5edc30ae5.html">a2cfed17d60eb1cf9434fa44fed960d5edc30ae5</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat, 13 Oct 2018 20:09:00 +0200
+
+i3 config does not load colors from Xresources anymore
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.Xresources</a></td><td> | </td><td class="num">58</td><td><span class="i">+++++++++++++++++++</span><span class="d">---------------------------------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/i3/config</a></td><td> | </td><td class="num">38</td><td><span class="i">+++++++++++++++++++</span><span class="d">-------------------</span></td></tr>
+</table></pre><pre>2 files changed, 38 insertions(+), 58 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a> b/<a href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,42 +1,22 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-#include &quot;.xrdb/colors&quot;
+</a><a href="#h0-0-1" id="h0-0-1" class="d">-
+</a><a href="#h0-0-2" id="h0-0-2" class="d">-! ===== Hybrid color scheme =====
+</a><a href="#h0-0-3" id="h0-0-3" class="d">-! special
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-*.foreground:   fg
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-*.background:   bg
+</a><a href="#h0-0-6" id="h0-0-6" class="d">-*.cursorColor:  cursor
+</a><a href="#h0-0-7" id="h0-0-7" class="d">-
+</a><a href="#h0-0-8" id="h0-0-8" class="d">-! black
+</a><a href="#h0-0-9" id="h0-0-9" class="d">-*.color0:       color0
+</a><a href="#h0-0-10" id="h0-0-10" class="d">-*.color8:       color8
+</a><a href="#h0-0-11" id="h0-0-11" class="d">-
+</a><a href="#h0-0-12" id="h0-0-12" class="d">-! red
+</a><a href="#h0-0-13" id="h0-0-13" class="d">-*.color1:       color1
+</a><a href="#h0-0-14" id="h0-0-14" class="d">-*.color9:       color9
+</a><a href="#h0-0-15" id="h0-0-15" class="d">-
+</a><a href="#h0-0-16" id="h0-0-16" class="d">-! green
+</a><a href="#h0-0-17" id="h0-0-17" class="d">-*.color2:       color2
+</a><a href="#h0-0-18" id="h0-0-18" class="d">-*.color10:      color10
+</a><a href="#h0-0-19" id="h0-0-19" class="d">-
+</a><a href="#h0-0-20" id="h0-0-20" class="d">-! yellow
+</a><a href="#h0-0-21" id="h0-0-21" class="d">-*.color3:       color3
+</a><a href="#h0-0-22" id="h0-0-22" class="d">-*.color11:      color11
+</a><a href="#h0-0-23" id="h0-0-23" class="d">-
+</a><a href="#h0-0-24" id="h0-0-24" class="d">-! blue
+</a><a href="#h0-0-25" id="h0-0-25" class="d">-*.color4:       color4
+</a><a href="#h0-0-26" id="h0-0-26" class="d">-*.color12:      color12
+</a><a href="#h0-0-27" id="h0-0-27" class="d">-
+</a><a href="#h0-0-28" id="h0-0-28" class="d">-! magenta
+</a><a href="#h0-0-29" id="h0-0-29" class="d">-*.color5:       color5
+</a><a href="#h0-0-30" id="h0-0-30" class="d">-*.color13:      color13
+</a><a href="#h0-0-31" id="h0-0-31" class="d">-
+</a><a href="#h0-0-32" id="h0-0-32" class="d">-! cyan
+</a><a href="#h0-0-33" id="h0-0-33" class="d">-*.color6:       color6
+</a><a href="#h0-0-34" id="h0-0-34" class="d">-*.color14:      color14
+</a><a href="#h0-0-35" id="h0-0-35" class="d">-
+</a><a href="#h0-0-36" id="h0-0-36" class="d">-! white
+</a><a href="#h0-0-37" id="h0-0-37" class="d">-*.color7:       color7
+</a><a href="#h0-0-38" id="h0-0-38" class="d">-*.color15:      color15
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+#define color0  #282a2e
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+#define color1  #a54242
+</a><a href="#h0-0-41" id="h0-0-41" class="i">+#define color2  #8c9440
+</a><a href="#h0-0-42" id="h0-0-42" class="i">+#define color3  #de935f
+</a><a href="#h0-0-43" id="h0-0-43" class="i">+#define color4  #5f819d
+</a><a href="#h0-0-44" id="h0-0-44" class="i">+#define color5  #85678f
+</a><a href="#h0-0-45" id="h0-0-45" class="i">+#define color6  #5e8d87
+</a><a href="#h0-0-46" id="h0-0-46" class="i">+#define color7  #707880
+</a><a href="#h0-0-47" id="h0-0-47" class="i">+#define color8  #373b41
+</a><a href="#h0-0-48" id="h0-0-48" class="i">+#define color9  #cc6666
+</a><a href="#h0-0-49" id="h0-0-49" class="i">+#define color10 #b5bd68
+</a><a href="#h0-0-50" id="h0-0-50" class="i">+#define color11 #f0c674
+</a><a href="#h0-0-51" id="h0-0-51" class="i">+#define color12 #81a2be
+</a><a href="#h0-0-52" id="h0-0-52" class="i">+#define color13 #b294bb
+</a><a href="#h0-0-53" id="h0-0-53" class="i">+#define color14 #8abeb7
+</a><a href="#h0-0-54" id="h0-0-54" class="i">+#define color15 #c5c6c6
+</a><a href="#h0-0-55" id="h0-0-55" class="i">+#define fg      #c5c8c6
+</a><a href="#h0-0-56" id="h0-0-56" class="i">+#define bg      #1d1f21
+</a><a href="#h0-0-57" id="h0-0-57" class="i">+#define cursor  #c5c8c6
+</a> 
+ ! ===== rofi =====
+ rofi.sidebar-mode: true
+<b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -145,25 +145,25 @@ mode &quot;resize&quot; {
+</a> bindsym $mod+r mode &quot;resize&quot;
+ 
+ # =============================================================================
+<a href="#h1-0-3" id="h1-0-3" class="d">-set_from_resource $fg i3wm.foreground
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-set_from_resource $bg i3wm.background
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-set_from_resource $color0 i3wm.color0
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-set_from_resource $color1 i3wm.color1
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-set_from_resource $color2 i3wm.color2
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-set_from_resource $color3 i3wm.color3
+</a><a href="#h1-0-9" id="h1-0-9" class="d">-set_from_resource $color4 i3wm.color4
+</a><a href="#h1-0-10" id="h1-0-10" class="d">-set_from_resource $color5 i3wm.color5
+</a><a href="#h1-0-11" id="h1-0-11" class="d">-set_from_resource $color6 i3wm.color6
+</a><a href="#h1-0-12" id="h1-0-12" class="d">-set_from_resource $color7 i3wm.color7
+</a><a href="#h1-0-13" id="h1-0-13" class="d">-set_from_resource $color8 i3wm.color8
+</a><a href="#h1-0-14" id="h1-0-14" class="d">-set_from_resource $color9 i3wm.color9
+</a><a href="#h1-0-15" id="h1-0-15" class="d">-set_from_resource $color10 i3wm.color10
+</a><a href="#h1-0-16" id="h1-0-16" class="d">-set_from_resource $color11 i3wm.color11
+</a><a href="#h1-0-17" id="h1-0-17" class="d">-set_from_resource $color12 i3wm.color12
+</a><a href="#h1-0-18" id="h1-0-18" class="d">-set_from_resource $color13 i3wm.color13
+</a><a href="#h1-0-19" id="h1-0-19" class="d">-set_from_resource $color14 i3wm.color14
+</a><a href="#h1-0-20" id="h1-0-20" class="d">-set_from_resource $color15 i3wm.color15
+</a><a href="#h1-0-21" id="h1-0-21" class="d">-set_from_resource $color16 i3wm.color16
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+set $color0  #282a2e
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+set $color1  #a54242
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+set $color2  #8c9440
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+set $color3  #de935f
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+set $color4  #5f819d
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+set $color5  #85678f
+</a><a href="#h1-0-28" id="h1-0-28" class="i">+set $color6  #5e8d87
+</a><a href="#h1-0-29" id="h1-0-29" class="i">+set $color7  #707880
+</a><a href="#h1-0-30" id="h1-0-30" class="i">+set $color8  #373b41
+</a><a href="#h1-0-31" id="h1-0-31" class="i">+set $color9  #cc6666
+</a><a href="#h1-0-32" id="h1-0-32" class="i">+set $color10 #b5bd68
+</a><a href="#h1-0-33" id="h1-0-33" class="i">+set $color11 #f0c674
+</a><a href="#h1-0-34" id="h1-0-34" class="i">+set $color12 #81a2be
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+set $color13 #b294bb
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+set $color14 #8abeb7
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+set $color15 #c5c6c6
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+set $fg      #c5c8c6
+</a><a href="#h1-0-39" id="h1-0-39" class="i">+set $bg      #1d1f21
+</a><a href="#h1-0-40" id="h1-0-40" class="i">+set $cursor  #c5c8c6
+</a> 
+ # window colors
+ # class                 border              background         text                 indicator
+</pre>
+</div>
+</body>
+</html>

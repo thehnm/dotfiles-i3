@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update arch_bootstrap.sh - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/27c97eccc951e0c1ba6815d0b4b31bf53a27232a.html">27c97eccc951e0c1ba6815d0b4b31bf53a27232a</a>
+<b>parent</b> <a href="../commit/44a45e6226f2a257754039b92c3447aec790002f.html">44a45e6226f2a257754039b92c3447aec790002f</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 20:54:56 +0200
+
+Update arch_bootstrap.sh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">35</td><td><span class="i">++++++++++++++++++++</span><span class="d">---------------</span></td></tr>
+</table></pre><pre>1 file changed, 20 insertions(+), 15 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -57,11 +57,10 @@ aurinstall() {
+</a> }
+ 
+ installyay() {
+<a href="#h0-0-3" id="h0-0-3" class="d">-  echo ${bold}Install yay AUR helper${normal}
+</a><a href="#h0-0-4" id="h0-0-4" class="d">-  install &quot;git&quot;
+</a><a href="#h0-0-5" id="h0-0-5" class="d">-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+  echo -n ${bold}Install yay AUR helper${normal}
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &amp;&gt;/dev/null
+</a>   cd /home/$name/yay
+<a href="#h0-0-9" id="h0-0-9" class="d">-  sudo -u $name makepkg -si
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+  sudo -u $name makepkg -si &amp;&gt; /dev/null
+</a>   echodone
+ }
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -95,7 +94,9 @@ installloop() {
+</a>     esac
+   done
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-  pacman --noconfirm -Sy archlinux-keyring
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  echo -n &quot;Installing archlinux-keyring&quot;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+  pacman --noconfirm -Sy archlinux-keyring &amp;&gt;/dev/null
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+  echodone
+</a> 
+   INPUT=/tmp/packages.csv
+   IFS=,
+<a href="#h0-2" id="h0-2" class="h">@@ -118,10 +119,10 @@ enableservices() {
+</a> 
+ installdotfile() {
+   echo ${bold}Install my i3 dotfile${normal}
+<a href="#h0-2-3" id="h0-2-3" class="d">-  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3 &amp;&gt;/dev/null
+</a>   cd /home/$name/dotfiles-i3/
+   case $bar in
+<a href="#h0-2-7" id="h0-2-7" class="d">-    &quot;i3&quot; ) sudo -u $name sed -i &#39;/polybar/d&#39; /home/$name/dotfiles-i3/config.stow/.config/i3/config
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+    &quot;i3bar&quot; ) sudo -u $name sed -i &#39;/polybar/d&#39; /home/$name/dotfiles-i3/config.stow/.config/i3/config
+</a>            sudo -u $name sed -i &#39;s/^#1//g&#39; /home/$name/dotfiles-i3/config.stow/.config/i3/config
+            break;;
+     &quot;polybar&quot; ) sudo -u $name sed -i &#39;/,i3blocks/d&#39; /tmp/packages.csv
+<a href="#h0-3" id="h0-3" class="h">@@ -155,14 +156,18 @@ installgrub() {
+</a>   do
+     read -p &quot;Do you have UEFI enabled? &quot; answer
+     case $answer in
+<a href="#h0-3-3" id="h0-3-3" class="d">-      [yY]* ) pacman --noconfirm -S grub efibootmgr
+</a><a href="#h0-3-4" id="h0-3-4" class="d">-              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
+</a><a href="#h0-3-5" id="h0-3-5" class="d">-              grub-mkconfig -o /boot/grub/grub.cfg
+</a><a href="#h0-3-6" id="h0-3-6" class="i">+      [yY]* ) echo -n &quot;Installing grub&quot;
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+              pacman --noconfirm -S grub efibootmgr &amp;&gt;/dev/null
+</a><a href="#h0-3-8" id="h0-3-8" class="i">+              grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/ &amp;&gt;/dev/null
+</a><a href="#h0-3-9" id="h0-3-9" class="i">+              grub-mkconfig -o /boot/grub/grub.cfg &amp;&gt;/dev/null
+</a><a href="#h0-3-10" id="h0-3-10" class="i">+              echodone
+</a>               break;;
+ 
+<a href="#h0-3-13" id="h0-3-13" class="d">-      [nN]* ) pacman -S grub
+</a><a href="#h0-3-14" id="h0-3-14" class="d">-              grub-install --target=i386-pc /dev/sd$label
+</a><a href="#h0-3-15" id="h0-3-15" class="d">-              grub-mkconfig -o /boot/grub/grub.cfg
+</a><a href="#h0-3-16" id="h0-3-16" class="i">+      [nN]* ) echo -n &quot;Installing grub&quot;
+</a><a href="#h0-3-17" id="h0-3-17" class="i">+              pacman -S grub &amp;&gt;/dev/null
+</a><a href="#h0-3-18" id="h0-3-18" class="i">+              grub-install --target=i386-pc /dev/sd$label &amp;&gt;/dev/null
+</a><a href="#h0-3-19" id="h0-3-19" class="i">+              grub-mkconfig -o /boot/grub/grub.cfg &amp;&gt;/dev/null
+</a><a href="#h0-3-20" id="h0-3-20" class="i">+              echodone
+</a>               break;;
+ 
+       * ) echo &quot;Dude, just enter Y or N, please.&quot;;;
+<a href="#h0-4" id="h0-4" class="h">@@ -205,9 +210,9 @@ sed -i &#39;s/^ autospawn/; autospawn/g&#39; /etc/pulse/client.conf
+</a> echodone
+ 
+ # Install vundle
+<a href="#h0-4-3" id="h0-4-3" class="d">-echo ${bold}Install vundle${normal}
+</a><a href="#h0-4-4" id="h0-4-4" class="i">+echo -n ${bold}Install vundle${normal}
+</a> cd /home/$name/
+<a href="#h0-4-6" id="h0-4-6" class="d">-sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
+</a><a href="#h0-4-7" id="h0-4-7" class="i">+sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim &amp;&gt;/dev/null
+</a> echodone
+ 
+ echo -n ${bold}Remove packages.csv and arch_bootstrap.sh${normal}
+</pre>
+</div>
+</body>
+</html>

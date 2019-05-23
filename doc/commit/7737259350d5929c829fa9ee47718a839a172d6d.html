@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new path for binaries and remove ale from nvim - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/7737259350d5929c829fa9ee47718a839a172d6d.html">7737259350d5929c829fa9ee47718a839a172d6d</a>
+<b>parent</b> <a href="../commit/20ca2b92857e260c6d0f492ef7fd2ed1889bedd2.html">20ca2b92857e260c6d0f492ef7fd2ed1889bedd2</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Sat, 16 Mar 2019 10:46:12 +0100
+
+Add new path for binaries and remove ale from nvim
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/nvim/init.vim</a></td><td> | </td><td class="num">5</td><td><span class="i">++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.profile</a></td><td> | </td><td class="num">1</td><td><span class="i">+</span><span class="d"></span></td></tr>
+</table></pre><pre>2 files changed, 3 insertions(+), 3 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a> b/<a href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -21,7 +21,6 @@ call vundle#begin(&#39;~/.config/nvim/bundle&#39;)
+</a> Plugin &#39;VundleVim/Vundle.vim&#39;
+ 
+ &quot; ----- Editor features -----
+<a href="#h0-0-3" id="h0-0-3" class="d">-Plugin &#39;w0rp/ale&#39;
+</a> Plugin &#39;ntpeters/vim-better-whitespace&#39;
+ Plugin &#39;Rip-Rip/clang_complete&#39;
+ Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+<a href="#h0-1" id="h0-1" class="h">@@ -58,8 +57,8 @@ let g:Tex_MultipleCompileFormats=&#39;pdf,bib,pdf&#39;
+</a> let g:tex_no_error=1
+ 
+ &quot; ----- w0rp/ale -----
+<a href="#h0-1-3" id="h0-1-3" class="d">-let g:ale_sign_error = &#39;xx&#39;
+</a><a href="#h0-1-4" id="h0-1-4" class="d">-let g:ale_sign_warning = &#39;--&#39;
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+&quot;let g:ale_sign_error = &#39;xx&#39;
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+&quot;let g:ale_sign_warning = &#39;--&#39;
+</a> &quot;let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;, &#39;clang&#39;]}
+ 
+ &quot; ----- ntpeters/vim-better-whitespace -----
+<b>diff --git a/<a id="h1" href="../file/config.stow/.profile.html">config.stow/.profile</a> b/<a href="../file/config.stow/.profile.html">config.stow/.profile</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -1,2 +1,3 @@
+</a> export QT_QPA_PLATFORMTHEME=&quot;qt5ct&quot;
+ export EDITOR=&quot;nvim&quot;
+<a href="#h1-0-2" id="h1-0-2" class="i">+PATH=$PATH:$HOME/.local/bin/; export PATH
+</a></pre>
+</div>
+</body>
+</html>

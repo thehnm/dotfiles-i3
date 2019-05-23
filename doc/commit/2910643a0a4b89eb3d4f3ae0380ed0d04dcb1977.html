@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Revert to old color scheme and extract xresources colors in i3 config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/2910643a0a4b89eb3d4f3ae0380ed0d04dcb1977.html">2910643a0a4b89eb3d4f3ae0380ed0d04dcb1977</a>
+<b>parent</b> <a href="../commit/e9e28fca2db8fa837b6575bd905169b79c1dae15.html">e9e28fca2db8fa837b6575bd905169b79c1dae15</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Sat, 13 Oct 2018 17:07:36 +0200
+
+Revert to old color scheme and extract xresources colors in i3 config
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.Xresources</a></td><td> | </td><td class="num">38</td><td><span class="i">++++++++++++++++++++++++++++++++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/i3/config</a></td><td> | </td><td class="num">43</td><td><span class="i">++++++++++++++++++++++++++++</span><span class="d">---------------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">config.stow/.config/i3/i3blocks.conf</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">config.stow/.config/xfce4/terminal/terminalrc</a></td><td> | </td><td class="num">8</td><td><span class="i">++++</span><span class="d">----</span></td></tr>
+</table></pre><pre>4 files changed, 71 insertions(+), 20 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a> b/<a href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -7,3 +7,41 @@ rofi.fullscreen: true
+</a> rofi.padding: 300
+ rofi.fake-transparency: true
+ rofi.font: &quot;DejaVu Sans Mono for Powerline&quot; 18
+<a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+! ===== Hybrid Color Scheme =====
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+! special
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+*.foreground:   #c5c8c6
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+*.background:   #1d1f21
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+*.cursorColor:  #c5c8c6
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+! black
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+*.color0:       #282a2e
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+*.color8:       #373b41
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+! red
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+*.color1:       #a54242
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+*.color9:       #cc6666
+</a><a href="#h0-0-17" id="h0-0-17" class="i">+
+</a><a href="#h0-0-18" id="h0-0-18" class="i">+! green
+</a><a href="#h0-0-19" id="h0-0-19" class="i">+*.color2:       #8c9440
+</a><a href="#h0-0-20" id="h0-0-20" class="i">+*.color10:      #b5bd68
+</a><a href="#h0-0-21" id="h0-0-21" class="i">+
+</a><a href="#h0-0-22" id="h0-0-22" class="i">+! yellow
+</a><a href="#h0-0-23" id="h0-0-23" class="i">+*.color3:       #de935f
+</a><a href="#h0-0-24" id="h0-0-24" class="i">+*.color11:      #f0c674
+</a><a href="#h0-0-25" id="h0-0-25" class="i">+
+</a><a href="#h0-0-26" id="h0-0-26" class="i">+! blue
+</a><a href="#h0-0-27" id="h0-0-27" class="i">+*.color4:       #5f819d
+</a><a href="#h0-0-28" id="h0-0-28" class="i">+*.color12:      #81a2be
+</a><a href="#h0-0-29" id="h0-0-29" class="i">+
+</a><a href="#h0-0-30" id="h0-0-30" class="i">+! magenta
+</a><a href="#h0-0-31" id="h0-0-31" class="i">+*.color5:       #85678f
+</a><a href="#h0-0-32" id="h0-0-32" class="i">+*.color13:      #b294bb
+</a><a href="#h0-0-33" id="h0-0-33" class="i">+
+</a><a href="#h0-0-34" id="h0-0-34" class="i">+! cyan
+</a><a href="#h0-0-35" id="h0-0-35" class="i">+*.color6:       #5e8d87
+</a><a href="#h0-0-36" id="h0-0-36" class="i">+*.color14:      #8abeb7
+</a><a href="#h0-0-37" id="h0-0-37" class="i">+
+</a><a href="#h0-0-38" id="h0-0-38" class="i">+! white
+</a><a href="#h0-0-39" id="h0-0-39" class="i">+*.color7:       #707880
+</a><a href="#h0-0-40" id="h0-0-40" class="i">+*.color15:      #c5c8c6
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a> b/<a href="../file/config.stow/.config/i3/config.html">config.stow/.config/i3/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -145,31 +145,44 @@ mode &quot;resize&quot; {
+</a> bindsym $mod+r mode &quot;resize&quot;
+ 
+ # =============================================================================
+<a href="#h1-0-3" id="h1-0-3" class="d">-set $bg-color 	         #010f18
+</a><a href="#h1-0-4" id="h1-0-4" class="d">-set $inactive-bg-color   #010f18
+</a><a href="#h1-0-5" id="h1-0-5" class="d">-set $text-color          #a0505d
+</a><a href="#h1-0-6" id="h1-0-6" class="d">-set $inactive-text-color #ecd1cd
+</a><a href="#h1-0-7" id="h1-0-7" class="d">-set $urgent-bg-color     #eba99b
+</a><a href="#h1-0-8" id="h1-0-8" class="d">-set $active-color        #dd6e5b
+</a><a href="#h1-0-9" id="h1-0-9" class="i">+set_from_resource $fg i3wm.foreground
+</a><a href="#h1-0-10" id="h1-0-10" class="i">+set_from_resource $bg i3wm.background
+</a><a href="#h1-0-11" id="h1-0-11" class="i">+set_from_resource $color0 i3wm.color0
+</a><a href="#h1-0-12" id="h1-0-12" class="i">+set_from_resource $color1 i3wm.color1
+</a><a href="#h1-0-13" id="h1-0-13" class="i">+set_from_resource $color2 i3wm.color2
+</a><a href="#h1-0-14" id="h1-0-14" class="i">+set_from_resource $color3 i3wm.color3
+</a><a href="#h1-0-15" id="h1-0-15" class="i">+set_from_resource $color4 i3wm.color4
+</a><a href="#h1-0-16" id="h1-0-16" class="i">+set_from_resource $color5 i3wm.color5
+</a><a href="#h1-0-17" id="h1-0-17" class="i">+set_from_resource $color6 i3wm.color6
+</a><a href="#h1-0-18" id="h1-0-18" class="i">+set_from_resource $color7 i3wm.color7
+</a><a href="#h1-0-19" id="h1-0-19" class="i">+set_from_resource $color8 i3wm.color8
+</a><a href="#h1-0-20" id="h1-0-20" class="i">+set_from_resource $color9 i3wm.color9
+</a><a href="#h1-0-21" id="h1-0-21" class="i">+set_from_resource $color10 i3wm.color10
+</a><a href="#h1-0-22" id="h1-0-22" class="i">+set_from_resource $color11 i3wm.color11
+</a><a href="#h1-0-23" id="h1-0-23" class="i">+set_from_resource $color12 i3wm.color12
+</a><a href="#h1-0-24" id="h1-0-24" class="i">+set_from_resource $color13 i3wm.color13
+</a><a href="#h1-0-25" id="h1-0-25" class="i">+set_from_resource $color14 i3wm.color14
+</a><a href="#h1-0-26" id="h1-0-26" class="i">+set_from_resource $color15 i3wm.color15
+</a><a href="#h1-0-27" id="h1-0-27" class="i">+set_from_resource $color16 i3wm.color16
+</a> 
+ # window colors
+ # class                 border              background         text                 indicator
+<a href="#h1-0-31" id="h1-0-31" class="d">-client.focused          $active-color       $active-color      $text-color          $active-color
+</a><a href="#h1-0-32" id="h1-0-32" class="d">-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+</a><a href="#h1-0-33" id="h1-0-33" class="d">-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+</a><a href="#h1-0-34" id="h1-0-34" class="d">-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $inactive-bg-color
+</a><a href="#h1-0-35" id="h1-0-35" class="i">+client.focused          $color12            $color12           $color12             $color12
+</a><a href="#h1-0-36" id="h1-0-36" class="i">+client.unfocused        $bg                 $bg                $color12             $bg
+</a><a href="#h1-0-37" id="h1-0-37" class="i">+client.focused_inactive $bg                 $bg                $color12             $bg
+</a><a href="#h1-0-38" id="h1-0-38" class="i">+client.urgent           $color1             $color1            $color12             $bg
+</a> 
+ # Start i3bar to display a workspace bar (plus the system information i3status
+ # finds out, if available)
+ bar {
+         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+         colors {
+<a href="#h1-0-45" id="h1-0-45" class="d">-		background $bg-color
+</a><a href="#h1-0-46" id="h1-0-46" class="d">-	    	separator $text-color
+</a><a href="#h1-0-47" id="h1-0-47" class="i">+		background $bg
+</a><a href="#h1-0-48" id="h1-0-48" class="i">+	    	separator $color12
+</a> 		#                  border             background         text
+<a href="#h1-0-50" id="h1-0-50" class="d">-		focused_workspace  $bg-color          $bg-color          $text-color
+</a><a href="#h1-0-51" id="h1-0-51" class="d">-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+</a><a href="#h1-0-52" id="h1-0-52" class="d">-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+</a><a href="#h1-0-53" id="h1-0-53" class="i">+		focused_workspace  $bg                $bg                $color12
+</a><a href="#h1-0-54" id="h1-0-54" class="i">+		inactive_workspace $bg                $bg                $color15
+</a><a href="#h1-0-55" id="h1-0-55" class="i">+		urgent_workspace   $color1            $color1            $color12
+</a> 	}
+ }
+ 
+<b>diff --git a/<a id="h2" href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a> b/<a href="../file/config.stow/.config/i3/i3blocks.conf.html">config.stow/.config/i3/i3blocks.conf</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -71,7 +71,7 @@ interval=30
+</a> # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+ [iface]
+ #instance=wlan0
+<a href="#h2-0-3" id="h2-0-3" class="d">-color=#bd839a
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+color=#5f819d
+</a> interval=10
+ separator=false
+ 
+<b>diff --git a/<a id="h3" href="../file/config.stow/.config/xfce4/terminal/terminalrc.html">config.stow/.config/xfce4/terminal/terminalrc</a> b/<a href="../file/config.stow/.config/xfce4/terminal/terminalrc.html">config.stow/.config/xfce4/terminal/terminalrc</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -1,8 +1,8 @@
+</a> [Configuration]
+<a href="#h3-0-1" id="h3-0-1" class="d">-ColorCursor=#ececd1d1cdcd
+</a><a href="#h3-0-2" id="h3-0-2" class="d">-ColorForeground=#ececd1d1cdcd
+</a><a href="#h3-0-3" id="h3-0-3" class="d">-ColorBackground=#01010f0f1818
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-ColorPalette=#01010f0f1818;#a0a050505d5d;#dddd6e6e5b5b;#efef8b8b6d6d;#bdbd74748888;#bdbd83839a9a;#ebeba9a99b9b;#ececd1d1cdcd;#a5a592928f8f;#a0a050505d5d;#dddd6e6e5b5b;#efef8b8b6d6d;#bdbd74748888;#bdbd83839a9a;#ebeba9a99b9b;#ececd1d1cdcd
+</a><a href="#h3-0-5" id="h3-0-5" class="i">+ColorCursor=#c5c5c8c8c6c6
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+ColorForeground=#c5c5c8c8c6c6
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+ColorBackground=#1d1d1f1f2121
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+ColorPalette=#28282a2a2e2e;#a5a542424242;#8c8c94944040;#dede93935f5f;#5f5f81819d9d;#858567678f8f;#5e5e8d8d8787;#707078788080;#37373b3b4141;#cccc66666666;#b5b5bdbd6868;#f0f0c6c67474;#8181a2a2bebe;#b2b29494bbbb;#8a8abebeb7b7;#c5c5c8c8c6c6
+</a> MiscAlwaysShowTabs=FALSE
+ MiscBell=FALSE
+ MiscBellUrgent=FALSE
+</pre>
+</div>
+</body>
+</html>

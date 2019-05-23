@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update arch_bootstrap.sh - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/24be3a961e3febb0e3480a388a328298f39f70ca.html">24be3a961e3febb0e3480a388a328298f39f70ca</a>
+<b>parent</b> <a href="../commit/27c97eccc951e0c1ba6815d0b4b31bf53a27232a.html">27c97eccc951e0c1ba6815d0b4b31bf53a27232a</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 20:56:38 +0200
+
+Update arch_bootstrap.sh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 1 insertion(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -52,7 +52,7 @@ install() {
+</a> 
+ aurinstall() {
+   echo -n &quot;Installing $1 from AUR&quot;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  sudo -u $name yay -S &quot;$1&quot; &amp;&gt;/dev/null
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  sudo -u $name yay --noconfirm -S &quot;$1&quot; &amp;&gt;/dev/null
+</a>   echodone
+ }
+ 
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>New polybar modules, nowrap in vim - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/0ef7ab91e4db7955b91fb9877241a4b1d158c80d.html">0ef7ab91e4db7955b91fb9877241a4b1d158c80d</a>
+<b>parent</b> <a href="../commit/965e8a6f415080338f9875e4a4e79e2de566a8c0.html">965e8a6f415080338f9875e4a4e79e2de566a8c0</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Mon, 17 Dec 2018 14:54:11 +0100
+
+New polybar modules, nowrap in vim
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">33</td><td><span class="i">++++++++++++++++++++++</span><span class="d">-----------</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.vimrc</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>2 files changed, 23 insertions(+), 12 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -26,6 +26,9 @@ transparent = #00000000
+</a> width = 100%
+ height = 27
+ fixed-center = false
+<a href="#h0-0-3" id="h0-0-3" class="i">+bottom = true
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+;override-redirect = true
+</a> 
+ background = ${colors.transparent}
+ foreground = #ffffff
+<a href="#h0-1" id="h0-1" class="h">@@ -42,25 +45,19 @@ padding-right = 2
+</a> module-margin-left = 1
+ module-margin-right = 2
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+modules-left = i3 pulseaudio eth ethspeed wlan wlanspeed vpn battery time date spotify cmus
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+modules-center =
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+modules-right =
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+
+</a> font-0 = UbuntuMono Nerd Font:size=12;3
+ font-1 = &quot;Font Awesome 5 Free:style=Solid:pixelsize=12;3&quot;
+ font-2 = &quot;Font Awesome 5 Free:style=Regular:pixelsize=12;3&quot;
+ font-3 = &quot;Font Awesome 5 Brands:pixelsize=12;3&quot;
+ font-4 = Source Han Sans JP:size=12;3
+ 
+<a href="#h0-1-13" id="h0-1-13" class="d">-modules-left = i3 pulseaudio eth wlan vpn battery time date spotify cmus
+</a><a href="#h0-1-14" id="h0-1-14" class="d">-modules-center =
+</a><a href="#h0-1-15" id="h0-1-15" class="d">-modules-right =
+</a><a href="#h0-1-16" id="h0-1-16" class="d">-
+</a><a href="#h0-1-17" id="h0-1-17" class="d">-;override-redirect = true
+</a><a href="#h0-1-18" id="h0-1-18" class="d">-
+</a> scroll-up = i3wm-wsnext
+ scroll-down = i3wm-wsprev
+ 
+<a href="#h0-1-22" id="h0-1-22" class="d">-cursor-click = pointer
+</a><a href="#h0-1-23" id="h0-1-23" class="d">-cursor-scroll = ns-resize
+</a><a href="#h0-1-24" id="h0-1-24" class="d">-bottom = true
+</a><a href="#h0-1-25" id="h0-1-25" class="d">-
+</a> [module/i3]
+ type = internal/i3
+ format = &lt;label-state&gt; &lt;label-mode&gt;
+<a href="#h0-2" id="h0-2" class="h">@@ -146,11 +143,25 @@ label-disconnected =  Not Connected
+</a> type = internal/network
+ interface = enp0s31f6
+ interval = 3.0
+<a href="#h0-2-3" id="h0-2-3" class="d">-label-connected =  Connected
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+label-connected =  %local_ip%
+</a> label-disconnected =  Disconnected
+ 
+ format-disconnected =
+ 
+<a href="#h0-2-9" id="h0-2-9" class="i">+[module/ethspeed]
+</a><a href="#h0-2-10" id="h0-2-10" class="i">+type = internal/network
+</a><a href="#h0-2-11" id="h0-2-11" class="i">+interface = enp0s31f6
+</a><a href="#h0-2-12" id="h0-2-12" class="i">+interval = 1
+</a><a href="#h0-2-13" id="h0-2-13" class="i">+label-connected =  %downspeed%  %upspeed%
+</a><a href="#h0-2-14" id="h0-2-14" class="i">+label-disconnected =
+</a><a href="#h0-2-15" id="h0-2-15" class="i">+
+</a><a href="#h0-2-16" id="h0-2-16" class="i">+[module/wlanspeed]
+</a><a href="#h0-2-17" id="h0-2-17" class="i">+type = internal/network
+</a><a href="#h0-2-18" id="h0-2-18" class="i">+interface = wlp1s0
+</a><a href="#h0-2-19" id="h0-2-19" class="i">+interval = 1
+</a><a href="#h0-2-20" id="h0-2-20" class="i">+label-connected =  %downspeed%  %upspeed%
+</a><a href="#h0-2-21" id="h0-2-21" class="i">+label-disconnected =
+</a><a href="#h0-2-22" id="h0-2-22" class="i">+
+</a> [module/vpn]
+ type = custom/script
+ exec = echo vpn on
+<b>diff --git a/<a id="h1" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -220,7 +220,7 @@ set updatetime=500
+</a> set nostartofline
+ 
+ &quot; Do not break long lines
+<a href="#h1-0-3" id="h1-0-3" class="d">-set wrap
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+set nowrap
+</a> 
+ &quot; After this many msecs do not imap
+ set timeoutlen=500
+</pre>
+</div>
+</body>
+</html>

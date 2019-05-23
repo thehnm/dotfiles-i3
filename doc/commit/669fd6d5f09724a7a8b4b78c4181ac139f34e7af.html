@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Changes for c - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/669fd6d5f09724a7a8b4b78c4181ac139f34e7af.html">669fd6d5f09724a7a8b4b78c4181ac139f34e7af</a>
+<b>parent</b> <a href="../commit/b6acec87cf651463f9b3e2ee9921c163dfd74fc5.html">b6acec87cf651463f9b3e2ee9921c163dfd74fc5</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Thu, 24 Jan 2019 09:51:00 +0100
+
+Changes for c
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/nvim/init.vim</a></td><td> | </td><td class="num">8</td><td><span class="i">+++++++</span><span class="d">-</span></td></tr>
+</table></pre><pre>1 file changed, 7 insertions(+), 1 deletion(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a> b/<a href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -91,7 +91,7 @@ hi VertSplit cterm=None
+</a> 
+ hi clear SignColumn
+ 
+<a href="#h0-0-3" id="h0-0-3" class="d">-&quot;&quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+&quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+</a> function! InsertTabWrapper(direction)
+     let col = col(&#39;.&#39;) - 1
+     if !col || getline(&#39;.&#39;)[col - 1] !~ &#39;\k&#39;
+<a href="#h0-1" id="h0-1" class="h">@@ -104,3 +104,9 @@ function! InsertTabWrapper(direction)
+</a> endfunction
+ inoremap &lt;tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;forward&quot;)&lt;cr&gt;
+ inoremap &lt;s-tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;backward&quot;)&lt;cr&gt;
+<a href="#h0-1-3" id="h0-1-3" class="i">+
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+&quot; Set filetype for pure c headers
+</a><a href="#h0-1-5" id="h0-1-5" class="i">+augroup project
+</a><a href="#h0-1-6" id="h0-1-6" class="i">+    autocmd!
+</a><a href="#h0-1-7" id="h0-1-7" class="i">+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+</a><a href="#h0-1-8" id="h0-1-8" class="i">+augroup END
+</a></pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update config - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/770cc1ed4694ff38764f4dfd9fdd9f826f51121a.html">770cc1ed4694ff38764f4dfd9fdd9f826f51121a</a>
+<b>parent</b> <a href="../commit/996f3db48f5c93f307ab3fe0279d778dd129919a.html">996f3db48f5c93f307ab3fe0279d778dd129919a</a>
+<b>Author:</b> TheHNM &lt;<a href="mailto:thehnm@ekaterina.localdomain">thehnm@ekaterina.localdomain</a>&gt;
+<b>Date:</b>   Sat, 20 Oct 2018 22:41:44 +0200
+
+Update config
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">.gitignore</a></td><td> | </td><td class="num">8</td><td><span class="i">++++++++</span><span class="d"></span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.Xresources</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h2">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">3</td><td><span class="i">++</span><span class="d">-</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h3">config.stow/.conky/clock-light/clock-light</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++</span><span class="d">-----</span></td></tr>
+</table></pre><pre>4 files changed, 16 insertions(+), 7 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/.gitignore.html">.gitignore</a> b/<a href="../file/.gitignore.html">.gitignore</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -2,3 +2,11 @@ bookmarks
+</a> .uuid
+ uuid
+ settings.ini
+<a href="#h0-0-3" id="h0-0-3" class="i">+.themepacks
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+Conky*
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+Gotham
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+Green*
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+Tee*
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+*fonts
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+conky*
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+*.xbel
+</a><b>diff --git a/<a id="h1" href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a> b/<a href="../file/config.stow/.Xresources.html">config.stow/.Xresources</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -24,7 +24,7 @@ rofi.modi: run,drun,window
+</a> rofi.fullscreen: true
+ rofi.hide-scrollbar: true
+ rofi.padding: 400
+<a href="#h1-0-3" id="h1-0-3" class="d">-rofi.font: &quot;RobotoMono Nerd Font Regular&quot; 24
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+rofi.font: Cantarell Bold 24
+</a> rofi.color-enabled: true
+ rofi.color-window: bg, bg,     bg
+ rofi.color-normal: bg, fg,     bg, bg, color4
+<b>diff --git a/<a id="h2" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -109,7 +109,8 @@ label-disconnected =  Not Connected
+</a> type = internal/network
+ interface = enp0s31f6
+ interval = 3.0
+<a href="#h2-0-3" id="h2-0-3" class="d">-label-connected = %local_ip%
+</a><a href="#h2-0-4" id="h2-0-4" class="i">+label-connected =  Connected
+</a><a href="#h2-0-5" id="h2-0-5" class="i">+label-disconnected =  Disconnected
+</a> 
+ format-disconnected =
+ 
+<b>diff --git a/<a id="h3" href="../file/config.stow/.conky/clock-light/clock-light.html">config.stow/.conky/clock-light/clock-light</a> b/<a href="../file/config.stow/.conky/clock-light/clock-light.html">config.stow/.conky/clock-light/clock-light</a></b>
+<a href="#h3-0" id="h3-0" class="h">@@ -22,9 +22,9 @@ draw_graph_borders no
+</a> default_color 656667
+ default_shade_color 000000
+ default_outline_color 828282
+<a href="#h3-0-3" id="h3-0-3" class="d">-alignment bottom_left
+</a><a href="#h3-0-4" id="h3-0-4" class="d">-gap_x 30
+</a><a href="#h3-0-5" id="h3-0-5" class="d">-gap_y -300
+</a><a href="#h3-0-6" id="h3-0-6" class="i">+alignment middle_middle
+</a><a href="#h3-0-7" id="h3-0-7" class="i">+gap_x -100
+</a><a href="#h3-0-8" id="h3-0-8" class="i">+gap_y 0
+</a> no_buffers yes
+ uppercase no
+ cpu_avg_samples 2
+<a href="#h3-1" id="h3-1" class="h">@@ -39,5 +39,5 @@ TEXT
+</a> ${color grey}${font Quicksand Light - U:pixelsize=70}${time %H:%M:%S}${font}${voffset -20}${offset 10}${font Existence Light - U:pixelsize=20}${font}
+ 
+ 
+<a href="#h3-1-3" id="h3-1-3" class="d">-${voffset 10}${offset 90}${font Existence Light - U:pixelsize=20}${time %A %B %d}${font}
+</a><a href="#h3-1-4" id="h3-1-4" class="d">-${voffset -26}${offset 10}${font Existence Light - U:pixelsize=32}${time %Y}${font}
+</a><a href="#h3-1-5" id="h3-1-5" class="i">+${voffset 10}${offset 90}${font UbuntuMono Nerd Font Bold- U:pixelsize=20}${time %A %B %d}${font}
+</a><a href="#h3-1-6" id="h3-1-6" class="i">+${voffset -26}${offset 10}${font UbuntuMono Nerd Font Bold- U:pixelsize=32}${time %Y}${font}
+</a></pre>
+</div>
+</body>
+</html>

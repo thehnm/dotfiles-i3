@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Change transparency in dunst and add spotify icon to polybar - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/f51d610a9cf3d2b05e6129004c6e2cccd3d19841.html">f51d610a9cf3d2b05e6129004c6e2cccd3d19841</a>
+<b>parent</b> <a href="../commit/e773c611346ca66e8de32f0746961689f0442293.html">e773c611346ca66e8de32f0746961689f0442293</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Wed, 31 Oct 2018 08:38:21 +0100
+
+Change transparency in dunst and add spotify icon to polybar
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/dunst/dunstrc</a></td><td> | </td><td class="num">6</td><td><span class="i">+++</span><span class="d">---</span></td></tr>
+<tr><td class="M">M</td><td><a href="#h1">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+</table></pre><pre>2 files changed, 4 insertions(+), 4 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/dunst/dunstrc.html">config.stow/.config/dunst/dunstrc</a> b/<a href="../file/config.stow/.config/dunst/dunstrc.html">config.stow/.config/dunst/dunstrc</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -54,17 +54,17 @@
+</a>     separator_height = 2
+ 
+     # Padding between text and separator.
+<a href="#h0-0-3" id="h0-0-3" class="d">-    padding = 8
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+    padding = 12
+</a> 
+     # Horizontal padding.
+<a href="#h0-0-7" id="h0-0-7" class="d">-    horizontal_padding = 8
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+    horizontal_padding = 12
+</a> 
+     # Defines width in pixels of frame around the notification window.
+     # Set to 0 to disable.
+     frame_width = 0
+ 
+     # Defines color of the frame around the notification window.
+<a href="#h0-0-15" id="h0-0-15" class="d">-    frame_color = &quot;#aaaaaa&quot;
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+    frame_color = &quot;#ffffff&quot;
+</a> 
+     # Define a color for the separator.
+     # possible values are:
+<b>diff --git a/<a id="h1" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -176,6 +176,6 @@ ramp-capacity-4 = 
+</a> 
+ [module/spotify]
+ type = custom/script
+<a href="#h1-0-3" id="h1-0-3" class="d">-exec = ~/.config/polybar/spotify.sh %artist% - %title%
+</a><a href="#h1-0-4" id="h1-0-4" class="i">+exec = ~/.config/polybar/spotify.sh  %artist% - %title%
+</a> tail = true
+ interval = 1
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update arch_bootstrap.sh - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/8e31b36929f89b6c4e43dd755de276be7ce93282.html">8e31b36929f89b6c4e43dd755de276be7ce93282</a>
+<b>parent</b> <a href="../commit/bd853c8ab8685c9a5af6ae5b30ac57004fb80537.html">bd853c8ab8685c9a5af6ae5b30ac57004fb80537</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 21:52:34 +0200
+
+Update arch_bootstrap.sh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">10</td><td><span class="i">+++++</span><span class="d">-----</span></td></tr>
+</table></pre><pre>1 file changed, 5 insertions(+), 5 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -52,16 +52,16 @@ install() {
+</a> 
+ aurinstall() {
+   echo &quot;Installing $1 from AUR&quot;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  sudo -u $name yay -S &quot;$1&quot;
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  sudo -u $name yay --noconfirm -S &quot;$1&quot;
+</a>   echodone
+ }
+ 
+ installyay() {
+   echo ${bold}Install yay AUR helper${normal}
+   pacman --noconfirm -S git &amp;&gt;/dev/null
+<a href="#h0-0-11" id="h0-0-11" class="d">-  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay &amp;&gt;/dev/null
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+  sudo -u $name git clone https://aur.archlinux.org/yay.git /home/$name/yay
+</a>   cd /home/$name/yay
+<a href="#h0-0-14" id="h0-0-14" class="d">-  sudo -u $name makepkg --noconfirm -si &amp;&gt; /dev/null
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+  sudo -u $name makepkg --noconfirm -si
+</a>   echodone
+ }
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -121,7 +121,7 @@ enableservices() {
+</a> 
+ installdotfile() {
+   echo ${bold}Install my i3 dotfile${normal}
+<a href="#h0-1-3" id="h0-1-3" class="d">-  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3 &amp;&gt;/dev/null
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+  sudo -u $name git clone https://thehnm@github.com/thehnm/dotfiles-i3.git /home/$name/dotfiles-i3
+</a>   cd /home/$name/dotfiles-i3/
+   case $bar in
+     &quot;i3bar&quot; ) sudo -u $name sed -i &#39;/polybar/d&#39; /home/$name/dotfiles-i3/config.stow/.config/i3/config
+<a href="#h0-2" id="h0-2" class="h">@@ -215,7 +215,7 @@ echodone
+</a> # Install vundle
+ echo -n ${bold}Install vundle${normal}
+ cd /home/$name/
+<a href="#h0-2-3" id="h0-2-3" class="d">-sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim &amp;&gt;/dev/null
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+sudo -u $name git clone https://github.com/VundleVim/Vundle.vim.git /home/$name/.vim/bundle/Vundle.vim
+</a> echodone
+ 
+ echo -n ${bold}Remove packages.csv and arch_bootstrap.sh${normal}
+</pre>
+</div>
+</body>
+</html>

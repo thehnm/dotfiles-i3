@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Update arch_bootstrap.sh - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/f3f0b25a9f5f0e212953f41209915e9f6a024e5c.html">f3f0b25a9f5f0e212953f41209915e9f6a024e5c</a>
+<b>parent</b> <a href="../commit/f0f66f5bfac7e137e387c8c4445c2f32ab1c98f1.html">f0f66f5bfac7e137e387c8c4445c2f32ab1c98f1</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 17:46:00 +0200
+
+Update arch_bootstrap.sh
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">6</td><td><span class="i">++++</span><span class="d">--</span></td></tr>
+</table></pre><pre>1 file changed, 4 insertions(+), 2 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -46,7 +46,7 @@ setupnewuser() {
+</a> 
+ install() {
+   echo -n &quot;Installing $1&quot;
+<a href="#h0-0-3" id="h0-0-3" class="d">-  pacman --needed -S &quot;$1&quot; &amp;&gt;/dev/null
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+  pacman --noconfirm --needed -S &quot;$1&quot; &amp;&gt;/dev/null
+</a>   echodone
+ }
+ 
+<a href="#h0-1" id="h0-1" class="h">@@ -95,6 +95,8 @@ installloop() {
+</a>     esac
+   done
+ 
+<a href="#h0-1-3" id="h0-1-3" class="i">+  pacman --noconfirm -Sy archlinux-keyring
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+
+</a>   INPUT=/tmp/packages.csv
+   IFS=,
+   [ ! -f $INPUT ] &amp;&amp; { echo &quot;$INPUT file not found&quot;; exit 99; }
+<a href="#h0-2" id="h0-2" class="h">@@ -153,7 +155,7 @@ installgrub() {
+</a>   do
+     read -p &quot;Do you have UEFI enabled? &quot; answer
+     case $answer in
+<a href="#h0-2-3" id="h0-2-3" class="d">-      [yY]* ) pacman -S grub efibootmgr
+</a><a href="#h0-2-4" id="h0-2-4" class="i">+      [yY]* ) pacman --noconfirm -S grub efibootmgr
+</a>               grub-install --target=x86_64-pc --bootloader-id=GRUB --efi-directory=/boot/efi/
+               grub-mkconfig -o /boot/grub/grub.cfg
+               break;;
+</pre>
+</div>
+</body>
+</html>

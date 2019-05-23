@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add edit packages.txt option - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/a8f0f6f5e6785453e68b8aef0f59d75fd1db15bf.html">a8f0f6f5e6785453e68b8aef0f59d75fd1db15bf</a>
+<b>parent</b> <a href="../commit/01c5dd455f786b4aab69e333d628d115087b882e.html">01c5dd455f786b4aab69e333d628d115087b882e</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@protonmail.com">hngnm@protonmail.com</a>&gt;
+<b>Date:</b>   Mon, 22 Oct 2018 12:46:56 +0200
+
+Add edit packages.txt option
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">arch_bootstrap/arch_bootstrap.sh</a></td><td> | </td><td class="num">14</td><td><span class="i">++++++++++++++</span><span class="d"></span></td></tr>
+</table></pre><pre>1 file changed, 14 insertions(+), 0 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a> b/<a href="../file/arch_bootstrap/arch_bootstrap.sh.html">arch_bootstrap/arch_bootstrap.sh</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -44,6 +44,20 @@ echo ###########################################################################
+</a> # Install packages
+ echo ${bold}Install packages${normal}
+ curl https://raw.githubusercontent.com/thehnm/dotfiles-i3/master/arch_bootstrap/packages.txt &gt;&gt; packages.txt
+<a href="#h0-0-3" id="h0-0-3" class="i">+
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+read -p &quot;Do you want to edit the list of packages to be installed? &quot; answer
+</a><a href="#h0-0-5" id="h0-0-5" class="i">+while true
+</a><a href="#h0-0-6" id="h0-0-6" class="i">+do
+</a><a href="#h0-0-7" id="h0-0-7" class="i">+  case $answer in
+</a><a href="#h0-0-8" id="h0-0-8" class="i">+   [yY]* ) nano packages.txt
+</a><a href="#h0-0-9" id="h0-0-9" class="i">+           break;;
+</a><a href="#h0-0-10" id="h0-0-10" class="i">+
+</a><a href="#h0-0-11" id="h0-0-11" class="i">+   [nN]* ) break;;
+</a><a href="#h0-0-12" id="h0-0-12" class="i">+
+</a><a href="#h0-0-13" id="h0-0-13" class="i">+   * )     echo &quot;Dude, just enter Y or N, please.&quot;; break ;;
+</a><a href="#h0-0-14" id="h0-0-14" class="i">+  esac
+</a><a href="#h0-0-15" id="h0-0-15" class="i">+done
+</a><a href="#h0-0-16" id="h0-0-16" class="i">+
+</a> xargs -a packages.txt pacman --color=auto --needed -S
+ mv packages.txt /
+ 
+</pre>
+</div>
+</body>
+</html>

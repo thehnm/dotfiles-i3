@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Delete vimrc, add .profile and change mpd module - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/e1293d364ecdf5da78a3b44c9ae6cf77d375248c.html">e1293d364ecdf5da78a3b44c9ae6cf77d375248c</a>
+<b>parent</b> <a href="../commit/8c53e2862b04b9cab2b691dc94e46a9cff65398c.html">8c53e2862b04b9cab2b691dc94e46a9cff65398c</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Mon, 21 Jan 2019 19:25:04 +0100
+
+Delete vimrc, add .profile and change mpd module
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/polybar/config</a></td><td> | </td><td class="num">2</td><td><span class="i">+</span><span class="d">-</span></td></tr>
+<tr><td class="A">A</td><td><a href="#h1">config.stow/.profile</a></td><td> | </td><td class="num">2</td><td><span class="i">++</span><span class="d"></span></td></tr>
+<tr><td class="D">D</td><td><a href="#h2">config.stow/.vimrc</a></td><td> | </td><td class="num">148</td><td><span class="i"></span><span class="d">-------------------------------------------------------------------------------</span></td></tr>
+</table></pre><pre>3 files changed, 3 insertions(+), 149 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a> b/<a href="../file/config.stow/.config/polybar/config.html">config.stow/.config/polybar/config</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -347,7 +347,7 @@ label-offline = 🎜 mpd is offline
+</a> 
+ format-online-background = ${colors.color5}
+ format-online-padding = 1
+<a href="#h0-0-3" id="h0-0-3" class="d">-format-online =  %{A1: mpc prev:}%{A2: mpc toggle:}%{A3: mpc next:}&lt;label-song&gt;%{A}%{A}%{A}
+</a><a href="#h0-0-4" id="h0-0-4" class="i">+format-online =  %{A1: urxvt -e ncmpcpp:}%{A2: mpc toggle:}&lt;label-song&gt;%{A}%{A}
+</a> 
+ ; Used to display the state of random/repeat/repeatone/single
+ ; Only applies if &lt;icon-[random|repeat|repeatone|single]&gt; is used
+<b>diff --git a/<a id="h1" href="../file/config.stow/.profile.html">config.stow/.profile</a> b/<a href="../file/config.stow/.profile.html">config.stow/.profile</a></b>
+<a href="#h1-0" id="h1-0" class="h">@@ -0,0 +1,2 @@
+</a><a href="#h1-0-0" id="h1-0-0" class="i">+export QT_QPA_PLATFORMTHEME=&quot;qt5ct&quot;
+</a><a href="#h1-0-1" id="h1-0-1" class="i">+export EDITOR=&quot;nvim&quot;
+</a><b>diff --git a/<a id="h2" href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a> b/<a href="../file/config.stow/.vimrc.html">config.stow/.vimrc</a></b>
+<a href="#h2-0" id="h2-0" class="h">@@ -1,148 +0,0 @@
+</a><a href="#h2-0-0" id="h2-0-0" class="d">-let mapleader=&#39;,&#39;
+</a><a href="#h2-0-1" id="h2-0-1" class="d">-
+</a><a href="#h2-0-2" id="h2-0-2" class="d">-filetype off                  &quot; required for vundle
+</a><a href="#h2-0-3" id="h2-0-3" class="d">-
+</a><a href="#h2-0-4" id="h2-0-4" class="d">-set rtp+=~/.vim/bundle/Vundle.vim
+</a><a href="#h2-0-5" id="h2-0-5" class="d">-call vundle#begin()
+</a><a href="#h2-0-6" id="h2-0-6" class="d">-
+</a><a href="#h2-0-7" id="h2-0-7" class="d">-Plugin &#39;VundleVim/Vundle.vim&#39;
+</a><a href="#h2-0-8" id="h2-0-8" class="d">-
+</a><a href="#h2-0-9" id="h2-0-9" class="d">-Plugin &#39;vim-latex/vim-latex&#39;
+</a><a href="#h2-0-10" id="h2-0-10" class="d">-Plugin &#39;w0rp/ale&#39;
+</a><a href="#h2-0-11" id="h2-0-11" class="d">-Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+</a><a href="#h2-0-12" id="h2-0-12" class="d">-Plugin &#39;airblade/vim-gitgutter&#39;
+</a><a href="#h2-0-13" id="h2-0-13" class="d">-Plugin &#39;ntpeters/vim-better-whitespace&#39;
+</a><a href="#h2-0-14" id="h2-0-14" class="d">-Plugin &#39;jlanzarotta/bufexplorer&#39;
+</a><a href="#h2-0-15" id="h2-0-15" class="d">-Plugin &#39;Rip-Rip/clang_complete&#39;
+</a><a href="#h2-0-16" id="h2-0-16" class="d">-
+</a><a href="#h2-0-17" id="h2-0-17" class="d">-call vundle#end()
+</a><a href="#h2-0-18" id="h2-0-18" class="d">-
+</a><a href="#h2-0-19" id="h2-0-19" class="d">-&quot; ----- vim-latex/vim-latex -----
+</a><a href="#h2-0-20" id="h2-0-20" class="d">-let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+</a><a href="#h2-0-21" id="h2-0-21" class="d">-let g:Tex_CompileRule_dvi = &#39;latex -interaction=nonstopmode $*&#39;
+</a><a href="#h2-0-22" id="h2-0-22" class="d">-let g:Tex_ViewRule_pdf = &#39;zathura&#39;
+</a><a href="#h2-0-23" id="h2-0-23" class="d">-let g:Tex_MultipleCompileFormats=&#39;pdf,bib,pdf&#39;
+</a><a href="#h2-0-24" id="h2-0-24" class="d">-let g:tex_no_error=1
+</a><a href="#h2-0-25" id="h2-0-25" class="d">-
+</a><a href="#h2-0-26" id="h2-0-26" class="d">-&quot; ----- w0rp/ale -----
+</a><a href="#h2-0-27" id="h2-0-27" class="d">-let g:ale_sign_error = &#39;&#39;
+</a><a href="#h2-0-28" id="h2-0-28" class="d">-let g:ale_sign_warning = &#39;&#39;
+</a><a href="#h2-0-29" id="h2-0-29" class="d">-let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;]}
+</a><a href="#h2-0-30" id="h2-0-30" class="d">-
+</a><a href="#h2-0-31" id="h2-0-31" class="d">-&quot; ----- ntpeters/vim-better-whitespace -----
+</a><a href="#h2-0-32" id="h2-0-32" class="d">-let g:better_whitespace_enabled=1
+</a><a href="#h2-0-33" id="h2-0-33" class="d">-
+</a><a href="#h2-0-34" id="h2-0-34" class="d">-&quot; ----- Rip-Rip/clang_complete -----
+</a><a href="#h2-0-35" id="h2-0-35" class="d">-let g:clang_library_path=&#39;/usr/lib64/libclang.so.7&#39;
+</a><a href="#h2-0-36" id="h2-0-36" class="d">-let g:clang_close_preview=1
+</a><a href="#h2-0-37" id="h2-0-37" class="d">-
+</a><a href="#h2-0-38" id="h2-0-38" class="d">-&quot; -----------------------------------------------------------------------------
+</a><a href="#h2-0-39" id="h2-0-39" class="d">-&quot; Mappings
+</a><a href="#h2-0-40" id="h2-0-40" class="d">-
+</a><a href="#h2-0-41" id="h2-0-41" class="d">-&quot; Toggle highlight search
+</a><a href="#h2-0-42" id="h2-0-42" class="d">-nnoremap &lt;F3&gt; :set hlsearch!&lt;CR&gt;
+</a><a href="#h2-0-43" id="h2-0-43" class="d">-
+</a><a href="#h2-0-44" id="h2-0-44" class="d">-&quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
+</a><a href="#h2-0-45" id="h2-0-45" class="d">-function! InsertTabWrapper(direction)
+</a><a href="#h2-0-46" id="h2-0-46" class="d">-    let col = col(&#39;.&#39;) - 1
+</a><a href="#h2-0-47" id="h2-0-47" class="d">-    if !col || getline(&#39;.&#39;)[col - 1] !~ &#39;\k&#39;
+</a><a href="#h2-0-48" id="h2-0-48" class="d">-        return &quot;\&lt;tab&gt;&quot;
+</a><a href="#h2-0-49" id="h2-0-49" class="d">-   elseif &quot;backward&quot; == a:direction
+</a><a href="#h2-0-50" id="h2-0-50" class="d">-        return &quot;\&lt;c-p&gt;&quot;
+</a><a href="#h2-0-51" id="h2-0-51" class="d">-    else
+</a><a href="#h2-0-52" id="h2-0-52" class="d">-        return &quot;\&lt;c-n&gt;&quot;
+</a><a href="#h2-0-53" id="h2-0-53" class="d">-    endif
+</a><a href="#h2-0-54" id="h2-0-54" class="d">-endfunction
+</a><a href="#h2-0-55" id="h2-0-55" class="d">-inoremap &lt;tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;forward&quot;)&lt;cr&gt;
+</a><a href="#h2-0-56" id="h2-0-56" class="d">-inoremap &lt;s-tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;backward&quot;)&lt;cr&gt;
+</a><a href="#h2-0-57" id="h2-0-57" class="d">-
+</a><a href="#h2-0-58" id="h2-0-58" class="d">-&quot; Switch buffers quickly
+</a><a href="#h2-0-59" id="h2-0-59" class="d">-map &lt;leader&gt;q : bp&lt;CR&gt;
+</a><a href="#h2-0-60" id="h2-0-60" class="d">-map &lt;leader&gt;w : bn&lt;CR&gt;
+</a><a href="#h2-0-61" id="h2-0-61" class="d">-
+</a><a href="#h2-0-62" id="h2-0-62" class="d">-&quot; Toggle between .h and .cpp with F4
+</a><a href="#h2-0-63" id="h2-0-63" class="d">-function! ToggleBetweenHeaderAndSourceFile()
+</a><a href="#h2-0-64" id="h2-0-64" class="d">-  let bufname = bufname(&quot;%&quot;)
+</a><a href="#h2-0-65" id="h2-0-65" class="d">-  let ext = fnamemodify(bufname, &quot;:e&quot;)
+</a><a href="#h2-0-66" id="h2-0-66" class="d">-  if ext == &quot;h&quot;
+</a><a href="#h2-0-67" id="h2-0-67" class="d">-    let ext = &quot;cpp&quot;
+</a><a href="#h2-0-68" id="h2-0-68" class="d">-  elseif ext == &quot;cpp&quot;
+</a><a href="#h2-0-69" id="h2-0-69" class="d">-    let ext = &quot;h&quot;
+</a><a href="#h2-0-70" id="h2-0-70" class="d">-  else
+</a><a href="#h2-0-71" id="h2-0-71" class="d">-    return
+</a><a href="#h2-0-72" id="h2-0-72" class="d">-  endif
+</a><a href="#h2-0-73" id="h2-0-73" class="d">-  let bufname_new = fnamemodify(bufname, &quot;:r&quot;) . &quot;.&quot; . ext
+</a><a href="#h2-0-74" id="h2-0-74" class="d">-  let bufname_alt = bufname(&quot;#&quot;)
+</a><a href="#h2-0-75" id="h2-0-75" class="d">-  if bufname_new == bufname_alt
+</a><a href="#h2-0-76" id="h2-0-76" class="d">-    execute &quot;:e#&quot;
+</a><a href="#h2-0-77" id="h2-0-77" class="d">-  else
+</a><a href="#h2-0-78" id="h2-0-78" class="d">-    execute &quot;:e &quot; . bufname_new
+</a><a href="#h2-0-79" id="h2-0-79" class="d">-  endif
+</a><a href="#h2-0-80" id="h2-0-80" class="d">-endfunction
+</a><a href="#h2-0-81" id="h2-0-81" class="d">-map &lt;silent&gt; &lt;F4&gt; :call ToggleBetweenHeaderAndSourceFile()&lt;CR&gt;
+</a><a href="#h2-0-82" id="h2-0-82" class="d">-
+</a><a href="#h2-0-83" id="h2-0-83" class="d">-&quot; -----------------------------------------------------------------------------
+</a><a href="#h2-0-84" id="h2-0-84" class="d">-&quot; Tab specific option
+</a><a href="#h2-0-85" id="h2-0-85" class="d">-
+</a><a href="#h2-0-86" id="h2-0-86" class="d">-&quot; When inserting TABs replace them with the appropriate number of spaces
+</a><a href="#h2-0-87" id="h2-0-87" class="d">-set expandtab
+</a><a href="#h2-0-88" id="h2-0-88" class="d">-
+</a><a href="#h2-0-89" id="h2-0-89" class="d">-&quot; A tab is 8 spaces
+</a><a href="#h2-0-90" id="h2-0-90" class="d">-set tabstop=8
+</a><a href="#h2-0-91" id="h2-0-91" class="d">-
+</a><a href="#h2-0-92" id="h2-0-92" class="d">-&quot; Insert 4 spaces when tab is pressed
+</a><a href="#h2-0-93" id="h2-0-93" class="d">-set softtabstop=4
+</a><a href="#h2-0-94" id="h2-0-94" class="d">-
+</a><a href="#h2-0-95" id="h2-0-95" class="d">-&quot; An indent is 4 spaces
+</a><a href="#h2-0-96" id="h2-0-96" class="d">-set shiftwidth=4
+</a><a href="#h2-0-97" id="h2-0-97" class="d">-
+</a><a href="#h2-0-98" id="h2-0-98" class="d">-&quot; Round indent to nearest shiftwidth multiple
+</a><a href="#h2-0-99" id="h2-0-99" class="d">-set shiftround
+</a><a href="#h2-0-100" id="h2-0-100" class="d">-
+</a><a href="#h2-0-101" id="h2-0-101" class="d">-&quot; -----------------------------------------------------------------------------
+</a><a href="#h2-0-102" id="h2-0-102" class="d">-&quot; Options
+</a><a href="#h2-0-103" id="h2-0-103" class="d">-
+</a><a href="#h2-0-104" id="h2-0-104" class="d">-&quot; Latex Suite 1.5 wants it
+</a><a href="#h2-0-105" id="h2-0-105" class="d">-&quot; REQUIRED. This makes vim invoke latex-suite when you open a tex file.
+</a><a href="#h2-0-106" id="h2-0-106" class="d">-
+</a><a href="#h2-0-107" id="h2-0-107" class="d">-filetype plugin indent on
+</a><a href="#h2-0-108" id="h2-0-108" class="d">-
+</a><a href="#h2-0-109" id="h2-0-109" class="d">-&quot; Syntax highlightning, but only for color terminals.
+</a><a href="#h2-0-110" id="h2-0-110" class="d">-set t_Co=256
+</a><a href="#h2-0-111" id="h2-0-111" class="d">-syntax on
+</a><a href="#h2-0-112" id="h2-0-112" class="d">-
+</a><a href="#h2-0-113" id="h2-0-113" class="d">-&quot; Set vertical split bar to continous line
+</a><a href="#h2-0-114" id="h2-0-114" class="d">-set fillchars=stl:-,stlnc:-,vert:│
+</a><a href="#h2-0-115" id="h2-0-115" class="d">-
+</a><a href="#h2-0-116" id="h2-0-116" class="d">-&quot; Disable vertical split border background
+</a><a href="#h2-0-117" id="h2-0-117" class="d">-highlight VertSplit cterm=None
+</a><a href="#h2-0-118" id="h2-0-118" class="d">-
+</a><a href="#h2-0-119" id="h2-0-119" class="d">-&quot;Break long lines
+</a><a href="#h2-0-120" id="h2-0-120" class="d">-set wrap
+</a><a href="#h2-0-121" id="h2-0-121" class="d">-
+</a><a href="#h2-0-122" id="h2-0-122" class="d">-&quot; Show matching braces
+</a><a href="#h2-0-123" id="h2-0-123" class="d">-set showmatch
+</a><a href="#h2-0-124" id="h2-0-124" class="d">-
+</a><a href="#h2-0-125" id="h2-0-125" class="d">-&quot; Keep the horizontal cursor position when moving vertically
+</a><a href="#h2-0-126" id="h2-0-126" class="d">-set nostartofline
+</a><a href="#h2-0-127" id="h2-0-127" class="d">-
+</a><a href="#h2-0-128" id="h2-0-128" class="d">-
+</a><a href="#h2-0-129" id="h2-0-129" class="d">-&quot; Highlight all search matches and toggle it with F3
+</a><a href="#h2-0-130" id="h2-0-130" class="d">-set hlsearch!
+</a><a href="#h2-0-131" id="h2-0-131" class="d">-
+</a><a href="#h2-0-132" id="h2-0-132" class="d">-&quot; Set line numbers
+</a><a href="#h2-0-133" id="h2-0-133" class="d">-set number
+</a><a href="#h2-0-134" id="h2-0-134" class="d">-
+</a><a href="#h2-0-135" id="h2-0-135" class="d">-set backspace=indent,eol,start
+</a><a href="#h2-0-136" id="h2-0-136" class="d">-
+</a><a href="#h2-0-137" id="h2-0-137" class="d">-set incsearch
+</a><a href="#h2-0-138" id="h2-0-138" class="d">-
+</a><a href="#h2-0-139" id="h2-0-139" class="d">-&quot; Automatic C-style indenting
+</a><a href="#h2-0-140" id="h2-0-140" class="d">-set autoindent
+</a><a href="#h2-0-141" id="h2-0-141" class="d">-
+</a><a href="#h2-0-142" id="h2-0-142" class="d">-hi clear SignColumn
+</a><a href="#h2-0-143" id="h2-0-143" class="d">-
+</a><a href="#h2-0-144" id="h2-0-144" class="d">-set showcmd
+</a><a href="#h2-0-145" id="h2-0-145" class="d">-
+</a><a href="#h2-0-146" id="h2-0-146" class="d">-&quot; Completion function optimized for c++
+</a><a href="#h2-0-147" id="h2-0-147" class="d">-au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+</a></pre>
+</div>
+</body>
+</html>

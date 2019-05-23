@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add new plugins for IDE features - dotfiles - Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</title>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="dotfiles Atom Feed" href="../atom.xml" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<table><tr><td><a href="../../"><img src="../logo.png" alt="" width="32" height="32" /></a></td><td><h1>dotfiles</h1><span class="desc">Unnamed repository; edit this file &#39;description&#39; to name the repository.
+</span></td></tr><tr><td></td><td>
+<a href="../log.html">Log</a> | <a href="../files.html">Files</a> | <a href="../refs.html">Refs</a> | <a href="../file/README.md.html">README</a> | <a href="../file/LICENSE.html">LICENSE</a></td></tr></table>
+<hr/>
+<div id="content">
+<pre><b>commit</b> <a href="../commit/560ae4fcab6057ba31fc9b4926389d417ef81cd2.html">560ae4fcab6057ba31fc9b4926389d417ef81cd2</a>
+<b>parent</b> <a href="../commit/e5f5466931908ba75e26fa99c9ce8c643cc42a5b.html">e5f5466931908ba75e26fa99c9ce8c643cc42a5b</a>
+<b>Author:</b> thehnm &lt;<a href="mailto:hngnm@pm.me">hngnm@pm.me</a>&gt;
+<b>Date:</b>   Wed, 30 Jan 2019 12:44:34 +0100
+
+Add new plugins for IDE features
+
+<b>Diffstat:</b>
+<table><tr><td class="M">M</td><td><a href="#h0">config.stow/.config/nvim/init.vim</a></td><td> | </td><td class="num">55</td><td><span class="i">+++++++++++++++++++++++++++++++++</span><span class="d">----------------------</span></td></tr>
+</table></pre><pre>1 file changed, 33 insertions(+), 22 deletions(-)
+<hr/><b>diff --git a/<a id="h0" href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a> b/<a href="../file/config.stow/.config/nvim/init.vim.html">config.stow/.config/nvim/init.vim</a></b>
+<a href="#h0-0" id="h0-0" class="h">@@ -1,4 +1,3 @@
+</a><a href="#h0-0-0" id="h0-0-0" class="d">-set nocompatible            &quot; Disable compatibility to old-time vi
+</a> set showmatch               &quot; Show matching brackets.
+ set ignorecase              &quot; Do case insensitive matching
+ set mouse=v                 &quot; middle-click paste with mouse
+<a href="#h0-1" id="h0-1" class="h">@@ -13,25 +12,36 @@ set wildmode=longest,list   &quot; get bash-like tab completions
+</a> 
+ filetype off
+ 
+<a href="#h0-1-3" id="h0-1-3" class="d">-&quot; ---------- Vundle ----------
+</a><a href="#h0-1-4" id="h0-1-4" class="i">+&quot; ----- Vundle ----------------------------------------------------------------&quot;
+</a> set rtp+=~/.config/nvim/bundle/Vundle.vim
+ call vundle#begin(&#39;~/.config/nvim/bundle&#39;)
+ 
+ Plugin &#39;VundleVim/Vundle.vim&#39;
+ 
+<a href="#h0-1-10" id="h0-1-10" class="d">-Plugin &#39;vim-latex/vim-latex&#39;
+</a><a href="#h0-1-11" id="h0-1-11" class="i">+&quot; ----- Editor features -----
+</a> Plugin &#39;w0rp/ale&#39;
+<a href="#h0-1-13" id="h0-1-13" class="i">+Plugin &#39;ntpeters/vim-better-whitespace&#39;
+</a><a href="#h0-1-14" id="h0-1-14" class="i">+Plugin &#39;Rip-Rip/clang_complete&#39;
+</a> Plugin &#39;jeffkreeftmeijer/vim-numbertoggle&#39;
+<a href="#h0-1-16" id="h0-1-16" class="i">+Plugin &#39;jiangmiao/auto-pairs&#39;
+</a><a href="#h0-1-17" id="h0-1-17" class="i">+Plugin &#39;scrooloose/nerdcommenter&#39;
+</a><a href="#h0-1-18" id="h0-1-18" class="i">+Plugin &#39;bfrg/vim-cpp-modern&#39;
+</a> Plugin &#39;jlanzarotta/bufexplorer&#39;
+<a href="#h0-1-20" id="h0-1-20" class="d">-Plugin &#39;ntpeters/vim-better-whitespace&#39;
+</a><a href="#h0-1-21" id="h0-1-21" class="i">+Plugin &#39;majutsushi/tagbar&#39;
+</a><a href="#h0-1-22" id="h0-1-22" class="i">+
+</a><a href="#h0-1-23" id="h0-1-23" class="i">+&quot; ----- Working with Git -----
+</a> Plugin &#39;airblade/vim-gitgutter&#39;
+<a href="#h0-1-25" id="h0-1-25" class="i">+
+</a><a href="#h0-1-26" id="h0-1-26" class="i">+&quot; ----- Latex support -----
+</a><a href="#h0-1-27" id="h0-1-27" class="i">+Plugin &#39;vim-latex/vim-latex&#39;
+</a><a href="#h0-1-28" id="h0-1-28" class="i">+
+</a><a href="#h0-1-29" id="h0-1-29" class="i">+&quot; ----- Optimizations -----
+</a> Plugin &#39;Konfekt/FastFold&#39;
+<a href="#h0-1-31" id="h0-1-31" class="d">-Plugin &#39;Rip-Rip/clang_complete&#39;
+</a> 
+ call vundle#end()
+ 
+ 
+<a href="#h0-1-36" id="h0-1-36" class="d">-&quot; --------- Plugin Configuration ----------
+</a><a href="#h0-1-37" id="h0-1-37" class="i">+&quot; ----- Plugin Configuration --------------------------------------------------&quot;
+</a> 
+ &quot; ----- vim-latex/vim-latex -----
+ let g:Tex_DefaultTargetFormat = &#39;pdf&#39;
+<a href="#h0-2" id="h0-2" class="h">@@ -41,9 +51,9 @@ let g:Tex_MultipleCompileFormats=&#39;pdf,bib,pdf&#39;
+</a> let g:tex_no_error=1
+ 
+ &quot; ----- w0rp/ale -----
+<a href="#h0-2-3" id="h0-2-3" class="d">-let g:ale_sign_error = &#39;&#39;
+</a><a href="#h0-2-4" id="h0-2-4" class="d">-let g:ale_sign_warning = &#39;&#39;
+</a><a href="#h0-2-5" id="h0-2-5" class="d">-let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;]}
+</a><a href="#h0-2-6" id="h0-2-6" class="i">+let g:ale_sign_error = &#39;xx&#39;
+</a><a href="#h0-2-7" id="h0-2-7" class="i">+let g:ale_sign_warning = &#39;--&#39;
+</a><a href="#h0-2-8" id="h0-2-8" class="i">+&quot;let g:ale_linters = {&#39;cpp&#39;: [&#39;g++&#39;, &#39;clang&#39;]}
+</a> 
+ &quot; ----- ntpeters/vim-better-whitespace -----
+ let g:better_whitespace_enabled=1
+<a href="#h0-3" id="h0-3" class="h">@@ -60,23 +70,25 @@ let g:fastfold_fold_movement_commands = [&#39;]z&#39;, &#39;[z&#39;, &#39;zj&#39;, &#39;zk&#39;]
+</a> let g:clang_library_path=&#39;/usr/lib64/libclang.so.7&#39;
+ let g:clang_close_preview=1
+ 
+<a href="#h0-3-3" id="h0-3-3" class="i">+&quot; ----- majutsushi/tagbar&quot;
+</a><a href="#h0-3-4" id="h0-3-4" class="i">+nmap &lt;F8&gt; : TagbarToggle&lt;CR&gt;
+</a> 
+<a href="#h0-3-6" id="h0-3-6" class="d">-&quot; ---------- Mappings ----------
+</a><a href="#h0-3-7" id="h0-3-7" class="i">+&quot; ----- Mappings --------------------------------------------------------------&quot;
+</a> 
+ &quot; Set map leader key
+ let mapleader=&#39;,&#39;
+ 
+ &quot; Toggle highlight search
+<a href="#h0-3-13" id="h0-3-13" class="d">-nnoremap &lt;F3&gt; :set hlsearch!&lt;CR&gt;
+</a><a href="#h0-3-14" id="h0-3-14" class="i">+nnoremap &lt;F3&gt; : set hlsearch!&lt;CR&gt;
+</a> 
+ &quot; Switch buffers quickly
+ map &lt;leader&gt;q : bp&lt;CR&gt;
+ map &lt;leader&gt;w : bn&lt;CR&gt;
+ 
+ &quot; Open netrw
+<a href="#h0-3-21" id="h0-3-21" class="d">-map &lt;leader&gt;t : Vexplore&lt;CR&gt;
+</a><a href="#h0-3-22" id="h0-3-22" class="i">+map &lt;leader&gt;e : Vexplore&lt;CR&gt;
+</a> 
+<a href="#h0-3-24" id="h0-3-24" class="d">-&quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards).
+</a><a href="#h0-3-25" id="h0-3-25" class="i">+&quot; Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
+</a> function! InsertTabWrapper(direction)
+     let col = col(&#39;.&#39;) - 1
+     if !col || getline(&#39;.&#39;)[col - 1] !~ &#39;\k&#39;
+<a href="#h0-4" id="h0-4" class="h">@@ -93,12 +105,16 @@ inoremap &lt;s-tab&gt; &lt;c-r&gt;=InsertTabWrapper (&quot;backward&quot;)&lt;cr&gt;
+</a> 
+ &quot; ---------- Settings ----------
+ 
+<a href="#h0-4-3" id="h0-4-3" class="d">-set statusline=%&lt;%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P &quot; Standart statusline with filetype
+</a><a href="#h0-4-4" id="h0-4-4" class="i">+&quot; Standart statusline with filetype
+</a><a href="#h0-4-5" id="h0-4-5" class="i">+set statusline=%&lt;%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
+</a> 
+<a href="#h0-4-7" id="h0-4-7" class="d">-set fillchars=stl:-,stlnc:-,vert:│ &quot; Set vertical split bar to continous line
+</a><a href="#h0-4-8" id="h0-4-8" class="i">+&quot; Set vertical split bar to continous line
+</a><a href="#h0-4-9" id="h0-4-9" class="i">+set fillchars=stl:-,stlnc:-,vert:│
+</a> 
+<a href="#h0-4-11" id="h0-4-11" class="d">-filetype plugin indent on &quot; Allows auto-indenting depending on file type
+</a><a href="#h0-4-12" id="h0-4-12" class="i">+&quot; Allows auto-indenting depending on file type
+</a><a href="#h0-4-13" id="h0-4-13" class="i">+filetype plugin indent on
+</a> 
+<a href="#h0-4-15" id="h0-4-15" class="i">+&quot; Show typed command
+</a> set showcmd
+ 
+ &quot; Disable vertical split border background
+<a href="#h0-5" id="h0-5" class="h">@@ -106,10 +122,5 @@ hi VertSplit cterm=None
+</a> 
+ hi clear SignColumn
+ 
+<a href="#h0-5-3" id="h0-5-3" class="d">-&quot; Set filetype for pure c headers
+</a><a href="#h0-5-4" id="h0-5-4" class="d">-augroup project
+</a><a href="#h0-5-5" id="h0-5-5" class="d">-    autocmd!
+</a><a href="#h0-5-6" id="h0-5-6" class="d">-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+</a><a href="#h0-5-7" id="h0-5-7" class="d">-augroup END
+</a><a href="#h0-5-8" id="h0-5-8" class="d">-
+</a><a href="#h0-5-9" id="h0-5-9" class="i">+&quot; Disable banner when opening netrw
+</a> let g:netrw_banner = 0
+</pre>
+</div>
+</body>
+</html>
