@@ -129,6 +129,7 @@ nnoremap <C-H> <C-W><C-H>
 " Press ctrl-v for single bracket
 inoremap " ""<left>
 inoremap ' ''<left>
+inoremap ` ``<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
