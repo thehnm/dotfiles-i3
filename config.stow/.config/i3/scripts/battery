@@ -1,14 +1,12 @@
 #!/bin/sh
 
-capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-status=$(cat /sys/class/power_supply/"$1"/status)
+capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [ "$capacity" -ge 50 ]; then
-	color="#de935f"
-else
-	color="#cc6666"
+batstatus="$status $capacity%"
+
+if [ "$status" -lt 25 ]; then
+    batstatus="<span color=\"#cc6666\">$status $capacity%</span>"
 fi
 
-[ "$status" = "Charging" ] && color="#8c9440"
-
-echo "<span color='$color'>$status $capacity%</span>" | sed -e "s/Discharging/dischr/g;s/Charging/chr/g"
+echo "$batstatus" | sed -e "s/Discharging/dischr/g;s/Charging/chr/g"
