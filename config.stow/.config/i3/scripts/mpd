@@ -8,5 +8,7 @@ case $BLOCK_BUTTON in
     1) mpc prev   | filter ;;
     2) mpc toggle | filter ;;
     3) mpc next   | filter ;;
+    4) mpc seek +1% | filter ;;
+    5) mpc seek -1% | filter ;;
     *) mpc status | filter ;;
 esac; exit
