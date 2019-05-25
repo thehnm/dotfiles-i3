@@ -33,7 +33,7 @@ statusbar_color = "default"
 song_status_format = "{{%a{ - %t}}|{ - %f}{ - %b{ (%y)}}}"
 
 [library]
-song_library_format = "{{%a - %t}|{%f}}{$R%l}"
+song_library_format = "{{%t}|{%f}}{$R%l}"
 empty_tag_color = "default"
 
 [global]
