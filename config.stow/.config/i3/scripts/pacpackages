@@ -5,11 +5,11 @@ case $BLOCK_BUTTON in
 	2) notify-send "$(/usr/bin/pacman -Qu)" ;;
 esac
 
-status="Up to date"
+status="OK"
 
 numpackages=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
 if [ $numpackages -gt 0 ]; then
-    status="$numpackages to be upgraded"
+    status="$numpackages"
 fi
 
 echo $status

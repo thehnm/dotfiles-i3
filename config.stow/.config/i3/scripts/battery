@@ -9,4 +9,4 @@ if [ "$status" -lt 25 ]; then
     batstatus="<span color=\"#cc6666\">$status $capacity%</span>"
 fi
 
-echo "$batstatus" | sed -e "s/Discharging/dischr/g;s/Charging/chr/g"
+echo "$batstatus" | sed -e "s/Discharging/dchr/g;s/Charging/chr/g"
