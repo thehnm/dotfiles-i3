@@ -11,8 +11,6 @@ mkdir -p $HOME/.config/termite
 mkdir -p $HOME/.config/gtk-3.0
 mkdir -p $HOME/.config/calcurse
 mkdir -p $HOME/pic
+mkdir -p $HOME/dl
 
-stow -R config.stow
-stow -R fonts.stow
-stow -R wallpaper.stow
-stow -R gtk-themes.stow
+stow -R *.stow
