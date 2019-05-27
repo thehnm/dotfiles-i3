@@ -5,7 +5,7 @@ case $BLOCK_BUTTON in
 	2) notify-send "$(/usr/bin/pacman -Qu)" ;;
 esac
 
-status="OK"
+status="ok"
 
 numpackages=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
 if [ $numpackages -gt 0 ]; then
