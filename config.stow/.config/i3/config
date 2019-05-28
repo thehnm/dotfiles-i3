@@ -223,6 +223,9 @@ bindsym $mod+c exec --no-startup-id passmenu -fn "Fira Mono:size=10" -nb "#1d1f2
 # ----- thunderbird -----
 bindsym $mod+Shift+t exec thunderbird
 
+# ----- ncmpcpp -----
+bindsym $mod+Shift+n exec $TERMINAL -e ncmpcpp
+
 # =============================================================================
 #
 
