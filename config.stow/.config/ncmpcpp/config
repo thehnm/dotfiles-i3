@@ -35,6 +35,7 @@ song_status_format = "{{%a{ - %t}}|{ - %f}{ - %b{ (%y)}}}"
 [library]
 song_library_format = "{{%t}|{%f}}{$R%l}"
 empty_tag_color = "default"
+media_library_primary_tag = album_artist
 
 [global]
 colors_enabled = "yes"
