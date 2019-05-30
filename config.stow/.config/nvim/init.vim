@@ -129,8 +129,7 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-nnoremap <F9> : !rubber --clean %:t<CR>
-nnoremap <F6> : !texcount %:t<CR>
+nnoremap <F9> : !texcount %:t<CR>
 
 " Move around displayed lines
 map j gj
