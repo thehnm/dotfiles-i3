@@ -40,7 +40,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 " ----- Latex support -----
-Plugin 'vim-latex/vim-latex'
+Plugin 'lervag/vimtex'
 
 " ----- Visual aesthetics -----"
 Plugin 'itchyny/lightline.vim'
@@ -52,13 +52,6 @@ call vundle#end()
 
 
 " ----- Plugin Configuration --------------------------------------------------"
-
-" ----- vim-latex/vim-latex -----
-let g:tex_flavor='texlive'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'rubber -d $*'
-let g:Tex_ViewRule_pdf = 'zathura'
-let g:tex_no_error=1
 
 " ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
@@ -142,6 +135,14 @@ nnoremap <F6> : !texcount %:t<CR>
 " Move around displayed lines
 map j gj
 map k gk
+
+" Execute makefile
+map <leader>ll : !make<CR>
+map <leader>lr : !make clean<CR>
+
+" vimtex
+let g:vimtex_view_general_viewer = "zathura"
+map <leader>lv : VimtexView<CR>
 
 " ---------- Settings ----------
 
