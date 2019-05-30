@@ -267,6 +267,7 @@ gaps outer 0
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id $HOME/.fehbg &
 exec_always --no-startup-id eval `ssh-agent`
+exec_always --no-startup-id mpc update
 exec --no-startup-id mpd
 exec --no-startup-id dunst
 exec --no-startup-id udiskie &
