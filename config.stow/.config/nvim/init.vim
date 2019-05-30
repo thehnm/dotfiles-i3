@@ -34,6 +34,7 @@ Plugin 'bfrg/vim-cpp-modern'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-bufferline'
+Plugin 'tpope/vim-surround'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
