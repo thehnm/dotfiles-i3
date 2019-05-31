@@ -2,6 +2,8 @@
 
 This repository contains my config files for a i3-gaps setup.
 
+![](https://raw.githubusercontent.com/thehnm/thehnm.github.io/master/example.png)
+
 ## Keybindings for i3 window manager
 * `Mod+Enter` Open the terminal
 * `Mod+o` Split in horizontal orientation
