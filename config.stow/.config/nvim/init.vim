@@ -46,9 +46,6 @@ Plugin 'lervag/vimtex'
 " ----- Visual aesthetics -----"
 Plugin 'itchyny/lightline.vim'
 
-" ----- Optimizations -----
-Plugin 'Konfekt/FastFold'
-
 call vundle#end()
 
 
