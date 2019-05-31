@@ -84,6 +84,24 @@ let g:lightline = {
       \ },
       \ }
 
+" ----- vimtex -----
+let g:vimtex_view_general_viewer = "zathura"
+let g:vimtex_compiler_latexmk = {
+        \ 'backend' : 'nvim',
+        \ 'background' : 1,
+        \ 'build_dir' : '',
+        \ 'callback' : 1,
+        \ 'continuous' : 1,
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \   '-outdir=build',
+        \ ],
+\}
+
 " ----- Mappings --------------------------------------------------------------"
 
 " Set map leader key
@@ -139,10 +157,6 @@ map k gk
 " Execute makefile
 map <leader>ll : !make<CR>
 map <leader>lr : !make clean<CR>
-
-" vimtex
-let g:vimtex_view_general_viewer = "zathura"
-map <leader>lv : VimtexView<CR>
 
 " ---------- Settings ----------
 
