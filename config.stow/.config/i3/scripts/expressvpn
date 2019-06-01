@@ -1,4 +1,0 @@
-#!/bin/sh
-
-expressvpn "$1" > /dev/null 2>&1
-pkill -RTMIN+3 i3blocks

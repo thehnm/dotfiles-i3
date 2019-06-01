@@ -1,9 +1,0 @@
-#!/bin/sh
-
-case $BLOCK_BUTTON in
-	4) light -A 5 ;;
-	5) light -U 5 ;;
-esac
-
-level=$(light -G)
-[ "$level" != 0.00 ] && printf "%.0f%%" $level && exit

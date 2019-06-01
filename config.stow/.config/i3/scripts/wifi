@@ -1,6 +1,0 @@
-#!/bin/sh
-
-wifissid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\' -f2 | cut -d: -f2)
-[ -z "$wifissid" ] && exit;
-
-echo $wifissid
