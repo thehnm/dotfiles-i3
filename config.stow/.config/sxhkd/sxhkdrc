@@ -1,5 +1,29 @@
-super + Return
-    $TERMINAL
+alt + Return
+	$TERMINAL
 
-super + d
-    dmenu_run
+alt + d
+	dmenu_run
+
+alt + s
+	passmenu
+
+alt + {_,shift + } x
+	{clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted",betterlockscreen -l blur}
+
+alt + print
+	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/' && notify-send "Picture saved to ~/pic/" -u low -t 3000
+
+alt + {p,n,m}
+	playerctl {play-pause,next,previous}
+
+super + {p,n,m}
+	mpc {toggle,next,prev}
+
+alt + p; {f,t,v,n}
+	{$BROWSER,thunderbird,virtualbox,$TERMINAL -e ncmpcpp}
+
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	{pulsemixer --change-volume + 1,pulsemixer --change-volume - 1,pulsemixer --toggle-mute }
+
+XF86MonBrightness{Up,Down}
+	light -{A 1, U 1}
