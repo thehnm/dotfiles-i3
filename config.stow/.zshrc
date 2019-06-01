@@ -216,3 +216,7 @@ esac
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(ssh-agent)" > /dev/null
 fi
+
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
