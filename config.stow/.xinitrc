@@ -4,6 +4,7 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="termite"
 
+# Start programs
 nm-applet &
 $HOME/.fehbg &
 sxhkd &
@@ -13,5 +14,11 @@ mpd &
 mpc update
 eval `ssh-agent`
 dunst &
+
+# Set statusbar
+while true; do
+	xsetroot -name "$(statusbar)"
+	sleep 1
+done
 
 exec dwm
