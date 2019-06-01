@@ -181,7 +181,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # ----- Clear clipboard -----
-bindsym $mod+x exec --no-startup-id $HOME/.clear_clipboard.sh && notify-send -u normal -t 3000 "Clipboard deleted"
+bindsym $mod+x exec --no-startup-id clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
 
 # ----- Lock screen -----
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
