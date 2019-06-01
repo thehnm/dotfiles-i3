@@ -12,5 +12,6 @@ protonmail-bridge --no-window
 mpd &
 mpc update
 eval `ssh-agent`
+dunst &
 
 exec dwm
