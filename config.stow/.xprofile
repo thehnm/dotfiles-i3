@@ -11,7 +11,7 @@ nm-applet &
 $HOME/.fehbg &
 sxhkd &
 udiskie &
-protonmail-bridge --no-window
+protonmail-bridge --no-window &
 mpd &
 mpc update
 eval `ssh-agent`
