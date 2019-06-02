@@ -1,24 +1,5 @@
-PATH=$PATH:$HOME/.local/bin/; export PATH
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR="nvim"
-export BROWSER="firefox"
-export TERMINAL="termite"
+#!/bin/sh
 
-# Start programs
-nm-applet &
-$HOME/.fehbg &
-sxhkd &
-udiskie &
-protonmail-bridge --no-window
-mpd &
-mpc update
-eval `ssh-agent`
-dunst &
-
-# Set statusbar
-while true; do
-	xsetroot -name "$(statusbar)"
-	sleep 1
-done
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 exec dwm
