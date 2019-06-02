@@ -42,8 +42,8 @@ status() {
             Discharging) batstatus="dchr" ;;
             *) batstatus="" ;;
         esac
+        printf "%s" "[bat] $batstatus $capacity% "
     fi
-    printf "%s" "[bat] $batstatus $capacity% "
 
     # Date
     printf "%s" "[date] $(date +"%d.%m.%Y %H:%M:%S")"
