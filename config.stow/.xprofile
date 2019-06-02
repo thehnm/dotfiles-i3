@@ -7,12 +7,12 @@ export BROWSER="firefox"
 export TERMINAL="termite"
 
 # Start programs
-nm-applet &
 $HOME/.fehbg &
-sxhkd &
-udiskie &
-protonmail-bridge --no-window &
-mpd &
+[ -z "$(pgrep sxhkd)" ] && sxhkd &
+[ -z "$(pgrep udiskie)" ] && udiskie &
+[ -z "$(pgrep protonmail-brid)" ] && protonmail-bridge --no-window &
+[ -z "$(pgrep mpd)" ] && mpd &
 mpc update
 eval `ssh-agent`
-dunst &
+[ -z "$(pgrep dunst)" ] && dunst &
+[ -z "$(pgrep statusbar)" ] && statusbar &

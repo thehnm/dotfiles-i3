@@ -2,28 +2,31 @@ alt + Return
 	$TERMINAL
 
 alt + d
-	dmenu_run
+	dmenu_run -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666"
 
 alt + s
-	passmenu
+	passmenu -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666" && notify-send -u normal -t 3000 "Password copied"
 
-alt + {_,shift + } x
-	{clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted",betterlockscreen -l blur}
+alt + shift + x
+	betterlockscreen -l blur
 
-alt + print
-	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/' && notify-send "Picture saved to ~/pic/" -u low -t 3000
+alt + shift + d
+    clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
+
+Print
+	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/'; notify-send -u normal -t 3000 "Screenshot taken"
 
 alt + {p,n,m}
-	playerctl {play-pause,next,previous}
+	playerctl {play-pause,next,previous}; refreshbar
 
 super + {p,n,m}
-	mpc {toggle,next,prev}
+	mpc {toggle,next,prev}; refreshbar
 
-alt + p; {f,t,v,n}
-	{$BROWSER,thunderbird,virtualbox,$TERMINAL -e ncmpcpp}
+alt + o; {f,t,v,n}
+	{firefox,thunderbird,virtualbox,$TERMINAL -e ncmpcpp}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	{pulsemixer --change-volume + 1,pulsemixer --change-volume - 1,pulsemixer --toggle-mute }
+	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
 
 XF86MonBrightness{Up,Down}
-	light -{A 1, U 1}
+	light {-A 1, -U 1}; refreshbar
