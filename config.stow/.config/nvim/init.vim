@@ -155,6 +155,9 @@ map k gk
 map <leader>ll : !make<CR>
 map <leader>lr : !make clean<CR>
 
+" Remap omnicomplete
+inoremap <c-o> <c-x><c-o>
+
 " ---------- Settings ----------
 
 " Allows auto-indenting depending on file type
