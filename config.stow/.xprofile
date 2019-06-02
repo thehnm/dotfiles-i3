@@ -16,9 +16,3 @@ mpd &
 mpc update
 eval `ssh-agent`
 dunst &
-
-# Set statusbar
-while true; do
-	xsetroot -name "$(statusbar)"
-	sleep 1
-done
