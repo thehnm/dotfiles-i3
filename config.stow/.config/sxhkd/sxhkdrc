@@ -7,11 +7,8 @@ alt + d
 alt + s
 	passmenu -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666" && notify-send -u normal -t 3000 "Password copied"
 
-alt + shift + x
-	betterlockscreen -l blur
-
-alt + shift + d
-    clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
+alt + shift + {x,d}
+	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
 
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/'; notify-send -u normal -t 3000 "Screenshot taken"
