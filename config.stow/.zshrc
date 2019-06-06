@@ -84,6 +84,7 @@ alias gettodos='grep TODO -nr * > TODOs.txt'
 alias calcurse='calcurse -D $HOME/.config/calcurse'
 alias music='ncmpcpp'
 alias ydm='youtube-dl -x -f bestaudio --audio-format mp3'
+alias termite='termite -t termite'
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
