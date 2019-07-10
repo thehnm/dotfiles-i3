@@ -19,8 +19,8 @@ alt + {p,n,m}
 super + {p,n,m}
 	mpc {toggle,next,prev}; refreshbar
 
-alt + o; {f,t,v,n}
-	{firefox,thunderbird,virtualbox,$TERMINAL -e ncmpcpp}
+alt + o; {f,m,v,n}
+	{firefox,$TERMINAL -e neomutt,virtualbox,$TERMINAL -e ncmpcpp}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
