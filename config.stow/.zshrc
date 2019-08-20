@@ -87,7 +87,7 @@ alias ydm='youtube-dl -x -f bestaudio --audio-format mp3'
 alias termite='termite -t termite'
 alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
-alias vpc='expressvpn status'
+alias vps='expressvpn status'
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
