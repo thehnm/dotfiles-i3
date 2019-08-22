@@ -17,6 +17,10 @@ status() {
         printf "%s" "[spotify] $(playerctl metadata --format '{{ artist }} - {{ title }}') "
     fi
 
+    # VPN
+    vpn=$(nmcli con | grep tun0)
+    [ -n "$vpn" ] && printf "%s" "[vpn] connected "
+
     # Wifi
     wifissid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\' -f2 | cut -d: -f2)
     [ -n "$wifissid" ] && printf "%s" "[wifi] $wifissid "
