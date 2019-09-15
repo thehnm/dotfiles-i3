@@ -19,7 +19,7 @@ status() {
 
     # VPN
     vpn=$(nmcli con | grep tun0)
-    [ -n "$vpn" ] && printf "%s" "[vpn] connected "
+    [ -n "$vpn" ] && printf "%s" "[vpn] con "
 
     # Wifi
     wifissid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\' -f2 | cut -d: -f2)
