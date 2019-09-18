@@ -1,10 +1,10 @@
 alt + Return
 	$TERMINAL -t termite
 
-alt + d
+alt + p
 	dmenu_run -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666"
 
-alt + s
+alt + d
 	passmenu -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666" && notify-send -u normal -t 3000 "Password copied"
 
 alt + shift + {x,d}
@@ -13,10 +13,10 @@ alt + shift + {x,d}
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/'; notify-send -u normal -t 3000 "Screenshot taken"
 
-alt + {p,n,m}
+super + {l,j,k}
 	playerctl {play-pause,next,previous}; refreshbar
 
-super + {p,n,m}
+alt + {l,j,k}
 	mpc {toggle,next,prev}; refreshbar
 
 alt + o; {f,m,v,n}
