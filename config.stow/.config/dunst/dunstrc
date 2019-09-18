@@ -54,10 +54,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 24
+    padding = 32
 
     # Horizontal padding.
-    horizontal_padding = 24
+    horizontal_padding = 32
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -125,7 +125,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<i>%s</i>\n%b"
+    format = "<b><i>%s</i></b>\n%b"
     icon_position = right
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
