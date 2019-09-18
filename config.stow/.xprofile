@@ -10,9 +10,9 @@ export TERMINAL="termite"
 $HOME/.fehbg &
 [ -z "$(pgrep sxhkd)" ] && sxhkd &
 [ -z "$(pgrep udiskie)" ] && udiskie &
-[ -z "$(pgrep protonmail-brid)" ] && protonmail-bridge --no-window &
 [ -z "$(pgrep mpd)" ] && mpd &
 mpc update
 eval `ssh-agent`
 [ -z "$(pgrep dunst)" ] && dunst &
 [ -z "$(pgrep statusbar)" ] && statusbar &
+[ -z "$(pgrep nextcloud)" ] && nextcloud &
