@@ -48,6 +48,7 @@ Plugin 'lervag/vimtex'
 
 " ----- Visual aesthetics -----"
 Plugin 'itchyny/lightline.vim'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 call vundle#end()
 
@@ -184,3 +185,5 @@ hi clear SignColumn
 
 " Disable banner when opening netrw
 let g:netrw_banner = 0
+
+colorscheme hybrid

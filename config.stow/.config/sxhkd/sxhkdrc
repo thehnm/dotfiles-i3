@@ -2,10 +2,10 @@ alt + Return
 	$TERMINAL
 
 alt + p
-	dmenu_run -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666"
+	dmenu_run -fn "Fira Mono:size=9" -nb "#1c1c1c" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666"
 
 alt + d
-	passmenu -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666" && notify-send -u normal -t 3000 "Password copied"
+	passmenu -fn "Fira Mono:size=9" -nb "#1c1c1c" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666" && notify-send -u normal -t 3000 "Password copied"
 
 alt + shift + {x,d}
 	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
