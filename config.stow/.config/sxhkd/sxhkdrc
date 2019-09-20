@@ -1,5 +1,5 @@
 alt + Return
-	$TERMINAL -t termite
+	$TERMINAL
 
 alt + p
 	dmenu_run -fn "Fira Mono:size=9" -nb "#1d1f21" -sb "#1d1f21" -nf "#c5c8c6" -sf "#cc6666"
