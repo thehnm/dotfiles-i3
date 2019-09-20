@@ -13,10 +13,10 @@ alt + shift + {x,d}
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/'; notify-send -u normal -t 3000 "Screenshot taken"
 
-super + {l,j,k}
+super + shift + {l,j,k}
 	playerctl {play-pause,next,previous}; refreshbar
 
-alt + {l,j,k}
+alt + shift + {l,j,k}
 	mpc {toggle,next,prev}; refreshbar
 
 alt + o; {f,m,v,n}
