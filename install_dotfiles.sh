@@ -9,6 +9,7 @@ mkdir -p $HOME/.config/newsboat
 mkdir -p $HOME/.config/gtk-3.0
 mkdir -p $HOME/.config/calcurse
 mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/share/fonts
 mkdir -p $HOME/pic
 mkdir -p $HOME/dl
 
