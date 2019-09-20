@@ -16,6 +16,7 @@ set hidden
 set wrap linebreak
 set fillchars=vert:│
 set showcmd
+set laststatus=0 " disable status bar
 
 filetype off
 
@@ -35,6 +36,8 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-surround'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
@@ -80,6 +83,16 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+" ----- junegunn/goyo-----
+let g:goyo_width = '50%'
+let g:goyo_height = '75%'
+
+" ----- junegunn/limelight -----
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " ----- vimtex -----
 let g:vimtex_view_general_viewer = "zathura"
