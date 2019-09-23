@@ -10,7 +10,7 @@ status() {
     fi
 
     # Spotify
-    playerstatus=$(playerctl status)
+    playerstatus=$(playerctl status 2>/dev/null)
     if [ "$playerstatus" = "Paused" ]; then
         printf "%s" "[spotify] paused "
     elif [ "$playerstatus" = "Playing" ]; then
