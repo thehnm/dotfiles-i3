@@ -1,4 +1,4 @@
-## Options section
+# Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -10,6 +10,8 @@ setopt appendhistory                                            # Immediately ap
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
+
+# { --- Completions
 
 # Enable completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
@@ -26,52 +28,46 @@ SAVEHIST=500
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-## Keybindings section
+# Completions --- }
+
+# { --- Keybindings
+
 bindkey -v                                                      # Enable vi-like keybindings
-export KEYTIMEOUT=1
+KEYTIMEOUT=1
 
-## Alias section
-alias cp="cp -iv"                                               # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
-alias l='ls -la --color=tty'
-alias ls='ls --color=tty'
-alias ga='git add'
-alias gcmsg='git commit -m'
-alias gp='git push'
-alias gsb='git status -b'
-alias ln='ln -v'
-alias chmod='chmod -c'
-alias chown='chown -c'
-alias mkdir='mkdir -v'
-alias mv='mv -iv'
-alias rm='rm -v'
-alias cp='cp -iv'
-alias um='udiskie-umount -a'
-alias shut='shutdown -h now'
-alias yay='yay --color=auto'
-alias pacman='pacman --color=auto'
-alias fucking='sudo'
-alias motherfucking='sudo'
-alias fcking='sudo'
-alias f='ranger'
-alias e='nvim'
-alias gettodos='grep TODO -nr * > TODOs.txt'
-alias calcurse='calcurse -D $HOME/.config/calcurse'
-alias music='ncmpcpp'
-alias ydm='youtube-dl -x -f bestaudio --audio-format mp3'
-alias termite='termite -t termite'
-alias vpc='nmcli con up'
-alias vpd='nmcli con down'
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
 
-## Plugins section: Enable fish style features
-# Use syntax highlighting
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
+
+# Keybindings --- }
+
+# { --- Plugin section
+
+## Use syntax highlighting
 autoload -U zmv
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
+
+## Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# bind UP and DOWN arrow keys to history substring search
+
+## bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -80,6 +76,10 @@ bindkey '^[[B' history-substring-search-down
 autoload -U compinit colors zcalc
 compinit -d
 colors
+
+# Plugin section --- }
+
+# { Customization section ---
 
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -94,19 +94,23 @@ export LESS=-r
 # Customize ls colors
 export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
 
-# Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
-#PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
+# Customization section --- }
 
-# Maia prompt
-#PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}> %B%(?.%{$fg[cyan]%}.%{$fg[red]%})> %{$reset_color%}%b "
+# { Prompt section ---
 
-# Simple prompt
-#PROMPT="[%n@%m %3~]$ "
+## Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
+##PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
 
-# Simple prompt with indicator for last return code
-#PROMPT="[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} "
+## Maia prompt
+##PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}> %B%(?.%{$fg[cyan]%}.%{$fg[red]%})> %{$reset_color%}%b "
 
-# Prompt with easy zsh sequences
+## Simple prompt
+##PROMPT="[%n@%m %3~]$ "
+
+## Simple prompt with indicator for last return code
+##PROMPT="[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} "
+
+## Prompt with easy zsh sequences
 PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
 
 ## Prompt on right side:
@@ -190,6 +194,8 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
+# Prompt section --- }
+
 # Start ssh-agent automatically
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(ssh-agent)" > /dev/null
@@ -198,3 +204,38 @@ fi
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
+
+# Alias section
+alias cp="cp -iv"                                               # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias gitu='git add . && git commit && git push'
+alias l='ls -la --color=tty'
+alias ls='ls --color=tty'
+alias ga='git add'
+alias gcmsg='git commit -m'
+alias gp='git push'
+alias gsb='git status -b'
+alias ln='ln -v'
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias mkdir='mkdir -v'
+alias mv='mv -iv'
+alias rm='rm -v'
+alias cp='cp -iv'
+alias um='udiskie-umount -a'
+alias shut='shutdown -h now'
+alias yay='yay --color=auto'
+alias pacman='pacman --color=auto'
+alias fucking='sudo'
+alias motherfucking='sudo'
+alias fcking='sudo'
+alias f='ranger'
+alias e='nvim'
+alias gettodos='grep TODO -nr * > TODOs.txt'
+alias calcurse='calcurse -D $HOME/.config/calcurse'
+alias music='ncmpcpp'
+alias ydm='youtube-dl -x -f bestaudio --audio-format mp3'
+alias termite='termite -t termite'
+alias vpc='nmcli con up'
+alias vpd='nmcli con down'
