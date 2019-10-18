@@ -28,7 +28,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ----- Editor features -----
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'Rip-Rip/clang_complete'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bfrg/vim-cpp-modern'
@@ -38,6 +37,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'ycm-core/YouCompleteMe'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'

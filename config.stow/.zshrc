@@ -1,4 +1,5 @@
-# Options section
+# { --- Option section ---
+
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -11,7 +12,9 @@ setopt histignorealldups                                        # If a new comma
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
 
-# { --- Completions
+# --- Option section --- }
+
+# { --- Completions ---
 
 # Enable completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
@@ -28,7 +31,7 @@ SAVEHIST=500
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-# Completions --- }
+# --- Completions --- }
 
 # { --- Keybindings
 
@@ -58,7 +61,7 @@ precmd_functions+=(_fix_cursor)
 
 # Keybindings --- }
 
-# { --- Plugin section
+# { --- Plugin section ---
 
 ## Use syntax highlighting
 autoload -U zmv
@@ -77,9 +80,9 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
-# Plugin section --- }
+# --- Plugin section --- }
 
-# { Customization section ---
+# { --- Customization section ---
 
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -94,9 +97,9 @@ export LESS=-r
 # Customize ls colors
 export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
 
-# Customization section --- }
+# --- Customization section --- }
 
-# { Prompt section ---
+# { --- Prompt section ---
 
 ## Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
 ##PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
@@ -194,7 +197,7 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
-# Prompt section --- }
+# --- Prompt section --- }
 
 # Start ssh-agent automatically
 if [[ "$SSH_AGENT_PID" == "" ]]; then
@@ -205,7 +208,7 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
-# Alias section
+# { --- Alias section ---
 alias cp="cp -iv"                                               # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
@@ -239,3 +242,4 @@ alias ydm='youtube-dl -x -f bestaudio --audio-format mp3'
 alias termite='termite -t termite'
 alias vpc='nmcli con up'
 alias vpd='nmcli con down'
+# --- Alias section --- }
