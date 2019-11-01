@@ -17,6 +17,7 @@ set wrap linebreak
 set fillchars=vert:│
 set showcmd
 set laststatus=0 " disable status bar
+set conceallevel=2
 
 filetype off
 
@@ -37,7 +38,6 @@ Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'ycm-core/YouCompleteMe'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
@@ -186,4 +186,5 @@ hi clear SignColumn
 " Disable banner when opening netrw
 let g:netrw_banner = 0
 
-colorscheme hybrid
+set termguicolors
+colorscheme tender
