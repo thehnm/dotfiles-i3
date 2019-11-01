@@ -15,4 +15,4 @@ mpc update
 eval `ssh-agent`
 [ -z "$(pgrep dunst)" ] && dunst &
 [ -z "$(pgrep statusbar)" ] && statusbar &
-[ -z "$(pgrep nextcloud)" ] && nextcloud &
+[ -z "$(pgrep nextcloud)" ] && nextcloud --background &
