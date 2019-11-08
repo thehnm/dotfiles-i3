@@ -38,6 +38,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'neovimhaskell/haskell-vim'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
@@ -111,6 +112,7 @@ let g:vimtex_compiler_latexmk = {
         \   '-synctex=1',
         \   '-interaction=nonstopmode',
         \   '-outdir=build',
+        \   '-xelatex',
         \ ],
 \}
 

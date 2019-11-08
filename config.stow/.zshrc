@@ -114,7 +114,9 @@ export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47
 ##PROMPT="[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} "
 
 ## Prompt with easy zsh sequences
-PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
+##PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
+
+PROMPT="%B%(?.%{$fg[white]%}.%{$fg[red]%})>%b %B%3~%b "
 
 ## Prompt on right side:
 #  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
@@ -240,6 +242,6 @@ alias calcurse='calcurse -D $HOME/.config/calcurse'
 alias music='ncmpcpp'
 alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
 alias termite='termite -t termite'
-alias vpc='nmcli con up'
-alias vpd='nmcli con down'
+alias vpc='expressvpn connect'
+alias vpd='expressvpn disconnect'
 # --- Alias section --- }

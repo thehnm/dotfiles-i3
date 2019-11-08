@@ -19,8 +19,8 @@ super + shift + {l,j,k}
 alt + shift + {l,j,k}
 	mpc {toggle,next,prev}; refreshbar
 
-alt + o; {f,m,v,n}
-	{firefox,$TERMINAL -e neomutt,virt-manager,$TERMINAL -e ncmpcpp}
+alt + o; {f,m,v,n,e,d}
+	{firefox,$TERMINAL -e neomutt,virt-manager,$TERMINAL -e ncmpcpp,echo "expressvpn connect" | zsh,echo "expressvpn disconnect" | zsh}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
