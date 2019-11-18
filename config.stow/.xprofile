@@ -16,3 +16,4 @@ eval `ssh-agent`
 [ -z "$(pgrep dunst)" ] && dunst &
 [ -z "$(pgrep statusbar)" ] && statusbar &
 [ -z "$(pgrep nextcloud)" ] && nextcloud --background &
+[ -z "$SSH_AGENT_PID" ] && eval "$(ssh-agent)" > /dev/null
