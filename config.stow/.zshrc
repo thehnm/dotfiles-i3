@@ -201,15 +201,6 @@ esac
 
 # --- Prompt section --- }
 
-# Start ssh-agent automatically
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(ssh-agent)" > /dev/null
-fi
-
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
-
 # { --- Alias section ---
 alias cp="cp -iv"                                               # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
@@ -244,4 +235,5 @@ alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
 alias termite='termite -t termite'
 alias vpc='expressvpn connect'
 alias vpd='expressvpn disconnect'
+alias vps='expressvpn status'
 # --- Alias section --- }
