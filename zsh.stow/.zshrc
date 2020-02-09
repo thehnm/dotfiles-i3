@@ -1,4 +1,10 @@
 # { --- Option section ---
+source <(antibody init)
+antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
+
+autoload -U compinit colors
+compinit
+colors
 
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -12,33 +18,12 @@ setopt histignorealldups                                        # If a new comma
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
 
-# --- Option section --- }
-
-# { --- Completions ---
-
-# Enable completions
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
-
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-# --- Completions --- }
-
-# { --- Keybindings
-
-bindkey -v                                                      # Enable vi-like keybindings
-KEYTIMEOUT=1
-
-# Change cursor shape for different vi modes.
+# Change cursor
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
@@ -59,31 +44,6 @@ _fix_cursor() {
 
 precmd_functions+=(_fix_cursor)
 
-# Keybindings --- }
-
-# { --- Plugin section ---
-
-## Use syntax highlighting
-autoload -U zmv
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-## bind UP and DOWN arrow keys to history substring search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-autoload -U compinit colors zcalc
-compinit -d
-colors
-
-# --- Plugin section --- }
-
-# { --- Customization section ---
-
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
@@ -96,10 +56,6 @@ export LESS=-r
 
 # Customize ls colors
 export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
-
-# --- Customization section --- }
-
-# { --- Prompt section ---
 
 ## Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
 ##PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
@@ -114,7 +70,7 @@ export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47
 ##PROMPT="[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} "
 
 ## Prompt with easy zsh sequences
-##PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
+## PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
 
 PROMPT="%B%(?.%{$fg[white]%}.%{$fg[red]%})>%b %B%3~%b "
 
@@ -183,57 +139,41 @@ git_prompt_string() {
 #RPROMPT="%{$fg[red]%} %(?..[%?])"
 # Right prompt with exit status of previous command marked with ✓ or ✗
 #RPROMPT="%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})"
+RPROMPT='$(git_prompt_string)'
 
-# Apply different settigns for different terminals
-case $(basename "$(cat "/proc/$PPID/comm")") in
-  login)
-    	RPROMPT="%{$fg[red]%} %(?..[%?])"
-    	alias x='startx ~/.xinitrc'      # Type name of desired desktop after x, xinitrc is configured for it
-    ;;
-  *)
-        RPROMPT='$(git_prompt_string)'
-		# Use autosuggestion
-		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-    ;;
-esac
+#alias cp="cp -iv"                                               # Confirm before overwriting something
+#alias df='df -h'                                                # Human-readable sizes
+#alias free='free -m'                                            # Show sizes in MB
+#alias gitu='git add . && git commit && git push'
+#alias l='ls -la --color=tty'
+#alias ls='ls --color=tty'
+#alias ga='git add'
+#alias gcmsg='git commit -m'
+#alias gp='git push'
+#alias gsb='git status -b'
+#alias ln='ln -v'
+#alias chmod='chmod -c'
+#alias chown='chown -c'
+#alias mkdir='mkdir -v'
+#alias mv='mv -iv'
+#alias rm='rm -v'
+#alias cp='cp -iv'
+#alias um='udiskie-umount -a'
+#alias shut='shutdown -h now'
+#alias yay='yay --color=auto'
+#alias pacman='pacman --color=auto'
+#alias fucking='sudo'
+#alias motherfucking='sudo'
+#alias fcking='sudo'
+#alias f='ranger'
+#alias e='nvim'
+#alias gettodos='grep TODO -nr * > TODOs.txt'
+#alias calcurse='calcurse -D $HOME/.config/calcurse'
+#alias music='ncmpcpp'
+#alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
+#alias termite='termite -t termite'
+#alias vpc='expressvpn connect'
+#alias vpd='expressvpn disconnect'
+#alias vps='expressvpn status'
 
-# --- Prompt section --- }
-
-# { --- Alias section ---
-alias cp="cp -iv"                                               # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
-alias l='ls -la --color=tty'
-alias ls='ls --color=tty'
-alias ga='git add'
-alias gcmsg='git commit -m'
-alias gp='git push'
-alias gsb='git status -b'
-alias ln='ln -v'
-alias chmod='chmod -c'
-alias chown='chown -c'
-alias mkdir='mkdir -v'
-alias mv='mv -iv'
-alias rm='rm -v'
-alias cp='cp -iv'
-alias um='udiskie-umount -a'
-alias shut='shutdown -h now'
-alias yay='yay --color=auto'
-alias pacman='pacman --color=auto'
-alias fucking='sudo'
-alias motherfucking='sudo'
-alias fcking='sudo'
-alias f='ranger'
-alias e='nvim'
-alias gettodos='grep TODO -nr * > TODOs.txt'
-alias calcurse='calcurse -D $HOME/.config/calcurse'
-alias music='ncmpcpp'
-alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
-alias termite='termite -t termite'
-alias vpc='expressvpn connect'
-alias vpd='expressvpn disconnect'
-alias vps='expressvpn status'
-# --- Alias section --- }
+. .shell/zsh/interactive
