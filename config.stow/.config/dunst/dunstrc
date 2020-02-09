@@ -54,10 +54,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 32
+    padding = 24
 
     # Horizontal padding.
-    horizontal_padding = 32
+    horizontal_padding = 24
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -84,6 +84,7 @@
     idle_threshold = 120
 
     ### Text ###
+    font = iA Writer Mono S 10
     font = Fira Sans 10
     font = Source Han Sans JP 10
 
@@ -247,7 +248,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#1d1f21"
     foreground = "#bbc1c1"
-    frame_color = "#4c5e58"
+    frame_color = "#768896"
     timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -255,7 +256,7 @@
 [urgency_normal]
     background = "#1d1f21"
     foreground = "#bbc1c1"
-    frame_color = "#7c968e"
+    frame_color = "#768896"
     timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
