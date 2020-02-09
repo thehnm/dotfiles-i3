@@ -50,7 +50,7 @@ status() {
     fi
 
     # Date
-    printf "%s" "[date] $(date +"%d.%m.%Y %H:%M:%S")"
+    printf "%s\n" "[date] $(date +"%d.%m.%Y %H:%M:%S")"
 }
 
 while true; do
