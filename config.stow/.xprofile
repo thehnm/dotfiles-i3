@@ -10,7 +10,7 @@ export TERMINAL="alacritty"
 $HOME/.fehbg &
 [ -z "$(pgrep sxhkd)" ] && sxhkd &
 [ -z "$(pgrep udiskie)" ] && udiskie &
-[ -z "$(pgrep mpd)" ] && mpd &
+[ -z "$(pgrep mpd)" ] && mpd ~/.config/mpd/mpd.conf &
 mpc update
 eval `ssh-agent`
 [ -z "$(pgrep dunst)" ] && dunst &
