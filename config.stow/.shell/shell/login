@@ -1,0 +1,29 @@
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-r
+
+export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
+
+export LANG='en_US.UTF-8'
+export LC_ALL=$LANG
+
+PATH=$PATH:$HOME/.local/bin/; export PATH
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export EDITOR="nvim"
+export BROWSER="firefox"
+export TERMINAL="alacritty"
+
+# Start programs
+$HOME/.fehbg &
+[ -z "$(pgrep sxhkd)" ] && sxhkd &
+[ -z "$(pgrep udiskie)" ] && udiskie &
+[ -z "$(pgrep mpd)" ] && mpd ~/.config/mpd/mpd.conf &
+[ -z "$(pgrep dunst)" ] && dunst &
+[ -z "$(pgrep statusbar)" ] && statusbar &
+[ -z "$(pgrep nextcloud)" ] && nextcloud --background &
+[ -z "$SSH_AGENT_PID" ] && eval "$(ssh-agent)"
