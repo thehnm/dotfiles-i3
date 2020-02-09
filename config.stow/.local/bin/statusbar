@@ -34,11 +34,11 @@ status() {
     printf "%s" "[vol] $volume "
 
     # Lightlevel
-    lightlevel=$(light -G)
+    lightlevel=$(light -G 2>/dev/null)
     [ "$lightlevel" != 0.00 ] && printf "[light] %.0f%% " $lightlevel
 
     # Battery
-    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
     if [ -n "$capacity" ]; then
         batstatus=$(cat /sys/class/power_supply/BAT0/status)
         case "$batstatus" in
