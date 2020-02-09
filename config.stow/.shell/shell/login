@@ -19,6 +19,8 @@ export BROWSER="firefox"
 export TERMINAL="alacritty"
 
 # Start programs
+eval "$(ssh-agent)"
+ssh-add
 $HOME/.fehbg &
 [ -z "$(pgrep sxhkd)" ] && sxhkd &
 [ -z "$(pgrep udiskie)" ] && udiskie &
@@ -26,4 +28,3 @@ $HOME/.fehbg &
 [ -z "$(pgrep dunst)" ] && dunst &
 [ -z "$(pgrep statusbar)" ] && statusbar &
 [ -z "$(pgrep nextcloud)" ] && nextcloud --background &
-[ -z "$SSH_AGENT_PID" ] && eval "$(ssh-agent)"

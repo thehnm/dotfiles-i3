@@ -1,2 +1,2 @@
-. ~/.sh/env
-. ~/.sh/login
+. ~/.shell/sh/env
+. ~/.shell/sh/login
