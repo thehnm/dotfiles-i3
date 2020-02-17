@@ -9,9 +9,6 @@ export LESS=-r
 
 export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
 
-export LANG='en_US.UTF-8'
-export LC_ALL=$LANG
-
 PATH=$PATH:$HOME/.local/bin/; export PATH
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
