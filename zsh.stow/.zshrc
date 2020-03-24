@@ -2,9 +2,14 @@
 source <(antibody init)
 antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
 
-autoload -U compinit colors
-compinit
-colors
+autoload -U colors && colors
+autoload -Uz compinit
+
+if [[ -n $HOME/.zcompdump ]]; then
+	compinit;
+else
+	compinit -C;
+fi
 
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
