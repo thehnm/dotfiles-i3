@@ -6,11 +6,14 @@ def_key "t"
 def_key "t"
     find_item_forward
 
-def_key "+"
+def_key "="
     show_clock
 
-def_key "="
+def_key "+"
     volume_up
+
+def_key "-"
+    volume_down
 
 def_key "j"
     scroll_down
