@@ -61,7 +61,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 4
 
     # Defines color of the frame around the notification window.
     #frame_color = "#a2a2a2"
@@ -247,7 +247,7 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#1d1f21"
-    foreground = "#bbc1c1"
+    foreground = "#ffffff"
     frame_color = "#768896"
     timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
@@ -255,7 +255,7 @@
 
 [urgency_normal]
     background = "#1d1f21"
-    foreground = "#bbc1c1"
+    foreground = "#ffffff"
     frame_color = "#768896"
     timeout = 8
     # Icon for notifications with normal urgency, uncomment to enable
@@ -263,7 +263,7 @@
 
 [urgency_critical]
     background = "#1d1f21"
-    foreground = "#bbc1c1"
+    foreground = "#ffffff"
     frame_color = "#ff7043"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
