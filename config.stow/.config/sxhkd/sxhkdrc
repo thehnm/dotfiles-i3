@@ -11,7 +11,7 @@ alt + shift + {x,d}
 	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
 
 Print
-	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/pic/'; notify-send -u normal -t 3000 "Screenshot taken"
+	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
 super + shift + {l,j,k}
 	playerctl {play-pause,next,previous}; refreshbar
