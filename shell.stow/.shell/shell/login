@@ -16,7 +16,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="alacritty"
-[ -f "/usr/local/dwm" ] && export _JAVA_AWT_WM_NONREPARENTING=1
+[ -f "/usr/local/bin/dwm" ] && export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Start programs
 eval "$(ssh-agent)"
