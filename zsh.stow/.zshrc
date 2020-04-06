@@ -146,4 +146,4 @@ git_prompt_string() {
 #RPROMPT="%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})"
 RPROMPT='$(git_prompt_string)'
 
-. .shell/zsh/interactive
+. ~/.shell/zsh/interactive
