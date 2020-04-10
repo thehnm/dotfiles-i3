@@ -15,7 +15,7 @@ export XDG_DATA_HOME="$HOME"/.local/share/
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export BROWSER="firefox"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 [ -f "/usr/local/bin/dwm" ] && export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Start programs
