@@ -17,7 +17,7 @@ stow -R sh.stow
 stow -R zsh.stow
 stow -R firefox.stow
 
-if [ -n "$(ls /usr/bin/openbox)" ]; then
+if [ -f /usr/bin/openbox ]; then
     stow -R openbox.stow
 else
     stow -R dwm.stow
