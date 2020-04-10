@@ -7,7 +7,7 @@ mkdir -p ~/.config/ncmpcpp
 mkdir -p ~/.config/nvim
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/fonts
-mkdir -p ~/pic
+mkdir -p ~/pics
 mkdir -p ~/dl
 
 stow -R config.stow
