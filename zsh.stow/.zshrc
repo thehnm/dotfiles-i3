@@ -5,7 +5,7 @@ antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
 autoload -U colors && colors
 autoload -Uz compinit
 
-if [[ -n $HOME/.zcompdump ]]; then
+if [ -f $HOME/.zcompdump ]; then
 	compinit;
 else
 	compinit -C;
