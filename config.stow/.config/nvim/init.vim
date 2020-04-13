@@ -128,10 +128,6 @@ nnoremap <F3> : set hlsearch!<CR>
 map <leader>q :bp<CR>
 map <leader>w :bn<CR>
 
-" Open netrw
-map <leader>e : Explore<CR>
-map <leader>t : Vexplore<CR>
-
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
