@@ -39,6 +39,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'preservim/nerdtree'
 
 " ----- Working with Git -----
 Plugin 'airblade/vim-gitgutter'
@@ -115,6 +116,9 @@ let g:vimtex_compiler_latexmk = {
         \   '-xelatex',
         \ ],
 \}
+
+" ----- nerdtree -----
+map <C-o> :NERDTreeToggle<CR>
 
 " ----- Mappings --------------------------------------------------------------"
 
