@@ -1,5 +1,4 @@
 set showmatch               " Show matching brackets.
-set ignorecase              " Do case insensitive matching
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set tabstop=4               " number of columns occupied by a tab character
