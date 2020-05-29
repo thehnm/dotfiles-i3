@@ -17,6 +17,7 @@ set fillchars=vert:│
 set showcmd
 set laststatus=0 " disable status bar
 set conceallevel=2
+set cursorline
 
 filetype off
 
