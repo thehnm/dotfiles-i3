@@ -19,8 +19,8 @@ super + shift + {l,j,k}
 alt + shift + {l,j,k}
 	mpc {toggle,next,prev}; refreshbar
 
-alt + o; {f,m,v,n}
-	{firefox,$TERMINAL -e neomutt,virt-manager,$TERMINAL -e ncmpcpp}
+alt + o; {f,m,v,n,r}
+	{firefox, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat -C $HOME/docs/newsboat/config}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
