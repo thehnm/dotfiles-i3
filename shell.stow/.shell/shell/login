@@ -28,3 +28,6 @@ $HOME/.fehbg &
 [ -z "$(pgrep dunst)" ] && dunst &
 [ -z "$(pgrep statusbar)" ] && statusbar &
 [ -z "$(pgrep nextcloud)" ] && nextcloud --background &
+
+# Higher autorepeat rate
+xset r rate 300 50
