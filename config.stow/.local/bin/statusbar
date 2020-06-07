@@ -1,21 +1,6 @@
 #!/bin/sh
 
 status() {
-    # mpd
-    artisttitle="$(mpc -f "[[%artist% - ]%title%]|[%file%]" 2>/dev/null | grep -v "volume:" | head -n 1)"
-    if [ -n "$(mpc status | head -n 2 | tac | head -n 1 | grep paused)" ]; then
-        printf "%s" "[mpd] paused "
-    elif [ -n "$artisttitle" ]; then
-        printf "%s" "[mpd] $artisttitle "
-    fi
-
-    # Spotify
-    playerstatus=$(playerctl status 2>/dev/null)
-    if [ "$playerstatus" = "Paused" ]; then
-        printf "%s" "[spotify] paused "
-    elif [ "$playerstatus" = "Playing" ]; then
-        printf "%s" "[spotify] $(playerctl metadata --format '{{ artist }} - {{ title }}') "
-    fi
 
     # VPN
     vpn=$(nmcli con | grep tun0)

@@ -14,16 +14,19 @@ Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
 super + shift + {l,j,k}
-	playerctl {play-pause,next,previous}; refreshbar
+	playerctl {play-pause,next,previous}; songstatus
 
 alt + shift + {l,j,k}
-	mpc {toggle,next,prev}; refreshbar
+	mpc {toggle,next,prev}; songstatus
 
-alt + o; {f,m,v,n,r}
-	{firefox, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat -C $HOME/docs/newsboat/config}
+alt + o; {b,m,v,n,r}
+	{brave, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat -C $HOME/docs/newsboat/config}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
 
 XF86MonBrightness{Up,Down}
 	light {-A 1, -U 1}; refreshbar
+
+alt + s
+    songstatus

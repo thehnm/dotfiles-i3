@@ -1,0 +1,12 @@
+#/bin/bash
+if [ -z "$(mpc status | head -n 2 | tac | head -n 1 | grep paused)" ]; then
+    artisttitle="$(mpc -f "[[%artist% - ]%title%]|[%file%]" 2>/dev/null | grep -v "volume:" | head -n 1)"
+    printf "%s" "[mpd] $artisttitle "
+    notify-send "$(mpc -f "%artist%" 2>/dev/null | grep -v "volume:" | head -n 1)" "$(mpc -f "%title%" 2>/dev/null | grep -v "volume:" | head -n 1)"
+fi
+
+# Spotify
+playerstatus=$(playerctl status 2>/dev/null)
+if [ "$playerstatus" = "Playing" ]; then
+    notify-send "$(playerctl metadata --format '{{ artist }}')" "$(playerctl metadata --format '{{ title }}')"
+fi
