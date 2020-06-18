@@ -1,13 +1,20 @@
 alias cp="cp -iv"                                               # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
 alias l='ls -la --color=tty'
 alias ls='ls --color=tty'
+
 alias ga='git add'
 alias gcmsg='git commit -m'
-alias gp='git push'
+alias gpu='git push'
 alias gsb='git status -b'
+
+alias dconfig='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias da='dconfig add'
+alias dcmsg='dconfig commit -m'
+alias dpu='dconfig push'
+alias dsb='dconfig status -b'
+
 alias ln='ln -v'
 alias chmod='chmod -c'
 alias chown='chown -c'
@@ -33,4 +40,3 @@ alias evpc='expressvpn connect'
 alias evpd='expressvpn disconnect'
 alias evps='expressvpn status'
 alias ij='isabelle jedit'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
