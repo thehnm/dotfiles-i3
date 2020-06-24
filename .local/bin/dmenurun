@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dmenu_run -fn "Fira Mono:style=bold:size=11" -nb "#282828" -sb "#768896" -nf "#c5c8c6" -sf "#282828"
