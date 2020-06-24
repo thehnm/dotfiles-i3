@@ -1,3 +1,7 @@
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -17,18 +21,4 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="st"
-[ -f "/usr/local/bin/dwm" ] && export _JAVA_AWT_WM_NONREPARENTING=1
-
-# Start programs
-eval "$(ssh-agent)"
-ssh-add
-$HOME/.fehbg &
-[ -z "$(pgrep sxhkd)" ] && sxhkd &
-[ -z "$(pgrep udiskie)" ] && udiskie &
-[ -z "$(pgrep mpd)" ] && mpd ~/.config/mpd/mpd.conf &
-[ -z "$(pgrep dunst)" ] && dunst &
-[ -z "$(pgrep statusbar)" ] && statusbar &
-[ -z "$(pgrep nextcloud)" ] && nextcloud --background &
-
-# Higher autorepeat rate
-xset r rate 300 50
+export _JAVA_AWT_WM_NONREPARENTING=1

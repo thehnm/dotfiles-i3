@@ -1,0 +1,3 @@
+. ~/.xprofile
+
+ssh-agent dwm

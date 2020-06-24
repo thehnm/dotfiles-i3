@@ -1,0 +1,11 @@
+# Start programs
+eval "$(ssh-agent)"
+ssh-add
+$HOME/.fehbg &
+sxhkd &
+udiskie &
+mpd ~/.config/mpd/mpd.conf &
+dunst &
+statusbar &
+nextcloud --background &
+xset r rate 300 50

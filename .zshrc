@@ -5,10 +5,10 @@ antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
 autoload -U colors && colors
 autoload -Uz compinit
 
-if [ -f $HOME/.zcompdump ]; then
+if [ -f $HOME/.cache/zcompdump ]; then
 	compinit;
 else
-	compinit -C;
+	compinit -C -d $HOME/.cache/zcompdump;
 fi
 
 setopt correct                                                  # Auto correct mistakes
@@ -95,4 +95,49 @@ PROMPT="%B%(?.%{$fg[white]%}.%{$fg[red]%})>%b %B%3~%b "
 
 RPROMPT="%{$fg[red]%} %(?..[%?])"
 
-. ~/.shell/zsh/interactive
+alias cp="cp -iv"                                               # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias l='ls -la --color=tty'
+alias ls='ls --color=tty'
+
+alias ga='git add'
+alias gcmsg='git commit -m'
+alias gpu='git push'
+alias gsb='git status -b'
+alias glog='git log'
+alias gdiff='git diff'
+
+alias dconfig='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias da='dconfig add'
+alias dcmsg='dconfig commit -m'
+alias dpu='dconfig push'
+alias dsb='dconfig status -b'
+alias dlog='dconfig log'
+alias ddiff='dconfig diff'
+
+alias ln='ln -v'
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias mkdir='mkdir -v'
+alias mv='mv -iv'
+alias rm='rm -v'
+alias cp='cp -iv'
+alias um='udiskie-umount -a'
+alias shut='shutdown -h now'
+alias yay='yay --color=auto'
+alias pacman='pacman --color=auto'
+alias fucking='sudo'
+alias motherfucking='sudo'
+alias fcking='sudo'
+alias f='ranger'
+alias e='nvim'
+alias gettodos='grep TODO -nr * > TODOs.txt'
+alias calcurse='calcurse -D $HOME/.config/calcurse'
+alias music='ncmpcpp'
+alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
+alias termite='termite -t termite'
+alias evpc='expressvpn connect'
+alias evpd='expressvpn disconnect'
+alias evps='expressvpn status'
+alias ij='isabelle jedit'
