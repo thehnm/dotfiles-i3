@@ -2,10 +2,10 @@ alt + Return
 	$TERMINAL
 
 alt + p
-	dmenu_run -fn "Fira Mono:style=bold:size=13" -nb "#282828" -sb "#282828" -nf "#c5c8c6" -sf "#5f819d"
+	dmenu_run -fn "Fira Mono:style=bold:size=11" -nb "#282828" -sb "#282828" -nf "#c5c8c6" -sf "#5f819d"
 
 alt + d
-	passmenu -fn "Fira Mono:style=bold:size=13" -nb "#282828" -sb "#282828" -nf "#c5c8c6" -sf "#5f819d" && notify-send -u normal -t 3000 "Password copied"
+	passmenu -fn "Fira Mono:style=bold:size=11" -nb "#282828" -sb "#282828" -nf "#c5c8c6" -sf "#5f819d" && notify-send -u normal -t 3000 "Password copied"
 
 alt + shift + {x,d}
 	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
@@ -20,7 +20,7 @@ alt + shift + {l,j,k}
 	mpc {toggle,next,prev}; songstatus
 
 alt + o; {b,m,v,n,r}
-	{brave, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat -C $HOME/docs/newsboat/config}
+	{brave, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1,pulsemixer --change-volume -1,pulsemixer --toggle-mute }; refreshbar
