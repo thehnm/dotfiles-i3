@@ -1,7 +1,3 @@
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
-
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -22,3 +18,7 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
