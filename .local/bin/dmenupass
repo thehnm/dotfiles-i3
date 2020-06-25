@@ -1,3 +1,0 @@
-#!/bin/sh
-
-passmenu -fn "Fira Mono:style=bold:size=11" -nb "#282828" -sb "#768896" -nf "#c5c8c6" -sf "#282828" && notify-send -u normal -t 3000 "Password copied"

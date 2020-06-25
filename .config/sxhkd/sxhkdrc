@@ -2,10 +2,10 @@ alt + Return
 	$TERMINAL
 
 alt + p
-	dmenurun
+	dmenu_run
 
 alt + d
-    dmenupass
+    passmenu
 
 alt + shift + {x,d}
 	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
