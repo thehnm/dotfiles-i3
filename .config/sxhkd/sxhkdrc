@@ -5,7 +5,7 @@ alt + p
 	dmenu_run
 
 alt + d
-    passmenu
+    passmenu && notify-send -u normal -t 3000 "Password copied"
 
 alt + shift + {x,d}
 	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
