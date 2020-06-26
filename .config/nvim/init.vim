@@ -1,3 +1,10 @@
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
 set showmatch               " Show matching brackets.
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
@@ -22,37 +29,35 @@ set cursorline
 filetype off
 
 " ----- Vundle ----------------------------------------------------------------"
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " ----- Editor features -----
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'bfrg/vim-cpp-modern'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-bufferline'
-Plugin 'tpope/vim-surround'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'preservim/nerdtree'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'preservim/nerdtree'
 
 " ----- Working with Git -----
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " ----- Latex support -----
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 " ----- Visual aesthetics -----"
-Plugin 'itchyny/lightline.vim'
-Plugin 'rafi/awesome-vim-colorschemes'
-
-call vundle#end()
+Plug 'itchyny/lightline.vim'
+Plug 'rafi/awesome-vim-colorschemes'
+call plug#end()
 
 
 " ----- Plugin Configuration --------------------------------------------------"
