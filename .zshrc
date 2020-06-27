@@ -101,20 +101,15 @@ alias free='free -m'                                            # Show sizes in 
 alias l='ls -la --color=tty'
 alias ls='ls --color=tty'
 
+alias config='cd $XDG_CONFIG_HOME'
+alias data='cd $XDG_DATA_HOME'
+
 alias ga='git add'
 alias gcmsg='git commit -m'
 alias gpu='git push'
 alias gsb='git status -b'
 alias glog='git log'
 alias gdiff='git diff'
-
-alias dconfig='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias da='dconfig add'
-alias dcmsg='dconfig commit -m'
-alias dpu='dconfig push'
-alias dsb='dconfig status -b'
-alias dlog='dconfig log'
-alias ddiff='dconfig diff'
 
 alias ln='ln -v'
 alias chmod='chmod -c'
