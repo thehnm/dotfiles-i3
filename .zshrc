@@ -11,6 +11,11 @@ else
 	compinit -C -d $HOME/.cache/zcompdump;
 fi
 
+LFCD="$XDG_CONFIG_HOME/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
+
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -125,7 +130,7 @@ alias pacman='pacman --color=auto'
 alias fucking='sudo'
 alias motherfucking='sudo'
 alias fcking='sudo'
-alias f='lf'
+alias f='lfcd'
 alias e='nvim'
 alias gettodos='grep TODO -nr * > TODOs.txt'
 alias calcurse='calcurse -D $HOME/.config/calcurse'
