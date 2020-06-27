@@ -19,6 +19,7 @@ export BROWSER="firefox"
 export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GOPATH="$XDG_DATA_HOME"/go
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
