@@ -30,11 +30,11 @@ status() {
     if [ -n "$capacity" ]; then
         batstatus=$(cat /sys/class/power_supply/BAT0/status)
         case "$batstatus" in
-            Charging) batstatus="chr" ;;
-            Discharging) batstatus="dchr" ;;
+            Charging) batstatus="chr " ;;
+            Discharging) batstatus="dchr " ;;
             *) batstatus="" ;;
         esac
-        printf "%s" "[bat] $batstatus $capacity% "
+        printf "%s" "[bat] $batstatus$capacity% "
     fi
 
     # Date
