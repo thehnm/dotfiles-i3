@@ -10,6 +10,9 @@ alt + d
 alt + shift + d
 	clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
 
+alt + shift + q
+    sysact
+
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
