@@ -7,8 +7,8 @@ alt + p
 alt + d
     passmenu && notify-send -u normal -t 3000 "Password copied"
 
-alt + shift + {x,d}
-	{betterlockscreen -l blur,clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"}
+alt + shift + d
+	clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
 
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
