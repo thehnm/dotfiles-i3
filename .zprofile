@@ -12,12 +12,19 @@ export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47
 PATH=$PATH:$HOME/.local/bin/; export PATH
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_CACHE_HOME="$HOME"/.cache
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export LESSHISTFILE=-
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 

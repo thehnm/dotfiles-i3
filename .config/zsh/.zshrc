@@ -28,7 +28,7 @@ setopt histignorealldups                                        # If a new comma
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
 
-HISTFILE=~/.zhistory
+HISTFILE=~/.local/share/zsh/history
 HISTSIZE=1000
 SAVEHIST=500
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
