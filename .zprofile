@@ -15,7 +15,7 @@ export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_CACHE_HOME="$HOME"/.cache
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
-export LESSHISTFILE=-
+export LESSHISTFILE=/dev/null
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
 export STACK_ROOT="$XDG_DATA_HOME"/stack
@@ -26,7 +26,7 @@ export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
