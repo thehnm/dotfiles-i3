@@ -38,7 +38,7 @@ status() {
     fi
 
     # Date
-    printf "%s\n" "[date $(date +"%a %D %T")]"
+    printf "%s\n" "[date $(date +"%a %x %T")]"
 }
 
 while true; do
