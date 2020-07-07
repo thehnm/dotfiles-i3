@@ -3,7 +3,7 @@
 choice=$(echo "lock\nhibernate\nleave dwm\nrenew dwm\nreboot\nshutdown" | dmenu)
 
 case $choice in
-    "lock")      slock -m "$(cowsay "$(fortune)")" ;;
+    "lock")      slock -m "$(fortune | cowsay)" ;;
     "hibernate") sudo -A systemctl suspend-then-hibernate ;;
     "leave dwm") kill -TERM $(pidof -s dwm) ;;
     "renew dwm") kill -HUP $(pidof -s dwm) ;;
