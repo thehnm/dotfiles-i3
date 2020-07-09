@@ -1,19 +1,17 @@
 #!/bin/bash
 
 intern=eDP-1
-#monitors=$(xrandr | grep -Ev "disconnected" | grep "connected" | cut -d ' ' -f1 | sed "/^\s*$/d")
-#activemonitors=$(xrandr --listactivemonitors)
 output=$(xrandr)
 monitors=$(echo "$output" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 activemonitors=$(echo "$output" | grep -E " connected (primary )?[1-9]+" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 
 if [ -z "$monitors" ]; then
-    notify-send "No monitors available"
+    notify-send "Toggle Screen" "No monitors available"
 else
     selectedmonitor=$(echo "$monitors" | dmenu)
     if [ -z "$(echo $activemonitors | grep $selectedmonitor)" ]; then
-        xrandr --output $selectedmonitor --right-of $intern --auto && notify-send "Connect Monitor on $selectedmonitor"
+        xrandr --output $selectedmonitor --right-of $intern --auto && notify-send "Toggle Screen" "Connect Monitor on $selectedmonitor"
     else
-        [ "$selectedmonitor" != "$intern" ] && xrandr --output $selectedmonitor --off && notify-send "Disconnect $selectedmonitor" || notify-send "Internal monitor can not be disabled!"
+        [ "$selectedmonitor" != "$intern" ] && xrandr --output $selectedmonitor --off && notify-send "Toggle Screen" "Disconnect $selectedmonitor" || notify-send "Toggle Screen" "Internal monitor can not be disabled!"
     fi
 fi
