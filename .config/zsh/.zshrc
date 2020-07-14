@@ -6,7 +6,7 @@ autoload -U colors && colors
 autoload -Uz compinit
 
 if [ -f $HOME/.cache/zcompdump ]; then
-	compinit;
+	compinit -d $HOME/.cache/zcompdump;
 else
 	compinit -C -d $HOME/.cache/zcompdump;
 fi
