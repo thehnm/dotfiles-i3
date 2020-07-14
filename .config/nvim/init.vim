@@ -31,8 +31,6 @@ filetype off
 " ----- Vundle ----------------------------------------------------------------"
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plug 'VundleVim/Vundle.vim'
-
 " ----- Editor features -----
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
