@@ -13,6 +13,9 @@ alt + shift + d
 alt + shift + q
     sysact
 
+alt + x
+    slock -m "$(fortune | cowsay)"
+
 Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
