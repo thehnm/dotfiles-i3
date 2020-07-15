@@ -11,20 +11,6 @@ else
 	compinit -C -d $HOME/.cache/zcompdump;
 fi
 
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -126,7 +112,7 @@ alias pacman='pacman --color=auto'
 alias fucking='sudo'
 alias motherfucking='sudo'
 alias fcking='sudo'
-alias f='lfcd'
+alias f='ranger'
 alias e='nvim'
 alias gettodos='grep TODO -nr * > TODOs.txt'
 alias calcurse='calcurse -D $HOME/.config/calcurse'
