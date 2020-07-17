@@ -37,6 +37,7 @@ This repository contains configuration files for the following software:
     - Non-Latin: `Noto CJK fonts`
 - **mpd** Music Player daemon
 - **ncmpcpp** mpd client
+- **nvim** Fork of vim
 - **sxhkd**
     - `Alt + Return` Open Terminal
     - `Alt + p` Open dmenu program launcher
