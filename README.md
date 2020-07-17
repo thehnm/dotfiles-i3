@@ -30,11 +30,11 @@ This repository contains configuration files for the following software:
     - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - **dunst** notification daemon
 - **fontconfig**
-    - Serif: Linux Libertine
-    - Sans-Serif: Linux Biolinum
-    - Sans: Linux Biolinum
-    - Monospace: Fira Mono
-    - Non-Latin: Noto CJK fonts
+    - Serif: `Linux Libertine`
+    - Sans-Serif: `Linux Biolinum`
+    - Sans: `Linux Biolinum`
+    - Monospace: `Fira Mono`
+    - Non-Latin: `Noto CJK fonts`
 - **mpd** Music Player daemon
 - **ncmpcpp** mpd client
 - **sxhkd**
