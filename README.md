@@ -32,6 +32,7 @@ This repository contains configuration files for the following software:
 - **mpd** Music Player daemon
 - **ncmpcpp** mpd client
 - **nvim** Fork of vim
+- **ranger** Terminal file manager
 - **sxhkd**
     - `Alt + Return` Open Terminal
     - `Alt + p` Open dmenu program launcher
