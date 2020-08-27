@@ -22,12 +22,6 @@ You can find the software with my own changes, configurations and patches here:
 
 This repository contains configuration files for the following software:
 
-- **zsh**
-- **zsh Plugins**, managed by [antibody](https://github.com/getantibody/antibody)
-    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-    - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
-    - [zsh-completions](https://github.com/zsh-users/zsh-completions)
-    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - **dunst** notification daemon
 - **fontconfig**
     - Serif: `Linux Libertine`
@@ -38,6 +32,7 @@ This repository contains configuration files for the following software:
 - **mpd** Music Player daemon
 - **ncmpcpp** mpd client
 - **nvim** Fork of vim
+- **ranger** Terminal file manager
 - **sxhkd**
     - `Alt + Return` Open Terminal
     - `Alt + p` Open dmenu program launcher
@@ -60,3 +55,9 @@ This repository contains configuration files for the following software:
     - `Alt + s` Display song status for playerctl and mpd
 - **youtube-dl** CLI youtube video downloader
 - **zathura** PDF reader
+- **zsh**
+- **zsh Plugins**, managed by [antibody](https://github.com/getantibody/antibody)
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+    - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
+    - [zsh-completions](https://github.com/zsh-users/zsh-completions)
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
