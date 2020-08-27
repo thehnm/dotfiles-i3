@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo "lock\nhibernate\nleave dwm\nrenew dwm\nreboot\nshutdown" | dmenu)
+choice=$(printf "lock\nhibernate\nleave dwm\nrenew dwm\nreboot\nshutdown" | dmenu)
 
 case $choice in
     "lock")      slock -m "$(fortune | cowsay)" ;;
