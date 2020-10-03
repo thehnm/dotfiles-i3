@@ -20,10 +20,10 @@ Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
 super + shift + {l,j,k}
-	playerctl {play-pause,next,previous}; songstatus
+	playerctl {play-pause,next,previous}
 
 alt + shift + {l,j,k}
-	mpc {toggle,next,prev}; songstatus
+	mpc {toggle,next,prev}
 
 alt + o; {b,m,v,n,r}
 	{$BROWSER, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat}
