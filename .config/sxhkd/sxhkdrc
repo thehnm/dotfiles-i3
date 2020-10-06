@@ -36,3 +36,6 @@ XF86MonBrightness{Up,Down}
 
 alt + s
     songstatus
+
+alt + u
+    unmount

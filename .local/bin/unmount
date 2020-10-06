@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Only works with udiskie daemon since it mounts all devices in /run/media/<user>/<device>
+
+device=$(lsblk | grep run | awk '{print $NF}' | dmenu)
+udiskie-umount --detach "$device" | umount -R "$device"
