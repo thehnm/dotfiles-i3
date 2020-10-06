@@ -21,7 +21,7 @@ export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="brave"
 export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
