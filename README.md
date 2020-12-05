@@ -22,6 +22,10 @@ You can find the software with my own changes, configurations and patches here:
 
 This repository contains configuration files for the following software:
 
+- **dwm** window manager
+- **st** terminal
+- **slock** screen locker
+- **dmenu**
 - **dunst** notification daemon
 - **fontconfig**
     - Serif: `Linux Libertine`
