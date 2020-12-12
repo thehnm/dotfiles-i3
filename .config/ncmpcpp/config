@@ -3,7 +3,7 @@ mpd_music_dir = "~/music"
 mpd_host = "127.0.0.1"
 mpd_port = "6600"
 mpd_crossfade_time = "5"
-execute_on_song_change =
+execute_on_song_change = notify-send "$(mpc --format '%title%' current)" "$(mpc --format '%artist% - %album%' current)"
 
 [visualizer]
 visualizer_fifo_path = "/tmp/mpd.fifo"
