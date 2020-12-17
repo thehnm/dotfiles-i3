@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "$1" != "m" ]; then
+    newvol=$(($(cat $HOME/.cache/volume) + $1))
+    [ $newvol -le 0 ] && echo "0" > $HOME/.cache/volume || echo "$newvol" > $HOME/.cache/volume
+else
+    echo $(($(cat $HOME/.cache/mute) ^ 1)) > $HOME/.cache/mute
+fi

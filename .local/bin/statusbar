@@ -18,7 +18,8 @@ status() {
     [ "$(cat /sys/class/net/e*/carrier)" = "1" ] && printf "%s" "[eth con] "
 
     # Volume
-    [ "$(pulsemixer --get-mute)" = "1" ] && volume="mute" || volume="$(pulsemixer --get-volume | awk '{print $1}')%"
+    #[ "$(pulsemixer --get-mute)" = "1" ] && volume="mute" || volume="$(pulsemixer --get-volume | awk '{print $1}')%"
+    [ "$(cat $HOME/.cache/mute)" = "1" ] && volume="mute" || volume="$(cat $HOME/.cache/volume)%"
     printf "%s" "[vol $volume] "
 
     # Lightlevel
