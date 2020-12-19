@@ -2,9 +2,8 @@
 
 status() {
 
-    if [ -n "$(xset q | grep 'Caps Lock:\s*on')" ]; then
-        printf "%s" "[caps on] "
-    fi
+    # Check if caps key is enabled
+    [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "%s" "[caps on] "
 
     # VPN
     vpn=$(nmcli con | grep tun0)
