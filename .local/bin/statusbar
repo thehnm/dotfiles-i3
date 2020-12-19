@@ -2,7 +2,7 @@
 
 status() {
 
-    # Check if caps key is enabled
+    # Check if caps lock is enabled
     [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "%s" "[caps on] "
 
     # Check if num lock is enabled
