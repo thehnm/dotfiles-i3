@@ -25,8 +25,8 @@ super + shift + {l,j,k}
 alt + shift + {l,j,k}
 	mpc {toggle,next,prev}
 
-alt + o; {b,m,v,n,r}
-	{$BROWSER, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat}
+alt + o; {b,m,v,n,r,t}
+	{$BROWSER, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat, $TERMINAL -e tremc}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pulsemixer --change-volume +1 && changevolfiles 1,pulsemixer --change-volume -1 && changevolfiles -1,pulsemixer --toggle-mute && changevolfiles m} && refreshbar
