@@ -123,3 +123,5 @@ alias termite='termite -t termite'
 alias evpc='expressvpn connect'
 alias evpd='expressvpn disconnect'
 alias evps='expressvpn status'
+
+alias tsm="transmission-remote"
