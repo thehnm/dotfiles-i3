@@ -59,6 +59,7 @@ Simple X Hotkey Daemon Configuration
 
      Keybinding            Effect
     --------------------- -----------------------------
+     F1                    Display all hotkeys
      Alt + Return          Open Terminal
      Alt + p               Open dmenu program launcher
      Alt + d               Open passmenu
