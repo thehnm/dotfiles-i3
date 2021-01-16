@@ -39,3 +39,6 @@ alt + s
 
 alt + u
     unmount
+
+F1
+    $TERMINAL -e hotkeys
