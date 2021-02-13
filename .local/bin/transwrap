@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 killall transmission-daemon 2> /dev/null
 transmission-daemon --foreground --log-info 2>&1 | while read line; do
 	echo $line |
