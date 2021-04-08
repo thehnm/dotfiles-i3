@@ -6,7 +6,7 @@ mpd_crossfade_time = "5"
 execute_on_song_change = notify-send "$(mpc --format '%title%' current)" "$(mpc --format '%artist% - %album%' current)"
 
 [visualizer]
-visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_in_stereo = "no"
 visualizer_type = "spectrum"
 visualizer_output_name = "my_fifo"
