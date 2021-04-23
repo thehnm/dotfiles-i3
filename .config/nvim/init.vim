@@ -45,6 +45,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'preservim/nerdtree'
 Plug 'machakann/vim-highlightedyank'
+Plug 'ap/vim-css-color'
 
 " ----- Working with Git -----
 Plug 'airblade/vim-gitgutter'
