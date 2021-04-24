@@ -10,8 +10,6 @@ statusbar &
 nextcloud --background &
 xset r rate 300 50 &
 unclutter &
-echo "$(pulsemixer --get-volume | awk '{print $1}')" > $HOME/.cache/volume
-echo "$(pulsemixer --get-mute)" > $HOME/.cache/mute
 transwrap
 picom &
 
