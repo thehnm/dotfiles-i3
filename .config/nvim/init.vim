@@ -5,6 +5,8 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
+set title
+set titleold=st
 set showmatch               " Show matching brackets.
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
