@@ -13,6 +13,7 @@ unclutter &
 echo "$(pulsemixer --get-volume | awk '{print $1}')" > $HOME/.cache/volume
 echo "$(pulsemixer --get-mute)" > $HOME/.cache/mute
 transwrap
+picom &
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
