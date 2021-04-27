@@ -29,7 +29,7 @@ alt + o; {b,m,v,n,r,t}
 	{$BROWSER, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat, $TERMINAL -e tremc}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	{pulsemixer --change-volume +1 && changevolfiles 1,pulsemixer --change-volume -1 && changevolfiles -1,pulsemixer --toggle-mute && changevolfiles m} && refreshbar
+	{pamixer -i 1, pamixer -d 1, pamixer -t} && refreshbar
 
 XF86MonBrightness{Up,Down}
 	light {-A 1, -U 1} && refreshbar
