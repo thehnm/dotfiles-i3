@@ -70,15 +70,6 @@ let g:better_whitespace_enabled=1
 " ----- airblade/vim-gitgutter -----
 autocmd BufWritePost * GitGutter
 
-" ----- Konfekt/FastFold -----
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-
-" ----- Rip-Rip/clang_complete -----
-let g:clang_library_path='/usr/lib/libclang.so.8'
-let g:clang_close_preview=1
-
 " ----- majutsushi/tagbar -----
 nmap <F8> : TagbarToggle<CR>
 
