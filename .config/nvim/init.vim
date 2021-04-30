@@ -60,6 +60,7 @@ Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 
