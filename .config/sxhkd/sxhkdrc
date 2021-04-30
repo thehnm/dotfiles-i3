@@ -20,7 +20,7 @@ Print
 	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
 
 super + shift + {l,j,k}
-	playerctl {play-pause,next,previous}
+	playerctl -p spotify {play-pause,next,previous}
 
 alt + shift + {l,j,k}
 	mpc {toggle,next,prev}
