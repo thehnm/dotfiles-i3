@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -o nounset
+set -o xtrace
+
+(cd $HOME/.local/src/dwm && sudo make install &> /dev/null) && echo "Built dwm"
+(cd $HOME/.local/src/st && sudo make install &> /dev/null) && echo "Built st"
+(cd $HOME/.local/src/dmenu && sudo make install &> /dev/null) && echo "Built dmenu"
+(cd $HOME/.local/src/slock && sudo make install &> /dev/null) && echo "Built slock"
