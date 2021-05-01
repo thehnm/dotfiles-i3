@@ -61,6 +61,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
+Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 
@@ -77,7 +78,7 @@ nmap <F8> : TagbarToggle<CR>
 
 " ----- itchyny/lightline.vim -----
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
@@ -183,10 +184,14 @@ filetype plugin indent on
 " Disable vertical split border background
 hi VertSplit cterm=None
 
-hi clear SignColumn
-
 " Disable banner when opening netrw
 let g:netrw_banner = 0
 
-set termguicolors
-colorscheme tender
+"set termguicolors
+colorscheme gruvbox-material
+
+hi clear SignColumn
+
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
