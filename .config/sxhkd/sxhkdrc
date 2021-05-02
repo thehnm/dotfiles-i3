@@ -5,7 +5,7 @@ alt + p
 	dmenu_run
 
 alt + d
-    passmenu && notify-send -u normal -t 3000 "Password copied"
+    passmenunotify
 
 alt + shift + d
 	clearclipboard && notify-send -u normal -t 3000 "Clipboard deleted"
