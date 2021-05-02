@@ -62,6 +62,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'sainnhe/gruvbox-material'
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 
