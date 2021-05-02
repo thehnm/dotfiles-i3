@@ -58,7 +58,6 @@ Plug 'lervag/vimtex'
 
 " ----- Visual aesthetics -----"
 Plug 'itchyny/lightline.vim'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'sainnhe/gruvbox-material'
