@@ -188,7 +188,7 @@ hi VertSplit cterm=None
 " Disable banner when opening netrw
 let g:netrw_banner = 0
 
-"set termguicolors
+set termguicolors
 colorscheme gruvbox-material
 
 hi clear SignColumn
