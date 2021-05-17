@@ -1,7 +1,0 @@
-#!/bin/sh
-
-sxhkd=$(sed '/Simple X Hotkey Daemon Configuration/,$!d' ~/README)
-dwm=$(sed '/dwm Hotkey Configuration/,$!d' ~/.local/src/dwm/README)
-st=$(sed '/st Terminal Hotkey Configuration/,$!d' ~/.local/src/st/README)
-
-printf "$sxhkd\n\n\n$dwm\n\n\n$st\n" | less
