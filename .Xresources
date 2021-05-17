@@ -21,8 +21,8 @@ st.cursorColor: #e2d3ba
 *.col_norm: #e2d3ba
 *.col_sel: #9dc2ba
 *.col_bg: #282828
+*.col_fg: #e2d3ba
 
 slock.col_init: #282828
 slock.col_input: #7daea3
 slock.col_failed: #ea6962
-slock.col_fg: #e2d3ba
