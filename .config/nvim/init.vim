@@ -131,8 +131,8 @@ let mapleader=','
 nnoremap <F3> : set hlsearch!<CR>
 
 " Switch buffers quickly
-map <leader>q :bp<CR>
-map <leader>w :bn<CR>
+map <C-q> :bp<CR>
+map <C-w> :bn<CR>
 
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
