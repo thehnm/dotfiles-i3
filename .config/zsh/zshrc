@@ -1,7 +1,8 @@
 # { --- Option section ---
 source <(antibody init)
 antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
-
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 autoload -U colors && colors
 autoload -Uz compinit
 
@@ -23,60 +24,32 @@ setopt histignorealldups                                        # If a new comma
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt prompt_subst                                             # enable substitution for prompt
 
-HISTFILE=~/.local/share/zsh/history
+#HISTFILE=~/.local/share/zsh/history
 HISTSIZE=1000
 SAVEHIST=500
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-# 0 -- vanilla completion (abc => abc)
-# 1 -- smart case completion (abc => Abc)
-# 2 -- word flex completion (abc => A-big-Car)
-# 3 -- full flex completion (abc => ABraCadabra)
 zstyle ':completion:*' matcher-list '' \
   'm:{a-z\-}={A-Z\_}' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-## Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
-##PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
-
-## Maia prompt
-##PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}> %B%(?.%{$fg[cyan]%}.%{$fg[red]%})> %{$reset_color%}%b "
-
-## Simple prompt
-##PROMPT="[%n@%m %3~]$ "
-
-## Simple prompt with indicator for last return code
-##PROMPT="[%n@%m %3~]%(?.%{$reset_color%}.%{$fg[red]%})$%{$reset_color%} "
-
-## Prompt with easy zsh sequences
-## PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%3~%{$fg[red]%}]%(?.%{$fg[white]%}.%{$fg[blue]%})$%b "
-
-PROMPT="%B%(?.%{$fg[white]%}.%{$fg[red]%})>%b %B%3~%b "
-
-## Prompt on right side:
-#  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
-#  - shows exit status of previous command (if previous command finished with an error)
-#  - is invisible, if neither is the case
-
-RPROMPT="%{$fg[red]%} %(?..[%?])"
+local ret_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)"
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} '
 
 alias cp="cp -iv"                                               # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias l='ls -la --color=tty'
 alias ls='ls --color=tty'
-
 alias config='cd $XDG_CONFIG_HOME'
 alias data='cd $XDG_DATA_HOME'
-
 alias ga='git add'
 alias gcmsg='git commit -m'
 alias gpu='git push'
 alias gsb='git status -b'
 alias glog='git log'
 alias gdiff='git diff'
-
 alias ln='ln -v'
 alias chmod='chmod -c'
 alias chown='chown -c'
@@ -101,5 +74,4 @@ alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
 alias evpc='expressvpn connect'
 alias evpd='expressvpn disconnect'
 alias evps='expressvpn status'
-
 alias tsm="transmission-remote"
