@@ -6,15 +6,10 @@ export LESS_TERMCAP_so=$'\E[01;47;34m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
-
-#export LS_COLORS='di=1;34:fi=0:ln=4;33:pi=5:so=5:bd=5:cd=5:or=4;47;30:mi=1;30;47:ex=1;31'
-
-PATH=$PATH:$HOME/.local/bin/; export PATH
+export PATH=$PATH:"$HOME"/.local/bin/
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_CACHE_HOME="$HOME"/.cache
-#export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export LESSHISTFILE=/dev/null
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
