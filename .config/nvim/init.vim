@@ -193,6 +193,7 @@ colorscheme gruvbox-material
 
 hi clear SignColumn
 
-highlight GitGutterAdd    ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
+hi GitGutterAdd            guifg=#a9b665
+hi GitGutterChange         guifg=#d8a657
+hi GitGutterDelete         guifg=#ea6962
+hi GitGutterChangeDelete   guifg=#d3869b
