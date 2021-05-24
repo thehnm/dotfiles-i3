@@ -30,6 +30,7 @@ zstyle ':completion:*' matcher-list '' \
 
 local ret_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)"
 PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} '
+[ -f $XDG_CONFIG_HOME/zsh/prompt ] && source $XDG_CONFIG_HOME/zsh/prompt
 
 alias cp='cp -iv'
 alias df='df -h'
