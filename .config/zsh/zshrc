@@ -1,10 +1,10 @@
 source <(antibody init)
-antibody bundle < $HOME/.config/antibody/zsh_plugins.txt
+antibody bundle < $XDG_CONFIG_HOME/antibody/zsh_plugins.txt
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 autoload -U colors && colors
 autoload -Uz compinit
-[ -f $HOME/.cache/zcompdump ] && compinit -d $HOME/.cache/zcompdump || compinit -C -d $HOME/.cache/zcompdump
+[ -f $XDG_CACHE_HOME/zcompdump ] && compinit -d $XDG_CACHE_HOME/zcompdump || compinit -C -d $XDG_CACHE_HOME/zcompdump
 
 setopt correct                        # Auto correct mistakes
 setopt extendedglob                   # Extended globbing. Allows using regular expressions with *
