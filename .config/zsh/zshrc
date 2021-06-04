@@ -59,3 +59,4 @@ alias e='nvim'
 alias ydm='youtube-dl -x -f bestaudio --audio-format vorbis'
 alias tsm='transmission-remote'
 alias pr='pipenv run python'
+[ -f $XDG_CONFIG_HOME/zsh/alias ] && source $XDG_CONFIG_HOME/zsh/alias
