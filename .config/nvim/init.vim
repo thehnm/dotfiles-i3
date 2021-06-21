@@ -39,15 +39,14 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'majutsushi/tagbar'
 Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'preservim/nerdtree'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ap/vim-css-color'
+Plug 'junegunn/fzf.vim'
 
 " ----- Working with Git -----
 Plug 'airblade/vim-gitgutter'
@@ -73,9 +72,6 @@ let g:better_whitespace_enabled=1
 
 " ----- airblade/vim-gitgutter -----
 autocmd BufWritePost * GitGutter
-
-" ----- majutsushi/tagbar -----
-nmap <F8> : TagbarToggle<CR>
 
 " ----- itchyny/lightline.vim -----
 let g:lightline = {
@@ -119,8 +115,12 @@ let g:vimtex_compiler_latexmk = {
         \ ],
 \}
 
-" ----- nerdtree -----
-map <C-o> :NERDTreeToggle<CR>
+" ----- fzf -----
+map <C-o> :Files<CR>
+map <F8> :BTags<CR>
+map <C-a> :Rg<CR>
+map <C-b> :Buffers<CR>
+nnoremap <C-f> :BLines<CR>
 
 " ----- Mappings --------------------------------------------------------------"
 
