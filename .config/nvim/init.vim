@@ -38,11 +38,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bfrg/vim-cpp-modern'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ap/vim-css-color'
@@ -56,7 +52,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 
 " ----- Visual aesthetics -----"
-Plug 'itchyny/lightline.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'sainnhe/gruvbox-material'
@@ -72,28 +67,6 @@ let g:better_whitespace_enabled=1
 
 " ----- airblade/vim-gitgutter -----
 autocmd BufWritePost * GitGutter
-
-" ----- itchyny/lightline.vim -----
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox_material',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
-" ----- junegunn/goyo-----
-let g:goyo_width = '50%'
-let g:goyo_height = '75%'
-
-" ----- junegunn/limelight -----
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 " ----- vimtex -----
 let g:vimtex_view_general_viewer = "zathura"
