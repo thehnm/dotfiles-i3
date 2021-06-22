@@ -120,6 +120,7 @@ map <C-o> :Files<CR>
 map <F8> :BTags<CR>
 map <C-a> :Rg<CR>
 map <C-b> :Buffers<CR>
+nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
 
 " ----- Mappings --------------------------------------------------------------"
