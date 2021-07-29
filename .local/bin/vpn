@@ -16,5 +16,6 @@ elif [ "$currentcon" = "$id" ]; then
     nextcloud&
     transwrap
 else
-    notify-send "Error" "Please close other VPN connection!"
+    nmcli con down "$currentcon" && notify-send "Success" "Closed connection to $currentcon"
+    nmcli con up "$id" && notify-send "Success" "Connected to $id"
 fi
