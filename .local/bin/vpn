@@ -9,13 +9,13 @@ currentcon=$(nmcli con | grep vpn | grep -v "\-\-" | cut -d " " -f1)
 if [ -z "$currentcon" ]; then
     killall nextcloud transmission-daemon
     crontab -l | sed 's/^/#/' | crontab
-    nmcli con up "$id" && notify-send "Success" "Connected to $id"
+    nmcli con up "$id" && notify-send "VPN Connected" "Connected to $id"
 elif [ "$currentcon" = "$id" ]; then
-    nmcli con down "$id" && notify-send "Success" "Closed connection to $id"
+    nmcli con down "$id" && notify-send "VPN Closed" "Closed connection to $id"
     crontab -l | sed 's/^#//' | crontab
     nextcloud&
     transwrap
 else
-    nmcli con down "$currentcon" && notify-send "Success" "Closed connection to $currentcon"
-    nmcli con up "$id" && notify-send "Success" "Connected to $id"
+    nmcli con down "$currentcon" && notify-send "VPN Closed" "Closed connection to $currentcon"
+    nmcli con up "$id" && notify-send "VPN Connected" "Connected to $id"
 fi
