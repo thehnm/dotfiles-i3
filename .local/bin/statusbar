@@ -9,7 +9,7 @@ status() {
     [ -n "$(xset q | grep 'Num Lock:\s*on')" ] && printf "%s" "[num on] "
 
     # VPN
-    vpn=$(nmcli con | grep tun0)
+    vpn=$(nmcli con | grep vpn | grep -v "\-\-")
     [ -n "$vpn" ] && printf "%s" "[vpn con] "
 
     # Wifi
