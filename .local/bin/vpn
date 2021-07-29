@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+id=$(nmcli con show | grep vpn | cut -d " " -f1 | dmenu)
+
+[ -z "$id" ] && notify-send "Error" "Please choose a VPN connection!" && exit
+
+currentcon=$(nmcli con | grep vpn | grep -v "\-\-" | cut -d " " -f1)
+
+if [ -z "$currentcon" ]; then
+    killall nextcloud transmission-daemon
+    crontab -l | sed 's/^/#/' | crontab
+    nmcli con up "$id" && notify-send "Success" "Connected to $id"
+elif [ "$currentcon" = "$id" ]; then
+    nmcli con down "$id" && notify-send "Success" "Closed connection to $id"
+    crontab -l | sed 's/^#//' | crontab
+    nextcloud&
+    transwrap
+else
+    notify-send "Error" "Please close other VPN connection!"
+fi
