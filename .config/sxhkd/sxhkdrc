@@ -1,9 +1,3 @@
-alt + Return
-	$TERMINAL
-
-alt + p
-	dmenu_run
-
 alt + d
     passmenunotify
 
@@ -39,6 +33,3 @@ alt + s
 
 alt + u
     unmount
-
-F1
-    $TERMINAL -e hotkeys
