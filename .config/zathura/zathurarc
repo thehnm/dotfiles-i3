@@ -17,8 +17,8 @@ set completion-highlight-fg     "#504945" # bg2
 # Define the color in index mode
 set index-bg                    "#282828" # bg
 set index-fg                    "#e2d3ba" # fg
-set index-active-bg             "#282828" # bright:blue
-set index-active-fg             "#e2d3ba" # fg
+set index-active-bg             "#e2d3ba" # bright:blue
+set index-active-fg             "#282828" # fg
 
 set inputbar-bg                 "#282828" # bg
 set inputbar-fg                 "#e2d3ba" # fg
