@@ -13,6 +13,7 @@ unclutter &
 transwrap
 picom &
 xrdb ~/.Xresources
+xmodmap ~/.Xmodmap
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
