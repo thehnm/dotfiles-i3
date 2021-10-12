@@ -7,7 +7,7 @@ alt + shift + d
 alt + shift + q
     sysact
 
-alt + x
+alt + shift + x
     slock -m "$(fortune | cowsay)"
 
 Print
