@@ -37,7 +37,6 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdcommenter'
-Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-surround'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'machakann/vim-highlightedyank'
@@ -54,7 +53,7 @@ Plug 'lervag/vimtex'
 " ----- Visual aesthetics -----"
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
-Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -163,7 +162,7 @@ hi VertSplit cterm=None
 let g:netrw_banner = 0
 
 set termguicolors
-colorscheme gruvbox-material
+colorscheme gruvbox
 
 hi clear SignColumn
 
