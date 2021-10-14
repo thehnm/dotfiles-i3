@@ -4,7 +4,9 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 autoload -U colors && colors
 autoload -Uz compinit
-[ -f $XDG_CACHE_HOME/zcompdump ] && compinit -d $XDG_CACHE_HOME/zcompdump || compinit -C -d $XDG_CACHE_HOME/zcompdump
+[ -f $XDG_CACHE_HOME/zcompdump ] \
+  && compinit -d $XDG_CACHE_HOME/zcompdump \
+  || compinit -C -d $XDG_CACHE_HOME/zcompdump
 
 setopt correct                        # Auto correct mistakes
 setopt extendedglob                   # Extended globbing. Allows using regular expressions with *
