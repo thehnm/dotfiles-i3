@@ -1,31 +1,48 @@
 #!/bin/sh
 
+color0="^C0^"
+color1="^C1^"
+color2="^C2^"
+color3="^C3^"
+color4="^C4^"
+color5="^C5^"
+color6="^C6^"
+color7="^C7^"
+color8="^C8^"
+color9="^C9^"
+color10="^C10^"
+color11="^C11^"
+color12="^C12^"
+color13="^C13^"
+color14="^C14^"
+color15="^C15^"
+
 status() {
 
     # Check if caps lock is enabled
-    [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "%s" "[caps on] "
+    [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "${color1}%s" "[caps on] "
 
     # Check if num lock is enabled
-    [ -n "$(xset q | grep 'Num Lock:\s*on')" ] && printf "%s" "[num on] "
+    [ -n "$(xset q | grep 'Num Lock:\s*on')" ] && printf "${color15}%s" "[num on] "
 
     # VPN
     vpn=$(nmcli con | grep vpn | grep -v "\-\-")
-    [ -n "$vpn" ] && printf "%s" "[vpn con] "
+    [ -n "$vpn" ] && printf "${color15}%s" "[vpn con] "
 
     # Wifi
     wifissid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\' -f2 | cut -d: -f2)
-    [ -n "$wifissid" ] && printf "%s" "[wifi $wifissid] "
+    [ -n "$wifissid" ] && printf "${color10}%s" "[wifi $wifissid] "
 
     # Ethernet
-    [ "$(cat /sys/class/net/e*/carrier)" = "1" ] && printf "%s" "[eth con] "
+    [ "$(cat /sys/class/net/e*/carrier)" = "1" ] && printf "${color10}%s" "[eth con] "
 
     # Volume
     [ "$(pamixer --get-mute)" = "true" ] && volume="mute" || volume="$(pamixer --get-volume)%"
-    printf "%s" "[vol $volume] "
+    printf "${color9}%s" "[vol $volume] "
 
     # Lightlevel
     lightlevel=$(light -G 2>/dev/null)
-    [ "$lightlevel" != 0.00 ] && printf "[light %.0f%%] " $lightlevel
+    [ "$lightlevel" != 0.00 ] && printf "${color11}[light %.0f%%] " $lightlevel
 
     # Battery
     capacity=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
@@ -36,11 +53,11 @@ status() {
             Discharging) batstatus="dchrg " ;;
             *) batstatus="" ;;
         esac
-        printf "%s" "[bat $batstatus$capacity%] "
+        printf "${color14}%s" "[bat $batstatus$capacity%] "
     fi
 
     # Date
-    printf "%s\n" "[date $(date +"%a %x %T")]"
+    printf "${color12}%s\n" "[date $(date +"%a %x %T")]"
 }
 
 while true; do
