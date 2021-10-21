@@ -1,1 +1,2 @@
 */1 * * * * $HOME/.local/bin/mailsync
+*/1 * * * * /usr/bin/notmuch new
