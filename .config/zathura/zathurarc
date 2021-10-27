@@ -1,3 +1,4 @@
+# zathurarc-dark
 set window-title-basename true
 
 set notification-error-bg       "#282828" # bg
@@ -29,8 +30,8 @@ set statusbar-fg                "#e2d3ba" # fg
 set highlight-color             "#e1bb7e" # bright:yellow
 set highlight-active-color      "#fe8019" # bright:orange
 
-set default-bg                  "#282828" # bg
-set default-fg                  "#e2d3ba" # fg
+set default-bg                  "#e2d3ba" # bg
+set default-fg                  "#282828" # fg
 set render-loading              true
 set render-loading-bg           "#282828" # bg
 set render-loading-fg           "#e2d3ba" # fg
@@ -38,5 +39,5 @@ set render-loading-fg           "#e2d3ba" # fg
 # Recolor book content's color
 set recolor-lightcolor          "#282828" # bg
 set recolor-darkcolor           "#e2d3ba" # fg
-set recolor                     "true"
-#set recolor-keephue             true      # keep original color
+set recolor                     true
+set recolor-keephue             true      # keep original color
