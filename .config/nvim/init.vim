@@ -55,6 +55,7 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -94,6 +95,11 @@ map <C-a> :Rg<CR>
 map <C-b> :Buffers<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
+
+" ----- goyo -----
+let g:goyo_width = 120
+autocmd Filetype markdown Goyo
+autocmd! User GoyoLeave nested :wq
 
 " ----- Mappings --------------------------------------------------------------"
 
