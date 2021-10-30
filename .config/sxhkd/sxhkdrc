@@ -11,7 +11,7 @@ alt + shift + x
     slock -m "$(fortune | cowsay)"
 
 Print
-	scrot 'Screenshot-%Y-%m-%d-%H:%M:%S.png' -e 'mv $f ~/' && notify-send -u normal -t 3000 "Screenshot taken"
+	maim ~/screenshot$(date +%s).png && notify-send -u normal -t 3000 "Screenshot taken"
 
 super + shift + {l,j,k}
 	playerctl -p spotify {play-pause,next,previous}
