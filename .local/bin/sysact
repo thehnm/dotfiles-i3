@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(printf "lock\nhibernate\nleave dwm\nrenew dwm\nreboot\nshutdown" | dmenu)
+choice=$(printf "lock\nhibernate\nleave dwm\nrenew dwm\nreboot\nshutdown\nreload sxhkd" | dmenu)
 
 case $choice in
     "lock")      slock -m "$(fortune | cowsay)" ;;
@@ -9,4 +9,5 @@ case $choice in
     "renew dwm") kill -HUP $(pidof -s dwm) ;;
     "reboot")    sudo -A reboot ;;
     "shutdown")  sudo -A shutdown -h now ;;
+    "reload sxhkd") killall -SIGUSR1 sxhkd && notify-send "sxhkd configuration reloaded" ;;
 esac
