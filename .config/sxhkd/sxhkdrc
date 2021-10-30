@@ -10,8 +10,8 @@ alt + shift + q
 alt + shift + x
     slock -m "$(fortune | cowsay)"
 
-Print
-	maim ~/screenshot$(date +%s).png && notify-send -u normal -t 3000 "Screenshot taken"
+alt + shift + s
+	maimtools
 
 super + shift + {l,j,k}
 	playerctl -p spotify {play-pause,next,previous}
