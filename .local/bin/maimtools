@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
-choice=$(printf "take screenshot\nselect area\nselect area to clipboard" | dmenu)
-
-case $choice in
-    "take screenshot")          sleep 0.5 && maim ~/screenshot$(date +%s).png ;;
-    "select area")              maim -s ~/screenshot$(date +%s).png ;;
-    "select area to clipboard") maim -s | xclip -selection clipboard -t image/png ;;
+CHOICE=$(printf "take screenshot\nselect area\nselect area to clipboard" | dmenu)
+PREFIX=$HOME
+FILENAME=screenshot$(date +%s).png
+case $CHOICE in
+    "take screenshot")          sleep 0.5 && maim $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screenshot taken" "Saved to $PREFIX/$FILENAME" ;;
+    "select area")              maim -s $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screen selection taken" "Saved to $PREFIX/$FILENAME" ;;
+    "select area to clipboard") maim -s | xclip -selection clipboard -t image/png && notify-send -u normal -t 3000 "Screen selection taken" "Saved to clipboard" ;;
 esac
 
-notify-send -u normal -t 3000 "Screenshot taken"
