@@ -4,8 +4,8 @@ CHOICE=$(printf "take screenshot\nselect area\nselect area to clipboard" | dmenu
 PREFIX=$HOME
 FILENAME=screenshot$(date +%s).png
 case $CHOICE in
-    "take screenshot")          sleep 0.5 && maim $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screenshot taken" "Saved to $PREFIX/$FILENAME" ;;
-    "select area")              maim -s $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screen selection taken" "Saved to $PREFIX/$FILENAME" ;;
+    "take screenshot")          sleep 0.5 && maim $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screenshot taken" "Saved to $PREFIX/$FILENAME" -i $PREFIX/$FILENAME ;;
+    "select area")              maim -s $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screen selection taken" "Saved to $PREFIX/$FILENAME" -i $PREFIX/$FILENAME ;;
     "select area to clipboard") maim -s | xclip -selection clipboard -t image/png && notify-send -u normal -t 3000 "Screen selection taken" "Saved to clipboard" ;;
 esac
 
