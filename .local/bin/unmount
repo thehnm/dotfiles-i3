@@ -2,6 +2,8 @@
 
 # Only works with udiskie daemon since it mounts all devices in /run/media/<user>/<device>
 
-device=$(lsblk | grep run | awk '{print $NF}' | rev | cut -d "/" -f1 | rev | dmenu)
+devices=$(lsblk | grep run | awk '{print $NF}' | rev | cut -d "/" -f1 | rev)
+[ -z "$devices" ] && notify-send "No available USB devices" && exit
+device=$(printf $devices | dmenu)
 mediapath=/run/media/"$(whoami)"
 udiskie-umount --detach "$mediapath/$device" | umount -R "$mediapath/$device"
