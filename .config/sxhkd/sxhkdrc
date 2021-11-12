@@ -33,3 +33,9 @@ alt + s
 
 alt + u
     unmount
+
+ctrl + space
+	dunstctl close
+
+ctrl + shift + space
+	dunstctl close-all
