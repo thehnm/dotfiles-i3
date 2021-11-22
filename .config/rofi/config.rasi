@@ -1,0 +1,86 @@
+configuration {
+	modi:				"drun";
+	font:				"Monospace 12";
+	display-drun:		"";
+	sidebar-mode:		false;
+	sort:				true;
+	fixed-num-lines:	false;
+	monitor:			-2;
+}
+
+@theme "/dev/null"
+
+* {
+	bg:					#282828;
+	fg:					#ebdbb2;
+	altfg:				#d3869b;
+	button:				#458588;
+
+	background-color:	@bg;
+	text-color:			@fg;
+}
+
+window {
+	transparency:   "real";
+	border-radius:  3px;
+	border:			1px;
+	border-color:	@fg;
+	width:			40%;
+	y-offset:       25%;
+	padding: 		0px;
+	location: 		north;
+}
+
+prompt { enabled: false; }
+
+entry {
+	placeholder:		"";
+	expand:             true;
+	padding:            4px 0.5% 4px 0.5%;
+	background-color:   @button;
+    placeholder-color:  @fg;
+}
+
+inputbar {
+	children: 			[ prompt, entry ];
+	background-color:   @button;
+	text-color:         @fg;
+	expand:             false;
+	border-radius:      3px;
+	padding:            3px;
+	text-style:			bold;
+}
+
+listview {
+	columns:	1;
+	/*lines:		10;*/
+	cycle:		false;
+	dynamic:	true;
+	layout:		vertical;
+}
+
+mainbox {
+	children:	[ inputbar, listview ];
+	spacing:	2%;
+	padding:	2% 1% 2% 1%;
+}
+
+element {
+	orientation:	vertical;
+	border-radius:	0%;
+	padding:		0.5% 0% 0.5% 0%;
+}
+
+element-text {
+	expand:				true;
+	vertical-align:		0.5;
+	margin:				0% 0.5% 0% 0.5%;
+	background-color:	inherit;
+    text-color:         inherit;
+}
+
+element selected {
+	background-color:	@altfg;
+	text-color:			@bg;
+	border-radius:      3px;
+}
