@@ -8,8 +8,9 @@ also installs my configurations found here.
 Just download and run it with:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/thehnm/tarbs/master/install.sh
-bash install.sh
+git clone https://github.com/thehnm/autoarch
+cd autoarch
+bash install.sh -u <username>
 ```
 
 ## Required Sofware
