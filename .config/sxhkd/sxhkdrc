@@ -8,7 +8,7 @@ alt + shift + q
     sysact
 
 alt + shift + x
-    slock -m "$(fortune | cowsay)"
+    slock -m "$(fortune | cowsay -f sodomized)"
 
 alt + shift + s
 	maimtools
