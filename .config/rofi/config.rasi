@@ -5,7 +5,6 @@ configuration {
 	sidebar-mode:		false;
 	sort:				true;
 	fixed-num-lines:	false;
-	monitor:			-2;
 }
 
 @theme "/dev/null"
