@@ -48,6 +48,7 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 let g:better_whitespace_enabled=1
@@ -144,7 +145,7 @@ hi VertSplit cterm=None
 let g:netrw_banner = 0
 
 set termguicolors
-colorscheme gruvbox
+colorscheme nord
 
 hi clear SignColumn
 

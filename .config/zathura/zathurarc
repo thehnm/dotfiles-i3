@@ -1,43 +1,43 @@
 # zathurarc-dark
 set window-title-basename true
 
-set notification-error-bg       "#282828"
-set notification-error-fg       "#fb4934"
-set notification-warning-bg     "#282828"
-set notification-warning-fg     "#fabd2f"
-set notification-bg             "#282828"
-set notification-fg             "#b8bb26"
+set notification-error-bg       "#2e3440"
+set notification-error-fg       "#bf616a"
+set notification-warning-bg     "#2e3440"
+set notification-warning-fg     "#ebcb8b"
+set notification-bg             "#2e3440"
+set notification-fg             "#eceff4"
 
-set completion-bg               "#282828"
-set completion-fg               "#ebdbb2"
-set completion-group-bg         "#3c3836"
-set completion-group-fg         "#928374"
-set completion-highlight-bg     "#83a598"
-set completion-highlight-fg     "#504945"
+set completion-bg               "#2e3440"
+set completion-fg               "#eceff4"
+set completion-group-bg         "#b48ead"
+set completion-group-fg         "#8fbcbb"
+set completion-highlight-bg     "#a3be8c"
+set completion-highlight-fg     "#8fbcbb"
 
 # Define the color in index mode
-set index-bg                    "#282828"
-set index-fg                    "#ebdbb2"
-set index-active-bg             "#83a598"
-set index-active-fg             "#282828"
+set index-bg                    "#2e3440"
+set index-fg                    "#eceff4"
+set index-active-bg             "#a3be8c"
+set index-active-fg             "#2e3440"
 
-set inputbar-bg                 "#282828"
-set inputbar-fg                 "#ebdbb2"
+set inputbar-bg                 "#2e3440"
+set inputbar-fg                 "#eceff4"
 
-set statusbar-bg                "#282828"
-set statusbar-fg                "#e2d3ba"
+set statusbar-bg                "#2e3440"
+set statusbar-fg                "#eceff4"
 
-set highlight-color             "#fabd2f"
-set highlight-active-color      "#fe8019"
+set highlight-color             "#ebcb8b"
+set highlight-active-color      "#ebcb8b"
 
-set default-bg                  "#282828"
-set default-fg                  "#ebdbb2"
+set default-bg                  "#2e3440"
+set default-fg                  "#eceff4"
 set render-loading              true
-set render-loading-bg           "#282828"
-set render-loading-fg           "#ebdbb2"
+set render-loading-bg           "#2e3440"
+set render-loading-fg           "#eceff4"
 
 # Recolor book content's color
-set recolor-lightcolor          "#282828"
-set recolor-darkcolor           "#ebdbb2"
+set recolor-lightcolor          "#2e3440"
+set recolor-darkcolor           "#eceff4"
 set recolor                     true
 set recolor-keephue             true
