@@ -42,6 +42,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ap/vim-css-color'
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 
 " ----- Working with Git -----
 Plug 'airblade/vim-gitgutter'
@@ -88,7 +89,6 @@ let g:vimtex_compiler_latexmk = {
 \}
 
 " ----- fzf -----
-map <C-o> :Files<CR>
 map <F8> :BTags<CR>
 map <C-a> :Rg<CR>
 map <C-b> :Buffers<CR>
@@ -149,6 +149,8 @@ map <leader>lr : !make clean<CR>
 
 " Remap omnicomplete
 inoremap <c-o> <c-x><c-o>
+
+map <C-o> :NERDTreeToggle<CR>
 
 " ---------- Settings ----------
 
