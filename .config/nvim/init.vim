@@ -32,8 +32,6 @@ filetype off
 
 " ----- Vundle ----------------------------------------------------------------"
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-
-" ----- Editor features -----
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdcommenter'
@@ -43,32 +41,19 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'ap/vim-css-color'
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
-
-" ----- Working with Git -----
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-" ----- Latex support -----
 Plug 'lervag/vimtex'
-
-" ----- Visual aesthetics -----"
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
-
 call plug#end()
 
-
-" ----- Plugin Configuration --------------------------------------------------"
-
-" ----- ntpeters/vim-better-whitespace -----
 let g:better_whitespace_enabled=1
 
-" ----- airblade/vim-gitgutter -----
 autocmd BufWritePost * GitGutter
 
-" ----- vimtex -----
 let g:vimtex_view_general_viewer = "zathura"
 let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'nvim',
@@ -88,14 +73,11 @@ let g:vimtex_compiler_latexmk = {
         \ ],
 \}
 
-" ----- fzf -----
 map <F8> :BTags<CR>
 map <C-a> :Rg<CR>
 map <C-b> :Buffers<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
-
-" ----- Mappings --------------------------------------------------------------"
 
 " Set map leader key
 let mapleader=','
@@ -151,8 +133,6 @@ map <leader>lr : !make clean<CR>
 inoremap <c-o> <c-x><c-o>
 
 map <C-o> :NERDTreeToggle<CR>
-
-" ---------- Settings ----------
 
 " Allows auto-indenting depending on file type
 filetype plugin indent on
