@@ -149,7 +149,7 @@ colorscheme nord
 
 hi clear SignColumn
 
-hi GitGutterAdd            guifg=#a9b665
-hi GitGutterChange         guifg=#d8a657
-hi GitGutterDelete         guifg=#ea6962
-hi GitGutterChangeDelete   guifg=#d3869b
+hi GitGutterAdd            guifg=#a3be8c
+hi GitGutterChange         guifg=#ebcb8b
+hi GitGutterDelete         guifg=#bf616a
+hi GitGutterChangeDelete   guifg=#b48ead
