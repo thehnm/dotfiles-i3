@@ -27,6 +27,7 @@ set showcmd
 set laststatus=0 " disable status bar
 set conceallevel=2
 set cursorline
+set encoding=UTF-8
 
 filetype off
 
@@ -49,6 +50,7 @@ Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:better_whitespace_enabled=1
