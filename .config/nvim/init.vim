@@ -75,7 +75,7 @@ let g:vimtex_compiler_latexmk = {
 
 map <F8> :BTags<CR>
 map <C-a> :Rg<CR>
-map <C-b> :Buffers<CR>
+map <C-t> :Buffers<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
 
@@ -132,7 +132,7 @@ map <leader>lr : !make clean<CR>
 " Remap omnicomplete
 inoremap <c-o> <c-x><c-o>
 
-map <C-o> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 
 " Allows auto-indenting depending on file type
 filetype plugin indent on
