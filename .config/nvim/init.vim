@@ -106,6 +106,9 @@ nnoremap <C-H> <C-W><C-H>
 map <C-W><C-S> :split<CR>
 map <C-W><C-V> :vsplit<CR>
 
+map <leader>, :bp<CR>
+map <leader>. :bn<CR>
+
 nnoremap <F9> : !texcount %:t<CR>
 
 " Move around displayed lines
