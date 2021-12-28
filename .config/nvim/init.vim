@@ -88,10 +88,6 @@ let mapleader=','
 " Toggle highlight search
 nnoremap <F3> : set hlsearch!<CR>
 
-" Switch buffers quickly
-map <C-q> :bp<CR>
-map <C-w> :bn<CR>
-
 " Cycle through completions with TAB (and SHIFT-TAB cycles backwards)
 function! InsertTabWrapper(direction)
     let col = col('.') - 1
@@ -110,6 +106,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+map <C-W><C-S> :split<CR>
+map <C-W><C-V> :vsplit<CR>
 
 " Autoclose matching brackets
 " Press ctrl-v for single bracket
