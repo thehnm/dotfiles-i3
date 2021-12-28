@@ -81,9 +81,6 @@ map <C-t> :Buffers<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
 
-" Set map leader key
-let mapleader=','
-
 " Toggle highlight search
 nnoremap <F3> : set hlsearch!<CR>
 
