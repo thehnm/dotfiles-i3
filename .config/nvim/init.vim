@@ -82,9 +82,6 @@ map <C-t> :Buffers<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-f> :BLines<CR>
 
-" Set map leader key
-let mapleader=','
-
 " Toggle highlight search
 nnoremap <F3> : set hlsearch!<CR>
 
@@ -109,6 +106,9 @@ nnoremap <C-H> <C-W><C-H>
 
 map <C-W><C-S> :split<CR>
 map <C-W><C-V> :vsplit<CR>
+
+map <leader>, :bp<CR>
+map <leader>. :bn<CR>
 
 nnoremap <F9> : !texcount %:t<CR>
 
