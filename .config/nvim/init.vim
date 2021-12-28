@@ -110,17 +110,6 @@ nnoremap <C-H> <C-W><C-H>
 map <C-W><C-S> :split<CR>
 map <C-W><C-V> :vsplit<CR>
 
-" Autoclose matching brackets
-" Press ctrl-v for single bracket
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap ` ``<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
-
 nnoremap <F9> : !texcount %:t<CR>
 
 " Move around displayed lines
