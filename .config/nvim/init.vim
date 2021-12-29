@@ -115,10 +115,6 @@ nnoremap <F9> : !texcount %:t<CR>
 map j gj
 map k gk
 
-" Execute makefile
-map <leader>ll : !make<CR>
-map <leader>lr : !make clean<CR>
-
 " Remap omnicomplete
 inoremap <c-o> <c-x><c-o>
 
