@@ -22,7 +22,7 @@ set splitbelow
 set noshowmode
 set hidden
 set nowrap
-set wrap linebreak
+set linebreak
 set fillchars=vert:│
 set showcmd
 set laststatus=0 " disable status bar
