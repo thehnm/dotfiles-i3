@@ -21,6 +21,7 @@ set splitright
 set splitbelow
 set noshowmode
 set hidden
+set nowrap
 set wrap linebreak
 set fillchars=vert:│
 set showcmd
