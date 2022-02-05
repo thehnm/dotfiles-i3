@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+PREFIX=/run/media/"$(whoami)"
+
+DRIVE=$(ls $PREFIX | dmenu)
+$TERMINAL -e ranger "$PREFIX/$DRIVE"
