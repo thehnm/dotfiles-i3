@@ -3,13 +3,13 @@
 This dotfile repository contains configuration files for my Arch Linux setup with
 [dwm](https://github.com/thehnm/dwm).
 
-Furthermore, my Arch Linux installation script [autoarch](https://github.com/thehnm/tarbs)
+Furthermore, my Arch Linux installation script [sexyarch](https://github.com/thehnm/sexyarch)
 also installs my configurations found here.
 Just download and run it with:
 
 ```bash
-git clone https://github.com/thehnm/autoarch
-cd autoarch
+git clone https://github.com/thehnm/sexyarch
+cd sexyarch
 bash install.sh -u <username>
 ```
 
