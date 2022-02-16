@@ -1,6 +1,6 @@
-alt + d; d
+alt + d
     passmenunotify
-alt + d; o
+alt + f
     passotpmenunotify
 alt + n
 	note
