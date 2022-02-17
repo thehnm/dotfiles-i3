@@ -25,5 +25,4 @@ You can find the software with my own changes, configurations and patches here:
 
 ![](.local/share/readme/desktop.png)
 ![](.local/share/readme/terminal.png)
-![](.local/share/readme/ncmpcpp.png)
 ![](.local/share/readme/vscode.png)
