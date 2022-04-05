@@ -12,7 +12,7 @@ xset r rate 300 50 &
 unclutter &
 transwrap
 picom &
-xrdb ~/.Xresources
+xrdb ~/.config/init/xresources
 xmodmap ~/.Xmodmap
 
 systemctl --user import-environment DISPLAY XAUTHORITY
