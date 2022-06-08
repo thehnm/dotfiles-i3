@@ -15,7 +15,7 @@ alt + shift + x
     slock -m "$(fortune | cowsay -f sodomized)"
 
 alt + shift + s
-	maimtools
+	screentools
 
 super + shift + {l,j,k}
 	playerctl -p spotify {play-pause,next,previous}
