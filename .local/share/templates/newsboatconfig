@@ -1,0 +1,35 @@
+notify-program "/usr/bin/notify-send"
+auto-reload yes
+reload-threads 100
+
+urls-source "miniflux"
+miniflux-url "URL"
+miniflux-login "USER"
+miniflux-passwordeval "PASSCOMMAND"
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+color listnormal        default default
+color listnormal_unread color4 default bold
+color listfocus         color11 default reverse
+color listfocus_unread  color11 default reverse bold
+color info              color11 black   reverse
+color background        default default
+color article           default default

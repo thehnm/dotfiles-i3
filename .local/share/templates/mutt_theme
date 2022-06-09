@@ -1,0 +1,6 @@
+# vim: filetype=neomuttrc
+
+color index_author color9 default '.*'
+color indicator color0 color11
+color sidebar_highlight black color4
+color sidebar_flagged brightwhite black
