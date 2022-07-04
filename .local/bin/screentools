@@ -1,11 +1,22 @@
 #!/usr/bin/env sh
 
-CHOICE=$(printf "take screenshot\nselect area\nselect area to clipboard" | dmenu)
+CHOICE=$(printf "take screenshot\nselect area\nselect area to clipboard\nrecord desktop\nend recording" | dmenu)
 PREFIX=$HOME
 FILENAME=screenshot$(date +%s).png
 case $CHOICE in
     "take screenshot")          sleep 0.5 && maim $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screenshot taken" "Saved to $PREFIX/$FILENAME" -i $PREFIX/$FILENAME ;;
     "select area")              maim -s $PREFIX/$FILENAME && notify-send -u normal -t 3000 "Screen selection taken" "Saved to $PREFIX/$FILENAME" -i $PREFIX/$FILENAME ;;
     "select area to clipboard") maim -s | xclip -selection clipboard -t image/png && notify-send -u normal -t 3000 "Screen selection taken" "Saved to clipboard" ;;
+    "record desktop")           sleep 0.5 && ffmpeg -f x11grab \
+                                                    -s "$(xdpyinfo | awk '/dimensions/ {print $2;}')" \
+                                                    -i "$DISPLAY" \
+                                                    -c:v libx264 -qp 0 -r 30 \
+                                                    "$HOME/video-$(date '+%y%m%d-%H%M-%S').mkv" &
+                                             echo $! > /tmp/recordpid ;;
+    "end recording")            recordpid=$(cat /tmp/recordpid)
+                                kill -15 "$recordpid"
+                                sleep 3
+                                kill -9 "$recordpid" ;;
+
 esac
 
