@@ -3,6 +3,8 @@
 prefix=$HOME
 path="$prefix"/notes
 
-note=$(ls "$path" | dmenu)
+(
+  cd $path && note=$(find * -type f | grep -v "sync" | dmenu)
+  [ -n "$note" ] && $TERMINAL -e $EDITOR "$path/$note"
+)
 
-[ -n "$note" ] && $TERMINAL -e $EDITOR "$path"/"$note"
