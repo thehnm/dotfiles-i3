@@ -140,3 +140,8 @@ hi GitGutterAdd            guifg=#a3be8c
 hi GitGutterChange         guifg=#ebcb8b
 hi GitGutterDelete         guifg=#bf616a
 hi GitGutterChangeDelete   guifg=#b48ead
+
+let g:markdown_folding = 1
+au FileType markdown setlocal foldlevel=1
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
