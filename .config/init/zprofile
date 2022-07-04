@@ -20,6 +20,7 @@ export BROWSER="brave"
 export TERMINAL="st"
 export FILEMANAGER="ranger"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolKit
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
