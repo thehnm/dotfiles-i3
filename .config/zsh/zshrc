@@ -63,6 +63,9 @@ alias e='nvim'
 alias ydm='yt-dlp -x -f bestaudio --audio-format vorbis'
 alias tsm='transmission-remote'
 alias pr='pipenv run python'
+alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfgs='cfg status'
+
 if [ -f $XDG_CONFIG_HOME/zsh/alias ]; then
   source $XDG_CONFIG_HOME/zsh/alias
 fi
