@@ -67,13 +67,13 @@ alias glog='git log'
 alias gdiff='git diff'
 
 # Dotfile aliases
-alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgs='cfg status -b'
-alias cfga='cfg add'
-alias cfgc='cfg commit -m'
-alias cfgl='cfg log'
-alias cfgd='cfg diff'
-alias cfgp='cfg push'
+alias dg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dgs='dg status -b'
+alias dga='dg add'
+alias dgc='dg commit'
+alias dgl='dg log'
+alias dgd='dg diff'
+alias dgp='dg push'
 
 if [ -f $XDG_CONFIG_HOME/zsh/alias ]; then
   source $XDG_CONFIG_HOME/zsh/alias
