@@ -41,12 +41,6 @@ alias df='df -h'
 alias free='free -m'
 alias l='exa -la'
 alias ls='exa'
-alias ga='git add'
-alias gcmsg='git commit -m'
-alias gpu='git push'
-alias gsb='git status -b'
-alias glog='git log'
-alias gdiff='git diff'
 alias ln='ln -v'
 alias chmod='chmod -c'
 alias chown='chown -c'
@@ -63,8 +57,23 @@ alias e='nvim'
 alias ydm='yt-dlp -x -f bestaudio --audio-format vorbis'
 alias tsm='transmission-remote'
 alias pr='pipenv run python'
+
+# Git aliases
+alias ga='git add'
+alias gcmsg='git commit -m'
+alias gpu='git push'
+alias gsb='git status -b'
+alias glog='git log'
+alias gdiff='git diff'
+
+# Dotfile aliases
 alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias cfgs='cfg status'
+alias cfgs='cfg status -b'
+alias cfga='cfg add'
+alias cfgc='cfg commit -m'
+alias cfgl='cfg log'
+alias cfgd='cfg diff'
+alias cfgp='cfg push'
 
 if [ -f $XDG_CONFIG_HOME/zsh/alias ]; then
   source $XDG_CONFIG_HOME/zsh/alias
