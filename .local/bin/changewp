@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+bgdir=${BGDIR:-$HOME/bg}
+
+feh --bg-fill $bgdir/$(ls $bgdir | dmenu)
