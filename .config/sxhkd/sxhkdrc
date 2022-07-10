@@ -33,7 +33,7 @@ XF86MonBrightness{Up,Down}
 	light {-A 1, -U 1} && refreshbar
 
 alt + s
-    songstatus
+    switchwindow
 
 alt + u
     unmount
