@@ -145,3 +145,5 @@ let g:markdown_folding = 1
 au FileType markdown setlocal foldlevel=1
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
+nnoremap <F5> :!make<CR>
