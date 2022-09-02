@@ -57,6 +57,7 @@ alias e='nvim'
 alias ydm='yt-dlp -x -f bestaudio --audio-format vorbis'
 alias tsm='transmission-remote'
 alias pr='pipenv run python'
+alias vim='nvim'
 
 # Git aliases
 alias ga='git add'
@@ -67,7 +68,7 @@ alias glog='git log'
 alias gdiff='git diff'
 
 # Dotfile aliases
-alias dg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dgs='dg status -b'
 alias dga='dg add'
 alias dgc='dg commit'
