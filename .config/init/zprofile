@@ -34,6 +34,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export ANSIBLE_NOCOWS=1
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export PYTHONPATH=/usr/lib/python3.10/dist-packages:/usr/lib/python3.10/site-packages:$PYTHONPATH
+export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
