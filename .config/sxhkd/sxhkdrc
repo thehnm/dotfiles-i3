@@ -1,5 +1,12 @@
+alt + Return
+	$TERMINAL
+
+alt + p
+	dmenu_run
+
 alt + d
     passmenunotify
+
 alt + f
     passotpmenunotify
 alt + n

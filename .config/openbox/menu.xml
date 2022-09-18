@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="apps-accessories-menu" label="Accessories">
+  <item label="Calculator">
+    <action name="Execute">
+      <command>galculator</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-editors-menu" label="Editors">
+  <item label="VS Code">
+    <action name="Execute">
+      <command>code</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>VSCode</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Neovim">
+    <action name="Execute">
+      <command>alacritty -e nvim</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>NVim</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-term-menu" label="Terminals">
+  <item label="alacritty">
+    <action name="Execute">
+      <command>alacritty</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-net-menu" label="Internet">
+  <item label="Brave">
+    <action name="Execute">
+      <command>brave</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-fileman-menu" label="File Managers">
+  <item label="Ranger">
+    <action name="Execute">
+      <command>alacritty -e ranger</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Openbox Configuration Manager">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <menu id="apps-accessories-menu"/>
+  <menu id="apps-editors-menu"/>
+  <menu id="apps-net-menu"/>
+  <menu id="apps-term-menu"/>
+  <menu id="apps-fileman-menu"/>
+  <separator label="System" />
+  <menu id="system-menu"/>
+  <separator />
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
