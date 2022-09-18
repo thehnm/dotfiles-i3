@@ -6,7 +6,7 @@ sxhkd &
 udiskie &
 mpd ~/.config/mpd/mpd.conf &
 dunst &
-statusbar &
+tint2 &
 nextcloud --background &
 xset r rate 300 50 &
 unclutter &
@@ -14,7 +14,6 @@ transwrap
 picom &
 xrdb ~/.config/init/xresources
 xmodmap ~/.Xmodmap
-wmname LG3D
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
