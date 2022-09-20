@@ -248,6 +248,14 @@
       <action name="ToggleDecorations">
       </action>
     </keybind>
+    <keybind key="A-S-f">
+      <action name="ToggleFullscreen">
+      </action>
+    </keybind>
+    <keybind key="A-S-m">
+      <action name="ToggleMaximize">
+      </action>
+    </keybind>
     <keybind key="A-j">
       <action name="NextWindow">
         <linear>yes</linear>
