@@ -72,9 +72,10 @@ alias dg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dgs='dg status -b'
 alias dga='dg add'
 alias dgc='dg commit'
-alias dgl='dg log'
-alias dgd='dg diff'
-alias dgp='dg push'
+alias dgcmsg='dg commit -m'
+alias dglog='dg log'
+alias dgdiff='dg diff'
+alias dgpu='dg push'
 
 if [ -f $XDG_CONFIG_HOME/zsh/alias ]; then
   source $XDG_CONFIG_HOME/zsh/alias
