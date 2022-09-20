@@ -32,7 +32,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86MonBrightness{Up,Down}
 	light {-A 1, -U 1} && refreshbar
 
-alt + s
+alt + shift + w
     switchwindow
 
 alt + u
