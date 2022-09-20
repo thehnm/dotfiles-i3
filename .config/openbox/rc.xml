@@ -597,9 +597,5 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
-    <application class="*">
-      <maximized>yes</maximized>
-      <decor>no</decor>
-    </application>
   </applications>
 </openbox_config>
