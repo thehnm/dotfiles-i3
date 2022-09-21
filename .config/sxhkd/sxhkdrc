@@ -38,10 +38,10 @@ alt + o; {b,m,v,n,r,t,c,f,k}
 	{$BROWSER, $TERMINAL -e neomutt, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat, $TERMINAL -e tremc, calc, $TERMINAL -e ranger, $TERMINAL -e ikhal}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-	{pamixer -i 1, pamixer -d 1, pamixer -t} && refreshbar
+	{pamixer -i 1, pamixer -d 1, pamixer -t}
 
 XF86MonBrightness{Up,Down}
-	light {-A 1, -U 1} && refreshbar
+	light {-A 1, -U 1}
 
 alt + l
     switchwindow
