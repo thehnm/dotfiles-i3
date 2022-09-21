@@ -20,7 +20,7 @@
   </placement>
   <theme>
     <name>Blocks</name>
-    <titleLayout>NLSDIMC</titleLayout>
+    <titleLayout>LSDIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
@@ -637,8 +637,8 @@
         <y>40</y>
       </position>
       <size>
-       <width>1840</width>
-       <height>950</height>
+        <width>1840</width>
+        <height>950</height>
       </size>
     </application>
   </applications>
