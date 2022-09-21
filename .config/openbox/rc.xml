@@ -256,6 +256,10 @@
       <action name="ToggleMaximize">
       </action>
     </keybind>
+    <keybind key="A-S-n">
+      <action name="Iconify">
+      </action>
+    </keybind>
     <keybind key="A-j">
       <action name="NextWindow">
         <linear>yes</linear>
