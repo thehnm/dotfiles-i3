@@ -25,9 +25,6 @@ alt + shift + x
 alt + shift + s
 	screentools
 
-alt + shift + w
-	switchwindow
-
 super + shift + {l,j,k}
 	playerctl -p spotify {play-pause,next,previous}
 
