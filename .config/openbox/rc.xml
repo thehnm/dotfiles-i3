@@ -271,7 +271,29 @@
         </finalactions>
       </action>
     </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow">
+        <linear>yes</linear>
+        <interactive>no</interactive>
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
     <keybind key="A-k">
+      <action name="PreviousWindow">
+        <linear>yes</linear>
+        <interactive>no</interactive>
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
+    <keybind key="A-S-Tab">
       <action name="PreviousWindow">
         <linear>yes</linear>
         <interactive>no</interactive>
