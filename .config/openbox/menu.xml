@@ -62,6 +62,14 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Thunar">
+    <action name="Execute">
+      <command>thunar</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
 </menu>
 
 <menu id="system-menu" label="System">
