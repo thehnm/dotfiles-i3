@@ -6,7 +6,7 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <focusLast>yes</focusLast>
     <underMouse>no</underMouse>
     <focusDelay>200</focusDelay>
@@ -631,15 +631,8 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
-    <application class="Brave-browser">
-      <position>
-        <x>40</x>
-        <y>40</y>
-      </position>
-      <size>
-        <width>1840</width>
-        <height>950</height>
-      </size>
+    <application class="*">
+      <focus>yes</focus>
     </application>
   </applications>
 </openbox_config>
