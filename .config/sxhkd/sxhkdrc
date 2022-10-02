@@ -40,7 +40,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86MonBrightness{Up,Down}
 	light {-A 1, -U 1}
 
-alt + w
+alt + l
     switchwindow
 
 alt + u
