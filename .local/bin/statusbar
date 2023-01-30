@@ -1,48 +1,65 @@
 #!/bin/sh
 
-color0="^C0^"
-color1="^C1^"
-color2="^C2^"
-color3="^C3^"
-color4="^C4^"
-color5="^C5^"
-color6="^C6^"
-color7="^C7^"
-color8="^C8^"
-color9="^C9^"
-color10="^C10^"
-color11="^C11^"
-color12="^C12^"
-color13="^C13^"
-color14="^C14^"
-color15="^C15^"
+fg_pn1="^c#2e3440^"
+fg_pn2="^c#3b4252^"
+fg_pn3="^c#434c5e^"
+fg_pn4="^c#4c566a^"
+fg_ss1="^c#d8dee9^"
+fg_ss2="^c#e5e9f0^"
+fg_ss3="^c#eceff4^"
+fg_frost1="^c#8fbcbb^"
+fg_frost2="^c#88c0d0^"
+fg_frost3="^c#81a1c1^"
+fg_frost4="^c#5e81ac^"
+fg_aurora1="^c#bf616a^"
+fg_aurora2="^c#d08770^"
+fg_aurora3="^c#ebcb8b^"
+fg_aurora4="^c#a3be8c^"
+fg_aurora5="^c#b48ead^"
+
+bg_pn1="^b#2e3440^"
+bg_pn2="^b#3b4252^"
+bg_pn3="^b#434c5e^"
+bg_pn4="^b#4c566a^"
+bg_ss1="^b#d8dee9^"
+bg_ss2="^b#e5e9f0^"
+bg_ss3="^b#eceff4^"
+bg_frost1="^b#8fbcbb^"
+bg_frost2="^b#88c0d0^"
+bg_frost3="^b#81a1c1^"
+bg_frost4="^b#5e81ac^"
+bg_aurora1="^b#bf616a^"
+bg_aurora2="^b#d08770^"
+bg_aurora3="^b#ebcb8b^"
+bg_aurora4="^b#a3be8c^"
+bg_aurora5="^b#b48ead^"
 
 status() {
 
     # Check if caps lock is enabled
-    [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "${color1}%s" "[caps on] "
+    # [ -n "$(xset q | grep 'Caps Lock:\s*on')" ] && printf "${color1}%s" "[caps on] "
 
-    # Check if num lock is enabled
-    [ -n "$(xset q | grep 'Num Lock:\s*on')" ] && printf "${color15}%s" "[num on] "
+    # # Check if num lock is enabled
+    # [ -n "$(xset q | grep 'Num Lock:\s*on')" ] && printf "${color15}%s" "[num on] "
 
     # VPN
-    vpn=$(nmcli con | grep vpn | grep -v "\-\-")
-    [ -n "$vpn" ] && printf "${color15}%s" "[vpn con] "
+    # vpn=$(nmcli con | grep vpn | grep -v "\-\-")
+    # [ -n "$vpn" ] && printf "${color15}%s" "[vpn con] "
 
     # Wifi
     wifissid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d\' -f2 | cut -d: -f2)
-    [ -n "$wifissid" ] && printf "${color10}%s" "[wifi $wifissid] "
+    [ -n "$wifissid" ] && printf "${fg_pn1}${bg_aurora3}  ${fg_aurora3}${bg_pn1}%s" " $wifissid "
 
     # Ethernet
-    [ "$(cat /sys/class/net/e*/carrier)" = "1" ] && printf "${color10}%s" "[eth con] "
+    [ "$(cat /sys/class/net/e*/carrier)" = "1" ] && printf "${fg_pn1}${bg_aurora3}  ${fg_aurora3}${bg_pn1}%s" " con "
 
     # Volume
     [ "$(pamixer --get-mute)" = "true" ] && volume="mute" || volume="$(pamixer --get-volume)%"
-    printf "${color9}%s" "[vol $volume] "
+    printf "${fg_pn1}${bg_aurora1}  ${fg_aurora1}${bg_pn1}%s" " $volume "
 
     # Lightlevel
     lightlevel=$(light -G 2>/dev/null)
-    [ "$lightlevel" != 0.00 ] && printf "${color11}[light %.0f%%] " $lightlevel
+    [ "$lightlevel" != 0.00 ] && printf "${fg_pn1}${bg_aurora5} ﯧ  ${fg_aurora5}${bg_pn1}%.0f%% " $lightlevel
 
     # Battery
     capacity=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
@@ -53,11 +70,14 @@ status() {
             Discharging) batstatus="dchrg " ;;
             *) batstatus="" ;;
         esac
-        printf "${color14}%s" "[bat $batstatus$capacity%] "
+        printf "${fg_pn1}${bg_aurora2}  ${fg_aurora2}${bg_pn1}%s" " $batstatus$capacity% "
     fi
 
+    #Time
+    printf "${fg_pn1}${bg_aurora4}  ${fg_aurora4}${bg_pn1}%s" " $(date +"%T") "
+
     # Date
-    printf "${color12}%s\n" "[date $(date +"%a %x %T")]"
+    printf "${fg_pn1}${bg_frost4}  ${fg_pn1}${bg_frost3}%s\n" " $(date +"%x") "
 }
 
 while true; do
