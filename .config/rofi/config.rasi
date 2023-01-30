@@ -1,85 +1,150 @@
-configuration {
-	modi:				"drun";
-	font:				"Monospace 12";
-	display-drun:		"";
-	sidebar-mode:		false;
-	sort:				true;
-	fixed-num-lines:	false;
+* {
+    black: #181926;
+    pn1: #2e3440;
+    pn2: #3b4252;
+    pn3: #434c5e;
+    pn4: #4c566a;
+    ss1: #d8dee9;
+    ss2: #e5e9f0;
+    ss3: #eceff4;
+    frost1: #8fbcbb;
+    frost2: #88c0d0;
+    frost3: #81a1c1;
+    frost4: #5e81ac;
+    aurora1: #bf616a;
+    aurora2: #d08770;
+    aurora3: #ebcb8b;
+    aurora4: #a3be8c;
+    aurora5: #b48ead;
+    background: var(pn1);
+    background-1: var(pn2);
+    foreground: var(ss2);
+    foreground-1: var(ss1);
+    selected: var(frost3);
+    selected-1: var(frost4);
+    active: var(aurora4);
+    urgent: var(aurora1);
 }
 
-@theme "/dev/null"
-
-* {
-	bg:                 #2e3440;
-	fg:                 #eceff4;
-	altfg:              #81a1c1;
-	button:             #b48ead;
-
-	background-color:	@bg;
-	text-color:			@fg;
+configuration {
+    fixed-num-lines: false;
+    font: "Monospace 14";
+    sort: true;
+    matching: "prefix";
+    levenshtein-sort: true;
 }
 
 window {
-	transparency:   "real";
-	border-radius:  3px;
-	border:			1px;
-	border-color:	@fg;
-	width:			40%;
-	y-offset:       25%;
-	padding: 		0px;
-	location: 		north;
+    background-color: @background;
+    border:           2;
+    border-color: @selected;
+    padding:          10;
+    width: 25%;
 }
-
-prompt { enabled: false; }
-
-entry {
-	placeholder:		"";
-	expand:             true;
-	padding:            4px 0.5% 4px 0.5%;
-	background-color:   @button;
-    placeholder-color:  @fg;
+mainbox {
+    border:  0;
+    children: [ inputbar, message, listview, mode-switcher ];
+}
+message {
+    border:       0px dash 0px 0px ;
+    border-color: @background;
+    padding: 1;
+}
+textbox {
+    text-color: @foreground;
+}
+listview {
+    fixed-height: 0;
+    border: 0px 0px 0px 0px;
+}
+element {
+    border:  0;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+element.normal.urgent {
+    background-color: @urgent;
+    text-color:       @foreground;
+}
+element.normal.active {
+    background-color: @active;
+    text-color:       @background;
+}
+element.alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+element.alternate.urgent {
+    background-color: @urgent;
+    text-color:       @urgent;
+}
+element.alternate.active {
+    background-color: @active;
+    text-color:       @background;
+}
+element.selected.normal {
+    background-color: @selected;
+    text-color:       @background;
+}
+element.selected.urgent {
+    background-color: @selected-1;
+    text-color:       @background;
+}
+element.selected.active {
+    background-color: @selected-1;
+    text-color:       @background;
+}
+scrollbar {
+    width:        0px ;
+    border:       0;
+    handle-width: 0px ;
+    padding:      0;
+}
+mode-switcher {
+    border:       0px dash 0px 0px ;
+    border-color: @separatorcolor;
+}
+button.selected {
+    background-color: @selected;
+    text-color:       @background;
 }
 
 inputbar {
-	children: 			[ prompt, entry ];
-	background-color:   @button;
-	text-color:         @fg;
-	expand:             false;
-	border-radius:      3px;
-	padding:            3px;
-	text-style:			bold;
+    spacing:    0;
+    text-color: @foreground;
 }
-
-listview {
-	columns:	1;
-	/*lines:		10;*/
-	cycle:		false;
-	dynamic:	true;
-	layout:		vertical;
+case-indicator {
+    spacing:    0;
+    text-color: @foreground;
 }
-
-mainbox {
-	children:	[ inputbar, listview ];
-	spacing:	2%;
-	padding:	2% 1% 2% 1%;
+entry {
+    spacing:    0;
+    text-color: @foreground;
 }
-
-element {
-	orientation:	vertical;
-	border-radius:	0%;
-	padding:		0.5% 0% 0.5% 0%;
+prompt {
+    spacing:    0;
+    text-color: @background;
+    background-color: @selected;
 }
-
-element-text {
-	expand:				true;
-	vertical-align:		0.5;
-	margin:				0% 0.5% 0% 0.5%;
-	background-color:	inherit;
-    text-color:         inherit;
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    text-color: @background;
+    background-color: @selected;
 }
-
-element selected {
-	background-color:	@altfg;
-	text-color:			@bg;
-	border-radius:      3px;
+textbox-rows-slash {
+    expand:     false;
+    str:        "/";
+    margin:     0px 0em 0em 0em ;
+    text-color: @foreground;
+    background-color: @background;
+}
+inputbar {
+    children: [prompt, textbox-prompt-colon, entry, num-filtered-rows, textbox-rows-slash, num-rows];
 }
