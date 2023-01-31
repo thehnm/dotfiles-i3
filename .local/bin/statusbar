@@ -59,7 +59,7 @@ status() {
 
     # Lightlevel
     lightlevel=$(light -G 2>/dev/null)
-    [ "$lightlevel" != 0.00 ] && printf "${fg_pn1}${bg_aurora5} ﯧ  ${fg_aurora5}${bg_pn1}%.0f%% " $lightlevel
+    [ "$lightlevel" != 0.00 ] && printf "${fg_pn1}${bg_aurora5} ﯧ ${fg_aurora5}${bg_pn1} %.0f%% " $lightlevel
 
     # Battery
     capacity=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
