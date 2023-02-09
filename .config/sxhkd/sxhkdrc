@@ -1,5 +1,5 @@
 alt + p
-	rofi -show drun
+	dmenu_run
 
 alt + d
     passmenunotify
@@ -28,8 +28,8 @@ super + shift + {l,j,k}
 alt + shift + {l,j,k}
 	mpc {toggle,next,prev}
 
-alt + o; {b,m,v,n,r,t,c,f,k}
-	{$BROWSER, thunderbird, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat, $TERMINAL -e tremc, calc, $TERMINAL -e ranger, $TERMINAL -e ikhal}
+alt + o; {b,m,v,n,r,t,f,k}
+	{$BROWSER, thunderbird, virt-manager, $TERMINAL -e ncmpcpp, $TERMINAL -e newsboat, $TERMINAL -e tremc, $TERMINAL -e ranger, $TERMINAL -e ikhal}
 
 XF86Audio{RaiseVolume,LowerVolume,Mute}
 	{pamixer -i 1, pamixer -d 1, pamixer -t} && refreshbar
